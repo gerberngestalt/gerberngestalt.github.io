@@ -7,7 +7,11 @@ window.SITE_CONTENT = {
   start: {
     title: 'START',
     title_en: 'HOME',
-    images: ['stempel.jpg','ig-a-side.jpg','hall.jpg']
+    images: [
+      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/start/gerberngestalt-color.jpg' },
+      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/start/gerberngestalt-bw.jpg' },
+      'hall.jpg'
+    ]
   },
 
   about: {
