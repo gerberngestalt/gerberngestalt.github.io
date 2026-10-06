@@ -49,15 +49,32 @@
 
   // v52: one random saturated-pastel original dot image per page load.
   // Clicking the large navigation dot chooses a different colour AND returns to START.
+  function stoneSvg(base, light, dark, variant) {
+    const outlines = [
+      'M12 9 C22 2 39 3 48 11 C57 19 57 38 48 48 C39 57 20 58 10 49 C2 41 3 20 12 9 Z',
+      'M9 15 C17 4 34 1 46 8 C57 15 61 31 54 43 C48 54 31 60 17 54 C5 49 1 27 9 15 Z',
+      'M14 7 C27 1 44 5 52 16 C60 28 55 45 44 52 C31 60 14 54 7 43 C0 31 4 13 14 7 Z',
+      'M8 13 C18 3 37 2 49 10 C60 18 58 37 51 47 C43 58 23 59 12 51 C2 43 0 22 8 13 Z'
+    ];
+    const path = outlines[variant % outlines.length];
+    return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">' +
+      '<defs><clipPath id="c"><path d="'+path+'"/></clipPath></defs>' +
+      '<g clip-path="url(#c)"><rect width="64" height="64" fill="'+base+'"/>' +
+      '<path d="M0 0 H64 L38 31 L0 24 Z" fill="'+light+'"/>' +
+      '<path d="M64 64 H0 L27 30 L64 22 Z" fill="'+dark+'"/></g></svg>'
+    );
+  }
+
   const ACCENT_DOTS = [
-    { colour: '#F3A51F', file: 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/dot.png' },
-    { colour: '#F28C8C', file: 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/dot-coral.png' },
-    { colour: '#E99BCB', file: 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/dot-rose.png' },
-    { colour: '#B69BE8', file: 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/dot-lavender.png' },
-    { colour: '#82AEE8', file: 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/dot-sky.png' },
-    { colour: '#72C7C0', file: 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/dot-turquoise.png' },
-    { colour: '#91C98D', file: 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/dot-sage.png' },
-    { colour: '#D6C85F', file: 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/dot-mustard.png' }
+    { colour:'#EC9F69', file:stoneSvg('#EC9F69','#F2B789','#D98955',0) },
+    { colour:'#ED917F', file:stoneSvg('#ED917F','#F3AA9C','#D97967',1) },
+    { colour:'#B49AE2', file:stoneSvg('#B49AE2','#C7B3EA','#9D80D5',2) },
+    { colour:'#E7B34C', file:stoneSvg('#E7B34C','#EFC86F','#D29B32',3) },
+    { colour:'#F0ACB7', file:stoneSvg('#F0ACB7','#F5C2CA','#DF929F',1) },
+    { colour:'#94B293', file:stoneSvg('#94B293','#ACC6AB','#7D9D7C',2) },
+    { colour:'#7CACE5', file:stoneSvg('#7CACE5','#9BC1EC','#6494D2',3) },
+    { colour:'#73C6BD', file:stoneSvg('#73C6BD','#93D5CE','#58ADA4',0) }
   ];
 
   let accentDot = ACCENT_DOTS[Math.floor(Math.random() * ACCENT_DOTS.length)];
@@ -67,7 +84,7 @@
     document.documentElement.style.setProperty('--accent', dot.colour);
     const image = document.querySelector('.mark-dot');
     if (image) {
-      image.onerror = function () { this.onerror = null; this.src = 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/dot.png'; };
+      image.onerror = null;
       image.src = dot.file;
     }
   }
@@ -596,7 +613,7 @@
       // Reading sections (PAST EVENTS / NETZWERK) need their title to remain
       // visibly below the fixed header + 9 mm white finish. Native anchor
       // scrolling would otherwise tuck the title underneath the header.
-      if (id === '#kontakt' || id === '#netzwerk') {
+      if (id === '#netzwerk') {
         event.preventDefault();
         if (history.replaceState) history.replaceState(null, '', id);
         const head = document.querySelector('.fixed-head');
@@ -676,7 +693,7 @@
     if (pastSection && networkSection) {
       const pr = pastSection.getBoundingClientRect();
       const nr = networkSection.getBoundingClientRect();
-      if (pr.top <= readingY && nr.top > readingY) return 'past';
+      if (pr.top <= readingY && nr.top > readingY) return 'kontakt';
     }
 
     const y = headH + (window.innerHeight - headH) / 2;
