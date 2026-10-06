@@ -3209,3 +3209,17 @@ html, body,
     object-fit:contain!important;
   }
 }
+
+
+/* gerberngestalt v5 — final-section rhythm and comfortable anchor scrolling */
+#netzwerk{
+  margin-bottom:0!important;
+  min-height:auto!important;
+  padding-bottom:clamp(32px,5vh,56px)!important;
+}
+.legal-links{
+  margin-top:clamp(18px,2.5vh,30px)!important;
+}
+.end-spacer{
+  height:max(72vh,620px)!important;
+}
