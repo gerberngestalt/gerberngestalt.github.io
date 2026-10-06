@@ -3148,3 +3148,27 @@ html, body,
 
 /* MISC / PAST EVENTS no longer belong to gerberngestalt. */
 .misc-section, #past{display:none!important;}
+
+
+/* gerberngestalt v2 — stone placement + enough end scroll */
+@media (min-width:651px){
+  html body .fixed-head .mark{
+    position:fixed!important;
+    left:42px!important;
+    top:238px!important;
+    right:auto!important;
+    width:72px!important;
+    height:72px!important;
+    transform:none!important;
+  }
+  html body .fixed-head .mark-dot{
+    position:static!important;
+    width:72px!important;
+    height:72px!important;
+    transform:none!important;
+    object-fit:contain!important;
+  }
+}
+#netzwerk{
+  margin-bottom:max(70vh,620px)!important;
+}
