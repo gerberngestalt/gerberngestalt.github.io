@@ -190,7 +190,7 @@
       img.dataset.imageIndex = String(index);
       img.dataset.baseName = spec.base;
       img.dataset.enName = spec.en;
-      img.src = 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/images/' + key + '/' + desiredImageName(spec);
+      const wantedName = desiredImageName(spec);\n      img.src = /^https?:\\/\\//i.test(wantedName) ? wantedName : 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/images/' + key + '/' + wantedName;
       img.loading = 'lazy';
       img.decoding = 'async';
       img.alt = spec.alt;
@@ -368,7 +368,7 @@
         img.dataset.enName = spec.en;
         img.alt = spec.alt;
         const wanted = desiredImageName(spec);
-        if (wanted) img.src = 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/images/' + key + '/' + wanted;
+        if (wanted) img.src = /^https?:\\/\\//i.test(wanted) ? wanted : 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/images/' + key + '/' + wanted;
       });
     });
   }
