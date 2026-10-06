@@ -3194,3 +3194,18 @@ html, body,
     transform:none!important;
   }
 }
+
+
+/* gerberngestalt v4 — preserve stone's natural aspect ratio */
+@media (min-width:651px){
+  html body .fixed-head .mark{
+    width:auto!important;
+    height:96px!important;
+  }
+  html body .fixed-head .mark-dot{
+    width:auto!important;
+    height:96px!important;
+    max-width:none!important;
+    object-fit:contain!important;
+  }
+}
