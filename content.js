@@ -8,8 +8,8 @@ window.SITE_CONTENT = {
     title: 'START',
     title_en: 'HOME',
     images: [
-      { image:'images/start/logo1.jpg' },
-      { image:'images/start/logo2.jpg' },
+      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/start/logo1.jpg' },
+      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/start/logo2.jpg' },
       'hall.jpg'
     ]
   },
