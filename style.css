@@ -3172,3 +3172,25 @@ html, body,
 #netzwerk{
   margin-bottom:max(70vh,620px)!important;
 }
+
+
+/* gerberngestalt v3 — stone beside primary navigation, natural proportions */
+@media (min-width:651px){
+  html body .fixed-head .mark{
+    position:fixed!important;
+    left:210px!important;
+    top:54px!important;
+    width:96px!important;
+    height:96px!important;
+    transform:none!important;
+  }
+  html body .fixed-head .mark-dot{
+    position:static!important;
+    display:block!important;
+    width:96px!important;
+    height:96px!important;
+    object-fit:contain!important;
+    object-position:center!important;
+    transform:none!important;
+  }
+}
