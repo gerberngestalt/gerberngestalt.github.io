@@ -54,7 +54,7 @@
       const entry = (data.images || [])[Number(img.dataset.imageIndex)];
       const spec = galleryImageSpec(data, entry, Number(img.dataset.imageIndex));
       const wanted = desiredImageName(spec);
-      if (wanted) img.src = /^https?:\\/\\//i.test(wanted) ? wanted : 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/images/' + img.dataset.galleryKey + '/' + wanted;
+      if (wanted) img.src = wanted.startsWith('https://') || wanted.startsWith('http://') ? wanted : 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/images/' + img.dataset.galleryKey + '/' + wanted;
     });
   });
 
