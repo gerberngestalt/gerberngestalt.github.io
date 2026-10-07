@@ -3769,3 +3769,11 @@ html body .fixed-head .secondary-nav b{
     height:auto!important;
   }
 }
+
+/* v45: landscape gallery dots stay within visible viewport; NETWORK top-aligned */
+@media (max-height:650px) and (orientation:landscape){
+ main .section .window-group{width:min(calc(100vw - 44px),500px,calc(100dvh - var(--head) - 48px))!important;}
+ #netzwerk{padding-top:0!important;scroll-margin-top:var(--head)!important;}
+}
+@media (max-width:650px) and (orientation:portrait){#netzwerk{margin-bottom:calc(-2 * var(--type-size) * var(--type-leading))!important;}}
+@media (max-height:650px) and (orientation:landscape){#netzwerk{margin-bottom:calc(-1 * var(--type-size) * var(--type-leading))!important;}}
