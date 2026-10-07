@@ -606,7 +606,11 @@
         if (history.replaceState) history.replaceState(null, '', id);
         const head = document.querySelector('.fixed-head');
         const headH = head ? head.getBoundingClientRect().height : 0;
-        const top = window.scrollY + target.getBoundingClientRect().top - headH - 22;
+        const landscapePhone = window.matchMedia('(orientation:landscape) and (max-height:650px)').matches;
+        const galleryGroup = target.classList.contains('section') ? target.querySelector('.window-group') : null;
+        const anchor = galleryGroup || target;
+        const gap = landscapePhone ? 10 : (7 * 96 / 25.4);
+        const top = window.scrollY + anchor.getBoundingClientRect().top - headH - gap;
         window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
         if (secondaryPast) secondaryPast.classList.toggle('active-secondary', id === '#kontakt');
         if (secondaryNetwork) secondaryNetwork.classList.toggle('active-secondary', id === '#netzwerk');
