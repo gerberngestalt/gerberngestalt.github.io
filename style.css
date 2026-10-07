@@ -3432,3 +3432,19 @@ html, body,
     min-width:92px!important;
   }
 }
+
+
+/* gerberngestalt v20 — portrait phone: reserve the dot row inside every gallery view */
+@media (max-width:650px) and (orientation:portrait){
+  :root{--gallery-reserve:128px;}
+  .window-group{
+    width:min(calc(100vw - 44px),500px,calc(100svh - var(--head) - var(--bottom-mask) - var(--gallery-reserve)))!important;
+  }
+  .carousel .dots{
+    flex:0 0 24px!important;
+    height:24px!important;
+    min-height:24px!important;
+  }
+  /* Keep the existing mobile stone and the lighter mobile section-title treatment. */
+  .end-spacer{height:24px!important;}
+}
