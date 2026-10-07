@@ -410,7 +410,7 @@
 
     const topTip = document.querySelector('.mark-tooltip');
     const bottomTip = document.querySelector('.misc-divider-tooltip');
-    if (topTip) topTip.textContent = currentLanguage === 'de' ? 'na?' : 'so?';
+    if (topTip) topTip.textContent = '';
     if (bottomTip) bottomTip.textContent = currentLanguage === 'de' ? 'und!' : 'what!';
 
     renderPastEvents();
