@@ -3330,3 +3330,21 @@ html body .fixed-head .secondary-nav b{
 }
 
 .mark-tip{display:none!important;}
+
+
+/* START-page hierarchy test — navigation dark, titles keep gerberngestalt brown */
+html body .fixed-head nav a,
+html body .fixed-head nav a:link,
+html body .fixed-head nav a:visited,
+html body .fixed-head nav a:hover,
+html body .fixed-head nav a:focus,
+html body .fixed-head nav a:active,
+html body .fixed-head .secondary-nav > a:not(.language-toggle){
+  color:#222!important;
+  -webkit-text-fill-color:#222!important;
+}
+html body .fixed-head .language-toggle,
+html body .fixed-head .secondary-nav b{
+  color:#8f8f8f!important;
+  -webkit-text-fill-color:#8f8f8f!important;
+}
