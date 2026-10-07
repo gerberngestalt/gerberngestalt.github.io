@@ -607,7 +607,8 @@
         const head = document.querySelector('.fixed-head');
         const headH = head ? head.getBoundingClientRect().height : 0;
         const landscapePhone = window.matchMedia('(orientation:landscape) and (max-height:650px)').matches;
-        const anchor = target;
+        const group = target.classList.contains('section') ? target.querySelector('.window-group') : null;
+        const anchor = (landscapePhone && group) ? group : target;
         const gap = landscapePhone ? 0 : (7 * 96 / 25.4);
         const top = window.scrollY + anchor.getBoundingClientRect().top - headH - gap;
         window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
