@@ -3401,3 +3401,89 @@ html body .fixed-head .secondary-nav b{
     margin-top:calc(var(--type-size) * var(--type-leading))!important;
   }
 }
+
+
+/* v36 — final responsive rhythm, dark-mode identity, desktop arrows */
+
+/* Desktop: arrows remain visible instead of appearing only on hover. */
+@media (min-width:901px) and (hover:hover) and (pointer:fine){
+  .carousel .arrow:not([hidden]){
+    display:block!important;
+    opacity:1!important;
+  }
+}
+
+/* Dark mode: warm light brown typography; DE/EN deliberately darker. */
+@media (prefers-color-scheme:dark){
+  :root{--gg-dark-ink:#c9beb5;}
+  html body,
+  html body .fixed-head,
+  html body .fixed-head nav,
+  html body .fixed-head nav a,
+  html body .fixed-head .secondary-nav,
+  html body .fixed-head .secondary-nav a:not(.language-toggle),
+  html body .fixed-head .secondary-nav b,
+  html body .section-title,
+  html body .list-section,
+  html body .list-section pre,
+  html body .network-links,
+  html body .network-row,
+  html body .network-row a,
+  html body .legal-links,
+  html body .legal-links summary,
+  html body .carousel,
+  html body .slide{
+    color:var(--gg-dark-ink)!important;
+    -webkit-text-fill-color:var(--gg-dark-ink)!important;
+  }
+  html body .fixed-head .language-toggle{
+    color:#8f837b!important;
+    -webkit-text-fill-color:#8f837b!important;
+  }
+}
+
+/* Portrait phone: legal headings one blank line apart; NETWORK → legal
+   tightened by another three text lines. */
+@media (max-width:650px) and (orientation:portrait){
+  #netzwerk{
+    padding-bottom:0!important;
+    margin-bottom:calc(-3 * var(--type-size) * var(--type-leading))!important;
+  }
+  .legal-links{margin-top:0!important;}
+  .legal-links details + details{
+    margin-top:calc(var(--type-size) * var(--type-leading))!important;
+  }
+}
+
+/* Landscape phone: all galleries reserve their dots; NETWORK follows the
+   compact gallery rhythm; legal begins one extra line later; stone smaller/higher. */
+@media (max-height:650px) and (orientation:landscape){
+  .section .carousel .dots{
+    display:flex!important;
+    flex:0 0 24px!important;
+    height:24px!important;
+    min-height:24px!important;
+  }
+  #netzwerk{
+    min-height:0!important;
+    margin-top:0!important;
+    margin-bottom:0!important;
+    padding-top:10px!important;
+    padding-bottom:0!important;
+  }
+  .legal-links{
+    margin-top:calc(var(--type-size) * var(--type-leading))!important;
+  }
+  .legal-links details + details{
+    margin-top:calc(var(--type-size) * var(--type-leading))!important;
+  }
+  html body .fixed-head .mark{
+    top:48px!important;
+    width:58px!important;
+    height:58px!important;
+  }
+  html body .fixed-head button.mark > img.mark-dot{
+    width:58px!important;
+    min-width:58px!important;
+  }
+}
