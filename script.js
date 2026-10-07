@@ -174,7 +174,7 @@
       track.appendChild(empty);
       prev.hidden = true;
       next.hidden = true;
-      dots.hidden = true;
+      dots.hidden = false;
       return;
     }
 
