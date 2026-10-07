@@ -16,13 +16,13 @@ window.SITE_CONTENT = {
   about: {
     title: 'ÜBER MICH',
     title_en: 'ABOUT ME',
-    images: ['https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/uebermich/passfoto.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/uebermich/metal-stamp(2).jpg']
+    images: ['https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/uebermich/passfoto.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/uebermich/metal-stamp.jpg']
   },
 
   angebot: {
     title: 'ANGEBOT',
     title_en: 'WHAT I DO',
-    images: ['../aktuell/ig-a-side.jpg','../aktuell/ig-b-side.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/angebot/wood-stamp(1).jpg']
+    images: ['../aktuell/ig-a-side.jpg','../aktuell/ig-b-side.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/angebot/wood-stamp.jpg']
   },
 
   praktisches: {
