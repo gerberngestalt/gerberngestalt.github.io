@@ -3106,482 +3106,57 @@ html body .fixed-head .language-toggle{
   }
 }
 
-
 /* =========================================================
-   GERBERNGESTALT — CI OVERRIDE v1
-   Kept deliberately at the end so the proven gerbern drei
-   layout/carousel mechanics remain untouched.
+   GERBERNGESTALT — CURRENT OVERRIDES
+   One canonical layer over the preserved gerbern drei mechanics.
    ========================================================= */
+
 :root{
-  --gg-ink:#6f665f;
+  --gg-ink:#625a54;
 }
 
-/* Warm gerberngestalt type colour throughout. */
-html, body,
-.fixed-head, .fixed-head a, .fixed-head button,
-.section-title, .list-section, .network-links, .legal-links,
-.carousel, .slide, .slide.empty, .slide.missing{
-  color:var(--gg-ink)!important;
-  -webkit-text-fill-color:var(--gg-ink);
-}
-
-/* Language switch remains quieter, but in the same colour family. */
-.language-toggle{
-  color:var(--gg-ink)!important;
-  -webkit-text-fill-color:var(--gg-ink)!important;
-  opacity:.55!important;
-}
-
-/* CONTACT + NETWORK are the restrained secondary navigation. */
-.secondary-nav > a{
-  color:var(--gg-ink)!important;
-  -webkit-text-fill-color:var(--gg-ink)!important;
-}
-
-/* The old dot position becomes the gerberngestalt stone position.
-   Keep its proven click target and responsive positioning. */
-.mark-dot{
-  width:48px!important;
-  height:48px!important;
-  object-fit:contain!important;
-}
-
-/* MISC / PAST EVENTS no longer belong to gerberngestalt. */
-.misc-section, #past{display:none!important;}
-
-
-/* gerberngestalt v2 — stone placement + enough end scroll */
-@media (min-width:651px){
-  html body .fixed-head .mark{
-    position:fixed!important;
-    left:42px!important;
-    top:238px!important;
-    right:auto!important;
-    width:72px!important;
-    height:72px!important;
-    transform:none!important;
-  }
-  html body .fixed-head .mark-dot{
-    position:static!important;
-    width:72px!important;
-    height:72px!important;
-    transform:none!important;
-    object-fit:contain!important;
-  }
-}
-#netzwerk{
-  margin-bottom:max(70vh,620px)!important;
-}
-
-
-/* gerberngestalt v3 — stone beside primary navigation, natural proportions */
-@media (min-width:651px){
-  html body .fixed-head .mark{
-    position:fixed!important;
-    left:210px!important;
-    top:54px!important;
-    width:96px!important;
-    height:96px!important;
-    transform:none!important;
-  }
-  html body .fixed-head .mark-dot{
-    position:static!important;
-    display:block!important;
-    width:96px!important;
-    height:96px!important;
-    object-fit:contain!important;
-    object-position:center!important;
-    transform:none!important;
-  }
-}
-
-
-/* gerberngestalt v4 — preserve stone's natural aspect ratio */
-@media (min-width:651px){
-  html body .fixed-head .mark{
-    width:auto!important;
-    height:96px!important;
-  }
-  html body .fixed-head .mark-dot{
-    width:auto!important;
-    height:96px!important;
-    max-width:none!important;
-    object-fit:contain!important;
-  }
-}
-
-
-/* gerberngestalt v5 — final-section rhythm and comfortable anchor scrolling */
-#netzwerk{
-  margin-bottom:0!important;
-  min-height:auto!important;
-  padding-bottom:clamp(32px,5vh,56px)!important;
-}
-.legal-links{
-  margin-top:clamp(18px,2.5vh,30px)!important;
-}
-.end-spacer{
-  height:max(72vh,620px)!important;
-}
-
-
-/* gerberngestalt v6 — real PNG stones, 2x desktop size, never distorted */
-@media (min-width:651px){
-  html body .fixed-head .mark{
-    width:192px!important;
-    height:192px!important;
-  }
-  html body .fixed-head .mark-dot{
-    width:auto!important;
-    height:auto!important;
-    max-width:192px!important;
-    max-height:192px!important;
-    object-fit:contain!important;
-    object-position:center!important;
-  }
-}
-
-
-/* gerberngestalt v7 — desktop stone 3x larger than v6, preserve source proportions */
-@media (min-width:651px){
-  html body .fixed-head .mark{
-    width:576px!important;
-    height:576px!important;
-  }
-  html body .fixed-head .mark-dot{
-    width:auto!important;
-    height:auto!important;
-    max-width:576px!important;
-    max-height:576px!important;
-    object-fit:contain!important;
-    object-position:center!important;
-  }
-}
-
-
-/* gerberngestalt v8 — enlarge the PNG itself, keep stone anchored beside nav */
-@media (min-width:651px){
-  html body .fixed-head .mark{
-    left:210px!important;
-    top:54px!important;
-    width:96px!important;
-    height:96px!important;
-    overflow:visible!important;
-  }
-  html body .fixed-head .mark-dot{
-    position:absolute!important;
-    left:0!important;
-    top:0!important;
-    width:274px!important;
-    height:auto!important;
-    max-width:none!important;
-    max-height:none!important;
-    transform:translate(-33%,-20%) scale(2.1)!important;
-    transform-origin:center center!important;
-    object-fit:contain!important;
-  }
-}
-
-
-/* gerberngestalt v9 — a little more air between NETWORK and legal links */
-#netzwerk{
-  padding-bottom:clamp(48px,7vh,76px)!important;
-}
-.legal-links{
-  margin-top:clamp(30px,4vh,46px)!important;
-}
-
-
-/* gerberngestalt v10 — size the real stone directly; no legacy image cap */
-@media (min-width:651px){
-  html body .fixed-head .mark{
-    left:210px!important;
-    top:54px!important;
-    width:96px!important;
-    height:96px!important;
-    overflow:visible!important;
-  }
-  html body .fixed-head .mark-dot{
-    position:absolute!important;
-    left:0!important;
-    top:0!important;
-    width:420px!important;
-    height:auto!important;
-    max-width:none!important;
-    max-height:none!important;
-    transform:translate(-38%,-35%)!important;
-    transform-origin:center center!important;
-    object-fit:contain!important;
-  }
-  html body .fixed-head .mark-tip{display:none!important;}
-}
-
-
-/* gerberngestalt v12 — clearer separation before legal links */
-.legal-links{
-  margin-top:clamp(72px,9vh,108px)!important;
-}
-
-
-/* gerberngestalt v13 — desktop stone at clear logo-scale */
-@media (min-width:651px){
-  html body .fixed-head .mark{
-    overflow:visible!important;
-  }
-  html body .fixed-head .mark-dot{
-    width:560px!important;
-    height:auto!important;
-    max-width:none!important;
-    max-height:none!important;
-    transform:translate(-43%,-40%)!important;
-    transform-origin:center center!important;
-  }
-}
-
-
-/* gerberngestalt v14 — desktop windows start 7 mm below the fixed navigation */
-@media (min-width:651px){
-  .section{
-    justify-content:flex-start!important;
-    padding-top:7mm!important;
-  }
-  .window-group{
-    margin-top:0!important;
-    transform:none!important;
-  }
-  .window-group .section-title{
-    margin-top:0!important;
-  }
-  /* Dots stay attached below the image, but never determine the top anchor. */
-  .carousel .dots{
-    flex:0 0 24px!important;
-    height:24px!important;
-    min-height:24px!important;
-  }
-}
-
-
-/* gerberngestalt v15 — 1 mm safety clearance below the white navigation mask */
-@media (min-width:651px){
-  .section{
-    padding-top:8mm!important;
-  }
-}
-
-
-/* gerberngestalt v16 — more space before legal; force stone display size */
-.legal-links{margin-top:calc(108px + 2 * var(--type-size) * var(--type-leading))!important;}
-@media (min-width:651px){
-  html body .fixed-head button.mark > img.mark-dot{
-    display:block!important;
-    width:560px!important;
-    height:auto!important;
-    min-width:560px!important;
-    max-width:none!important;
-    min-height:0!important;
-    max-height:none!important;
-  }
-}
-
-
-/* gerberngestalt v17 — stone: large enough to read as a mark, not a screen-filling object */
-@media (min-width:651px){
-  html body .fixed-head button.mark > img.mark-dot{
-    width:180px!important;
-    min-width:180px!important;
-    height:auto!important;
-    max-width:none!important;
-  }
-}
-
-
-/* gerberngestalt v18 — stone size/position restored to approved reference */
-@media (min-width:651px){
-  html body .fixed-head .mark{
-    left:278px!important;
-    top:48px!important;
-    width:110px!important;
-    height:110px!important;
-    overflow:visible!important;
-  }
-  html body .fixed-head button.mark > img.mark-dot{
-    position:absolute!important;
-    left:0!important;
-    top:0!important;
-    display:block!important;
-    width:110px!important;
-    min-width:110px!important;
-    height:auto!important;
-    max-width:none!important;
-    transform:none!important;
-    object-fit:contain!important;
-  }
-}
-
-
-/* gerberngestalt v19 — stone fine-tuning from desktop reference */
-@media (min-width:651px){
-  html body .fixed-head .mark{
-    left:245px!important;
-    top:50px!important;
-    width:92px!important;
-    height:92px!important;
-  }
-  html body .fixed-head button.mark > img.mark-dot{
-    width:92px!important;
-    min-width:92px!important;
-  }
-}
-
-
-/* gerberngestalt v20 — portrait phone: reserve the dot row inside every gallery view */
-@media (max-width:650px) and (orientation:portrait){
-  :root{--gallery-reserve:128px;}
-  .window-group{
-    width:min(calc(100vw - 44px),500px,calc(100svh - var(--head) - var(--bottom-mask) - var(--gallery-reserve)))!important;
-  }
-  .carousel .dots{
-    flex:0 0 24px!important;
-    height:24px!important;
-    min-height:24px!important;
-  }
-  /* Keep the existing mobile stone and the lighter mobile section-title treatment. */
-  .end-spacer{height:24px!important;}
-}
-
-
-/* gerberngestalt v21 — desktop title rhythm */
-@media (min-width:651px){
-  .window-group .section-title{
-    font-size:var(--type-size)!important;
-  }
-  .section{
-    padding-top:10mm!important;
-  }
-}
-
-
-/* gerberngestalt v22 — all textual ink uses the gerberngestalt brown */
+/* Identity colour */
 html body,
+html body .fixed-head,
 html body .fixed-head nav,
 html body .fixed-head nav a,
+html body .fixed-head nav a:link,
+html body .fixed-head nav a:visited,
+html body .fixed-head nav a:hover,
+html body .fixed-head nav a:focus,
+html body .fixed-head nav a:active,
 html body .fixed-head .secondary-nav,
 html body .fixed-head .secondary-nav a,
+html body .fixed-head .secondary-nav a:link,
+html body .fixed-head .secondary-nav a:visited,
+html body .fixed-head .secondary-nav a:hover,
+html body .fixed-head .secondary-nav a:focus,
+html body .fixed-head .secondary-nav a:active,
 html body .section-title,
 html body .list-section,
-html body .list-section .section-title,
 html body .list-section pre,
 html body .network-links,
 html body .network-row,
 html body .network-row a,
 html body .legal-links,
 html body .legal-links summary,
-html body .mark-tooltip,
-html body .misc-divider-tooltip{
+html body .carousel,
+html body .slide{
   color:var(--gg-ink)!important;
   -webkit-text-fill-color:var(--gg-ink)!important;
 }
-/* Language switch remains intentionally quieter, but in the same brown family. */
-html body .language-toggle,
+html body .fixed-head .language-toggle,
 html body .fixed-head .secondary-nav b{
   color:color-mix(in srgb,var(--gg-ink) 62%,white)!important;
   -webkit-text-fill-color:color-mix(in srgb,var(--gg-ink) 62%,white)!important;
 }
 
+/* Retired gerbern drei sections */
+.misc-section,
+#past{display:none!important;}
 
-/* gerberngestalt v23 — portrait phone gallery dots + tighter NETWORK/legal rhythm */
-@media (max-width:650px) and (orientation:portrait){
-  /* Every gallery reserves the dot row, not only START. */
-  .section .window-group{
-    width:min(calc(100vw - 44px),500px,calc(100svh - var(--head) - var(--bottom-mask) - 146px))!important;
-  }
-  .section .carousel .dots{
-    display:flex!important;
-    flex:0 0 24px!important;
-    height:24px!important;
-    min-height:24px!important;
-  }
-  #netzwerk{
-    padding-bottom:24px!important;
-  }
-  .legal-links{
-    margin-top:28px!important;
-  }
-}
-
-
-/* gerberngestalt v24 — phone landscape: compact sections, sane stone, short page tail */
-@media (max-height:650px) and (orientation:landscape){
-  /* Keep the stone with the navigation instead of centering it over the gallery. */
-  html body .fixed-head .mark{
-    left:300px!important;
-    top:56px!important;
-    width:76px!important;
-    height:76px!important;
-    transform:none!important;
-  }
-  html body .fixed-head button.mark > img.mark-dot{
-    position:absolute!important;
-    left:0!important;
-    top:0!important;
-    width:76px!important;
-    min-width:76px!important;
-    height:auto!important;
-    transform:none!important;
-  }
-
-  /* Landscape should move through the page quickly: remove the tall portrait-style
-     section rhythm while preserving each gallery itself. */
-  .section{
-    min-height:0!important;
-    height:auto!important;
-    padding-top:28px!important;
-    padding-bottom:28px!important;
-  }
-  .window-group{
-    margin-top:0!important;
-    margin-bottom:0!important;
-  }
-  .list-section,
-  .network-section{
-    min-height:0!important;
-    padding-top:36px!important;
-    padding-bottom:36px!important;
-  }
-  #netzwerk{padding-bottom:18px!important;}
-  .legal-links{margin-top:24px!important;}
-  .end-spacer{height:18px!important;}
-}
-
-
-/* gerberngestalt v25 — navigation brown, including every link state */
-html body .fixed-head nav,
-html body .fixed-head nav a,
-html body .fixed-head nav a:link,
-html body .fixed-head nav a:visited,
-html body .fixed-head nav a:hover,
-html body .fixed-head nav a:active,
-html body .fixed-head nav a:focus,
-html body .fixed-head .secondary-nav,
-html body .fixed-head .secondary-nav a,
-html body .fixed-head .secondary-nav a:link,
-html body .fixed-head .secondary-nav a:visited,
-html body .fixed-head .secondary-nav a:hover,
-html body .fixed-head .secondary-nav a:active,
-html body .fixed-head .secondary-nav a:focus{
-  color:var(--gg-ink)!important;
-  -webkit-text-fill-color:var(--gg-ink)!important;
-}
-html body .fixed-head .language-toggle{
-  color:color-mix(in srgb,var(--gg-ink) 62%,white)!important;
-  -webkit-text-fill-color:color-mix(in srgb,var(--gg-ink) 62%,white)!important;
-}
-
-
-/* gerberngestalt v26 — CONTACT active dot (legacy CSS still targeted #past) */
-.fixed-head > .secondary-nav a[href="#kontakt"]{
-  position:relative!important;
-}
+/* CONTACT active dot */
+.fixed-head > .secondary-nav a[href="#kontakt"]{position:relative!important;}
 .fixed-head > .secondary-nav a[href="#kontakt"]::before{
   content:""!important;
   position:absolute!important;
@@ -3595,103 +3170,163 @@ html body .fixed-head .language-toggle{
   opacity:0!important;
   pointer-events:none!important;
 }
-.fixed-head > .secondary-nav a[href="#kontakt"].active-secondary::before{
-  opacity:1!important;
+.fixed-head > .secondary-nav a[href="#kontakt"].active-secondary::before{opacity:1!important;}
+
+/* Shared gallery rhythm */
+.carousel .dots{
+  flex:0 0 24px!important;
+  height:24px!important;
+  min-height:24px!important;
 }
+.window-group{margin-top:0!important;transform:none!important;}
+.window-group .section-title{margin-top:0!important;}
 
-
-/* gerberngestalt v27 — final navigation ink override */
-:root{--gg-ink:#6f665f!important;}
-html body header.fixed-head nav a,
-html body header.fixed-head nav a *,
-html body header.fixed-head .secondary-nav a:not(.language-toggle),
-html body header.fixed-head .secondary-nav a:not(.language-toggle) *{
-  color:#6f665f!important;
-  -webkit-text-fill-color:#6f665f!important;
-}
-html body header.fixed-head .language-toggle{
-  color:#9a938e!important;
-  -webkit-text-fill-color:#9a938e!important;
-}
-
-
-/* gerberngestalt v28 — mobile legal rhythm + landscape stone position */
-@media (max-width:650px) and (orientation:portrait){
-  /* LEGAL/IMPRESSUM -> PRIVACY/DATENSCHUTZ: one line tighter. */
-  .legal-links details + details{
-    margin-top:calc(-1 * var(--type-size) * var(--type-leading))!important;
-  }
-  /* Keep 2–3 quiet blank lines after the final legal item. */
-  .end-spacer{
-    height:calc(2.5 * var(--type-size) * var(--type-leading))!important;
-  }
-}
-@media (max-height:650px) and (orientation:landscape){
-  .legal-links details + details{
-    margin-top:calc(-1 * var(--type-size) * var(--type-leading))!important;
-  }
-  .end-spacer{
-    height:calc(2.5 * var(--type-size) * var(--type-leading))!important;
-  }
-  /* Bring the stone back toward the left navigation. */
-  html body .fixed-head .mark{
-    left:225px!important;
-  }
-}
-
-
-/* gerberngestalt v29 — repair mobile legal spacing */
-@media (max-width:650px) and (orientation:portrait),
-       (max-height:650px) and (orientation:landscape){
-  /* Undo v28's negative margin: LEGAL and PRIVACY must never overlap. */
-  .legal-links details + details{
-    margin-top:0!important;
-  }
-  /* A little more breathing room below the legal block. */
-  .end-spacer{
-    height:calc(3 * var(--type-size) * var(--type-leading))!important;
-  }
-}
-
-
-/* gerberngestalt v31 — give window titles more air below the fixed navigation */
-@media (min-width:651px){
-  .section{padding-top:12mm!important;}
-}
-@media (max-width:650px) and (orientation:portrait){
-  .section{padding-top:calc(var(--head) + 18px)!important;}
-}
-@media (max-height:650px) and (orientation:landscape){
-  .section{padding-top:40px!important;}
-}
-
-
-/* gerberngestalt v32 — slightly stronger navigation + lower desktop titles */
-:root{--gg-ink:#625a54!important;}
-
+/* Desktop */
 @media (min-width:901px){
-  .section{padding-top:14mm!important;}
-}
+  .section{
+    justify-content:flex-start!important;
+    padding-top:14mm!important;
+  }
+  .window-group .section-title{font-size:var(--type-size)!important;}
 
-
-/* gerberngestalt v33 — restore pre-v31 title position on phones only */
-@media (max-width:650px) and (orientation:portrait){
-  .section{padding-top:7mm!important;}
-}
-@media (max-height:650px) and (orientation:landscape){
-  .section{padding-top:28px!important;}
-}
-
-
-/* gerberngestalt v34 — phone landscape stone fine tuning */
-@media (max-height:650px) and (orientation:landscape){
   html body .fixed-head .mark{
-    left:205px!important;
-    width:66px!important;
-    height:66px!important;
+    position:fixed!important;
+    left:245px!important;
+    top:50px!important;
+    right:auto!important;
+    width:92px!important;
+    height:92px!important;
+    overflow:visible!important;
+    transform:none!important;
   }
   html body .fixed-head button.mark > img.mark-dot{
-    width:66px!important;
-    min-width:66px!important;
+    position:absolute!important;
+    left:0!important;
+    top:0!important;
+    display:block!important;
+    width:92px!important;
+    min-width:92px!important;
+    height:auto!important;
+    max-width:none!important;
+    max-height:none!important;
+    transform:none!important;
+    object-fit:contain!important;
   }
 }
+
+/* Small desktop / tablet keeps the earlier 12 mm title position. */
+@media (min-width:651px) and (max-width:900px) and (orientation:portrait){
+  .section{
+    justify-content:flex-start!important;
+    padding-top:12mm!important;
+  }
+  .window-group .section-title{font-size:var(--type-size)!important;}
+}
+
+/* Desktop end-of-page rhythm */
+@media (min-height:651px) and (min-width:651px){
+  #netzwerk{
+    margin-bottom:0!important;
+    min-height:auto!important;
+    padding-bottom:clamp(48px,7vh,76px)!important;
+  }
+  .legal-links{
+    margin-top:calc(108px + 2 * var(--type-size) * var(--type-leading))!important;
+  }
+  .end-spacer{height:max(72vh,620px)!important;}
+}
+
+/* Phone portrait */
+@media (max-width:650px) and (orientation:portrait){
+  :root{--gallery-reserve:128px;}
+
+  .section{padding-top:7mm!important;}
+  .section .window-group{
+    width:min(calc(100vw - 44px),500px,calc(100svh - var(--head) - var(--bottom-mask) - 146px))!important;
+  }
+  .section .carousel .dots{
+    display:flex!important;
+    flex:0 0 24px!important;
+    height:24px!important;
+    min-height:24px!important;
+  }
+
+  #netzwerk{padding-bottom:24px!important;}
+  .legal-links{margin-top:28px!important;}
+  .legal-links details + details{margin-top:0!important;}
+  .end-spacer{height:calc(3 * var(--type-size) * var(--type-leading))!important;}
+}
+
+/* Phone landscape */
+@media (max-height:650px) and (orientation:landscape){
+  :root{
+    --head:118px;
+    --head-pad-top:12px;
+    --nav-gap:3px;
+    --type-leading:1.25;
+  }
+
+  .fixed-head{
+    position:fixed;
+    height:var(--head);
+    padding:var(--head-pad-top) 22px 0;
+    box-shadow:none!important;
+  }
+  .fixed-head nav{gap:var(--nav-gap);line-height:var(--type-leading);}
+  .fixed-head > .secondary-nav{
+    top:var(--head-pad-top);
+    left:auto;
+    right:22px;
+    line-height:var(--type-leading);
+  }
+
+  html body .fixed-head .mark{
+    position:fixed!important;
+    left:205px!important;
+    top:56px!important;
+    right:auto!important;
+    width:66px!important;
+    height:66px!important;
+    overflow:visible!important;
+    transform:none!important;
+  }
+  html body .fixed-head button.mark > img.mark-dot{
+    position:absolute!important;
+    left:0!important;
+    top:0!important;
+    width:66px!important;
+    min-width:66px!important;
+    height:auto!important;
+    max-width:none!important;
+    transform:none!important;
+    object-fit:contain!important;
+  }
+
+  main{padding-top:var(--head);}
+  .section,
+  .list-section{scroll-margin-top:calc(var(--head) + 10px);}
+  .section{
+    min-height:0!important;
+    height:auto!important;
+    justify-content:flex-start!important;
+    padding-top:28px!important;
+    padding-bottom:28px!important;
+  }
+  .window-group{
+    width:min(calc(100vw - 44px),500px,calc(100dvh - var(--head) - 28px));
+    margin-bottom:0!important;
+  }
+  .list-section,
+  .network-section{
+    min-height:0!important;
+    padding-top:36px!important;
+    padding-bottom:36px!important;
+  }
+
+  #netzwerk{padding-bottom:18px!important;}
+  .legal-links{margin-top:24px!important;}
+  .legal-links details + details{margin-top:0!important;}
+  .end-spacer{height:calc(3 * var(--type-size) * var(--type-leading))!important;}
+}
+
+.mark-tip{display:none!important;}
