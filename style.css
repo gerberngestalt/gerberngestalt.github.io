@@ -3587,3 +3587,37 @@ html body .fixed-head .secondary-nav b{
     margin-top:calc(5 * var(--type-size) * var(--type-leading))!important;
   }
 }
+
+
+/* v39 — direct fixes for the remaining phone issues */
+
+/* Portrait: make the requested NETWORK → legal gap explicit and positive.
+   This replaces the accumulated negative-margin experiments. */
+@media (max-width:650px) and (orientation:portrait){
+  #netzwerk{
+    margin-bottom:0!important;
+    padding-bottom:0!important;
+  }
+  .legal-links{
+    margin-top:calc(2 * var(--type-size) * var(--type-leading))!important;
+  }
+}
+
+/* Landscape: stone slightly left; dot rows are always visible and stay in flow. */
+@media (max-height:650px) and (orientation:landscape){
+  html body .fixed-head .mark{
+    left:195px!important;
+  }
+  .section .carousel .dots{
+    display:flex!important;
+    visibility:visible!important;
+    opacity:1!important;
+    position:relative!important;
+    flex:0 0 24px!important;
+    height:24px!important;
+    min-height:24px!important;
+  }
+  .section .carousel .dots[hidden]{
+    display:flex!important;
+  }
+}
