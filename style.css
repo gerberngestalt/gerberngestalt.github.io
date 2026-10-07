@@ -3552,3 +3552,27 @@ html body .fixed-head .secondary-nav b{
   .legal-links{margin-top:24px!important;}
   .end-spacer{height:18px!important;}
 }
+
+
+/* gerberngestalt v25 — navigation brown, including every link state */
+html body .fixed-head nav,
+html body .fixed-head nav a,
+html body .fixed-head nav a:link,
+html body .fixed-head nav a:visited,
+html body .fixed-head nav a:hover,
+html body .fixed-head nav a:active,
+html body .fixed-head nav a:focus,
+html body .fixed-head .secondary-nav,
+html body .fixed-head .secondary-nav a,
+html body .fixed-head .secondary-nav a:link,
+html body .fixed-head .secondary-nav a:visited,
+html body .fixed-head .secondary-nav a:hover,
+html body .fixed-head .secondary-nav a:active,
+html body .fixed-head .secondary-nav a:focus{
+  color:var(--gg-ink)!important;
+  -webkit-text-fill-color:var(--gg-ink)!important;
+}
+html body .fixed-head .language-toggle{
+  color:color-mix(in srgb,var(--gg-ink) 62%,white)!important;
+  -webkit-text-fill-color:color-mix(in srgb,var(--gg-ink) 62%,white)!important;
+}
