@@ -3638,3 +3638,17 @@ html body header.fixed-head .language-toggle{
     left:225px!important;
   }
 }
+
+
+/* gerberngestalt v29 — repair mobile legal spacing */
+@media (max-width:650px) and (orientation:portrait),
+       (max-height:650px) and (orientation:landscape){
+  /* Undo v28's negative margin: LEGAL and PRIVACY must never overlap. */
+  .legal-links details + details{
+    margin-top:0!important;
+  }
+  /* A little more breathing room below the legal block. */
+  .end-spacer{
+    height:calc(3 * var(--type-size) * var(--type-leading))!important;
+  }
+}
