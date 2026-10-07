@@ -3367,3 +3367,18 @@ html, body,
     padding-top:8mm!important;
   }
 }
+
+
+/* gerberngestalt v16 — more space before legal; force stone display size */
+.legal-links{margin-top:calc(108px + 2 * var(--type-size) * var(--type-leading))!important;}
+@media (min-width:651px){
+  html body .fixed-head button.mark > img.mark-dot{
+    display:block!important;
+    width:560px!important;
+    height:auto!important;
+    min-width:560px!important;
+    max-width:none!important;
+    min-height:0!important;
+    max-height:none!important;
+  }
+}
