@@ -3695,3 +3695,17 @@ html body .fixed-head .secondary-nav b{
     min-height:24px!important;
   }
 }
+
+
+/* v41 — phone landscape: make the floating stone clearly smaller */
+@media (max-height:650px) and (orientation:landscape){
+  html body .fixed-head .mark{
+    width:48px!important;
+    height:48px!important;
+  }
+  html body .fixed-head button.mark > img.mark-dot{
+    width:48px!important;
+    min-width:48px!important;
+    height:auto!important;
+  }
+}
