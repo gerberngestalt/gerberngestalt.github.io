@@ -3672,3 +3672,12 @@ html body header.fixed-head .language-toggle{
 @media (min-width:901px){
   .section{padding-top:14mm!important;}
 }
+
+
+/* gerberngestalt v33 — restore pre-v31 title position on phones only */
+@media (max-width:650px) and (orientation:portrait){
+  .section{padding-top:7mm!important;}
+}
+@media (max-height:650px) and (orientation:landscape){
+  .section{padding-top:28px!important;}
+}
