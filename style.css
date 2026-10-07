@@ -3487,3 +3487,24 @@ html body .fixed-head .secondary-nav b{
   color:color-mix(in srgb,var(--gg-ink) 62%,white)!important;
   -webkit-text-fill-color:color-mix(in srgb,var(--gg-ink) 62%,white)!important;
 }
+
+
+/* gerberngestalt v23 — portrait phone gallery dots + tighter NETWORK/legal rhythm */
+@media (max-width:650px) and (orientation:portrait){
+  /* Every gallery reserves the dot row, not only START. */
+  .section .window-group{
+    width:min(calc(100vw - 44px),500px,calc(100svh - var(--head) - var(--bottom-mask) - 146px))!important;
+  }
+  .section .carousel .dots{
+    display:flex!important;
+    flex:0 0 24px!important;
+    height:24px!important;
+    min-height:24px!important;
+  }
+  #netzwerk{
+    padding-bottom:24px!important;
+  }
+  .legal-links{
+    margin-top:28px!important;
+  }
+}
