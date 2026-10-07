@@ -3448,3 +3448,14 @@ html, body,
   /* Keep the existing mobile stone and the lighter mobile section-title treatment. */
   .end-spacer{height:24px!important;}
 }
+
+
+/* gerberngestalt v21 — desktop title rhythm */
+@media (min-width:651px){
+  .window-group .section-title{
+    font-size:var(--type-size)!important;
+  }
+  .section{
+    padding-top:10mm!important;
+  }
+}
