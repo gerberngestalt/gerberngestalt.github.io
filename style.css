@@ -3315,3 +3315,9 @@ html, body,
   }
   html body .fixed-head .mark-tip{display:none!important;}
 }
+
+
+/* gerberngestalt v12 — clearer separation before legal links */
+.legal-links{
+  margin-top:clamp(72px,9vh,108px)!important;
+}
