@@ -3459,3 +3459,31 @@ html, body,
     padding-top:10mm!important;
   }
 }
+
+
+/* gerberngestalt v22 — all textual ink uses the gerberngestalt brown */
+html body,
+html body .fixed-head nav,
+html body .fixed-head nav a,
+html body .fixed-head .secondary-nav,
+html body .fixed-head .secondary-nav a,
+html body .section-title,
+html body .list-section,
+html body .list-section .section-title,
+html body .list-section pre,
+html body .network-links,
+html body .network-row,
+html body .network-row a,
+html body .legal-links,
+html body .legal-links summary,
+html body .mark-tooltip,
+html body .misc-divider-tooltip{
+  color:var(--gg-ink)!important;
+  -webkit-text-fill-color:var(--gg-ink)!important;
+}
+/* Language switch remains intentionally quieter, but in the same brown family. */
+html body .language-toggle,
+html body .fixed-head .secondary-nav b{
+  color:color-mix(in srgb,var(--gg-ink) 62%,white)!important;
+  -webkit-text-fill-color:color-mix(in srgb,var(--gg-ink) 62%,white)!important;
+}
