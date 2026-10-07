@@ -3321,3 +3321,19 @@ html, body,
 .legal-links{
   margin-top:clamp(72px,9vh,108px)!important;
 }
+
+
+/* gerberngestalt v13 — desktop stone at clear logo-scale */
+@media (min-width:651px){
+  html body .fixed-head .mark{
+    overflow:visible!important;
+  }
+  html body .fixed-head .mark-dot{
+    width:560px!important;
+    height:auto!important;
+    max-width:none!important;
+    max-height:none!important;
+    transform:translate(-43%,-40%)!important;
+    transform-origin:center center!important;
+  }
+}
