@@ -16,19 +16,19 @@ window.SITE_CONTENT = {
   about: {
     title: 'ÜBER MICH',
     title_en: 'ABOUT ME',
-    images: ['https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/uebermich/passfoto.jpg']
+    images: ['https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/uebermich/passfoto.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/uebermich/metal-stamp(2).jpg']
   },
 
   angebot: {
     title: 'ANGEBOT',
     title_en: 'WHAT I DO',
-    images: ['../aktuell/ig-a-side.jpg','../aktuell/ig-b-side.jpg']
+    images: ['../aktuell/ig-a-side.jpg','../aktuell/ig-b-side.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/angebot/wood-stamp(1).jpg']
   },
 
   praktisches: {
     title: 'PRAKTISCHES',
     title_en: 'PRACTICALITIES',
-    images: ['../solothurn/krummturm.jpg','../solothurn/oelberg.jpg','../solothurn/felsenkapelle.jpg']
+    images: ['../solothurn/krummturm.jpg','../solothurn/oelberg.jpg','../solothurn/felsenkapelle.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/praktisches/clay-stamp3.jpg']
   },
 
   gestalt: {
@@ -36,14 +36,15 @@ window.SITE_CONTENT = {
     title_en: 'GESTALT',
     images: [
       { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/alles-was-ist.jpg', image_en:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/everything-that-is.jpg' },
-      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/was-sein-darf.jpg', image_en:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/what-may-be.jpg' }
+      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/was-sein-darf.jpg', image_en:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/what-may-be.jpg' },
+      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/stone-stamp.jpg' }
     ]
   },
 
   kontakt: {
     title: 'KONTAKT',
     title_en: 'CONTACT',
-    images: ['trungpa.jpg']
+    images: ['trungpa.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/kontakt/soap-stamp.jpg']
   },
 
   contact: {
