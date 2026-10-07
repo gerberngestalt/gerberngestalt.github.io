@@ -644,7 +644,11 @@
       const available = Math.max(0, limits.bottom - limits.top);
       const groupH = group.getBoundingClientRect().height;
       const desiredTop = limits.top + Math.max(0, (available - groupH) / 2);
-      const targetTop = window.scrollY + group.getBoundingClientRect().top - desiredTop;
+      /* CONTACT is the final gallery before the reading section. Give it the
+         same visual top as the other galleries instead of letting end-of-page
+         geometry leave it about one text line too low. */
+      const clickTopCorrection = id === '#kontakt' ? 22 : 0;
+      const targetTop = window.scrollY + group.getBoundingClientRect().top - desiredTop + clickTopCorrection;
       window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
       if (!window.matchMedia('(max-width:900px), (pointer:coarse)').matches) {
         [180, 420, 760].forEach(function (delay) {
