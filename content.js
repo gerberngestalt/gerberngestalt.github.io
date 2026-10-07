@@ -35,7 +35,10 @@ window.SITE_CONTENT = {
   gestalt: {
     title: 'GESTALT',
     title_en: 'GESTALT',
-    images: ['../solothurn/einsiedelei.jpg','../solothurn/verena.jpg','../solothurn/weissenstein.jpg','../solothurn/ruettenen.jpg']
+    images: [
+      { image:'alles-was-ist.jpg', image_en:'everything-that-is.jpg' },
+      { image:'was-sein-darf.jpg', image_en:'what-may-be.jpg' }
+    ]
   },
 
   kontakt: {
