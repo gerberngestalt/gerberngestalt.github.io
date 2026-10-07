@@ -3652,3 +3652,15 @@ html body header.fixed-head .language-toggle{
     height:calc(3 * var(--type-size) * var(--type-leading))!important;
   }
 }
+
+
+/* gerberngestalt v31 — give window titles more air below the fixed navigation */
+@media (min-width:651px){
+  .section{padding-top:12mm!important;}
+}
+@media (max-width:650px) and (orientation:portrait){
+  .section{padding-top:calc(var(--head) + 18px)!important;}
+}
+@media (max-height:650px) and (orientation:landscape){
+  .section{padding-top:40px!important;}
+}
