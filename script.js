@@ -36,16 +36,27 @@
 
   function galleryImageSpec(data, entry, index) {
     if (entry && typeof entry === 'object') {
-      return { base:entry.image || '', en:entry.image_en || '', alt:localized(entry,'alt') || '' };
+      return { base:entry.image || '', en:entry.image_en || '', dark:entry.image_dark || '', alt:localized(entry,'alt') || '' };
     }
     const enList = Array.isArray(data.images_en) ? data.images_en : [];
     const altList = currentLanguage === 'en' && Array.isArray(data.alt_en) ? data.alt_en : (Array.isArray(data.alt) ? data.alt : []);
-    return { base:entry || '', en:enList[index] || '', alt:altList[index] || '' };
+    return { base:entry || '', en:enList[index] || '', dark:'', alt:altList[index] || '' };
   }
 
   function desiredImageName(spec) {
-    return currentLanguage === 'en' && spec.en ? spec.en : spec.base;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches && spec.dark ? spec.dark : (currentLanguage === 'en' && spec.en ? spec.en : spec.base);
   }
+
+  // Update dark-mode image variants when the system appearance changes.
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
+    document.querySelectorAll('.carousel img[data-gallery-key]').forEach(function (img) {
+      const data = content[img.dataset.galleryKey] || {};
+      const entry = (data.images || [])[Number(img.dataset.imageIndex)];
+      const spec = galleryImageSpec(data, entry, Number(img.dataset.imageIndex));
+      const wanted = desiredImageName(spec);
+      if (wanted) img.src = /^https?:\\/\\//i.test(wanted) ? wanted : 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/images/' + img.dataset.galleryKey + '/' + wanted;
+    });
+  });
 
   // v52: one random saturated-pastel original dot image per page load.
   // Clicking the large navigation dot chooses a different colour AND returns to START.
