@@ -2415,8 +2415,8 @@ html,body{overflow-x:hidden;}
   .network-label,
   .list-separator,
   .misc-divider-tooltip{
-    color:#d0d0d0!important;
-    -webkit-text-fill-color:#d0d0d0!important;
+    color:var(--gg-ink)!important;
+    -webkit-text-fill-color:var(--gg-ink)!important;
     font-weight:300!important;
     font-synthesis:none!important;
     text-shadow:none!important;
@@ -2445,8 +2445,8 @@ html,body{overflow-x:hidden;}
    v90 normalized paint globally but did not normalize font-weight globally. */
 @media (prefers-color-scheme: dark){
   body, body *{
-    color:#d0d0d0!important;
-    -webkit-text-fill-color:#d0d0d0!important;
+    color:var(--gg-ink)!important;
+    -webkit-text-fill-color:var(--gg-ink)!important;
     font-weight:300!important;
     font-synthesis:none!important;
     text-shadow:none!important;
@@ -2486,8 +2486,8 @@ html,body{overflow-x:hidden;}
     font-weight:normal!important;
     font-style:normal!important;
     font-synthesis:none!important;
-    color:#d0d0d0!important;
-    -webkit-text-fill-color:#d0d0d0!important;
+    color:var(--gg-ink)!important;
+    -webkit-text-fill-color:var(--gg-ink)!important;
     text-shadow:none!important;
     opacity:1!important;
   }
@@ -2510,8 +2510,8 @@ html,body{overflow-x:hidden;}
   html[lang="en"] body .fixed-head .secondary-nav a[href="#past"],
   html[lang="en"] body .fixed-head .secondary-nav a[href="#netzwerk"]{
     font-weight:normal!important;
-    color:#d0d0d0!important;
-    -webkit-text-fill-color:#d0d0d0!important;
+    color:var(--gg-ink)!important;
+    -webkit-text-fill-color:var(--gg-ink)!important;
     opacity:1!important;
   }
 
@@ -2587,8 +2587,8 @@ html,body{overflow-x:hidden;}
   html body .fixed-head .language-toggle{
     font-family:Arial,Helvetica,sans-serif!important;
     font-weight:400!important;
-    color:#d0d0d0!important;
-    -webkit-text-fill-color:#d0d0d0!important;
+    color:var(--gg-ink)!important;
+    -webkit-text-fill-color:var(--gg-ink)!important;
     opacity:1!important;
     text-shadow:none!important;
     font-synthesis:none!important;
@@ -2626,8 +2626,8 @@ html,body{overflow-x:hidden;}
   html body .fixed-head > .secondary-nav a:active{
     font-family:Arial,Helvetica,sans-serif!important;
     font-weight:400!important;
-    color:#d0d0d0!important;
-    -webkit-text-fill-color:#d0d0d0!important;
+    color:var(--gg-ink)!important;
+    -webkit-text-fill-color:var(--gg-ink)!important;
     opacity:1!important;
     text-shadow:none!important;
     font-synthesis:none!important;
@@ -2893,8 +2893,8 @@ html body .fixed-head > .secondary-nav a:focus,
 html body .fixed-head > .secondary-nav a:active{
   font-family:Arial,Helvetica,sans-serif!important;
   font-weight:400!important;
-  color:#222!important;
-  -webkit-text-fill-color:#222!important;
+  color:var(--gg-ink)!important;
+  -webkit-text-fill-color:var(--gg-ink)!important;
   opacity:1!important;
   text-shadow:none!important;
   font-synthesis:none!important;
@@ -2912,8 +2912,8 @@ html body .fixed-head > .secondary-nav a:active{
   html body .fixed-head > .secondary-nav a:hover,
   html body .fixed-head > .secondary-nav a:focus,
   html body .fixed-head > .secondary-nav a:active{
-    color:#d0d0d0!important;
-    -webkit-text-fill-color:#d0d0d0!important;
+    color:var(--gg-ink)!important;
+    -webkit-text-fill-color:var(--gg-ink)!important;
   }
 }
 
@@ -2947,8 +2947,8 @@ html body .fixed-head > .secondary-nav a[href="#netzwerk"]{
   html body .fixed-head > .secondary-nav a[href="#past"],
   html body .fixed-head > .secondary-nav a[href="#netzwerk"]{
     font-weight:400!important;
-    color:#d0d0d0!important;
-    -webkit-text-fill-color:#d0d0d0!important;
+    color:var(--gg-ink)!important;
+    -webkit-text-fill-color:var(--gg-ink)!important;
   }
 }
 
@@ -3016,8 +3016,8 @@ html body .fixed-head > .secondary-nav a:not(.language-toggle):focus,
 html body .fixed-head > .secondary-nav a:not(.language-toggle):active{
   font-family:Arial,Helvetica,sans-serif!important;
   font-weight:400!important;
-  color:#222!important;
-  -webkit-text-fill-color:#222!important;
+  color:var(--gg-ink)!important;
+  -webkit-text-fill-color:var(--gg-ink)!important;
   opacity:1!important;
   text-shadow:none!important;
   font-synthesis:none!important;
@@ -3045,8 +3045,8 @@ html body .fixed-head .language-toggle{
   html body .fixed-head > .secondary-nav a:not(.language-toggle):focus,
   html body .fixed-head > .secondary-nav a:not(.language-toggle):active{
     font-weight:400!important;
-    color:#d0d0d0!important;
-    -webkit-text-fill-color:#d0d0d0!important;
+    color:var(--gg-ink)!important;
+    -webkit-text-fill-color:var(--gg-ink)!important;
     opacity:1!important;
   }
   html body .fixed-head .language-toggle{
@@ -3069,8 +3069,8 @@ html body .fixed-head > .secondary-nav .language-separator{
   font-size:var(--type-size)!important;
   font-style:normal!important;
   font-weight:400!important;
-  color:#222!important;
-  -webkit-text-fill-color:#222!important;
+  color:var(--gg-ink)!important;
+  -webkit-text-fill-color:var(--gg-ink)!important;
   opacity:1!important;
   text-shadow:none!important;
   font-synthesis:none!important;
@@ -3093,8 +3093,8 @@ html body .fixed-head .language-toggle{
   html body .fixed-head > .secondary-nav a,
   html body .fixed-head > .secondary-nav b,
   html body .fixed-head > .secondary-nav .language-separator{
-    color:#d0d0d0!important;
-    -webkit-text-fill-color:#d0d0d0!important;
+    color:var(--gg-ink)!important;
+    -webkit-text-fill-color:var(--gg-ink)!important;
     font-weight:400!important;
     opacity:1!important;
   }
