@@ -479,11 +479,11 @@
   }
 
   function galleryLimits() {
-    const mobile = window.matchMedia('(max-width: 650px)').matches;
+    const mobile = window.matchMedia('(max-width: 650px), (orientation:landscape) and (max-height:650px)').matches;
     if (mobile) {
       const head = document.querySelector('.fixed-head');
       const headH = head ? head.getBoundingClientRect().height : 0;
-      return { top: headH + 22, bottom: window.innerHeight - 4 };
+      return { top: headH + (window.matchMedia('(orientation:landscape) and (max-height:650px)').matches ? 0 : 22), bottom: window.innerHeight - 4 };
     }
     const head = document.querySelector('.fixed-head');
     const headH = head ? head.getBoundingClientRect().height : 0;
@@ -600,7 +600,7 @@
 
       // On phones the navigation remains fixed, so all anchor targets reserve
       // the actual current header height (portrait or compact landscape).
-      const mobile = window.matchMedia('(max-width: 650px)').matches;
+      const mobile = window.matchMedia('(max-width: 650px), (orientation:landscape) and (max-height:650px)').matches;
       if (mobile && (target.classList.contains('section') || id === '#kontakt' || id === '#netzwerk')) {
         event.preventDefault();
         if (history.replaceState) history.replaceState(null, '', id);
