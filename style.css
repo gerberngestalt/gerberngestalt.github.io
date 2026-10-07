@@ -3382,3 +3382,14 @@ html, body,
     max-height:none!important;
   }
 }
+
+
+/* gerberngestalt v17 — stone: large enough to read as a mark, not a screen-filling object */
+@media (min-width:651px){
+  html body .fixed-head button.mark > img.mark-dot{
+    width:180px!important;
+    min-width:180px!important;
+    height:auto!important;
+    max-width:none!important;
+  }
+}
