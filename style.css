@@ -3613,3 +3613,28 @@ html body header.fixed-head .language-toggle{
   color:#9a938e!important;
   -webkit-text-fill-color:#9a938e!important;
 }
+
+
+/* gerberngestalt v28 — mobile legal rhythm + landscape stone position */
+@media (max-width:650px) and (orientation:portrait){
+  /* LEGAL/IMPRESSUM -> PRIVACY/DATENSCHUTZ: one line tighter. */
+  .legal-links details + details{
+    margin-top:calc(-1 * var(--type-size) * var(--type-leading))!important;
+  }
+  /* Keep 2–3 quiet blank lines after the final legal item. */
+  .end-spacer{
+    height:calc(2.5 * var(--type-size) * var(--type-leading))!important;
+  }
+}
+@media (max-height:650px) and (orientation:landscape){
+  .legal-links details + details{
+    margin-top:calc(-1 * var(--type-size) * var(--type-leading))!important;
+  }
+  .end-spacer{
+    height:calc(2.5 * var(--type-size) * var(--type-leading))!important;
+  }
+  /* Bring the stone back toward the left navigation. */
+  html body .fixed-head .mark{
+    left:225px!important;
+  }
+}
