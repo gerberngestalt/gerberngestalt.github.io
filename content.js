@@ -9,15 +9,14 @@ window.SITE_CONTENT = {
     title_en: 'HOME',
     images: [
       { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/start/logo1.jpg' },
-      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/start/logo2.jpg' },
-      'hall.jpg'
+      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/start/logo2.jpg' }
     ]
   },
 
   about: {
     title: 'ÜBER MICH',
     title_en: 'ABOUT ME',
-    images: ['ig-b-side.jpg','fenster.jpg','eingang-skizze.jpg']
+    images: ['https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/uebermich/passfoto.jpg']
   },
 
   angebot: {
@@ -36,8 +35,8 @@ window.SITE_CONTENT = {
     title: 'GESTALT',
     title_en: 'GESTALT',
     images: [
-      { image:'alles-was-ist.jpg', image_en:'everything-that-is.jpg' },
-      { image:'was-sein-darf.jpg', image_en:'what-may-be.jpg' }
+      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/alles-was-ist.jpg', image_en:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/everything-that-is.jpg' },
+      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/was-sein-darf.jpg', image_en:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/what-may-be.jpg' }
     ]
   },
 
