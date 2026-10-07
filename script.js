@@ -525,7 +525,9 @@
     const available = limits.bottom - limits.top;
     const r = group.getBoundingClientRect();
     if (r.height > available) return;
-    const desiredTop = limits.top + (available - r.height) / 2;
+    const desiredTop = window.matchMedia('(max-width:650px)').matches
+      ? limits.top + (available - r.height) / 2
+      : (document.querySelector('.fixed-head')?.getBoundingClientRect().height || 0) + (8 * 96 / 25.4);
     const absoluteTop = window.scrollY + r.top;
     const wantedScroll = Math.max(0, absoluteTop - desiredTop);
     window.scrollTo({ top: wantedScroll, left: 0, behavior: 'auto' });
@@ -640,21 +642,10 @@
         return;
       }
       if (history.replaceState) history.replaceState(null, '', id);
-      const limits = galleryLimits();
-      const available = Math.max(0, limits.bottom - limits.top);
-      const groupH = group.getBoundingClientRect().height;
-      const desiredTop = limits.top + Math.max(0, (available - groupH) / 2);
-      /* CONTACT is the final gallery before the reading section. Give it the
-         same visual top as the other galleries instead of letting end-of-page
-         geometry leave it about one text line too low. */
-      const clickTopCorrection = id === '#kontakt' ? 58 : 0;
-      const targetTop = window.scrollY + group.getBoundingClientRect().top - desiredTop + clickTopCorrection;
+      const mobileClick = window.matchMedia('(max-width:650px)').matches;
+      const desiredTop = mobileClick ? galleryLimits().top : (document.querySelector('.fixed-head')?.getBoundingClientRect().height || 0) + (8 * 96 / 25.4);
+      const targetTop = window.scrollY + group.getBoundingClientRect().top - desiredTop;
       window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
-      if (!window.matchMedia('(max-width:900px), (pointer:coarse)').matches) {
-        [180, 420, 760].forEach(function (delay) {
-          window.setTimeout(function () { keepWholeGalleryVisible(group); }, delay);
-        });
-      }
     });
   });
   activeGallery = galleryFromHash() || chooseActiveGallery();
