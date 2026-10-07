@@ -3664,3 +3664,11 @@ html body header.fixed-head .language-toggle{
 @media (max-height:650px) and (orientation:landscape){
   .section{padding-top:40px!important;}
 }
+
+
+/* gerberngestalt v32 — slightly stronger navigation + lower desktop titles */
+:root{--gg-ink:#625a54!important;}
+
+@media (min-width:901px){
+  .section{padding-top:14mm!important;}
+}
