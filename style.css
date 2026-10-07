@@ -3281,3 +3281,12 @@ html, body,
     object-fit:contain!important;
   }
 }
+
+
+/* gerberngestalt v9 — a little more air between NETWORK and legal links */
+#netzwerk{
+  padding-bottom:clamp(48px,7vh,76px)!important;
+}
+.legal-links{
+  margin-top:clamp(30px,4vh,46px)!important;
+}
