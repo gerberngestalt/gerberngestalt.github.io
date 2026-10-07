@@ -3559,3 +3559,31 @@ html body .fixed-head .secondary-nav b{
     margin-top:calc(var(--type-size) * var(--type-leading))!important;
   }
 }
+
+
+/* v38 — landscape phone final visibility/spacing pass */
+@media (max-height:650px) and (orientation:landscape){
+  /* Stone clearly higher while preserving its current size/x-position. */
+  html body .fixed-head .mark{top:24px!important;}
+
+  /* Every gallery keeps a visible dot row, including one-image galleries. */
+  .section .carousel .dots,
+  .section .carousel .dots[hidden]{
+    display:flex!important;
+    visibility:visible!important;
+    opacity:1!important;
+    flex:0 0 24px!important;
+    height:24px!important;
+    min-height:24px!important;
+  }
+  .section .carousel .dots button{
+    display:block!important;
+    visibility:visible!important;
+    opacity:1!important;
+  }
+
+  /* Two further blank lines after the final NETWORK row. */
+  .legal-links{
+    margin-top:calc(5 * var(--type-size) * var(--type-leading))!important;
+  }
+}
