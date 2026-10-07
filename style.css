@@ -3681,3 +3681,17 @@ html body header.fixed-head .language-toggle{
 @media (max-height:650px) and (orientation:landscape){
   .section{padding-top:28px!important;}
 }
+
+
+/* gerberngestalt v34 — phone landscape stone fine tuning */
+@media (max-height:650px) and (orientation:landscape){
+  html body .fixed-head .mark{
+    left:205px!important;
+    width:66px!important;
+    height:66px!important;
+  }
+  html body .fixed-head button.mark > img.mark-dot{
+    width:66px!important;
+    min-width:66px!important;
+  }
+}
