@@ -44,19 +44,8 @@
   }
 
   function desiredImageName(spec) {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches && spec.dark ? spec.dark : (currentLanguage === 'en' && spec.en ? spec.en : spec.base);
+    return currentLanguage === 'en' && spec.en ? spec.en : spec.base;
   }
-
-  // Update dark-mode image variants when the system appearance changes.
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
-    document.querySelectorAll('.carousel img[data-gallery-key]').forEach(function (img) {
-      const data = content[img.dataset.galleryKey] || {};
-      const entry = (data.images || [])[Number(img.dataset.imageIndex)];
-      const spec = galleryImageSpec(data, entry, Number(img.dataset.imageIndex));
-      const wanted = desiredImageName(spec);
-      if (wanted) img.src = wanted.startsWith('https://') || wanted.startsWith('http://') ? wanted : 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/images/' + img.dataset.galleryKey + '/' + wanted;
-    });
-  });
 
   // v52: one random saturated-pastel original dot image per page load.
   // Clicking the large navigation dot chooses a different colour AND returns to START.
