@@ -3359,3 +3359,11 @@ html, body,
     min-height:24px!important;
   }
 }
+
+
+/* gerberngestalt v15 — 1 mm safety clearance below the white navigation mask */
+@media (min-width:651px){
+  .section{
+    padding-top:8mm!important;
+  }
+}
