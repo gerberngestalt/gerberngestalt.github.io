@@ -220,7 +220,7 @@
     if (images.length === 1) {
       prev.hidden = true;
       next.hidden = true;
-      dots.hidden = true;
+      dots.hidden = false;
       return;
     }
 
@@ -609,7 +609,7 @@
         const landscapePhone = window.matchMedia('(orientation:landscape) and (max-height:650px)').matches;
         const galleryGroup = target.classList.contains('section') ? target.querySelector('.window-group') : null;
         const anchor = galleryGroup || target;
-        const gap = landscapePhone ? 10 : (7 * 96 / 25.4);
+        const gap = landscapePhone ? 0 : (7 * 96 / 25.4);
         const top = window.scrollY + anchor.getBoundingClientRect().top - headH - gap;
         window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
         if (secondaryPast) secondaryPast.classList.toggle('active-secondary', id === '#kontakt');
