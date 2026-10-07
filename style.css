@@ -3348,3 +3348,9 @@ html body .fixed-head .secondary-nav b{
   color:#8f8f8f!important;
   -webkit-text-fill-color:#8f8f8f!important;
 }
+
+
+/* desktop page tail: keep a comfortable finish without an extra screen of white */
+@media (min-width:901px) and (min-height:651px){
+  .end-spacer{height:clamp(120px,18vh,190px)!important;}
+}
