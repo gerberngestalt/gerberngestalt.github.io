@@ -3354,3 +3354,50 @@ html body .fixed-head .secondary-nav b{
 @media (min-width:901px) and (min-height:651px){
   .end-spacer{height:clamp(120px,18vh,190px)!important;}
 }
+
+
+/* v35 — contact hover dot + final phone navigation rhythm */
+
+/* Desktop CONTACT gets the same black hover dot language as the primary nav. */
+@media (min-width:651px) and (hover:hover) and (pointer:fine){
+  .fixed-head > .secondary-nav a[href="#kontakt"]::before{
+    background:#222!important;
+  }
+  .fixed-head > .secondary-nav a[href="#kontakt"]:hover::before{
+    opacity:1!important;
+  }
+  .fixed-head > .secondary-nav a[href="#kontakt"].active-secondary::before{
+    background:var(--accent)!important;
+  }
+}
+
+/* Phone portrait: every gallery title sits at HOME's 7 mm anchor.
+   NETWORK → legal is tightened by about three text lines. */
+@media (max-width:650px) and (orientation:portrait){
+  main .section{
+    justify-content:flex-start!important;
+    padding-top:7mm!important;
+  }
+  main .section .window-group{
+    margin-top:0!important;
+    transform:none!important;
+  }
+  #netzwerk{padding-bottom:0!important;}
+  .legal-links{margin-top:0!important;}
+}
+
+/* Phone landscape: every gallery starts at one common position directly
+   below the fixed navigation; legal entries are separated by one text line. */
+@media (max-height:650px) and (orientation:landscape){
+  main .section{
+    justify-content:flex-start!important;
+    padding-top:10px!important;
+  }
+  main .section .window-group{
+    margin-top:0!important;
+    transform:none!important;
+  }
+  .legal-links details + details{
+    margin-top:calc(var(--type-size) * var(--type-leading))!important;
+  }
+}
