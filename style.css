@@ -3709,3 +3709,17 @@ html body .fixed-head .secondary-nav b{
     height:auto!important;
   }
 }
+
+
+/* v42 — same compact stone on both phone orientations */
+@media (max-width:650px) and (orientation:portrait){
+  html body .fixed-head .mark{
+    width:48px!important;
+    height:48px!important;
+  }
+  html body .fixed-head button.mark > img.mark-dot{
+    width:48px!important;
+    min-width:48px!important;
+    height:auto!important;
+  }
+}
