@@ -3487,3 +3487,75 @@ html body .fixed-head .secondary-nav b{
     min-width:58px!important;
   }
 }
+
+
+/* v37 — measured spacing corrections */
+
+/* Desktop: one additional text line from NETWORK to IMPRESSUM. */
+@media (min-width:901px) and (min-height:651px){
+  .legal-links{
+    margin-top:calc(108px + 3 * var(--type-size) * var(--type-leading))!important;
+  }
+}
+
+/* Dark mode: lighter warm brown overall, language switch still slightly darker. */
+@media (prefers-color-scheme:dark){
+  :root{--gg-dark-ink:#ded5ce;}
+  html body,
+  html body .fixed-head,
+  html body .fixed-head nav,
+  html body .fixed-head nav a,
+  html body .fixed-head .secondary-nav,
+  html body .fixed-head .secondary-nav a:not(.language-toggle),
+  html body .fixed-head .secondary-nav b,
+  html body .section-title,
+  html body .list-section,
+  html body .list-section pre,
+  html body .network-links,
+  html body .network-row,
+  html body .network-row a,
+  html body .legal-links,
+  html body .legal-links summary,
+  html body .carousel,
+  html body .slide{
+    color:var(--gg-dark-ink)!important;
+    -webkit-text-fill-color:var(--gg-dark-ink)!important;
+  }
+  html body .fixed-head .language-toggle{
+    color:#aaa099!important;
+    -webkit-text-fill-color:#aaa099!important;
+  }
+}
+
+/* Portrait: another three lines less before legal; exactly one line between legal/privacy. */
+@media (max-width:650px) and (orientation:portrait){
+  #netzwerk{
+    padding-bottom:0!important;
+    margin-bottom:calc(-6 * var(--type-size) * var(--type-leading))!important;
+  }
+  .legal-links{
+    margin-top:0!important;
+  }
+  .legal-links details + details{
+    margin-top:calc(var(--type-size) * var(--type-leading))!important;
+  }
+}
+
+/* Landscape: stone higher; NETWORK begins immediately below navigation.
+   Three lines after the final network row (one prior + two requested). */
+@media (max-height:650px) and (orientation:landscape){
+  html body .fixed-head .mark{top:39px!important;}
+
+  #netzwerk{
+    padding-top:0!important;
+    padding-bottom:0!important;
+    margin-top:0!important;
+    margin-bottom:0!important;
+  }
+  .legal-links{
+    margin-top:calc(3 * var(--type-size) * var(--type-leading))!important;
+  }
+  .legal-links details + details{
+    margin-top:calc(var(--type-size) * var(--type-leading))!important;
+  }
+}
