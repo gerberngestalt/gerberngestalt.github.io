@@ -3337,3 +3337,25 @@ html, body,
     transform-origin:center center!important;
   }
 }
+
+
+/* gerberngestalt v14 — desktop windows start 7 mm below the fixed navigation */
+@media (min-width:651px){
+  .section{
+    justify-content:flex-start!important;
+    padding-top:7mm!important;
+  }
+  .window-group{
+    margin-top:0!important;
+    transform:none!important;
+  }
+  .window-group .section-title{
+    margin-top:0!important;
+  }
+  /* Dots stay attached below the image, but never determine the top anchor. */
+  .carousel .dots{
+    flex:0 0 24px!important;
+    height:24px!important;
+    min-height:24px!important;
+  }
+}
