@@ -3417,3 +3417,18 @@ html, body,
     object-fit:contain!important;
   }
 }
+
+
+/* gerberngestalt v19 — stone fine-tuning from desktop reference */
+@media (min-width:651px){
+  html body .fixed-head .mark{
+    left:245px!important;
+    top:50px!important;
+    width:92px!important;
+    height:92px!important;
+  }
+  html body .fixed-head button.mark > img.mark-dot{
+    width:92px!important;
+    min-width:92px!important;
+  }
+}
