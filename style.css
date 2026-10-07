@@ -3598,3 +3598,18 @@ html body .fixed-head .language-toggle{
 .fixed-head > .secondary-nav a[href="#kontakt"].active-secondary::before{
   opacity:1!important;
 }
+
+
+/* gerberngestalt v27 — final navigation ink override */
+:root{--gg-ink:#6f665f!important;}
+html body header.fixed-head nav a,
+html body header.fixed-head nav a *,
+html body header.fixed-head .secondary-nav a:not(.language-toggle),
+html body header.fixed-head .secondary-nav a:not(.language-toggle) *{
+  color:#6f665f!important;
+  -webkit-text-fill-color:#6f665f!important;
+}
+html body header.fixed-head .language-toggle{
+  color:#9a938e!important;
+  -webkit-text-fill-color:#9a938e!important;
+}
