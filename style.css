@@ -3621,3 +3621,77 @@ html body .fixed-head .secondary-nav b{
     display:flex!important;
   }
 }
+
+
+/* v40 — authoritative phone corrections */
+
+/* Phone dark mode: one warm light brown for navigation, titles, legal and
+   network links. The language toggle alone is slightly darker. */
+@media (max-width:650px) and (prefers-color-scheme:dark){
+  :root{--gg-phone-dark:#ded5ce;--gg-phone-lang:#aaa099;}
+  html body,
+  html body a,
+  html body a:link,
+  html body a:visited,
+  html body .fixed-head,
+  html body .fixed-head nav,
+  html body .fixed-head nav a,
+  html body .fixed-head .secondary-nav,
+  html body .fixed-head .secondary-nav > a:not(.language-toggle),
+  html body .section-title,
+  html body .list-section,
+  html body .list-section pre,
+  html body .network-links,
+  html body .network-row,
+  html body .network-row a,
+  html body .legal-links,
+  html body .legal-links summary,
+  html body .carousel,
+  html body .slide{
+    color:var(--gg-phone-dark)!important;
+    -webkit-text-fill-color:var(--gg-phone-dark)!important;
+  }
+  html body .fixed-head .language-toggle,
+  html body .fixed-head .secondary-nav b{
+    color:var(--gg-phone-lang)!important;
+    -webkit-text-fill-color:var(--gg-phone-lang)!important;
+  }
+}
+
+/* Portrait: remove 3–4 lines from NETWORK → IMPRESSUM. */
+@media (max-width:650px) and (orientation:portrait){
+  #netzwerk{
+    margin-bottom:0!important;
+    padding-bottom:0!important;
+  }
+  .legal-links{
+    margin-top:calc(-1.5 * var(--type-size) * var(--type-leading))!important;
+  }
+}
+
+/* Landscape: stone farther left. All gallery sections use the same top
+   geometry and dot row directly below the fixed navigation. */
+@media (max-height:650px) and (orientation:landscape){
+  html body .fixed-head .mark{left:180px!important;}
+
+  main .section{
+    min-height:0!important;
+    height:auto!important;
+    justify-content:flex-start!important;
+    padding-top:0!important;
+    padding-bottom:28px!important;
+  }
+  main .section .window-group{
+    margin-top:0!important;
+    transform:none!important;
+  }
+  main .section .carousel .dots,
+  main .section .carousel .dots[hidden]{
+    display:flex!important;
+    visibility:visible!important;
+    opacity:1!important;
+    flex:0 0 24px!important;
+    height:24px!important;
+    min-height:24px!important;
+  }
+}
