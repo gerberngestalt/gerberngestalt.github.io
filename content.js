@@ -28,7 +28,7 @@ window.SITE_CONTENT = {
   praktisches: {
     title: 'PRAKTISCHES',
     title_en: 'PRACTICALITIES',
-    images: ['../solothurn/krummturm.jpg','../solothurn/oelberg.jpg','../solothurn/felsenkapelle.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/praktisches/clay-stamp3.jpg']
+    images: ['../solothurn/krummturm.jpg','../solothurn/oelberg.jpg','../solothurn/felsenkapelle.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/praktisches/clay-stamp.jpg']
   },
 
   gestalt: {
