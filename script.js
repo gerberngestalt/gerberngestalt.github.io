@@ -67,14 +67,14 @@
   }
 
   const ACCENT_DOTS = [
-    { colour:'#EC9F69', file:stoneSvg('#EC9F69','#F2B789','#D98955',0) },
-    { colour:'#ED917F', file:stoneSvg('#ED917F','#F3AA9C','#D97967',1) },
-    { colour:'#B49AE2', file:stoneSvg('#B49AE2','#C7B3EA','#9D80D5',2) },
-    { colour:'#E7B34C', file:stoneSvg('#E7B34C','#EFC86F','#D29B32',3) },
-    { colour:'#F0ACB7', file:stoneSvg('#F0ACB7','#F5C2CA','#DF929F',1) },
-    { colour:'#94B293', file:stoneSvg('#94B293','#ACC6AB','#7D9D7C',2) },
-    { colour:'#7CACE5', file:stoneSvg('#7CACE5','#9BC1EC','#6494D2',3) },
-    { colour:'#73C6BD', file:stoneSvg('#73C6BD','#93D5CE','#58ADA4',0) }
+    { colour:'#EC9F69', file:'images/stones/apricot-stone.png' },
+    { colour:'#ED917F', file:'images/stones/coral-stone.png' },
+    { colour:'#B49AE2', file:'images/stones/lavender-stone.png' },
+    { colour:'#E7B34C', file:'images/stones/mustard-stone.png' },
+    { colour:'#F0ACB7', file:'images/stones/rose-stone.png' },
+    { colour:'#94B293', file:'images/stones/sage-stone.png' },
+    { colour:'#7CACE5', file:'images/stones/sky-stone.png' },
+    { colour:'#73C6BD', file:'images/stones/turquoise-stone.png' }
   ];
 
   let accentDot = ACCENT_DOTS[Math.floor(Math.random() * ACCENT_DOTS.length)];
