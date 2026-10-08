@@ -47,7 +47,7 @@
     const normal = currentLanguage === 'en' && spec.en ? spec.en : spec.base;
     if (key === 'start' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       // The dark companion is optional: logo1.jpg -> logo1_dark.jpg.
-      return spec.dark || normal.replace(/(\\.[^./?#]+)([?#].*)?$/, '_dark$1$2');
+      return spec.dark || normal.replace(/(\.[^./?#]+)([?#].*)?$/, '_dark$1$2');
     }
     return normal;
   }
