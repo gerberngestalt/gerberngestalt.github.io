@@ -3788,8 +3788,8 @@ html body .fixed-head .secondary-nav b{
 
 /* Desktop carousel arrows sit in the white space, outside the images. */
 @media (min-width:901px) and (hover:hover) and (pointer:fine){
-  .carousel .prev{left:-51px;}
-  .carousel .next{right:-51px;}
+  .carousel .prev{left:-62px;right:auto;}
+  .carousel .next{right:-62px;left:auto;}
   .carousel .arrow:not([hidden]){opacity:.6;}
   .carousel .arrow:hover:not([hidden]){opacity:1;}
   .carousel .arrow::before,.carousel .arrow::after{background:#625a54;}
