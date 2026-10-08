@@ -4100,3 +4100,31 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
     left:auto!important;right:54px!important;top:42px!important;
   }
 }
+
+/* Consistent desktop navigation inset across responsive widths.
+   Leave the phone layout (<=650px) unchanged. */
+@media (min-width:651px) and (min-height:651px){
+  :root{--edge:40px;--head-pad-top:40px;}
+  html body .fixed-head{
+    padding-left:40px!important;
+    padding-right:40px!important;
+    padding-top:40px!important;
+  }
+  html body .fixed-head > nav.primary-nav{
+    margin-left:0!important;
+    padding-left:0!important;
+    font-size:15px!important;
+    line-height:1.42!important;
+    gap:8px!important;
+  }
+  html body .fixed-head > nav.primary-nav > a{
+    font-size:15px!important;
+    line-height:1.42!important;
+  }
+}
+@media (min-width:651px) and (max-width:860px) and (min-height:651px){
+  html body .fixed-head > .secondary-nav{left:40px!important;top:calc(40px + 4 * (15px * 1.42 + 8px))!important;}
+}
+@media (min-width:861px) and (min-height:651px){
+  html body .fixed-head > .secondary-nav{right:40px!important;top:40px!important;}
+}
