@@ -36,7 +36,6 @@ window.SITE_CONTENT = {
     title: 'GESTALT',
     title_en: 'GESTALT',
     images: [
-      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/als-mensch-habe-ich.jpg' },
       { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/alles-was-ist.jpg', image_en:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/everything-that-is.jpg' },
       { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/was-sein-darf.jpg', image_en:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/what-may-be.jpg' },
       { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/stone-stamp.jpg' }
@@ -46,7 +45,10 @@ window.SITE_CONTENT = {
   miniBlog: {
     title: 'MINI-BLOG',
     title_en: 'MINI-BLOG',
-    images: ['miniblog/potato-stamp.jpg']
+    images: [
+      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/miniblog/als-mensch-habe-ich.jpg', image_en:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/miniblog/als-mensch-habe-ich_en.jpg' },
+      'miniblog/potato-stamp.jpg'
+    ]
   },
 
   kontakt: {
