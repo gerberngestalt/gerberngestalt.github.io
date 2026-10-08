@@ -4273,9 +4273,9 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
     transform:none!important;background:#222!important;
   }
   html body .fixed-head > .secondary-nav > a[href="#kontakt"]::after{
-    left:calc(100% + 9px)!important;right:auto!important;
-    top:50%!important;bottom:auto!important;
-    transform:translateY(-50%)!important;
+    left:calc(50% - 3px)!important;right:auto!important;
+    top:-10px!important;bottom:auto!important;
+    transform:none!important;
   }
 }
 /* Compact desktop: first-column CONTACT dot on LEFT, remaining
