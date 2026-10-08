@@ -4129,20 +4129,44 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
   html body .fixed-head > .secondary-nav{right:40px!important;top:40px!important;}
 }
 
-/* Narrow desktop browser windows (mouse/trackpad): retain the same 40px
-   navigation inset when the <=650px portrait rules become active. */
-@media (max-width:650px) and (orientation:portrait) and (hover:hover) and (pointer:fine){
-  html body .fixed-head{
-    padding-left:40px!important;
-    padding-right:40px!important;
-    padding-top:40px!important;
-  }
+/* Unified compact desktop navigation. Both menu blocks use the same
+   typography, line rhythm and 40px inset, including narrow mouse windows.
+   First compact row is aligned with the fifth primary navigation item. */
+@media (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  :root{--edge:40px;--head-pad-top:40px;--type-size:15px;--type-leading:1.42;--nav-gap:8px;}
+  html body .fixed-head{padding:40px 40px 0!important;}
   html body .fixed-head > nav.primary-nav{
-    margin-left:0!important;
-    padding-left:0!important;
+    display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+    margin:0!important;padding:0!important;gap:8px!important;
+    font-size:15px!important;line-height:1.42!important;letter-spacing:.16em!important;
+  }
+  html body .fixed-head > nav.primary-nav > a{
+    display:block!important;margin:0!important;padding:0!important;
+    font-size:15px!important;line-height:1.42!important;letter-spacing:.16em!important;
   }
   html body .fixed-head > .secondary-nav{
-    left:40px!important;
-    right:auto!important;
+    position:absolute!important;left:40px!important;right:auto!important;
+    top:calc(40px + 4 * (15px * 1.42 + 8px))!important;
+    margin:0!important;padding:0!important;
+    font-size:15px!important;line-height:1.42!important;letter-spacing:.16em!important;
+    grid-template-columns:95px 1.35em max-content 1.35em max-content 1.35em max-content!important;
+    grid-template-rows:repeat(2,calc(15px * 1.42 + 8px))!important;
+  }
+  html body .fixed-head > .secondary-nav > *{
+    font-size:15px!important;line-height:1.42!important;letter-spacing:.16em!important;
+  }
+  html body .fixed-head > .secondary-nav .mini-blog-separator{
+    grid-column:2!important;grid-row:1!important;display:block!important;
+    position:static!important;left:auto!important;transform:none!important;
+  }
+  html body .fixed-head > .secondary-nav a[href="#mini-blog"]{
+    grid-column:3 / 8!important;grid-row:1!important;transform:none!important;
+  }
+  html body .fixed-head > .secondary-nav a[href="#kontakt"]{
+    grid-column:1!important;grid-row:2!important;justify-self:start!important;
+    margin:0!important;padding:0!important;text-indent:0!important;
+  }
+  html body .fixed-head > .secondary-nav .language-toggle{
+    grid-column:5!important;grid-row:2!important;justify-self:start!important;
   }
 }
