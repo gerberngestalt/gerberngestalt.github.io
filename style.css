@@ -3170,7 +3170,7 @@ html body .fixed-head .secondary-nav b{
   opacity:0!important;
   pointer-events:none!important;
 }
-.fixed-head > .secondary-nav a[href="#kontakt"].active-secondary::before{opacity:1!important;}
+/* CONTACT active marker uses ::after in the unified dot system. */
 
 /* Shared gallery rhythm */
 .carousel .dots{
@@ -3366,9 +3366,7 @@ html body .fixed-head .secondary-nav b{
   .fixed-head > .secondary-nav a[href="#kontakt"]:hover::before{
     opacity:1!important;
   }
-  .fixed-head > .secondary-nav a[href="#kontakt"].active-secondary::before{
-    background:var(--accent)!important;
-  }
+
 }
 
 /* Phone portrait: every gallery title sits at HOME's 7 mm anchor.
@@ -4245,6 +4243,9 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
     background:#222!important;
   }
   html body .fixed-head > .secondary-nav > a[href="#kontakt"].active-secondary::before{
+    opacity:0!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"].active-secondary:hover::before{
     opacity:0!important;
   }
 }
