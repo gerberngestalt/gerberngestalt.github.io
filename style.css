@@ -2084,21 +2084,7 @@ html,body{overflow-x:hidden;}
 }
 .language-separator{display:none!important;}
 @media (hover:hover) and (pointer:fine){
-  .language-toggle::before{
-    content:"";
-    position:absolute;
-    width:6px;
-    height:6px;
-    border-radius:50%;
-    background:#000;
-    right:calc(100% + .52em);
-    top:50%;
-    transform:translateY(-50%);
-    opacity:0;
-    pointer-events:none;
-  }
   .language-toggle:hover{color:#000;}
-  .language-toggle:hover::before{opacity:1;}
 }
 @media (max-width:650px) and (orientation:portrait){
   .fixed-head > .secondary-nav{
@@ -4271,11 +4257,6 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
     left:calc(50% - 3px)!important;right:auto!important;
     top:-10px!important;bottom:auto!important;
     transform:none!important;background:#222!important;
-  }
-  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::after{
-    left:calc(50% - 3px)!important;right:auto!important;
-    top:-10px!important;bottom:auto!important;
-    transform:none!important;
   }
 }
 /* Compact desktop: one shared grid and one marker placement per item.
