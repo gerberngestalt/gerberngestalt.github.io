@@ -74,8 +74,6 @@ window.SITE_CONTENT = {
   },
 
   network: [
-    { label:'Miguel Guldimann, Solothurn', url:'https://www.zenmeditation.ch', display:'www.zenmeditation.ch' },
-    { label:'Niklaus Zumstein, Solothurn', url:'mailto:niklauszumstein@gmail.com', display:'niklauszumstein@gmail.com', spaceAfter:true },
-    { label:'Shambhala Zentrum, Bern', url:'https://bern.shambhala.org/', display:'bern.shambhala.org' }
+    { label:'Seminar für Gestalttherapie SfGT, Gestaltberatung und Gestaltphänomenologie', url:'https://www.sfgt.ch', display:'www.sfgt.ch' }
   ]
 };
