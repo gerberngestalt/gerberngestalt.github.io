@@ -4181,158 +4181,100 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
     margin-left:max(0px, calc(40px - (100vw - 100%) / 2))!important;
   }
 }
-
-/* Consistent mouse hover previews on both navigation rows.
-   Anchor each black marker to its own label, never to the grid container.
-   Active coloured dots continue to use their existing rules. */
+ 
+/* SINGLE NAVIGATION DOT SYSTEM (desktop + compact).
+   No overlapping marker overrides below this block. */
 @media (hover:hover) and (pointer:fine){
   html body .fixed-head .primary-nav > a,
   html body .fixed-head > .secondary-nav > a,
   html body .fixed-head > .secondary-nav > .language-toggle{
     position:relative!important;
-  }
-  html body .fixed-head .primary-nav > a::before,
-  html body .fixed-head > .secondary-nav > a::before,
-  html body .fixed-head > .secondary-nav > .language-toggle::before{
-    content:""!important;
-    position:absolute!important;
-    inset:auto!important;
-    left:auto!important;
-    right:calc(100% + .55em)!important;
-    top:50%!important;
-    width:6px!important;
-    height:6px!important;
-    border-radius:50%!important;
-    background:#222!important;
-    transform:translateY(-50%)!important;
-    margin:0!important;
-    opacity:0!important;
-    pointer-events:none!important;
-  }
-  html body .fixed-head .primary-nav > a:hover::before,
-  html body .fixed-head > .secondary-nav > a:hover::before,
-  html body .fixed-head > .secondary-nav > .language-toggle:hover::before{
-    opacity:1!important;
-  }
-  html body .fixed-head > .secondary-nav > a[href="#kontakt"].active-secondary::before{
-    background:var(--accent)!important;
-    opacity:1!important;
-  }
-}
-
-
-/* Secondary navigation dots: two predictable desktop layouts.
-   Keep primary navigation markers untouched. */
-@media (min-width:651px) and (min-height:651px) and (hover:hover) and (pointer:fine){
-  html body .fixed-head > .secondary-nav > a,
-  html body .fixed-head > .secondary-nav > .language-toggle{
-    position:relative!important;
     overflow:visible!important;
   }
-  /* Override historical per-link marker positions and colours. */
+  /* One pseudo-element for hover, one for active. */
+  html body .fixed-head .primary-nav > a::before,
   html body .fixed-head > .secondary-nav > a::before,
-  html body .fixed-head > .secondary-nav > a::after,
   html body .fixed-head > .secondary-nav > .language-toggle::before,
-  html body .fixed-head > .secondary-nav > .language-toggle::after{
+  html body .fixed-head > .secondary-nav > a::after{
     content:""!important;
     display:block!important;
     position:absolute!important;
     inset:auto!important;
+    box-sizing:border-box!important;
     width:6px!important;height:6px!important;
-    margin:0!important;padding:0!important;
-    border:0!important;border-radius:50%!important;
+    margin:0!important;padding:0!important;border:0!important;
+    border-radius:50%!important;
     background:#222!important;
-    pointer-events:none!important;
     opacity:0!important;
     transform:none!important;
+    pointer-events:none!important;
   }
   html body .fixed-head > .secondary-nav > a::after{
     background:var(--accent)!important;
   }
-  html body .fixed-head > .secondary-nav > a:hover::before{
+  /* Primary navigation always has its black hover marker to the LEFT.
+     Suppress it when the item is already active. */
+  html body .fixed-head .primary-nav > a::before{
+    left:auto!important;right:calc(100% + 9px)!important;
+    top:calc(50% - 3px)!important;bottom:auto!important;
+  }
+  html body .fixed-head .primary-nav > a:not(.active-section):hover::before{
     opacity:1!important;
+  }
+  html body .fixed-head .primary-nav > a.active-section:hover::before{
+    opacity:0!important;
+  }
+  html body .fixed-head > .secondary-nav > a:not(.active-secondary):hover::before,
+  html body .fixed-head > .secondary-nav > .language-toggle:hover::before{
+    opacity:1!important;
+  }
+  html body .fixed-head > .secondary-nav > a.active-secondary::before{
+    opacity:0!important;
   }
   html body .fixed-head > .secondary-nav > a.active-secondary::after{
     opacity:1!important;
   }
-  html body .fixed-head > .secondary-nav > a.active-secondary:hover::before{
-    opacity:0!important;
-  }
-  html body .fixed-head > .secondary-nav > .language-toggle:hover::before{
-    opacity:1!important;
-  }
 }
-@media (min-width:861px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+/* Wide desktop: secondary markers centred ABOVE labels, language BELOW. */
+@media (min-width:981px) and (min-height:651px) and (hover:hover) and (pointer:fine){
   html body .fixed-head > .secondary-nav > a::before,
   html body .fixed-head > .secondary-nav > a::after{
-    left:calc(50% - 3px)!important;
-    right:auto!important;
-    top:-10px!important;
-    bottom:auto!important;
+    left:calc(50% - 3px)!important;right:auto!important;
+    top:-11px!important;bottom:auto!important;
   }
   html body .fixed-head > .secondary-nav > .language-toggle::before{
-    left:calc(50% - 3px)!important;
-    right:auto!important;
-    top:auto!important;
-    bottom:-10px!important;
+    left:calc(50% - 3px)!important;right:auto!important;
+    top:auto!important;bottom:-11px!important;
   }
 }
-@media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
-  /* Reserve enough space after NETWORK for its dot, before the DE divider. */
+/* Compact desktop: first-column CONTACT dot on LEFT, remaining
+   secondary labels on RIGHT; reserve a clear language divider gap. */
+@media (min-width:651px) and (max-width:980px) and (min-height:651px) and (hover:hover) and (pointer:fine){
   html body .fixed-head > .secondary-nav{
-    grid-template-columns:95px 2.25em max-content 2.5em max-content 2.5em max-content!important;
+    grid-template-columns:max-content 1.35em max-content 1.65em max-content 2.5em max-content!important;
   }
   html body .fixed-head > .secondary-nav > a::before,
   html body .fixed-head > .secondary-nav > a::after,
   html body .fixed-head > .secondary-nav > .language-toggle::before{
-    left:calc(100% + 7px)!important;
-    right:auto!important;
-    top:calc(50% - 3px)!important;
-    bottom:auto!important;
+    left:calc(100% + 8px)!important;right:auto!important;
+    top:calc(50% - 3px)!important;bottom:auto!important;
   }
-}
-
-
-/* Navigation marker corrections: no duplicate dots; correct compact alignment. */
-@media (hover:hover) and (pointer:fine){
-  /* Primary: an active coloured dot never gains a second hover dot. */
-  html body .fixed-head > .primary-nav > a.active-section:hover::before{
-    opacity:0!important;
-  }
-  /* All secondary links: active colour and hover use the same marker. */
-  html body .fixed-head > .secondary-nav > a.active-secondary:hover::before{
-    opacity:0!important;
-  }
-  html body .fixed-head > .secondary-nav > a.active-secondary::after{
-    opacity:1!important;
-  }
-}
-@media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
-  /* CONTACT begins at the left edge, so its dot belongs on the left. */
   html body .fixed-head > .secondary-nav > a[href="#kontakt"]::before,
   html body .fixed-head > .secondary-nav > a[href="#kontakt"]::after{
-    left:auto!important;
-    right:calc(100% + 9px)!important;
-    top:calc(50% - 3px)!important;
-    bottom:auto!important;
-    transform:none!important;
-  }
-  /* Separate NETWORK from the language divider without shifting CONTACT. */
-  html body .fixed-head > .secondary-nav{
-    grid-template-columns:95px 2.25em max-content 2.5em max-content 3.4em max-content!important;
+    left:auto!important;right:calc(100% + 9px)!important;
+    top:calc(50% - 3px)!important;bottom:auto!important;
   }
 }
-/* Desktop secondary markers: cancel old translations and align exactly to text. */
-@media (min-width:861px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+/* Also provide predictable dots in phone layouts, without changing placement. */
+@media (max-width:650px) and (hover:hover) and (pointer:fine){
   html body .fixed-head > .secondary-nav > a::before,
-  html body .fixed-head > .secondary-nav > a::after{
-    transform:none!important;
-    top:-10px!important;
+  html body .fixed-head > .secondary-nav > a::after,
+  html body .fixed-head > .secondary-nav > .language-toggle::before{
+    left:calc(100% + 7px)!important;right:auto!important;
+    top:calc(50% - 3px)!important;bottom:auto!important;
   }
-}
-/* All desktop sizes: CONTACT uses the same vertical centre as its text. */
-@media (min-width:651px) and (min-height:651px) and (hover:hover) and (pointer:fine){
-  html body .fixed-head > .secondary-nav > a[href="#kontakt"].active-secondary::before{
-    opacity:0!important;
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::before,
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::after{
+    left:auto!important;right:calc(100% + 7px)!important;
   }
 }
