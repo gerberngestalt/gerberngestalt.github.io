@@ -3887,232 +3887,25 @@ html body .fixed-head .secondary-nav b{
   }
 }
 
-/* MINI-BLOG: additional carousel navigation. */
+/* MINI-BLOG: carousel placeholder. */
 #mini-blog .slide.empty{color:transparent!important;}
-.fixed-head > .secondary-nav .mini-blog-separator{display:inline-block;}
-/* Keep the compact transition available for the longer right-hand menu. */
-@media (min-width:651px) and (max-width:820px) and (min-height:651px){
-  html body .fixed-head > .secondary-nav{
-    display:flex!important;flex-wrap:nowrap!important;align-items:baseline!important;
-    position:absolute!important;left:var(--edge)!important;right:auto!important;
-    top:calc(var(--head-pad-top) + 5 * (var(--type-size) * var(--type-leading) + var(--nav-gap)) + .65 * var(--type-size) * var(--type-leading))!important;
-    width:max-content!important;
-  }
-  html body .fixed-head > .secondary-nav .language-toggle{
-    position:relative!important;left:auto!important;right:auto!important;top:auto!important;margin-left:1.15em!important;
-  }
-}
-@media (max-width:650px) and (orientation:portrait){
-  /* The MINI-BLOG link sits alongside GESTALT, with CONTACT/NETWORK below. */
-  html body .fixed-head > .secondary-nav{
-    top:calc(var(--head-pad-top) + 5 * (var(--type-size) * var(--type-leading) + var(--nav-gap)) + .58 * (var(--type-size) * var(--type-leading)))!important;
-  }
-  html body .fixed-head > .secondary-nav a[href="#mini-blog"],
-  html body .fixed-head > .secondary-nav .mini-blog-separator{
-    position:absolute!important;
-    bottom:calc(100% + var(--nav-gap))!important;
-  }
-  html body .fixed-head > .secondary-nav a[href="#mini-blog"]{
-    left:calc(100% + 2em)!important;
-    white-space:nowrap!important;
-  }
-  html body .fixed-head > .secondary-nav .mini-blog-separator{display:none!important;}
-}
 
-/* MINI-BLOG desktop: right navigation stays on the right above 820px. */
-@media (min-width:821px) and (min-height:651px){
-  html body .fixed-head > .secondary-nav{
-    position:absolute!important;
-    left:auto!important;
-    right:var(--edge)!important;
-    top:calc(var(--head-pad-top) + 4 * (var(--type-size) * var(--type-leading) + var(--nav-gap)))!important;
-    display:flex!important;
-    flex-wrap:nowrap!important;
-    width:max-content!important;
-    align-items:baseline!important;
-  }
-  html body .fixed-head > .secondary-nav .language-toggle{
-    position:relative!important;
-    left:auto!important;
-    right:auto!important;
-    top:auto!important;
-    margin-left:1.15em!important;
-  }
-}
-
-/* MINI-BLOG navigation: agreed two-line desktop/landscape and portrait layout. */
-@media (min-width:821px) and (min-height:651px),
-       (orientation:landscape) and (min-width:651px){
-  html body .fixed-head > .secondary-nav{
-    top:var(--head-pad-top)!important;
-    right:var(--edge)!important;
-    left:auto!important;
-    padding-bottom:calc(var(--type-size) * var(--type-leading) + var(--nav-gap))!important;
-  }
-  html body .fixed-head > .secondary-nav .language-toggle{
-    position:absolute!important;
-    top:calc(var(--type-size) * var(--type-leading) + var(--nav-gap))!important;
-    right:0!important;
-    left:auto!important;
-    margin:0!important;
-  }
-  html body .fixed-head > .secondary-nav .language-separator{display:none!important;}
-}
-@media (max-height:650px) and (orientation:landscape){
-  html body .fixed-head > .secondary-nav{
-    position:absolute!important;
-    display:flex!important;
-    flex-wrap:nowrap!important;
-    width:max-content!important;
-    top:var(--head-pad-top)!important;
-    right:var(--edge)!important;
-    left:auto!important;
-    padding-bottom:calc(var(--type-size) * var(--type-leading) + var(--nav-gap))!important;
-  }
-  html body .fixed-head > .secondary-nav .language-toggle{
-    position:absolute!important;
-    top:calc(var(--type-size) * var(--type-leading) + var(--nav-gap))!important;
-    right:0!important;
-    left:auto!important;
-    margin:0!important;
-  }
-  html body .fixed-head > .secondary-nav .language-separator{display:none!important;}
-}
-@media (max-width:650px) and (orientation:portrait){
-  html body .fixed-head > .secondary-nav{
-    position:absolute!important;
-    left:var(--edge)!important;
-    right:auto!important;
-    top:calc(var(--head-pad-top) + 5 * (var(--type-size) * var(--type-leading) + var(--nav-gap)))!important;
-    display:flex!important;
-    flex-wrap:nowrap!important;
-    align-items:baseline!important;
-    width:max-content!important;
-    gap:0!important;
-  }
-  html body .fixed-head > .secondary-nav a[href="#mini-blog"]{
-    position:absolute!important;
-    left:calc(100% + 2em)!important;
-    top:calc(-1 * (var(--type-size) * var(--type-leading) + var(--nav-gap)))!important;
-    bottom:auto!important;
-  }
-  html body .fixed-head > .secondary-nav .mini-blog-separator{
-    position:absolute!important;
-    display:block!important;
-    left:calc(100% + .15em)!important;
-    top:calc(-1 * (var(--type-size) * var(--type-leading) + var(--nav-gap)))!important;
-    bottom:auto!important;
-    margin:0!important;
-  }
-  html body .fixed-head > .secondary-nav .language-separator{display:inline-block!important;}
-  html body .fixed-head > .secondary-nav .language-toggle{
-    position:relative!important;
-    top:auto!important;
-    right:auto!important;
-    left:auto!important;
-    margin:0!important;
-  }
-}
-
-/* MINI-BLOG portrait correction: anchor the first row to GESTALT,
-   never to the variable width of CONTACT / NETWORK / DE. */
-@media (orientation:portrait) and (max-width:820px){
-  html body .fixed-head > .secondary-nav{
-    left:var(--edge)!important;
-    right:auto!important;
-    width:max-content!important;
-    display:flex!important;
-    flex-wrap:nowrap!important;
-    align-items:baseline!important;
-    gap:0!important;
-  }
-  html body .fixed-head > .secondary-nav .mini-blog-separator,
-  html body .fixed-head > .secondary-nav a[href="#mini-blog"]{
-    position:absolute!important;
-    bottom:auto!important;
-    margin:0!important;
-    white-space:nowrap!important;
-    top:calc(-1 * (var(--type-size) * var(--type-leading) + var(--nav-gap)))!important;
-  }
-  html body .fixed-head > .secondary-nav .mini-blog-separator{
-    display:block!important;
-    left:7.15em!important;
-  }
-  html body .fixed-head > .secondary-nav a[href="#mini-blog"]{
-    left:9.15em!important;
-  }
-  html body .fixed-head > .secondary-nav .language-separator{
-    display:inline-block!important;
-  }
-  html body .fixed-head > .secondary-nav .language-toggle{
-    position:relative!important;
-    top:auto!important;
-    left:auto!important;
-    right:auto!important;
-    margin:0!important;
-  }
-}
-
-/* Single grid for portrait nav: separators occupy real cells, never floating offsets. */
-@media (orientation:portrait) and (max-width:820px){
-  html body .fixed-head > .secondary-nav{
-    display:grid!important;
-    grid-template-columns:max-content 1.65em max-content 1.65em max-content 1.65em max-content!important;
-    grid-template-rows:repeat(2,calc(var(--type-size) * var(--type-leading) + var(--nav-gap)))!important;
-    align-items:start!important;
-    justify-items:center!important;
-    column-gap:0!important;
-    row-gap:0!important;
-    width:max-content!important;
-    left:var(--edge)!important;
-    right:auto!important;
-    top:calc(var(--head-pad-top) + 4 * (var(--type-size) * var(--type-leading) + var(--nav-gap)))!important;
-    padding:0!important;
-  }
-  html body .fixed-head > .secondary-nav > *{
-    position:static!important;
-    inset:auto!important;
-    margin:0!important;
-    padding:0!important;
-    transform:none!important;
-    align-self:start!important;
-    line-height:var(--type-leading)!important;
-  }
-  html body .fixed-head > .secondary-nav .mini-blog-separator{
-    display:block!important;grid-column:2!important;grid-row:1!important;
-  }
-  html body .fixed-head > .secondary-nav a[href="#mini-blog"]{
-    grid-column:3 / 6!important;grid-row:1!important;justify-self:start!important;
-  }
-  html body .fixed-head > .secondary-nav a[href="#kontakt"]{
-    grid-column:1!important;grid-row:2!important;justify-self:start!important;
-  }
-  html body .fixed-head > .secondary-nav > b:not(.mini-blog-separator):not(.language-separator){
-    grid-column:2!important;grid-row:2!important;
-  }
-  html body .fixed-head > .secondary-nav a[href="#netzwerk"]{
-    grid-column:3!important;grid-row:2!important;justify-self:start!important;
-  }
-  html body .fixed-head > .secondary-nav .language-separator{
-    display:block!important;grid-column:4!important;grid-row:2!important;
-  }
-  html body .fixed-head > .secondary-nav .language-toggle{
-    grid-column:5!important;grid-row:2!important;justify-self:start!important;
-  }
-}
-
-/* Unified navigation layout. Each link and separator has its own grid cell. */
+/* Navigation: one grid, with separators as genuine grid items.
+   Wide desktop and phone landscape: right-hand menu, DE below NETWORK.
+   Narrow windows and phone portrait: GESTALT | MINI-BLOG,
+   followed by CONTACT | NETWORK | DE. */
 html body .fixed-head > .secondary-nav{
-  display:grid!important;
   position:absolute!important;
-  flex-wrap:nowrap!important;
+  display:grid!important;
   width:max-content!important;
   height:auto!important;
   padding:0!important;
+  margin:0!important;
   gap:0!important;
+  flex-wrap:nowrap!important;
   align-items:baseline!important;
   justify-items:center!important;
-  grid-template-columns:max-content 2.2em max-content 2.2em max-content!important;
+  grid-template-columns:max-content 1.65em max-content 1.65em max-content!important;
   grid-template-rows:repeat(2,calc(var(--type-size) * var(--type-leading) + var(--nav-gap)))!important;
 }
 html body .fixed-head > .secondary-nav > *{
@@ -4132,24 +3925,46 @@ html body .fixed-head > .secondary-nav a[href="#kontakt"]{grid-column:3!importan
 html body .fixed-head > .secondary-nav > b:not(.mini-blog-separator):not(.language-separator):not(.blog-contact-separator){grid-column:4!important;grid-row:1!important;}
 html body .fixed-head > .secondary-nav a[href="#netzwerk"]{grid-column:5!important;grid-row:1!important;justify-self:start!important;}
 html body .fixed-head > .secondary-nav .language-separator{display:none!important;}
-html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;grid-row:2!important;justify-self:end!important;}
-@media (min-width:1121px){
- html body .fixed-head > .secondary-nav{
-   top:var(--head-pad-top)!important;right:var(--edge)!important;left:auto!important;
- }
+html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;grid-row:2!important;justify-self:end!important;display:block!important;}
+
+/* Wide layout */
+@media (min-width:1121px), (orientation:landscape) and (max-height:650px) and (min-width:651px){
+  html body .fixed-head > .secondary-nav{
+    top:var(--head-pad-top)!important;
+    right:var(--edge)!important;
+    left:auto!important;
+  }
 }
-@media (max-width:1120px){
- html body .fixed-head > .secondary-nav{
-   top:calc(var(--head-pad-top) + 4 * (var(--type-size) * var(--type-leading) + var(--nav-gap)))!important;
-   left:var(--edge)!important;right:auto!important;
-   grid-template-columns:max-content 1.65em max-content 1.65em max-content 1.65em max-content!important;
- }
- html body .fixed-head > .secondary-nav .mini-blog-separator{display:block!important;grid-column:2!important;grid-row:1!important;}
- html body .fixed-head > .secondary-nav a[href="#mini-blog"]{grid-column:3 / 8!important;grid-row:1!important;justify-self:start!important;}
- html body .fixed-head > .secondary-nav .blog-contact-separator{display:none!important;}
- html body .fixed-head > .secondary-nav a[href="#kontakt"]{grid-column:1!important;grid-row:2!important;}
- html body .fixed-head > .secondary-nav > b:not(.mini-blog-separator):not(.language-separator):not(.blog-contact-separator){grid-column:2!important;grid-row:2!important;}
- html body .fixed-head > .secondary-nav a[href="#netzwerk"]{grid-column:3!important;grid-row:2!important;}
- html body .fixed-head > .secondary-nav .language-separator{display:block!important;grid-column:4!important;grid-row:2!important;}
- html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;grid-row:2!important;justify-self:start!important;}
+/* Compact layout. The grid begins at the GESTALT baseline:
+   first grid row overlaps GESTALT horizontally, second row sits below. */
+@media (max-width:1120px) and (min-height:651px),
+       (orientation:portrait) and (max-width:650px){
+  html body .fixed-head > .secondary-nav{
+    top:calc(var(--head-pad-top) + 4 * (var(--type-size) * var(--type-leading) + var(--nav-gap)))!important;
+    left:var(--edge)!important;
+    right:auto!important;
+    grid-template-columns:max-content 1.65em max-content 1.65em max-content 1.65em max-content!important;
+  }
+  html body .fixed-head > .secondary-nav .mini-blog-separator{
+    display:block!important;grid-column:2!important;grid-row:1!important;
+  }
+  html body .fixed-head > .secondary-nav a[href="#mini-blog"]{
+    grid-column:3 / 8!important;grid-row:1!important;justify-self:start!important;
+  }
+  html body .fixed-head > .secondary-nav .blog-contact-separator{display:none!important;}
+  html body .fixed-head > .secondary-nav a[href="#kontakt"]{
+    grid-column:1!important;grid-row:2!important;justify-self:start!important;
+  }
+  html body .fixed-head > .secondary-nav > b:not(.mini-blog-separator):not(.language-separator):not(.blog-contact-separator){
+    grid-column:2!important;grid-row:2!important;
+  }
+  html body .fixed-head > .secondary-nav a[href="#netzwerk"]{
+    grid-column:3!important;grid-row:2!important;justify-self:start!important;
+  }
+  html body .fixed-head > .secondary-nav .language-separator{
+    display:block!important;grid-column:4!important;grid-row:2!important;
+  }
+  html body .fixed-head > .secondary-nav .language-toggle{
+    grid-column:5!important;grid-row:2!important;justify-self:start!important;
+  }
 }
