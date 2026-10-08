@@ -3777,3 +3777,23 @@ html body .fixed-head .secondary-nav b{
 }
 @media (max-width:650px) and (orientation:portrait){#netzwerk{margin-bottom:calc(-2 * var(--type-size) * var(--type-leading))!important;}}
 @media (max-height:650px) and (orientation:landscape){#netzwerk{margin-bottom:calc(-1 * var(--type-size) * var(--type-leading))!important;}}
+
+/* Controlled gallery swipes: no native horizontal fling across multiple slides. */
+.carousel .track{touch-action:pan-y;overscroll-behavior-x:contain;}
+.carousel .slide{scroll-snap-stop:always;}
+
+/* The dark START image is selected by a native picture/source element. */
+#start .slide picture{display:block;width:100%;height:100%;}
+#start .slide picture img{width:100%;height:100%;object-fit:contain;display:block;}
+
+/* Desktop carousel arrows sit in the white space, outside the images. */
+@media (min-width:901px) and (hover:hover) and (pointer:fine){
+  .carousel .prev{left:-51px;}
+  .carousel .next{right:-51px;}
+  .carousel .arrow:not([hidden]){opacity:.6;}
+  .carousel .arrow:hover:not([hidden]){opacity:1;}
+  .carousel .arrow::before,.carousel .arrow::after{background:#625a54;}
+}
+@media (min-width:901px) and (hover:hover) and (pointer:fine) and (prefers-color-scheme:dark){
+  .carousel .arrow::before,.carousel .arrow::after{background:#ded5ce;}
+}
