@@ -4402,3 +4402,26 @@ html body .fixed-head .language-toggle:focus::after{
     transform:translateY(-50%)!important;
   }
 }
+
+/* Anchor NETWORK markers to the actual word width, not its grid track.
+   Preserve the existing navigation columns and separator positions. */
+@media (min-width:651px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  html body .fixed-head > .secondary-nav > a[href="#netzwerk"]{
+    width:max-content!important;
+    min-width:0!important;
+    justify-self:start!important;
+    box-sizing:content-box!important;
+  }
+}
+@media (min-width:861px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  html body .fixed-head > .secondary-nav > a[href="#netzwerk"]{
+    justify-self:end!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#netzwerk"]::before,
+  html body .fixed-head > .secondary-nav > a[href="#netzwerk"].active-secondary::after{
+    left:50%!important;
+    right:auto!important;
+    transform:translateX(-50%)!important;
+    top:-10px!important;
+  }
+}
