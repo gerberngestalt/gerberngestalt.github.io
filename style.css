@@ -3845,16 +3845,24 @@ html body .fixed-head .secondary-nav b{
   }
 }
 
-/* One coherent compact header for medium desktop widths. */
-@media (min-width:651px) and (max-width:1150px) and (min-height:651px){
+/* Compact medium-width header: one breakpoint, all secondary links together. */
+@media (min-width:651px) and (max-width:1050px) and (min-height:651px){
   html body .fixed-head > .secondary-nav{
     display:flex!important;
     flex-wrap:nowrap!important;
+    align-items:baseline!important;
     position:absolute!important;
     left:var(--edge)!important;
     right:auto!important;
-    top:calc(var(--head-pad-top) + 5 * (var(--type-size) * var(--type-leading) + var(--nav-gap)) + .65 * var(--type-size) * var(--type-leading))!important;
+    top:calc(var(--head-pad-top) + 5 * (var(--type-size) * var(--type-leading) + var(--nav-gap)) + 0.65 * var(--type-size) * var(--type-leading))!important;
     width:max-content!important;
+  }
+  html body .fixed-head > .secondary-nav .language-toggle{
+    position:relative!important;
+    left:auto!important;
+    right:auto!important;
+    top:auto!important;
+    margin-left:1.15em!important;
   }
   html body .fixed-head .mark{
     position:fixed!important;
