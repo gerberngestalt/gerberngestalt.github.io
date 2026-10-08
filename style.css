@@ -4282,7 +4282,7 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
    Both rows align; separators occupy the gaps, not extra text columns. */
 @media (min-width:651px) and (max-width:860px) and (min-height:651px){
   html body .fixed-head > .secondary-nav{
-    grid-template-columns:105px 2.6em max-content 3.1em max-content!important;
+    grid-template-columns:105px 2.6em max-content 4.5em max-content!important;
   }
   html body .fixed-head > .secondary-nav > .mini-blog-separator{
     grid-column:2!important;grid-row:1!important;justify-self:center!important;
@@ -4321,7 +4321,7 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
   }
   /* NETWORK active sits after the word, before the EN separator. */
   html body .fixed-head > .secondary-nav > a[href="#netzwerk"]::after{
-    left:calc(100% + 9px)!important;right:auto!important;
+    left:calc(100% + 6px)!important;right:auto!important;
   }
 }
 /* Also provide predictable dots in phone layouts, without changing placement. */
