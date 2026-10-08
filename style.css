@@ -4282,7 +4282,29 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
    secondary labels on RIGHT; reserve a clear language divider gap. */
 @media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
   html body .fixed-head > .secondary-nav{
-    grid-template-columns:112px 1.7em max-content 1.65em max-content 5.5em max-content!important;
+    grid-template-columns:112px 2.5em max-content 2.5em max-content 3em max-content!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#mini-blog"]{
+    grid-column:3!important;grid-row:1!important;
+    justify-self:start!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#netzwerk"]{
+    grid-column:5!important;grid-row:2!important;
+    justify-self:start!important;
+  }
+  /* Keep the dividers centred in the widened spaces before the labels. */
+  html body .fixed-head > .secondary-nav > .mini-blog-separator{
+    grid-column:2!important;justify-self:center!important;
+  }
+  html body .fixed-head > .secondary-nav > b:not(.mini-blog-separator):not(.language-separator):not(.blog-contact-separator){
+    grid-column:4!important;justify-self:center!important;
+  }
+  /* Hover markers on the LEFT; active NETWORK marker stays on the RIGHT. */
+  html body .fixed-head > .secondary-nav > a[href="#mini-blog"]::before,
+  html body .fixed-head > .secondary-nav > a[href="#netzwerk"]::before{
+    left:auto!important;right:calc(100% + 8px)!important;
+    top:50%!important;bottom:auto!important;
+    transform:translateY(-50%)!important;
   }
   /* The language separator and toggle are grid items 6 and 7.
      Previous rules wrongly placed the toggle in column 5, next to NETWORK. */
