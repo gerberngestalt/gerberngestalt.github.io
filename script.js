@@ -614,6 +614,16 @@
     // finger and causes the visible jump/jitter on a fast swipe. On touch/mobile
     // layouts scrolling must stay completely native.
     if (window.matchMedia('(max-width: 900px), (pointer: coarse)').matches) return;
+    if (!location.hash || location.hash === '#start') {
+      window.clearTimeout(resizeSettleTimer);
+      resizeInProgress = true;
+      window.scrollTo({ top:0, left:0, behavior:'instant' });
+      resizeSettleTimer = window.setTimeout(function () {
+        window.scrollTo({ top:0, left:0, behavior:'instant' });
+        resizeInProgress = false;
+      }, 200);
+      return;
+    }
     resizeInProgress = true;
     window.clearTimeout(resizeSettleTimer);
 
