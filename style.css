@@ -3845,48 +3845,6 @@ html body .fixed-head .secondary-nav b{
   }
 }
 
-/* Medium desktop: transition at 820px. Phone styles remain independent. */
-@media (min-width:651px) and (max-width:820px) and (min-height:651px){
-  html body .fixed-head > .secondary-nav{
-    display:flex!important;
-    flex-wrap:nowrap!important;
-    align-items:baseline!important;
-    position:absolute!important;
-    left:var(--edge)!important;
-    right:auto!important;
-    top:calc(var(--head-pad-top) + 5 * (var(--type-size) * var(--type-leading) + var(--nav-gap)) + .65 * var(--type-size) * var(--type-leading))!important;
-    width:max-content!important;
-  }
-  html body .fixed-head > .secondary-nav .language-toggle{
-    position:relative!important;
-    left:auto!important;
-    right:auto!important;
-    top:auto!important;
-    margin-left:1.15em!important;
-  }
-  html body .fixed-head .mark{
-    position:fixed!important;
-    left:48%!important;
-    right:auto!important;
-    top:70px!important;
-    width:66px!important;
-    height:66px!important;
-    overflow:visible!important;
-    transform:translateX(-50%)!important;
-  }
-  html body .fixed-head button.mark > img.mark-dot{
-    position:absolute!important;
-    left:0!important;
-    top:0!important;
-    width:66px!important;
-    min-width:66px!important;
-    height:auto!important;
-    max-width:none!important;
-    max-height:none!important;
-    transform:none!important;
-  }
-}
-
 /* MINI-BLOG: carousel placeholder. */
 #mini-blog .slide.empty{color:transparent!important;}
 
@@ -3943,7 +3901,7 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
     top:calc(var(--head-pad-top) + 4 * (var(--type-size) * var(--type-leading) + var(--nav-gap)))!important;
     left:var(--edge)!important;
     right:auto!important;
-    grid-template-columns:max-content 1.65em max-content 1.65em max-content 1.65em max-content!important;
+    grid-template-columns:130px 1.65em max-content 1.65em max-content 1.65em max-content!important;
   }
   html body .fixed-head > .secondary-nav .mini-blog-separator{
     display:block!important;grid-column:2!important;grid-row:1!important;
@@ -3966,5 +3924,26 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
   }
   html body .fixed-head > .secondary-nav .language-toggle{
     grid-column:5!important;grid-row:2!important;justify-self:start!important;
+  }
+}
+
+
+/* Responsive desktop consolidation: one transition at 1120px.
+   Keep gallery dimensions unchanged; stabilize title vertical anchor. */
+@media (min-width:651px) and (min-height:651px){
+  html body main .section{justify-content:flex-start!important;padding-top:14mm!important;}
+  html body main .section .window-group{margin-top:0!important;transform:none!important;}
+}
+@media (min-width:651px) and (max-width:1120px) and (min-height:651px){
+  html body .fixed-head .mark{
+    position:fixed!important;left:clamp(270px,38vw,410px)!important;
+    right:auto!important;top:70px!important;
+    width:66px!important;height:66px!important;
+    transform:translateX(-50%)!important;overflow:visible!important;
+  }
+  html body .fixed-head button.mark > img.mark-dot{
+    position:absolute!important;left:0!important;top:0!important;
+    width:66px!important;min-width:66px!important;height:auto!important;
+    max-width:none!important;max-height:none!important;transform:none!important;
   }
 }
