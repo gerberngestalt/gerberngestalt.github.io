@@ -3971,3 +3971,11 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
   html body .fixed-head .mark{left:265px!important;top:50px!important;width:66px!important;height:66px!important;}
   html body .fixed-head button.mark > img.mark-dot{width:66px!important;min-width:66px!important;}
 }
+
+/* Compact layout: shift only MINI-BLOG and its preceding divider 2 mm left. */
+@media (min-width:651px) and (max-width:860px) and (min-height:651px){
+  html body .fixed-head > .secondary-nav .mini-blog-separator,
+  html body .fixed-head > .secondary-nav a[href="#mini-blog"]{
+    transform:translateX(-2mm)!important;
+  }
+}
