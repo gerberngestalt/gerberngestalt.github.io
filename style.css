@@ -3182,7 +3182,7 @@ html body .fixed-head .secondary-nav b{
 .window-group .section-title{margin-top:0!important;}
 
 /* Desktop */
-@media (min-width:901px){
+@media (min-width:981px){
   .section{
     justify-content:flex-start!important;
     padding-top:14mm!important;
@@ -3845,8 +3845,8 @@ html body .fixed-head .secondary-nav b{
   }
 }
 
-/* Compact medium-width header: one breakpoint, all secondary links together. */
-@media (min-width:651px) and (max-width:1050px) and (min-height:651px){
+/* Medium desktop: one transition at 980px. Phone styles remain independent. */
+@media (min-width:651px) and (max-width:980px) and (min-height:651px){
   html body .fixed-head > .secondary-nav{
     display:flex!important;
     flex-wrap:nowrap!important;
@@ -3854,7 +3854,7 @@ html body .fixed-head .secondary-nav b{
     position:absolute!important;
     left:var(--edge)!important;
     right:auto!important;
-    top:calc(var(--head-pad-top) + 5 * (var(--type-size) * var(--type-leading) + var(--nav-gap)) + 0.65 * var(--type-size) * var(--type-leading))!important;
+    top:calc(var(--head-pad-top) + 5 * (var(--type-size) * var(--type-leading) + var(--nav-gap)) + .65 * var(--type-size) * var(--type-leading))!important;
     width:max-content!important;
   }
   html body .fixed-head > .secondary-nav .language-toggle{
@@ -3869,15 +3869,20 @@ html body .fixed-head .secondary-nav b{
     left:48%!important;
     right:auto!important;
     top:70px!important;
-    width:58px!important;
-    height:58px!important;
+    width:66px!important;
+    height:66px!important;
+    overflow:visible!important;
     transform:translateX(-50%)!important;
   }
   html body .fixed-head button.mark > img.mark-dot{
-    width:58px!important;
-    min-width:58px!important;
+    position:absolute!important;
+    left:0!important;
+    top:0!important;
+    width:66px!important;
+    min-width:66px!important;
     height:auto!important;
     max-width:none!important;
     max-height:none!important;
+    transform:none!important;
   }
 }
