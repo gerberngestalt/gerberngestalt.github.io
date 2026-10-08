@@ -9,7 +9,8 @@ window.SITE_CONTENT = {
     title_en: 'HOME',
     images: [
       { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/start/logo1.jpg' },
-      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/start/logo2.jpg', image_dark:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/start/logo2_dark.jpg' }
+      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/start/logo2.jpg', image_dark:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/start/logo2_dark.jpg' },
+      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/start/logo3.jpg' }
     ]
   },
 
