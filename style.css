@@ -3886,7 +3886,7 @@ html body .fixed-head > .secondary-nav .language-separator{display:none!importan
 html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;grid-row:2!important;justify-self:end!important;display:block!important;}
 
 /* Wide layout */
-@media (min-width:981px), (orientation:landscape) and (max-height:650px) and (min-width:651px){
+@media (min-width:861px), (orientation:landscape) and (max-height:650px) and (min-width:651px){
   html body .fixed-head > .secondary-nav{
     top:var(--head-pad-top)!important;
     right:var(--edge)!important;
@@ -3895,7 +3895,7 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
 }
 /* Compact layout. The grid begins at the GESTALT baseline:
    first grid row overlaps GESTALT horizontally, second row sits below. */
-@media (max-width:980px) and (min-height:651px),
+@media (max-width:860px) and (min-height:651px),
        (orientation:portrait) and (max-width:650px){
   html body .fixed-head > .secondary-nav{
     top:calc(var(--head-pad-top) + 4 * (var(--type-size) * var(--type-leading) + var(--nav-gap)))!important;
@@ -3954,13 +3954,20 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
   }
 }
 /* Compact navigation: the separators share identical column widths. */
-@media (min-width:651px) and (max-width:980px) and (min-height:651px){
+@media (min-width:651px) and (max-width:860px) and (min-height:651px){
   html body .fixed-head > .secondary-nav{
     grid-template-columns:max-content 1.65em max-content 1.65em max-content 1.65em max-content!important;
   }
 }
 
 /* Desktop compact: reserve clear space between header and HOME title. */
-@media (min-width:651px) and (max-width:980px) and (min-height:651px){
+@media (min-width:651px) and (max-width:860px) and (min-height:651px){
   html body main .section{padding-top:27mm!important;}
+}
+
+/* Final compact alignment: tighter first separator and stone next to navigation. */
+@media (min-width:651px) and (max-width:860px) and (min-height:651px){
+  html body .fixed-head > .secondary-nav{grid-template-columns:max-content 1.35em max-content 1.65em max-content 1.65em max-content!important;}
+  html body .fixed-head .mark{left:265px!important;top:50px!important;width:66px!important;height:66px!important;}
+  html body .fixed-head button.mark > img.mark-dot{width:66px!important;min-width:66px!important;}
 }
