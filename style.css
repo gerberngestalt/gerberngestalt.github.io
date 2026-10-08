@@ -4180,6 +4180,11 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
   }
 }
  
+/* Wide desktop: two additional text lines of scroll runway after legal links. */
+@media (min-width:901px) and (min-height:651px){
+  html body main > .end-spacer{height:calc(clamp(120px,18vh,190px) + 58px)!important;}
+}
+
 /* SINGLE NAVIGATION DOT SYSTEM (desktop + compact).
    No overlapping marker overrides below this block. */
 @media (hover:hover) and (pointer:fine){
