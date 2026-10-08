@@ -3992,7 +3992,7 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
    Use fixed grid tracks, rather than widths derived from translated labels. */
 @media (min-width:651px) and (max-width:860px) and (min-height:651px){
   html body .fixed-head > .secondary-nav{
-    grid-template-columns: 143px 20px 155px 20px 50px 20px 1px!important;
+    grid-template-columns: max-content 1.35em max-content 1.35em max-content 1.35em max-content!important;
   }
   html body .fixed-head > .secondary-nav .mini-blog-separator{
     position:static!important;left:auto!important;transform:none!important;
