@@ -3979,3 +3979,11 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
     transform:translateX(-2mm)!important;
   }
 }
+
+/* The divider has its own grid placement: shift that glyph explicitly. */
+@media (min-width:651px) and (max-width:860px) and (min-height:651px){
+  html body .fixed-head > .secondary-nav .mini-blog-separator{
+    position:relative!important;
+    left:-2mm!important;
+  }
+}
