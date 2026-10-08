@@ -3836,3 +3836,11 @@ html body .fixed-head .secondary-nav b{
   html body .carousel .arrow::before,
   html body .carousel .arrow::after{background:#ded5ce!important;}
 }
+
+/* Phone portrait: align NETWORK heading vertically with gallery headings. */
+@media (max-width:650px) and (orientation:portrait){
+  #netzwerk.list-section{
+    padding-top:7mm!important;
+    scroll-margin-top:var(--head)!important;
+  }
+}
