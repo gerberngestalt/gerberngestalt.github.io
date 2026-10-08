@@ -23,7 +23,7 @@ window.SITE_CONTENT = {
   angebot: {
     title: 'ANGEBOT',
     title_en: 'WHAT I DO',
-    images: ['images/angebot/ab-maerz.jpg', '../aktuell/ig-a-side.jpg','../aktuell/ig-b-side.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/angebot/wood-stamp.jpg']
+    images: ['images/angebot/ab-maerz.jpg', 'images/angebot/mein-angebot.jpg', '../aktuell/ig-a-side.jpg','../aktuell/ig-b-side.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/angebot/wood-stamp.jpg']
   },
 
   praktisches: {
