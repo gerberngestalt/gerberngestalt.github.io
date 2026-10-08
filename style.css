@@ -4170,3 +4170,13 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
     grid-column:5!important;grid-row:2!important;justify-self:start!important;
   }
 }
+
+/* Gallery titles may follow the centered window, but never pass the
+   40px navigation inset. Keep the carousel itself centered. */
+@media (min-width:651px) and (min-height:651px){
+  html body main .section .window-group > .section-title{
+    margin-left:0!important;
+    left:max(0px, calc(40px - (100vw - 100%) / 2))!important;
+    transform:none!important;
+  }
+}
