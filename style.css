@@ -4037,28 +4037,30 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
 }
 
 
-/* Unified desktop navigation geometry. Phone <=650px remains unchanged.
-   Desktop text stays at one size; only the secondary menu reflows. */
+/* Single compact desktop header geometry; phone rules unchanged.
+   Explicitly reset inherited spacing from older breakpoint rules. */
 @media (min-width:651px) and (min-height:651px){
-  :root{
-    --edge:54px;
-    --head-pad-top:42px;
-    --type-size:15px;
-    --type-leading:1.42;
-    --nav-gap:8px;
-  }
-  html body .fixed-head{
-    padding:42px 54px 0!important;
-  }
-  html body .fixed-head nav{
+  :root{--type-size:15px;--type-leading:1.42;--nav-gap:8px;}
+  html body .fixed-head > nav.primary-nav{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
     position:static!important;
+    margin:0!important;
+    padding:0!important;
+    gap:8px!important;
     font-size:15px!important;
     line-height:1.42!important;
     letter-spacing:.16em!important;
-    gap:8px!important;
   }
-  html body .fixed-head nav a,
-  html body .fixed-head nav span,
+  html body .fixed-head > nav.primary-nav > a{
+    display:block!important;
+    margin:0!important;
+    padding:0!important;
+    font-size:15px!important;
+    line-height:1.42!important;
+    letter-spacing:.16em!important;
+  }
   html body .fixed-head > .secondary-nav,
   html body .fixed-head > .secondary-nav > *{
     font-size:15px!important;
@@ -4070,18 +4072,31 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
   }
 }
 @media (min-width:651px) and (max-width:860px) and (min-height:651px){
-  :root{--edge:22px;--head-pad-top:18px;}
-  html body .fixed-head{padding:18px 22px 0!important;}
+  :root{--edge:42px;--head-pad-top:42px;}
+  html body .fixed-head{
+    padding:42px 42px 0!important;
+  }
   html body .fixed-head > .secondary-nav{
-    left:22px!important;
+    left:42px!important;
     right:auto!important;
-    top:calc(18px + 4 * (15px * 1.42 + 8px))!important;
+    top:calc(42px + 4 * (15px * 1.42 + 8px))!important;
+    margin-left:0!important;
+    padding-left:0!important;
+    justify-items:start!important;
+  }
+  html body .fixed-head > .secondary-nav a[href="#kontakt"]{
+    grid-column:1!important;
+    justify-self:start!important;
+    margin-left:0!important;
+    padding-left:0!important;
+    text-indent:0!important;
+    transform:none!important;
   }
 }
 @media (min-width:861px) and (min-height:651px){
+  :root{--edge:54px;--head-pad-top:42px;}
+  html body .fixed-head{padding:42px 54px 0!important;}
   html body .fixed-head > .secondary-nav{
-    left:auto!important;
-    right:54px!important;
-    top:42px!important;
+    left:auto!important;right:54px!important;top:42px!important;
   }
 }
