@@ -4171,12 +4171,51 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
   }
 }
 
-/* Gallery titles may follow the centered window, but never pass the
-   40px navigation inset. Keep the carousel itself centered. */
+/* Keep gallery headings on or to the right of the primary navigation inset.
+   The carousel and its centered window are not moved. */
 @media (min-width:651px) and (min-height:651px){
   html body main .section .window-group > .section-title{
-    margin-left:0!important;
-    left:max(0px, calc(40px - (100vw - 100%) / 2))!important;
+    position:relative!important;
+    left:auto!important;
     transform:none!important;
+    margin-left:max(0px, calc(40px - (100vw - min(50vw, 500px, calc(100dvh - var(--head) - var(--foot) - 105px))) / 2))!important;
+  }
+}
+
+/* Consistent mouse hover previews on both navigation rows.
+   Anchor each black marker to its own label, never to the grid container.
+   Active coloured dots continue to use their existing rules. */
+@media (hover:hover) and (pointer:fine){
+  html body .fixed-head .primary-nav > a,
+  html body .fixed-head > .secondary-nav > a,
+  html body .fixed-head > .secondary-nav > .language-toggle{
+    position:relative!important;
+  }
+  html body .fixed-head .primary-nav > a::before,
+  html body .fixed-head > .secondary-nav > a::before,
+  html body .fixed-head > .secondary-nav > .language-toggle::before{
+    content:""!important;
+    position:absolute!important;
+    inset:auto!important;
+    left:auto!important;
+    right:calc(100% + .55em)!important;
+    top:50%!important;
+    width:6px!important;
+    height:6px!important;
+    border-radius:50%!important;
+    background:#222!important;
+    transform:translateY(-50%)!important;
+    margin:0!important;
+    opacity:0!important;
+    pointer-events:none!important;
+  }
+  html body .fixed-head .primary-nav > a:hover::before,
+  html body .fixed-head > .secondary-nav > a:hover::before,
+  html body .fixed-head > .secondary-nav > .language-toggle:hover::before{
+    opacity:1!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"].active-secondary::before{
+    background:var(--accent)!important;
+    opacity:1!important;
   }
 }
