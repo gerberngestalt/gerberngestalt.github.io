@@ -4023,3 +4023,15 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
     margin-top:22px!important;
   }
 }
+
+/* NETWORK: extra scroll runway below PRIVACY, about three text lines.
+   Keep the existing positions of the entries and legal details. */
+@media (min-width:901px) and (min-height:651px){
+  #netzwerk{padding-bottom:105px!important;}
+}
+
+/* Gallery controls: quieter grey, comparable to the language switch. */
+@media (prefers-color-scheme:light){
+  html body .carousel .arrow::before,
+  html body .carousel .arrow::after{background:#a7a7a7!important;}
+}
