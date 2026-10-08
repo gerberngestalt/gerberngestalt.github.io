@@ -46,7 +46,7 @@ window.SITE_CONTENT = {
   miniBlog: {
     title: 'MINI-BLOG',
     title_en: 'MINI-BLOG',
-    images: [] // Add slide paths here, e.g. 'images/mini-blog/01.jpg'
+    images: ['miniblog/potato-stamp.jpg']
   },
 
   kontakt: {
