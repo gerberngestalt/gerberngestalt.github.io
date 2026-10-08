@@ -577,7 +577,8 @@
     const available = limits.bottom - limits.top;
     const r = group.getBoundingClientRect();
     if (r.height > available) return;
-    const desiredTop = window.matchMedia('(max-width:650px)').matches
+    const compactDesktop = window.matchMedia('(min-width:651px) and (max-width:860px) and (min-height:651px)').matches;
+    const desiredTop = window.matchMedia('(max-width:650px)').matches || compactDesktop
       ? limits.top + (available - r.height) / 2
       : (document.querySelector('.fixed-head')?.getBoundingClientRect().height || 0) + (8 * 96 / 25.4);
     const absoluteTop = window.scrollY + r.top;
@@ -738,7 +739,11 @@
       }
       if (history.replaceState) history.replaceState(null, '', id);
       const mobileClick = window.matchMedia('(max-width:650px)').matches;
-      const desiredTop = mobileClick ? galleryLimits().top : (document.querySelector('.fixed-head')?.getBoundingClientRect().height || 0) + (8 * 96 / 25.4);
+      const compactDesktopClick = window.matchMedia('(min-width:651px) and (max-width:860px) and (min-height:651px)').matches;
+      const limitsForClick = galleryLimits();
+      const desiredTop = compactDesktopClick
+        ? limitsForClick.top + (limitsForClick.bottom - limitsForClick.top - group.getBoundingClientRect().height) / 2
+        : mobileClick ? limitsForClick.top : (document.querySelector('.fixed-head')?.getBoundingClientRect().height || 0) + (8 * 96 / 25.4);
       const targetTop = window.scrollY + group.getBoundingClientRect().top - desiredTop;
       window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
     });
