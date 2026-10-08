@@ -4278,67 +4278,50 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
     transform:none!important;
   }
 }
-/* Compact desktop: first-column CONTACT dot on LEFT, remaining
-   secondary labels on RIGHT; reserve a clear language divider gap. */
-@media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+/* Compact desktop: one shared grid and one marker placement per item.
+   Both rows align; separators occupy the gaps, not extra text columns. */
+@media (min-width:651px) and (max-width:860px) and (min-height:651px){
   html body .fixed-head > .secondary-nav{
-    grid-template-columns:95px 2.5em max-content 2em max-content 3.7em max-content!important;
+    grid-template-columns:105px 2.6em max-content 3.1em max-content!important;
+  }
+  html body .fixed-head > .secondary-nav > .mini-blog-separator{
+    grid-column:2!important;grid-row:1!important;justify-self:center!important;
   }
   html body .fixed-head > .secondary-nav > a[href="#mini-blog"]{
-    grid-column:3!important;grid-row:1!important;
-    justify-self:start!important;
+    grid-column:3!important;grid-row:1!important;justify-self:start!important;
   }
-  html body .fixed-head > .secondary-nav > a[href="#netzwerk"]{
-    grid-column:5!important;grid-row:2!important;
-    justify-self:start!important;
-  }
-  /* Keep the dividers centred in the widened spaces before the labels. */
-  html body .fixed-head > .secondary-nav > .mini-blog-separator{
-    grid-column:2!important;justify-self:center!important;
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]{
+    grid-column:1!important;grid-row:2!important;justify-self:start!important;
   }
   html body .fixed-head > .secondary-nav > b:not(.mini-blog-separator):not(.language-separator):not(.blog-contact-separator){
-    grid-column:4!important;justify-self:center!important;
+    grid-column:2!important;grid-row:2!important;justify-self:center!important;
   }
-  /* Hover markers on the LEFT; active NETWORK marker stays on the RIGHT. */
-  html body .fixed-head > .secondary-nav > a[href="#mini-blog"]::before,
-  html body .fixed-head > .secondary-nav > a[href="#netzwerk"]::before{
-    left:auto!important;right:calc(100% + 8px)!important;
-    top:50%!important;bottom:auto!important;
-    transform:translateY(-50%)!important;
+  html body .fixed-head > .secondary-nav > a[href="#netzwerk"]{
+    grid-column:3!important;grid-row:2!important;justify-self:start!important;
   }
-  /* The language separator and toggle are grid items 6 and 7.
-     Previous rules wrongly placed the toggle in column 5, next to NETWORK. */
   html body .fixed-head > .secondary-nav > .language-separator{
-    grid-column:6!important;grid-row:2!important;
-    justify-self:center!important;
-    display:block!important;
+    grid-column:4!important;grid-row:2!important;justify-self:center!important;
+    position:static!important;left:auto!important;
   }
   html body .fixed-head > .secondary-nav > .language-toggle{
-    grid-column:7!important;grid-row:2!important;
-    justify-self:start!important;
-    margin:0!important;
+    grid-column:5!important;grid-row:2!important;justify-self:start!important;
+    position:static!important;left:auto!important;margin:0!important;
   }
+}
+@media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
   html body .fixed-head > .secondary-nav > a::before,
-  html body .fixed-head > .secondary-nav > a::after,
-  html body .fixed-head > .secondary-nav > .language-toggle::before{
-    left:calc(100% + 8px)!important;right:auto!important;
-    top:50%!important;bottom:auto!important;
-    transform:translateY(-50%)!important;
+  html body .fixed-head > .secondary-nav > a::after{
+    inset:auto!important;left:auto!important;right:calc(100% + 8px)!important;
+    top:50%!important;bottom:auto!important;transform:translateY(-50%)!important;
   }
-  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::before{
-    left:auto!important;right:calc(100% + 9px)!important;
-    top:50%!important;bottom:auto!important;
-    transform:translateY(-50%)!important;
-  }
+  /* CONTACT active and hover both sit before the label. */
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::before,
   html body .fixed-head > .secondary-nav > a[href="#kontakt"]::after{
-    left:calc(100% + 9px)!important;right:auto!important;
-    top:50%!important;bottom:auto!important;
-    transform:translateY(-50%)!important;
+    left:auto!important;right:calc(100% + 9px)!important;
   }
-  html body .fixed-head > .secondary-nav > .language-toggle::before{
-    left:auto!important;right:calc(100% + 10px)!important;
-    top:50%!important;bottom:auto!important;
-    transform:translateY(-50%)!important;
+  /* NETWORK active sits after the word, before the EN separator. */
+  html body .fixed-head > .secondary-nav > a[href="#netzwerk"]::after{
+    left:calc(100% + 9px)!important;right:auto!important;
   }
 }
 /* Also provide predictable dots in phone layouts, without changing placement. */
@@ -4366,33 +4349,4 @@ html body .fixed-head .language-toggle:focus::after{
   content:none!important;
   display:none!important;
   opacity:0!important;
-}
-
-@media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
-  /* Hover sits before MINI-BLOG and NETWORK, despite the general rule above. */
-  html body .fixed-head > .secondary-nav > a[href="#mini-blog"]::before,
-  html body .fixed-head > .secondary-nav > a[href="#netzwerk"]::before{
-    inset:auto!important;
-    left:auto!important;right:calc(100% + 8px)!important;
-    top:50%!important;bottom:auto!important;
-    transform:translateY(-50%)!important;
-  }
-  /* CONTACT active is to the right, not before the word. */
-  html body .fixed-head > .secondary-nav > a[href="#kontakt"].active-secondary::after{
-    inset:auto!important;
-    left:calc(100% + 9px)!important;right:auto!important;
-    top:50%!important;bottom:auto!important;
-    transform:translateY(-50%)!important;
-  }
-}
-
-@media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
-  html body .fixed-head > .secondary-nav > .language-separator{
-    position:relative!important;
-    left:12px!important;
-  }
-  html body .fixed-head > .secondary-nav > .language-toggle{
-    position:relative!important;
-    left:12px!important;
-  }
 }
