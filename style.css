@@ -3797,3 +3797,17 @@ html body .fixed-head .secondary-nav b{
 @media (min-width:901px) and (hover:hover) and (pointer:fine) and (prefers-color-scheme:dark){
   .carousel .arrow::before,.carousel .arrow::after{background:#ded5ce;}
 }
+
+/* Dark START slide 2: CSS controls the visible image independently of JS
+   and of the browser's <picture> source selection. */
+@media (prefers-color-scheme: dark) {
+  .carousel[data-gallery="start"] .slide:nth-child(2) picture {
+    background-image: url("images/start/logo2_dark.jpg"), url("images/start/logo2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .carousel[data-gallery="start"] .slide:nth-child(2) picture img {
+    visibility: hidden;
+  }
+}
