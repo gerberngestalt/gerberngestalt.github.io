@@ -43,13 +43,26 @@
     return { base:entry || '', en:enList[index] || '', dark:'', alt:altList[index] || '' };
   }
 
-  function desiredImageName(spec, key) {
-    const normal = currentLanguage === 'en' && spec.en ? spec.en : spec.base;
-    if (key === 'start' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      // The dark companion is optional: logo1.jpg -> logo1_dark.jpg.
-      return spec.dark || normal.replace(/(\.[^./?#]+)([?#].*)?$/, '_dark$1$2');
-    }
-    return normal;
+  function galleryImageCandidates(spec, key) {
+    const darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const english = currentLanguage === 'en';
+    const withSuffix = (url, suffix) => url.replace(/(\.[^./?#]+)([?#].*)?$/, suffix + '$1$2');
+    const englishImage = spec.en || withSuffix(spec.base, '_en');
+    const englishDark = withSuffix(englishImage, '_dark');
+    const baseDark = spec.dark || withSuffix(spec.base, '_dark');
+    const candidates = [];
+    if (english && darkMode) candidates.push(englishDark);
+    if (english) candidates.push(englishImage);
+    if (darkMode && key === 'start') candidates.push(baseDark);
+    candidates.push(spec.base);
+    return [...new Set(candidates.filter(Boolean))];
+  }
+
+  function setGalleryImage(img, spec, key) {
+    const candidates = galleryImageCandidates(spec, key);
+    img.dataset.imageCandidates = JSON.stringify(candidates);
+    img.dataset.imageAttempt = '0';
+    img.src = candidates[0];
   }
 
   // v52: one random saturated-pastel original dot image per page load.
@@ -195,24 +208,18 @@
       img.dataset.imageIndex = String(index);
       img.dataset.baseName = spec.base;
       img.dataset.enName = spec.en;
-      img.dataset.darkName = desiredImageName(spec, key) !== (currentLanguage === 'en' && spec.en ? spec.en : spec.base) ? desiredImageName(spec, key) : '';
-      const wantedName = desiredImageName(spec, key);
-      img.src = /^https?:\/\//i.test(wantedName) ? wantedName : 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/images/' + key + '/' + wantedName;
       img.loading = 'lazy';
       img.decoding = 'async';
       img.alt = spec.alt;
       img.onerror = function () {
-        // Never destroy the slide: theme changes must remain reversible.
-        if (img.dataset.darkName && img.src === img.dataset.darkName && !img.dataset.darkFellBack) {
-          img.dataset.darkFellBack = '1';
-          img.src = img.dataset.baseName;
+        const candidates = JSON.parse(img.dataset.imageCandidates || '[]');
+        const next = Number(img.dataset.imageAttempt || '0') + 1;
+        if (next < candidates.length) {
+          img.dataset.imageAttempt = String(next);
+          img.src = candidates[next];
           return;
         }
-        if (currentLanguage === 'en' && img.dataset.enName && !img.dataset.fellBack) {
-          img.dataset.fellBack = '1';
-          img.src = img.dataset.baseName;
-          return;
-        }
+        // A missing optional variant must never remove the slide.
         slide.classList.add('missing');
         img.style.visibility = 'hidden';
       };
@@ -220,6 +227,7 @@
         slide.classList.remove('missing');
         img.style.visibility = '';
       };
+      setGalleryImage(img, spec, key);
       slide.appendChild(img);
       track.appendChild(slide);
 
@@ -402,14 +410,10 @@
         const spec = galleryImageSpec(data, entries[index], index);
         const slide = img.closest('.slide');
         if (slide) slide.classList.remove('missing');
-        delete img.dataset.fellBack;
         img.dataset.baseName = spec.base;
         img.dataset.enName = spec.en;
-        delete img.dataset.darkFellBack;
-        img.dataset.darkName = desiredImageName(spec, key) !== (currentLanguage === 'en' && spec.en ? spec.en : spec.base) ? desiredImageName(spec, key) : '';
         img.alt = spec.alt;
-        const wanted = desiredImageName(spec, key);
-        if (wanted) img.src = /^https?:\/\//i.test(wanted) ? wanted : 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/images/' + key + '/' + wanted;
+        setGalleryImage(img, spec, key);
       });
     });
   }
