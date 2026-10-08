@@ -580,7 +580,7 @@
     const compactDesktop = window.matchMedia('(min-width:651px) and (max-width:860px) and (min-height:651px)').matches;
     const desiredTop = window.matchMedia('(max-width:650px)').matches || compactDesktop
       ? limits.top + (available - r.height) / 2
-      : (document.querySelector('.fixed-head')?.getBoundingClientRect().height || 0) + (8 * 96 / 25.4);
+      : (document.querySelector('.fixed-head')?.getBoundingClientRect().height || 0) + (8 * 96 / 25.4) + 24;
     const absoluteTop = window.scrollY + r.top;
     const wantedScroll = Math.max(0, absoluteTop - desiredTop);
     window.scrollTo({ top: wantedScroll, left: 0, behavior: 'auto' });
@@ -743,7 +743,7 @@
       const limitsForClick = galleryLimits();
       const desiredTop = compactDesktopClick
         ? limitsForClick.top + (limitsForClick.bottom - limitsForClick.top - group.getBoundingClientRect().height) / 2
-        : mobileClick ? limitsForClick.top : (document.querySelector('.fixed-head')?.getBoundingClientRect().height || 0) + (8 * 96 / 25.4);
+        : mobileClick ? limitsForClick.top : (document.querySelector('.fixed-head')?.getBoundingClientRect().height || 0) + (8 * 96 / 25.4) + 24;
       const targetTop = window.scrollY + group.getBoundingClientRect().top - desiredTop;
       window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
     });
