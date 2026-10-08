@@ -638,6 +638,30 @@
       resizeInProgress = false;
     }, 1350);
   }
+  // Phone rotation: restore the selected section after the layout switches.
+  // Ordinary viewport resizes (browser toolbar appearing/disappearing) are ignored.
+  const phoneOrientation = window.matchMedia('(orientation: portrait)');
+  function restorePhoneSectionAfterRotation() {
+    if (!window.matchMedia('(pointer: coarse), (max-width: 650px)').matches) return;
+    const id = location.hash;
+    if (!/^#(?:start|about|angebot|praktisches|gestalt|kontakt|netzwerk)$/.test(id)) return;
+    const target = document.getElementById(id.slice(1));
+    if (!target) return;
+    [120, 360, 650].forEach(function (delay) {
+      window.setTimeout(function () {
+        const landscape = window.matchMedia('(orientation: landscape)').matches;
+        const head = document.querySelector('.fixed-head');
+        const headH = head ? head.getBoundingClientRect().height : 0;
+        const group = target.querySelector('.window-group');
+        const anchor = landscape && group ? group : target;
+        const gap = landscape ? 0 : (7 * 96 / 25.4);
+        const top = window.scrollY + anchor.getBoundingClientRect().top - headH - gap;
+        window.scrollTo({top: Math.max(0, top), left: 0, behavior: 'instant'});
+      }, delay);
+    });
+  }
+  phoneOrientation.addEventListener('change', restorePhoneSectionAfterRotation);
+
   window.addEventListener('resize', settleResize, { passive:true });
   if (window.visualViewport) window.visualViewport.addEventListener('resize', settleResize, { passive:true });
 
