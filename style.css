@@ -4219,3 +4219,75 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
     opacity:1!important;
   }
 }
+
+
+/* Secondary navigation dots: two predictable desktop layouts.
+   Keep primary navigation markers untouched. */
+@media (min-width:651px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  html body .fixed-head > .secondary-nav > a,
+  html body .fixed-head > .secondary-nav > .language-toggle{
+    position:relative!important;
+    overflow:visible!important;
+  }
+  /* Override historical per-link marker positions and colours. */
+  html body .fixed-head > .secondary-nav > a::before,
+  html body .fixed-head > .secondary-nav > a::after,
+  html body .fixed-head > .secondary-nav > .language-toggle::before,
+  html body .fixed-head > .secondary-nav > .language-toggle::after{
+    content:""!important;
+    display:block!important;
+    position:absolute!important;
+    inset:auto!important;
+    width:6px!important;height:6px!important;
+    margin:0!important;padding:0!important;
+    border:0!important;border-radius:50%!important;
+    background:#222!important;
+    pointer-events:none!important;
+    opacity:0!important;
+    transform:none!important;
+  }
+  html body .fixed-head > .secondary-nav > a::after{
+    background:var(--accent)!important;
+  }
+  html body .fixed-head > .secondary-nav > a:hover::before{
+    opacity:1!important;
+  }
+  html body .fixed-head > .secondary-nav > a.active-secondary::after{
+    opacity:1!important;
+  }
+  html body .fixed-head > .secondary-nav > a.active-secondary:hover::before{
+    opacity:0!important;
+  }
+  html body .fixed-head > .secondary-nav > .language-toggle:hover::before{
+    opacity:1!important;
+  }
+}
+@media (min-width:861px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  html body .fixed-head > .secondary-nav > a::before,
+  html body .fixed-head > .secondary-nav > a::after{
+    left:calc(50% - 3px)!important;
+    right:auto!important;
+    top:-10px!important;
+    bottom:auto!important;
+  }
+  html body .fixed-head > .secondary-nav > .language-toggle::before{
+    left:calc(50% - 3px)!important;
+    right:auto!important;
+    top:auto!important;
+    bottom:-10px!important;
+  }
+}
+@media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  /* Reserve enough space after NETWORK for its dot, before the DE divider. */
+  html body .fixed-head > .secondary-nav{
+    grid-template-columns:95px 2.25em max-content 2.5em max-content 2.5em max-content!important;
+  }
+  html body .fixed-head > .secondary-nav > a::before,
+  html body .fixed-head > .secondary-nav > a::after,
+  html body .fixed-head > .secondary-nav > .language-toggle::before{
+    left:calc(100% + 7px)!important;
+    right:auto!important;
+    top:calc(50% - 3px)!important;
+    bottom:auto!important;
+  }
+}
