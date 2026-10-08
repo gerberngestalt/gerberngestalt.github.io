@@ -3871,18 +3871,20 @@ html body .fixed-head .secondary-nav b{
   }
 }
 
-/* Switch to the compact header before the desktop stone becomes crowded. */
+/* One coherent compact header for medium desktop widths. */
 @media (min-width:901px) and (max-width:1150px) and (min-height:651px){
   html body .fixed-head > .secondary-nav{
+    position:absolute!important;
     left:var(--edge)!important;
     right:auto!important;
-    top:calc(var(--head-pad-top) + 5 * (var(--type-size) * var(--type-leading) + var(--nav-gap)) + 0.65 * (var(--type-size) * var(--type-leading)))!important;
+    top:calc(var(--head-pad-top) + 5 * (var(--type-size) * var(--type-leading) + var(--nav-gap)) + .65 * var(--type-size) * var(--type-leading))!important;
+    width:max-content!important;
   }
   html body .fixed-head .mark{
     position:fixed!important;
     left:48%!important;
-    top:70px!important;
     right:auto!important;
+    top:70px!important;
     width:58px!important;
     height:58px!important;
     transform:translateX(-50%)!important;
