@@ -4263,15 +4263,16 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
     transform:none!important;
   }
   html body .fixed-head > .secondary-nav > .language-toggle::before{
-    left:calc(50% - 3px)!important;right:auto!important;
-    top:auto!important;bottom:-11px!important;
+    left:auto!important;right:calc(100% + 10px)!important;
+    top:50%!important;bottom:auto!important;
+    transform:translateY(-50%)!important;
   }
 }
 /* Compact desktop: first-column CONTACT dot on LEFT, remaining
    secondary labels on RIGHT; reserve a clear language divider gap. */
 @media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
   html body .fixed-head > .secondary-nav{
-    grid-template-columns:max-content 1.35em max-content 1.65em max-content 4em max-content!important;
+    grid-template-columns:112px 1.7em max-content 1.65em max-content 5.5em max-content!important;
   }
   html body .fixed-head > .secondary-nav > a::before,
   html body .fixed-head > .secondary-nav > a::after,
@@ -4280,9 +4281,18 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
     top:50%!important;bottom:auto!important;
     transform:translateY(-50%)!important;
   }
-  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::before,
-  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::after{
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::before{
     left:auto!important;right:calc(100% + 9px)!important;
+    top:50%!important;bottom:auto!important;
+    transform:translateY(-50%)!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::after{
+    left:calc(100% + 9px)!important;right:auto!important;
+    top:50%!important;bottom:auto!important;
+    transform:translateY(-50%)!important;
+  }
+  html body .fixed-head > .secondary-nav > .language-toggle::before{
+    left:auto!important;right:calc(100% + 10px)!important;
     top:50%!important;bottom:auto!important;
     transform:translateY(-50%)!important;
   }
