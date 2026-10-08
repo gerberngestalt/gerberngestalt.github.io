@@ -54,7 +54,7 @@ window.SITE_CONTENT = {
   kontakt: {
     title: 'KONTAKT',
     title_en: 'CONTACT',
-    images: ['trungpa.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/kontakt/soap-stamp.jpg']
+    images: ['images/kontakt/gerberngestalt.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/kontakt/soap-stamp.jpg']
   },
 
   contact: {
