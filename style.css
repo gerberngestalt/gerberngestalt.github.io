@@ -4282,7 +4282,7 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
    secondary labels on RIGHT; reserve a clear language divider gap. */
 @media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
   html body .fixed-head > .secondary-nav{
-    grid-template-columns:112px 2.5em max-content 2.5em max-content 3em max-content!important;
+    grid-template-columns:95px 2.5em max-content 2em max-content 3.7em max-content!important;
   }
   html body .fixed-head > .secondary-nav > a[href="#mini-blog"]{
     grid-column:3!important;grid-row:1!important;
@@ -4366,4 +4366,39 @@ html body .fixed-head .language-toggle:focus::after{
   content:none!important;
   display:none!important;
   opacity:0!important;
+}
+
+/* Navigation dot alignment refinements (2026-10-08).
+   Apply after the general pseudo-element positions above. */
+@media (min-width:861px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  html body .fixed-head > .secondary-nav > a[href="#netzwerk"].active-secondary::after{
+    inset:auto!important;
+    left:calc(50% - 3px)!important;right:auto!important;
+    top:-10px!important;bottom:auto!important;
+    transform:none!important;
+  }
+}
+@media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  /* Hover sits before MINI-BLOG and NETWORK, despite the general rule above. */
+  html body .fixed-head > .secondary-nav > a[href="#mini-blog"]::before,
+  html body .fixed-head > .secondary-nav > a[href="#netzwerk"]::before{
+    inset:auto!important;
+    left:auto!important;right:calc(100% + 8px)!important;
+    top:50%!important;bottom:auto!important;
+    transform:translateY(-50%)!important;
+  }
+  /* CONTACT active is to the right, not before the word. */
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"].active-secondary::after{
+    inset:auto!important;
+    left:calc(100% + 9px)!important;right:auto!important;
+    top:50%!important;bottom:auto!important;
+    transform:translateY(-50%)!important;
+  }
+  /* NETWORK active remains to its right, with room before the EN divider. */
+  html body .fixed-head > .secondary-nav > a[href="#netzwerk"].active-secondary::after{
+    inset:auto!important;
+    left:calc(100% + 8px)!important;right:auto!important;
+    top:50%!important;bottom:auto!important;
+    transform:translateY(-50%)!important;
+  }
 }
