@@ -190,12 +190,18 @@
       img.dataset.imageIndex = String(index);
       img.dataset.baseName = spec.base;
       img.dataset.enName = spec.en;
+      img.dataset.darkName = spec.dark || '';
       const wantedName = desiredImageName(spec);
       img.src = /^https?:\/\//i.test(wantedName) ? wantedName : 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/images/' + key + '/' + wantedName;
       img.loading = 'lazy';
       img.decoding = 'async';
       img.alt = spec.alt;
       img.onerror = function () {
+        if (img.dataset.darkName && img.src === img.dataset.darkName && !img.dataset.darkFellBack) {
+          img.dataset.darkFellBack = '1';
+          img.src = img.dataset.baseName;
+          return;
+        }
         // An optional image_en may already be written in content.js before the
         // actual file is uploaded. In that case silently use the DE/base image.
         if (currentLanguage === 'en' && img.dataset.enName && !img.dataset.fellBack) {
@@ -206,6 +212,18 @@
         slide.classList.add('missing');
         slide.textContent = 'DATEI NICHT GEFUNDEN\n' + img.dataset.baseName;
       };
+      if (spec.dark && key === 'start' && index === 1) {
+        const scheme = window.matchMedia('(prefers-color-scheme: dark)');
+        const syncDarkSlide = function () {
+          const target = scheme.matches ? spec.dark : spec.base;
+          if (img.src !== target) {
+            delete img.dataset.darkFellBack;
+            img.src = target;
+          }
+        };
+        scheme.addEventListener('change', syncDarkSlide);
+        syncDarkSlide();
+      }
       slide.appendChild(img);
       track.appendChild(slide);
 
