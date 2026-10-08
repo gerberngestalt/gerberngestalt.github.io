@@ -3870,3 +3870,28 @@ html body .fixed-head .secondary-nav b{
     transform:none!important;
   }
 }
+
+/* Switch to the compact header before the desktop stone becomes crowded. */
+@media (min-width:901px) and (max-width:1150px) and (min-height:651px){
+  html body .fixed-head > .secondary-nav{
+    left:var(--edge)!important;
+    right:auto!important;
+    top:calc(var(--head-pad-top) + 5 * (var(--type-size) * var(--type-leading) + var(--nav-gap)) + 0.65 * (var(--type-size) * var(--type-leading)))!important;
+  }
+  html body .fixed-head .mark{
+    position:fixed!important;
+    left:48%!important;
+    top:70px!important;
+    right:auto!important;
+    width:58px!important;
+    height:58px!important;
+    transform:translateX(-50%)!important;
+  }
+  html body .fixed-head button.mark > img.mark-dot{
+    width:58px!important;
+    min-width:58px!important;
+    height:auto!important;
+    max-width:none!important;
+    max-height:none!important;
+  }
+}
