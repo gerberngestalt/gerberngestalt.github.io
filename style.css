@@ -4356,3 +4356,11 @@ html body .fixed-head .language-toggle:focus::after{
   display:none!important;
   opacity:0!important;
 }
+
+/* Phone portrait: the secondary grid overlaps the GESTALT row visually.
+   Its empty grid cells must not intercept taps on the primary GESTALT link. */
+@media (max-width:650px) and (orientation:portrait){
+  html body .fixed-head > .secondary-nav{pointer-events:none!important;}
+  html body .fixed-head > .secondary-nav > a,
+  html body .fixed-head > .secondary-nav > .language-toggle{pointer-events:auto!important;}
+}
