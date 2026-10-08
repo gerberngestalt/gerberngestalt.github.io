@@ -3845,35 +3845,11 @@ html body .fixed-head .secondary-nav b{
   }
 }
 
-/* Intermediate desktop widths: keep the stone on its desktop axis and size.
-   The tablet rules previously inherited a different, centered placement. */
-@media (min-width:651px) and (max-width:900px) and (min-height:651px){
-  html body .fixed-head .mark{
-    position:fixed!important;
-    left:245px!important;
-    top:50px!important;
-    right:auto!important;
-    width:92px!important;
-    height:92px!important;
-    overflow:visible!important;
-    transform:none!important;
-  }
-  html body .fixed-head button.mark > img.mark-dot{
-    position:absolute!important;
-    left:0!important;
-    top:0!important;
-    width:92px!important;
-    min-width:92px!important;
-    height:auto!important;
-    max-width:none!important;
-    max-height:none!important;
-    transform:none!important;
-  }
-}
-
 /* One coherent compact header for medium desktop widths. */
-@media (min-width:901px) and (max-width:1150px) and (min-height:651px){
+@media (min-width:651px) and (max-width:1150px) and (min-height:651px){
   html body .fixed-head > .secondary-nav{
+    display:flex!important;
+    flex-wrap:nowrap!important;
     position:absolute!important;
     left:var(--edge)!important;
     right:auto!important;
