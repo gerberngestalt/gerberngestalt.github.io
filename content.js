@@ -47,7 +47,7 @@ window.SITE_CONTENT = {
     title_en: 'MINI-BLOG',
     images: [
       { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/miniblog/als-mensch-habe-ich.jpg', image_en:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/miniblog/als-mensch-habe-ich_en.jpg' },
-      'miniblog/potato-stamp.jpg'
+      'images/miniblog/potato-stamp.jpg'
     ]
   },
 
