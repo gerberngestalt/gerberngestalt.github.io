@@ -53,7 +53,7 @@
     const candidates = [];
     if (english && darkMode) candidates.push(englishDark);
     if (english) candidates.push(englishImage);
-    if (darkMode && key === 'start') candidates.push(baseDark);
+    if (darkMode) candidates.push(baseDark);
     candidates.push(spec.base);
     return [...new Set(candidates.filter(Boolean))];
   }
