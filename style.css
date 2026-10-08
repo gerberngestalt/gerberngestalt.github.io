@@ -4037,43 +4037,51 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
 }
 
 
-/* Stable desktop header geometry across browser resizing.
-   Keep the genuine phone layout (<=650px) unchanged. */
+/* Unified desktop navigation geometry. Phone <=650px remains unchanged.
+   Desktop text stays at one size; only the secondary menu reflows. */
 @media (min-width:651px) and (min-height:651px){
   :root{
     --edge:54px;
-    --head-pad-top:46px;
+    --head-pad-top:42px;
     --type-size:15px;
     --type-leading:1.42;
     --nav-gap:8px;
   }
   html body .fixed-head{
-    padding-top:46px!important;
-    padding-left:54px!important;
-    padding-right:54px!important;
+    padding:42px 54px 0!important;
   }
-  html body .fixed-head nav,
-  html body .fixed-head > .secondary-nav{
+  html body .fixed-head nav{
+    position:static!important;
     font-size:15px!important;
-    letter-spacing:.16em!important;
     line-height:1.42!important;
+    letter-spacing:.16em!important;
+    gap:8px!important;
   }
-  html body .fixed-head nav{gap:8px!important;}
+  html body .fixed-head nav a,
+  html body .fixed-head nav span,
+  html body .fixed-head > .secondary-nav,
+  html body .fixed-head > .secondary-nav > *{
+    font-size:15px!important;
+    line-height:1.42!important;
+    letter-spacing:.16em!important;
+  }
   html body .fixed-head > .secondary-nav{
     grid-template-rows:repeat(2,calc(15px * 1.42 + 8px))!important;
   }
 }
-/* Only the arrangement changes at the compact breakpoint, not its type,
-   top baseline, or page-edge alignment. */
 @media (min-width:651px) and (max-width:860px) and (min-height:651px){
+  :root{--edge:22px;--head-pad-top:18px;}
+  html body .fixed-head{padding:18px 22px 0!important;}
   html body .fixed-head > .secondary-nav{
-    left:54px!important;
-    top:calc(46px + 4 * (15px * 1.42 + 8px))!important;
+    left:22px!important;
+    right:auto!important;
+    top:calc(18px + 4 * (15px * 1.42 + 8px))!important;
   }
 }
 @media (min-width:861px) and (min-height:651px){
   html body .fixed-head > .secondary-nav{
+    left:auto!important;
     right:54px!important;
-    top:46px!important;
+    top:42px!important;
   }
 }
