@@ -4128,3 +4128,21 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
 @media (min-width:861px) and (min-height:651px){
   html body .fixed-head > .secondary-nav{right:40px!important;top:40px!important;}
 }
+
+/* Narrow desktop browser windows (mouse/trackpad): retain the same 40px
+   navigation inset when the <=650px portrait rules become active. */
+@media (max-width:650px) and (orientation:portrait) and (hover:hover) and (pointer:fine){
+  html body .fixed-head{
+    padding-left:40px!important;
+    padding-right:40px!important;
+    padding-top:40px!important;
+  }
+  html body .fixed-head > nav.primary-nav{
+    margin-left:0!important;
+    padding-left:0!important;
+  }
+  html body .fixed-head > .secondary-nav{
+    left:40px!important;
+    right:auto!important;
+  }
+}
