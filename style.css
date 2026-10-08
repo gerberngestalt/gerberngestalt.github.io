@@ -4333,3 +4333,15 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
     left:auto!important;right:calc(100% + 7px)!important;
   }
 }
+
+/* Language switch is unmarked in every layout and interaction state. */
+html body .fixed-head .language-toggle::before,
+html body .fixed-head .language-toggle::after,
+html body .fixed-head .language-toggle:hover::before,
+html body .fixed-head .language-toggle:hover::after,
+html body .fixed-head .language-toggle:focus::before,
+html body .fixed-head .language-toggle:focus::after{
+  content:none!important;
+  display:none!important;
+  opacity:0!important;
+}
