@@ -43,8 +43,13 @@
     return { base:entry || '', en:enList[index] || '', dark:'', alt:altList[index] || '' };
   }
 
-  function desiredImageName(spec) {
-    return spec.dark && window.matchMedia('(prefers-color-scheme: dark)').matches ? spec.dark : (currentLanguage === 'en' && spec.en ? spec.en : spec.base);
+  function desiredImageName(spec, key) {
+    const normal = currentLanguage === 'en' && spec.en ? spec.en : spec.base;
+    if (key === 'start' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      // The dark companion is optional: logo1.jpg -> logo1_dark.jpg.
+      return spec.dark || normal.replace(/(\\.[^./?#]+)([?#].*)?$/, '_dark$1$2');
+    }
+    return normal;
   }
 
   // v52: one random saturated-pastel original dot image per page load.
@@ -190,8 +195,8 @@
       img.dataset.imageIndex = String(index);
       img.dataset.baseName = spec.base;
       img.dataset.enName = spec.en;
-      img.dataset.darkName = spec.dark || '';
-      const wantedName = desiredImageName(spec);
+      img.dataset.darkName = desiredImageName(spec, key) !== (currentLanguage === 'en' && spec.en ? spec.en : spec.base) ? desiredImageName(spec, key) : '';
+      const wantedName = desiredImageName(spec, key);
       img.src = /^https?:\/\//i.test(wantedName) ? wantedName : 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/images/' + key + '/' + wantedName;
       img.loading = 'lazy';
       img.decoding = 'async';
@@ -400,8 +405,10 @@
         delete img.dataset.fellBack;
         img.dataset.baseName = spec.base;
         img.dataset.enName = spec.en;
+        delete img.dataset.darkFellBack;
+        img.dataset.darkName = desiredImageName(spec, key) !== (currentLanguage === 'en' && spec.en ? spec.en : spec.base) ? desiredImageName(spec, key) : '';
         img.alt = spec.alt;
-        const wanted = desiredImageName(spec);
+        const wanted = desiredImageName(spec, key);
         if (wanted) img.src = /^https?:\/\//i.test(wanted) ? wanted : 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/images/' + key + '/' + wanted;
       });
     });
