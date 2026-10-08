@@ -4178,7 +4178,7 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
     position:relative!important;
     left:auto!important;
     transform:none!important;
-    margin-left:max(0px, calc(40px - (100vw - min(50vw, 500px, calc(100dvh - var(--head) - var(--foot) - 105px))) / 2))!important;
+    margin-left:max(0px, calc(40px - (100vw - 100%) / 2))!important;
   }
 }
 
