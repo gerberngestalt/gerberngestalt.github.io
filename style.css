@@ -4240,13 +4240,21 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
   html body .fixed-head > .secondary-nav > a.active-secondary::after{
     opacity:1!important;
   }
+  /* Old CONTACT-specific ::before rules must not recolour the hover dot. */
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::before{
+    background:#222!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"].active-secondary::before{
+    opacity:0!important;
+  }
 }
 /* Wide desktop: secondary markers centred ABOVE labels, language BELOW. */
 @media (min-width:861px) and (min-height:651px) and (hover:hover) and (pointer:fine){
   html body .fixed-head > .secondary-nav > a::before,
   html body .fixed-head > .secondary-nav > a::after{
     left:calc(50% - 3px)!important;right:auto!important;
-    top:-11px!important;bottom:auto!important;
+    top:-10px!important;bottom:auto!important;
+    transform:none!important;
   }
   html body .fixed-head > .secondary-nav > .language-toggle::before{
     left:calc(50% - 3px)!important;right:auto!important;
@@ -4257,7 +4265,7 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
    secondary labels on RIGHT; reserve a clear language divider gap. */
 @media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
   html body .fixed-head > .secondary-nav{
-    grid-template-columns:max-content 1.35em max-content 1.65em max-content 3.5em max-content!important;
+    grid-template-columns:max-content 1.35em max-content 1.65em max-content 4em max-content!important;
   }
   html body .fixed-head > .secondary-nav > a::before,
   html body .fixed-head > .secondary-nav > a::after,
