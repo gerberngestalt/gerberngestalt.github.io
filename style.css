@@ -4368,16 +4368,6 @@ html body .fixed-head .language-toggle:focus::after{
   opacity:0!important;
 }
 
-/* Navigation dot alignment refinements (2026-10-08).
-   Apply after the general pseudo-element positions above. */
-@media (min-width:861px) and (min-height:651px) and (hover:hover) and (pointer:fine){
-  html body .fixed-head > .secondary-nav > a[href="#netzwerk"].active-secondary::after{
-    inset:auto!important;
-    left:calc(50% - 3px)!important;right:auto!important;
-    top:-10px!important;bottom:auto!important;
-    transform:none!important;
-  }
-}
 @media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
   /* Hover sits before MINI-BLOG and NETWORK, despite the general rule above. */
   html body .fixed-head > .secondary-nav > a[href="#mini-blog"]::before,
@@ -4394,47 +4384,8 @@ html body .fixed-head .language-toggle:focus::after{
     top:50%!important;bottom:auto!important;
     transform:translateY(-50%)!important;
   }
-  /* NETWORK active remains to its right, with room before the EN divider. */
-  html body .fixed-head > .secondary-nav > a[href="#netzwerk"].active-secondary::after{
-    inset:auto!important;
-    left:calc(100% + 8px)!important;right:auto!important;
-    top:50%!important;bottom:auto!important;
-    transform:translateY(-50%)!important;
-  }
 }
 
-/* Anchor NETWORK markers to the actual word width, not its grid track.
-   Preserve the existing navigation columns and separator positions. */
-@media (min-width:651px) and (min-height:651px) and (hover:hover) and (pointer:fine){
-  html body .fixed-head > .secondary-nav > a[href="#netzwerk"]{
-    width:max-content!important;
-    min-width:0!important;
-    justify-self:start!important;
-    box-sizing:content-box!important;
-  }
-}
-@media (min-width:861px) and (min-height:651px) and (hover:hover) and (pointer:fine){
-  html body .fixed-head > .secondary-nav > a[href="#netzwerk"]{
-    justify-self:end!important;
-  }
-  html body .fixed-head > .secondary-nav > a[href="#netzwerk"]::before,
-  html body .fixed-head > .secondary-nav > a[href="#netzwerk"].active-secondary::after{
-    left:50%!important;
-    right:auto!important;
-    transform:translateX(-50%)!important;
-    top:-10px!important;
-  }
-}
-
-/* NETWORK marker: optical centering on wide screens; clean divider gap on compact. */
-@media (min-width:861px) and (min-height:651px) and (hover:hover) and (pointer:fine){
-  html body .fixed-head > .secondary-nav > a[href="#netzwerk"]::before,
-  html body .fixed-head > .secondary-nav > a[href="#netzwerk"].active-secondary::after{
-    left:calc(50% - 5px)!important;
-    right:auto!important;
-    transform:translateX(-50%)!important;
-  }
-}
 @media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
   html body .fixed-head > .secondary-nav > .language-separator{
     position:relative!important;
