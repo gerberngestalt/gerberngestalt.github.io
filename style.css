@@ -4004,3 +4004,22 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
     position:static!important;transform:none!important;
   }
 }
+
+
+/* NETWORK desktop: one shared left axis and compact legal epilogue.
+   Phone layouts retain their established spacing. */
+@media (min-width:901px) and (min-height:651px){
+  #netzwerk .network-links{
+    padding-left:0!important;
+  }
+  #netzwerk{
+    padding-bottom:0!important;
+    margin-bottom:0!important;
+  }
+  .legal-links{
+    margin-top:clamp(76px,11vh,110px)!important;
+  }
+  .legal-links details + details{
+    margin-top:22px!important;
+  }
+}
