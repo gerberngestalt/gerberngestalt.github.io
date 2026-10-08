@@ -3811,3 +3811,28 @@ html body .fixed-head .secondary-nav b{
     visibility: hidden;
   }
 }
+
+
+/* Phone portrait + landscape: gallery arrows always visible outside the image. */
+@media (hover:none), (pointer:coarse), (max-width:900px){
+  html body .carousel .arrow:not([hidden]){
+    display:block!important;
+    visibility:visible!important;
+    opacity:.65!important;
+    width:36px!important;
+    height:56px!important;
+    top:50%!important;
+    transform:translateY(-50%)!important;
+    pointer-events:auto!important;
+  }
+  html body .carousel .prev{left:-38px!important;right:auto!important;}
+  html body .carousel .next{right:-38px!important;left:auto!important;}
+  html body .carousel .arrow::before,
+  html body .carousel .arrow::after{background:#625a54!important;}
+}
+@media (prefers-color-scheme:dark) and (hover:none),
+       (prefers-color-scheme:dark) and (pointer:coarse),
+       (prefers-color-scheme:dark) and (max-width:900px){
+  html body .carousel .arrow::before,
+  html body .carousel .arrow::after{background:#ded5ce!important;}
+}
