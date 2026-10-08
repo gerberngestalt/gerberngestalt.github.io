@@ -197,22 +197,23 @@
       img.decoding = 'async';
       img.alt = spec.alt;
       img.onerror = function () {
-        const darkSource = img.parentElement && img.parentElement.querySelector('source[media]');
-        if (darkSource && !img.dataset.darkFellBack) {
+        // Never destroy the slide: theme changes must remain reversible.
+        if (img.dataset.darkName && img.src === img.dataset.darkName && !img.dataset.darkFellBack) {
           img.dataset.darkFellBack = '1';
-          darkSource.remove();
           img.src = img.dataset.baseName;
           return;
         }
-        // An optional image_en may already be written in content.js before the
-        // actual file is uploaded. In that case silently use the DE/base image.
         if (currentLanguage === 'en' && img.dataset.enName && !img.dataset.fellBack) {
           img.dataset.fellBack = '1';
-          img.src = 'https://raw.githubusercontent.com/gerberndrei/gerberndrei.github.io/main/images/' + key + '/' + img.dataset.baseName;
+          img.src = img.dataset.baseName;
           return;
         }
         slide.classList.add('missing');
-        slide.textContent = 'DATEI NICHT GEFUNDEN\n' + img.dataset.baseName;
+        img.style.visibility = 'hidden';
+      };
+      img.onload = function () {
+        slide.classList.remove('missing');
+        img.style.visibility = '';
       };
       slide.appendChild(img);
       track.appendChild(slide);
