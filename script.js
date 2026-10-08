@@ -44,7 +44,7 @@
   }
 
   function desiredImageName(spec) {
-    return currentLanguage === 'en' && spec.en ? spec.en : spec.base;
+    return spec.dark && window.matchMedia('(prefers-color-scheme: dark)').matches ? spec.dark : (currentLanguage === 'en' && spec.en ? spec.en : spec.base);
   }
 
   // v52: one random saturated-pastel original dot image per page load.
@@ -214,19 +214,7 @@
         slide.classList.add('missing');
         slide.textContent = 'DATEI NICHT GEFUNDEN\n' + img.dataset.baseName;
       };
-      if (spec.dark && key === 'start' && index === 1) {
-        // Native <picture> switches on OS colour scheme, independently of
-        // language changes and the gallery's img.src updates.
-        const picture = document.createElement('picture');
-        const darkSource = document.createElement('source');
-        darkSource.media = '(prefers-color-scheme: dark)';
-        darkSource.srcset = spec.dark;
-        picture.appendChild(darkSource);
-        picture.appendChild(img);
-        slide.appendChild(picture);
-      } else {
-        slide.appendChild(img);
-      }
+      slide.appendChild(img);
       track.appendChild(slide);
 
       const dot = document.createElement('button');
@@ -417,6 +405,12 @@
       });
     });
   }
+
+  // Keep the START logo aligned with the site's actual light/dark media query.
+  const logoScheme = window.matchMedia('(prefers-color-scheme: dark)');
+  logoScheme.addEventListener('change', function () {
+    updateGalleryLanguage();
+  });
 
   function setText(selector, value) {
     const el = document.querySelector(selector);
