@@ -4140,7 +4140,7 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
 }
 @media (max-width:1120px){
  html body .fixed-head > .secondary-nav{
-   top:calc(var(--head-pad-top) + 5 * (var(--type-size) * var(--type-leading) + var(--nav-gap)))!important;
+   top:calc(var(--head-pad-top) + 4 * (var(--type-size) * var(--type-leading) + var(--nav-gap)))!important;
    left:var(--edge)!important;right:auto!important;
    grid-template-columns:max-content 1.65em max-content 1.65em max-content 1.65em max-content!important;
  }
