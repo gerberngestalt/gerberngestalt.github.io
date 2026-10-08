@@ -4282,7 +4282,7 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
    Both rows align; separators occupy the gaps, not extra text columns. */
 @media (min-width:651px) and (max-width:860px) and (min-height:651px){
   html body .fixed-head > .secondary-nav{
-    grid-template-columns:105px 4.4em max-content 5.3em max-content!important;
+    grid-template-columns:105px 3.5em max-content 4.3em max-content!important;
   }
   html body .fixed-head > .secondary-nav > .mini-blog-separator{
     grid-column:2!important;grid-row:1!important;justify-self:center!important;
@@ -4314,13 +4314,18 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
     inset:auto!important;left:auto!important;right:calc(100% + 8px)!important;
     top:50%!important;bottom:auto!important;transform:translateY(-50%)!important;
   }
-  /* CONTACT uses the same right-hand marker placement as GESTALT.
-     Space for the marker is reserved before the separator. */
+  /* Compact: hover and active use exactly the same position for each link. */
   html body .fixed-head > .secondary-nav > a[href="#kontakt"]::before,
   html body .fixed-head > .secondary-nav > a[href="#kontakt"]::after{
     left:calc(100% + 9px)!important;right:auto!important;
+    background:#222!important;
   }
-  /* MINI-BLOG and NETWORK preview on the left; NETWORK active on right. */
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::after{
+    background:var(--accent)!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#mini-blog"]::after{
+    left:auto!important;right:calc(100% + 8px)!important;
+  }
   html body .fixed-head > .secondary-nav > a[href="#netzwerk"]::after{
     left:calc(100% + 9px)!important;right:auto!important;
   }
