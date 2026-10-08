@@ -3886,3 +3886,35 @@ html body .fixed-head .secondary-nav b{
     transform:none!important;
   }
 }
+
+/* MINI-BLOG: additional carousel navigation. */
+#mini-blog .slide.empty{color:transparent!important;}
+.fixed-head > .secondary-nav .mini-blog-separator{display:inline-block;}
+/* Keep the compact transition available for the longer right-hand menu. */
+@media (min-width:651px) and (max-width:1000px) and (min-height:651px){
+  html body .fixed-head > .secondary-nav{
+    display:flex!important;flex-wrap:nowrap!important;align-items:baseline!important;
+    position:absolute!important;left:var(--edge)!important;right:auto!important;
+    top:calc(var(--head-pad-top) + 5 * (var(--type-size) * var(--type-leading) + var(--nav-gap)) + .65 * var(--type-size) * var(--type-leading))!important;
+    width:max-content!important;
+  }
+  html body .fixed-head > .secondary-nav .language-toggle{
+    position:relative!important;left:auto!important;right:auto!important;top:auto!important;margin-left:1.15em!important;
+  }
+}
+@media (max-width:650px) and (orientation:portrait){
+  /* The MINI-BLOG link sits alongside GESTALT, with CONTACT/NETWORK below. */
+  html body .fixed-head > .secondary-nav{
+    top:calc(var(--head-pad-top) + 5 * (var(--type-size) * var(--type-leading) + var(--nav-gap)) + .58 * (var(--type-size) * var(--type-leading)))!important;
+  }
+  html body .fixed-head > .secondary-nav a[href="#mini-blog"],
+  html body .fixed-head > .secondary-nav .mini-blog-separator{
+    position:absolute!important;
+    bottom:calc(100% + var(--nav-gap))!important;
+  }
+  html body .fixed-head > .secondary-nav a[href="#mini-blog"]{
+    left:calc(100% + 2em)!important;
+    white-space:nowrap!important;
+  }
+  html body .fixed-head > .secondary-nav .mini-blog-separator{display:none!important;}
+}
