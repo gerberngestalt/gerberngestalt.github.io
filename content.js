@@ -36,6 +36,7 @@ window.SITE_CONTENT = {
     title: 'GESTALT',
     title_en: 'GESTALT',
     images: [
+      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/als-mensch-habe-ich.jpg' },
       { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/alles-was-ist.jpg', image_en:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/everything-that-is.jpg' },
       { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/was-sein-darf.jpg', image_en:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/what-may-be.jpg' },
       { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/stone-stamp.jpg' }
