@@ -4191,6 +4191,11 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
     position:relative!important;
     overflow:visible!important;
   }
+  /* Let the underlying GESTALT link receive pointer events even where
+     the compact secondary grid spans its row. */
+  html body .fixed-head > .secondary-nav{pointer-events:none!important;}
+  html body .fixed-head > .secondary-nav > a,
+  html body .fixed-head > .secondary-nav > .language-toggle{pointer-events:auto!important;}
   /* One pseudo-element for hover, one for active. */
   html body .fixed-head .primary-nav > a::before,
   html body .fixed-head > .secondary-nav > a::before,
@@ -4216,7 +4221,8 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
      Suppress it when the item is already active. */
   html body .fixed-head .primary-nav > a::before{
     left:auto!important;right:calc(100% + 9px)!important;
-    top:calc(50% - 3px)!important;bottom:auto!important;
+    top:50%!important;bottom:auto!important;
+    transform:translateY(-50%)!important;
   }
   html body .fixed-head .primary-nav > a:not(.active-section):hover::before{
     opacity:1!important;
@@ -4236,7 +4242,7 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
   }
 }
 /* Wide desktop: secondary markers centred ABOVE labels, language BELOW. */
-@media (min-width:981px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+@media (min-width:861px) and (min-height:651px) and (hover:hover) and (pointer:fine){
   html body .fixed-head > .secondary-nav > a::before,
   html body .fixed-head > .secondary-nav > a::after{
     left:calc(50% - 3px)!important;right:auto!important;
@@ -4249,20 +4255,22 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
 }
 /* Compact desktop: first-column CONTACT dot on LEFT, remaining
    secondary labels on RIGHT; reserve a clear language divider gap. */
-@media (min-width:651px) and (max-width:980px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+@media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
   html body .fixed-head > .secondary-nav{
-    grid-template-columns:max-content 1.35em max-content 1.65em max-content 2.5em max-content!important;
+    grid-template-columns:max-content 1.35em max-content 1.65em max-content 3.5em max-content!important;
   }
   html body .fixed-head > .secondary-nav > a::before,
   html body .fixed-head > .secondary-nav > a::after,
   html body .fixed-head > .secondary-nav > .language-toggle::before{
     left:calc(100% + 8px)!important;right:auto!important;
-    top:calc(50% - 3px)!important;bottom:auto!important;
+    top:50%!important;bottom:auto!important;
+    transform:translateY(-50%)!important;
   }
   html body .fixed-head > .secondary-nav > a[href="#kontakt"]::before,
   html body .fixed-head > .secondary-nav > a[href="#kontakt"]::after{
     left:auto!important;right:calc(100% + 9px)!important;
-    top:calc(50% - 3px)!important;bottom:auto!important;
+    top:50%!important;bottom:auto!important;
+    transform:translateY(-50%)!important;
   }
 }
 /* Also provide predictable dots in phone layouts, without changing placement. */
@@ -4271,7 +4279,8 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
   html body .fixed-head > .secondary-nav > a::after,
   html body .fixed-head > .secondary-nav > .language-toggle::before{
     left:calc(100% + 7px)!important;right:auto!important;
-    top:calc(50% - 3px)!important;bottom:auto!important;
+    top:50%!important;bottom:auto!important;
+    transform:translateY(-50%)!important;
   }
   html body .fixed-head > .secondary-nav > a[href="#kontakt"]::before,
   html body .fixed-head > .secondary-nav > a[href="#kontakt"]::after{
