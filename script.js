@@ -24,7 +24,7 @@
     SEPTEMBER:'SEPTEMBER', OKTOBER:'OCTOBER', NOVEMBER:'NOVEMBER', DEZEMBER:'DECEMBER'
   };
   const NAV_LABELS = {
-    de:{start:'START',about:'ÜBER MICH',angebot:'ANGEBOT',praktisches:'PRAKTISCHES',gestalt:'GESTALT',kontakt:'KONTAKT',netzwerk:'NETZWERK',imprint:'IMPRESSUM',privacy:'DATENSCHUTZ'},
+    de:{start:'START',about:'ÜBER MICH',angebot:'ANGEBOT',praktisches:'PRAKTISCHES',gestalt:'GESTALT',miniBlog:'MINI-BLOG',kontakt:'KONTAKT',netzwerk:'NETZWERK',imprint:'IMPRESSUM',privacy:'DATENSCHUTZ'},
     en:{start:'HOME',about:'ABOUT ME',angebot:'WHAT I DO',praktisches:'PRACTICALITIES',gestalt:'GESTALT',kontakt:'CONTACT',netzwerk:'NETWORK',imprint:'LEGAL',privacy:'PRIVACY'}
   };
 
@@ -188,7 +188,7 @@
     if (!images.length) {
       const empty = document.createElement('div');
       empty.className = 'slide empty';
-      empty.textContent = 'BILD';
+      empty.textContent = key === 'miniBlog' ? '' : 'BILD';
       track.appendChild(empty);
       prev.hidden = true;
       next.hidden = true;
@@ -441,6 +441,8 @@
       const title = localized(data, 'title');
       setText('#' + id + ' .section-title', currentLanguage === 'en' && data.title_en == null ? labels[id] : title);
     });
+    setText('.secondary-nav a[href="#mini-blog"]', labels.miniBlog);
+    setText('#mini-blog .section-title', labels.miniBlog);
     setText('.secondary-nav a[href="#kontakt"]', labels.kontakt);
     setText('.secondary-nav a[href="#netzwerk"]', labels.netzwerk);
     setText('#kontakt .section-title', labels.kontakt);
@@ -644,7 +646,7 @@
   function restorePhoneSectionAfterRotation() {
     if (!window.matchMedia('(pointer: coarse), (max-width: 650px)').matches) return;
     const id = location.hash;
-    if (!/^#(?:start|about|angebot|praktisches|gestalt|kontakt|netzwerk)$/.test(id)) return;
+    if (!/^#(?:start|about|angebot|praktisches|gestalt|mini-blog|kontakt|netzwerk)$/.test(id)) return;
     const target = document.getElementById(id.slice(1));
     if (!target) return;
     [120, 360, 650].forEach(function (delay) {
@@ -745,9 +747,10 @@
   // from staying active once PAST EVENTS has reached the reading position.
   const primaryIds = ['start', 'about', 'angebot', 'praktisches', 'gestalt'];
   const primaryLinks = Array.from(document.querySelectorAll('.primary-nav a'));
+  const secondaryBlog = document.querySelector('.secondary-nav a[href="#mini-blog"]');
   const secondaryPast = document.querySelector('.secondary-nav a[href="#kontakt"]');
   const secondaryNetwork = document.querySelector('.secondary-nav a[href="#netzwerk"]');
-  const navSectionIds = ['start', 'about', 'angebot', 'praktisches', 'gestalt', 'kontakt', 'netzwerk'];
+  const navSectionIds = ['start', 'about', 'angebot', 'praktisches', 'gestalt', 'mini-blog', 'kontakt', 'netzwerk'];
 
   function currentNavSection() {
     const head = document.querySelector('.fixed-head');
@@ -799,6 +802,7 @@
       link.classList.toggle('active-section', link.getAttribute('href') === '#' + activeId);
     });
 
+    if (secondaryBlog) secondaryBlog.classList.toggle('active-secondary', activeId === 'mini-blog');
     if (secondaryPast) secondaryPast.classList.toggle('active-secondary', activeId === 'kontakt');
     if (secondaryNetwork) secondaryNetwork.classList.toggle('active-secondary', activeId === 'netzwerk');
   }
