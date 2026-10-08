@@ -4291,3 +4291,48 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
     bottom:auto!important;
   }
 }
+
+
+/* Navigation marker corrections: no duplicate dots; correct compact alignment. */
+@media (hover:hover) and (pointer:fine){
+  /* Primary: an active coloured dot never gains a second hover dot. */
+  html body .fixed-head > .primary-nav > a.active-section:hover::before{
+    opacity:0!important;
+  }
+  /* All secondary links: active colour and hover use the same marker. */
+  html body .fixed-head > .secondary-nav > a.active-secondary:hover::before{
+    opacity:0!important;
+  }
+  html body .fixed-head > .secondary-nav > a.active-secondary::after{
+    opacity:1!important;
+  }
+}
+@media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  /* CONTACT begins at the left edge, so its dot belongs on the left. */
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::before,
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::after{
+    left:auto!important;
+    right:calc(100% + 9px)!important;
+    top:calc(50% - 3px)!important;
+    bottom:auto!important;
+    transform:none!important;
+  }
+  /* Separate NETWORK from the language divider without shifting CONTACT. */
+  html body .fixed-head > .secondary-nav{
+    grid-template-columns:95px 2.25em max-content 2.5em max-content 3.4em max-content!important;
+  }
+}
+/* Desktop secondary markers: cancel old translations and align exactly to text. */
+@media (min-width:861px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  html body .fixed-head > .secondary-nav > a::before,
+  html body .fixed-head > .secondary-nav > a::after{
+    transform:none!important;
+    top:-10px!important;
+  }
+}
+/* All desktop sizes: CONTACT uses the same vertical centre as its text. */
+@media (min-width:651px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"].active-secondary::before{
+    opacity:0!important;
+  }
+}
