@@ -683,6 +683,11 @@
       if (!id || id === '#') return;
       const target = document.querySelector(id);
       if (!target) return;
+      // Highlight the requested section immediately and hold that marker
+      // throughout the smooth-scroll animation.
+      if (/^#(?:start|about|angebot|praktisches|gestalt|mini-blog|kontakt|netzwerk)$/.test(id)) {
+        lockNavTarget(id.slice(1));
+      }
 
       // On phones the navigation remains fixed, so all anchor targets reserve
       // the actual current header height (portrait or compact landscape).
@@ -805,8 +810,25 @@
     return nearest;
   }
 
+  // While a navigation click is smoothly scrolling, keep its destination
+  // highlighted instead of lighting every section crossed along the way.
+  let navTargetId = null;
+  let navTargetUntil = 0;
+  let navTargetTimer = 0;
+  function lockNavTarget(id) {
+    navTargetId = id;
+    navTargetUntil = performance.now() + 1800;
+    window.clearTimeout(navTargetTimer);
+    updateNavDots();
+    navTargetTimer = window.setTimeout(function () {
+      navTargetId = null;
+      updateNavDots();
+    }, 1800);
+  }
+
   function updateNavDots() {
-    const activeId = currentNavSection();
+    const activeId = navTargetId && performance.now() < navTargetUntil
+      ? navTargetId : currentNavSection();
 
     primaryLinks.forEach(function (link) {
       link.classList.toggle('active-section', link.getAttribute('href') === '#' + activeId);
