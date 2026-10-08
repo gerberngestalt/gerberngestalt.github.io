@@ -4284,6 +4284,18 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
   html body .fixed-head > .secondary-nav{
     grid-template-columns:112px 1.7em max-content 1.65em max-content 5.5em max-content!important;
   }
+  /* The language separator and toggle are grid items 6 and 7.
+     Previous rules wrongly placed the toggle in column 5, next to NETWORK. */
+  html body .fixed-head > .secondary-nav > .language-separator{
+    grid-column:6!important;grid-row:2!important;
+    justify-self:center!important;
+    display:block!important;
+  }
+  html body .fixed-head > .secondary-nav > .language-toggle{
+    grid-column:7!important;grid-row:2!important;
+    justify-self:start!important;
+    margin:0!important;
+  }
   html body .fixed-head > .secondary-nav > a::before,
   html body .fixed-head > .secondary-nav > a::after,
   html body .fixed-head > .secondary-nav > .language-toggle::before{
