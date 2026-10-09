@@ -4595,42 +4595,6 @@ html body .network-row--auto-wrap .network-paragraph a{
   }
 }
 
-/* CONTACT: dedicated left hover marker. Retire all competing ::before rules. */
-@media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
-  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::before,
-  html body .fixed-head > .secondary-nav > a[href="#kontakt"]:hover::before{
-    content:none!important;
-    display:none!important;
-    opacity:0!important;
-  }
-  html body .fixed-head > .secondary-nav > a[href="#kontakt"]{
-    position:relative!important;
-    overflow:visible!important;
-  }
-  html body .fixed-head > .secondary-nav > a[href="#kontakt"] > .contact-hover-marker{
-    position:absolute!important;
-    display:block!important;
-    box-sizing:border-box!important;
-    width:6px!important;
-    height:6px!important;
-    padding:0!important;
-    margin:0!important;
-    border:0!important;
-    border-radius:50%!important;
-    background:#222!important;
-    left:auto!important;
-    right:auto!important;
-    left:-15px!important;
-    top:50%!important;
-    transform:translateY(-50%)!important;
-    opacity:0!important;
-    pointer-events:none!important;
-  }
-  html body .fixed-head > .secondary-nav > a[href="#kontakt"]:not(.active-secondary):hover > .contact-hover-marker{
-    opacity:1!important;
-  }
-}
-
 /* Small-stone desktop: give active dots real breathing room before separators.
    Shift separators and the following links together, preserving their mutual gap. */
 @media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
@@ -4653,37 +4617,48 @@ html body .network-row--auto-wrap .network-paragraph a{
   }
 }
 
-/* Medium-stone desktop: compact separator gaps by one third and
-   use the same left-hand CONTACT hover marker as the primary links. */
-@media (min-width:861px) and (max-width:1200px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+
+/* Unified desktop CONTACT hover. An actual child span avoids the cascade of
+   legacy pseudo-element rules; active colour stays on ::after only. */
+@media (min-width:651px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]{
+    position:relative!important;overflow:visible!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::before,
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]:hover::before{
+    content:none!important;display:none!important;opacity:0!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"] > .contact-hover-marker{
+    content:none!important;display:block!important;position:absolute!important;
+    box-sizing:border-box!important;width:6px!important;height:6px!important;
+    border:0!important;border-radius:50%!important;
+    padding:0!important;margin:0!important;background:#222!important;
+    inset:auto!important;left:-15px!important;right:auto!important;
+    top:50%!important;bottom:auto!important;transform:translateY(-50%)!important;
+    opacity:0!important;pointer-events:none!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]:not(.active-secondary):hover > .contact-hover-marker{
+    opacity:1!important;
+  }
+}
+/* Small stone: room around active dots and readable left inset for NETWORK. */
+@media (min-width:651px) and (max-width:860px) and (min-height:651px){
+  html body #netzwerk .network-links{
+    box-sizing:border-box!important;
+    padding-left:26px!important;
+    padding-right:20px!important;
+  }
+  html body #netzwerk .network-row--auto-wrap .network-paragraph{
+    max-width:min(100%, 580px)!important;
+  }
+}
+/* Medium stone: reduce each separator gap by roughly one third. */
+@media (min-width:861px) and (max-width:1200px) and (min-height:651px){
   html body .fixed-head > .secondary-nav{
     grid-template-columns:95px .9em max-content .9em max-content .9em max-content!important;
   }
-  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::before{
-    content:""!important;
-    display:block!important;
-    position:absolute!important;
-    width:6px!important;
-    height:6px!important;
-    border:0!important;
-    border-radius:50%!important;
-    background:#222!important;
-    inset:auto!important;
-    left:-15px!important;
-    right:auto!important;
-    top:50%!important;
-    bottom:auto!important;
-    transform:translateY(-50%)!important;
-    opacity:0!important;
-    pointer-events:none!important;
-  }
-  html body .fixed-head > .secondary-nav > a[href="#kontakt"]:not(.active-secondary):hover::before{
-    opacity:1!important;
-  }
-  html body .fixed-head > .secondary-nav > a[href="#kontakt"].active-secondary::before{
-    opacity:0!important;
-  }
-  html body .fixed-head > .secondary-nav > a[href="#kontakt"] > .contact-hover-marker{
-    display:none!important;
+  html body .fixed-head > .secondary-nav > b{
+    margin-left:0!important;margin-right:0!important;
+    justify-self:center!important;
   }
 }
