@@ -4434,3 +4434,17 @@ html body .network-row--two-lines > .network-line:nth-child(2){
     right:auto!important;
   }
 }
+
+/* Compact stone: hover dots for MINI-BLOG and NETWORK belong to the left
+   of their labels; active-dot positions remain unchanged. */
+@media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  html body .fixed-head > .secondary-nav > a[href="#mini-blog"]::before,
+  html body .fixed-head > .secondary-nav > a[href="#netzwerk"]::before{
+    left:auto!important;
+    right:calc(100% + 9px)!important;
+    top:50%!important;
+    bottom:auto!important;
+    transform:translateY(-50%)!important;
+    background:#222!important;
+  }
+}
