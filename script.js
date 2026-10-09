@@ -490,7 +490,13 @@
     });
     setText('.secondary-nav a[href="#mini-blog"]', labels.miniBlog);
     setText('#mini-blog .section-title', labels.miniBlog);
-    setText('.secondary-nav a[href="#kontakt"]', labels.kontakt);
+    // Preserve the CONTACT hover-marker child while translating the link label.
+    const contactLabelLink = document.querySelector('.secondary-nav a[href="#kontakt"]');
+    if (contactLabelLink) {
+      const labelNode = Array.from(contactLabelLink.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
+      if (labelNode) labelNode.nodeValue = labels.kontakt;
+      else contactLabelLink.insertBefore(document.createTextNode(labels.kontakt), contactLabelLink.firstChild);
+    }
     setText('.secondary-nav a[href="#netzwerk"]', labels.netzwerk);
     setText('#kontakt .section-title', labels.kontakt);
     setText('#netzwerk .section-title', labels.netzwerk);
