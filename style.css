@@ -4735,15 +4735,21 @@ html body .network-row--auto-wrap .network-paragraph a{
   }
 }
 
-/* Small stone only: give every navigation separator about one third more
-   breathing room on both sides; preserve marker placement and other stones. */
+/* Small stone: optically expand the actual separator/label positions.
+   Previous grid-track changes did not affect the rendered spacing. */
 @media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
-  html body .fixed-head > .secondary-nav{
-    grid-template-columns:max-content 8.625em max-content 8.625em max-content!important;
+  html body .fixed-head > .secondary-nav > .mini-blog-separator,
+  html body .fixed-head > .secondary-nav > b:not(.mini-blog-separator):not(.language-separator):not(.blog-contact-separator){
+    left:22px!important;
   }
-}
-@media (max-width:650px) and (min-height:651px) and (hover:hover) and (pointer:fine){
-  html body .fixed-head > .secondary-nav{
-    grid-template-columns:max-content 2.73em max-content 3.53em max-content 2.2em max-content!important;
+  html body .fixed-head > .secondary-nav > a[href="#mini-blog"],
+  html body .fixed-head > .secondary-nav > a[href="#netzwerk"]{
+    left:19px!important;
+  }
+  html body .fixed-head > .secondary-nav > .language-separator{
+    left:31px!important;
+  }
+  html body .fixed-head > .secondary-nav > .language-toggle{
+    left:38px!important;
   }
 }
