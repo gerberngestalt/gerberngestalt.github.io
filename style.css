@@ -4861,3 +4861,12 @@ html body .network-row--auto-wrap .network-paragraph a{
     padding-right:50px!important;
   }
 }
+
+/* Phone portrait: equal breathing room on both sides of all three
+   navigation separators, using the desktop stone's balanced tracks
+   but capped to fit a narrow handset without horizontal overflow. */
+@media (max-width:650px) and (orientation:portrait) and (pointer:coarse){
+  html body .fixed-head > .secondary-nav{
+    grid-template-columns:max-content clamp(1.65em, 7vw, 3.15em) max-content clamp(1.65em, 7vw, 3.15em) max-content clamp(1.65em, 7vw, 3.15em) max-content!important;
+  }
+}
