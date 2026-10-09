@@ -838,7 +838,7 @@
     const networkSection = document.getElementById('netzwerk');
     if (networkSection) {
       const nr = networkSection.getBoundingClientRect();
-      if (nr.top <= readingY && nr.bottom > readingY) return 'netzwerk';
+      if (nr.top <= (window.innerWidth > 860 && window.innerHeight > 650 ? Math.max(readingY, window.innerHeight * 0.36) : readingY) && nr.bottom > readingY) return 'netzwerk';
     }
     if (pastSection && networkSection) {
       const pr = pastSection.getBoundingClientRect();
