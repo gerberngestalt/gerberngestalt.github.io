@@ -4989,3 +4989,10 @@ html body .network-row--auto-wrap .network-paragraph a{
     grid-template-columns:max-content calc(3em + 6px) max-content calc(3em + 6px) max-content calc(3em + 4px) max-content!important;
   }
 }
+
+/* Portrait phone: 2px more after GESTALT and KONTAKT only. */
+@media (max-width:650px) and (orientation:portrait){
+  html body .fixed-head > .secondary-nav{
+    grid-template-columns:max-content calc(3em + 8px) max-content calc(3em + 8px) max-content calc(3em + 4px) max-content!important;
+  }
+}
