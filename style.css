@@ -4973,3 +4973,11 @@ html body .network-row--auto-wrap .network-paragraph a{
     overflow:visible!important;
   }
 }
+
+/* Portrait phone: add 2px on each side of each navigation separator.
+   Each of the three separator tracks gains 4px in total. */
+@media (max-width:650px) and (orientation:portrait){
+  html body .fixed-head > .secondary-nav{
+    grid-template-columns:max-content calc(3em + 4px) max-content calc(3em + 4px) max-content calc(3em + 4px) max-content!important;
+  }
+}
