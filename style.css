@@ -5005,3 +5005,13 @@ html body .network-row--auto-wrap .network-paragraph a{
     right:auto!important;
   }
 }
+
+/* Portrait: shift only the two strokes after GESTALT and KONTAKT
+   4px right; keep labels, active dots, and third stroke stationary. */
+@media (max-width:650px) and (orientation:portrait){
+  html body .fixed-head > .secondary-nav > .mini-blog-separator,
+  html body .fixed-head > .secondary-nav > b:not(.mini-blog-separator):not(.language-separator):not(.blog-contact-separator){
+    position:relative!important;
+    left:4px!important;
+  }
+}
