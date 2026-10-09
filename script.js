@@ -382,7 +382,15 @@
       const display = localized(item, 'display') || item.display;
       const email = localized(item, 'email') || item.email;
       const label = document.createElement('span'); label.className = 'network-label'; label.textContent = labelText ? '\u00A0\u00A0' + labelText : ''; row.appendChild(label);
-      if (item.breakAfterLabel) { const lineBreak = document.createElement('br'); row.appendChild(lineBreak); }
+      if (item.breakAfterLabel) {
+        const lineBreak = document.createElement('br'); row.appendChild(lineBreak);
+        if (item.continuation) {
+          const continuation = document.createElement('span');
+          continuation.className = 'network-continuation';
+          continuation.textContent = '\u00A0\u00A0' + item.continuation;
+          row.appendChild(continuation);
+        }
+      }
       if (labelText) { const sep = document.createElement('span'); sep.className = 'list-separator'; sep.textContent = '|'; row.appendChild(sep); }
       if (url) {
         const a = document.createElement('a'); a.href = url; a.textContent = display || url.replace(/^https?:\/\//i, '').replace(/\/$/, '');
