@@ -4913,3 +4913,24 @@ html body .network-row--auto-wrap .network-paragraph a{
     left:calc(100% + 7px)!important;
   }
 }
+
+/* Portrait phone: align gallery images and their titles with the left
+   navigation inset, as on gerbern drei. Keep gallery size unchanged. */
+@media (max-width:650px) and (orientation:portrait){
+  html body main .section{
+    padding-left:22px!important;
+    padding-right:22px!important;
+    align-items:flex-start!important;
+  }
+  html body main .section > .window-group{
+    align-self:flex-start!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    transform:none!important;
+  }
+  html body main .section > .window-group > .section-title{
+    margin-left:0!important;
+    left:auto!important;
+    transform:none!important;
+  }
+}
