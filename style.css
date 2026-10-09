@@ -4329,7 +4329,7 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
     left:calc(100% + 13px)!important;right:auto!important;
   }
   html body .fixed-head > .secondary-nav > a[href="#netzwerk"]::after{
-    left:calc(100% + 4px)!important;right:auto!important;
+    left:calc(100% + 1px)!important;right:auto!important;
   }
 }
 /* Also provide predictable dots in phone layouts, without changing placement. */
