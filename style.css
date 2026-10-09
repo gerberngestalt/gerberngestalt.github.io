@@ -4784,3 +4784,15 @@ html body .network-row--auto-wrap .network-paragraph a{
     margin-left:0!important;
   }
 }
+
+/* Wide desktop: NETWORK active marker above its label, like MINI-BLOG and CONTACT. */
+@media (min-width:861px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  html body .fixed-head > .secondary-nav > a[href="#netzwerk"].active-secondary::after{
+    left:calc(50% - 3px)!important;
+    right:auto!important;
+    top:-10px!important;
+    bottom:auto!important;
+    margin:0!important;
+    transform:none!important;
+  }
+}
