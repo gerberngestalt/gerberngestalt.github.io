@@ -4392,3 +4392,28 @@ html body .network-row--two-lines > .network-line{
   line-height:inherit!important;
 }
 html body .network-row--two-lines .list-separator{margin:0 .35em!important;}
+
+/* First CONTACT image: independently clickable Instagram and email lines. */
+html body .carousel[data-gallery="kontakt"] .contact-hotspot-slide{
+  position:relative!important;
+}
+html body .carousel[data-gallery="kontakt"] .contact-image-hotspot{
+  position:absolute!important;
+  display:block!important;
+  z-index:2!important;
+  left:13%!important;
+  width:80%!important;
+  height:8%!important;
+  cursor:pointer!important;
+  background:transparent!important;
+}
+html body .carousel[data-gallery="kontakt"] .contact-instagram-hotspot{top:73%!important;}
+html body .carousel[data-gallery="kontakt"] .contact-email-hotspot{top:81%!important;}
+html body .carousel[data-gallery="kontakt"] .contact-image-hotspot:focus-visible{
+  outline:1px solid currentColor!important;
+  outline-offset:2px!important;
+}
+html body .network-row--two-lines > .network-line:nth-child(2){
+  padding-left:1em!important;
+  width:calc(100% - 1em)!important;
+}
