@@ -397,28 +397,25 @@
       const url = localized(item, 'url') || item.url;
       const display = localized(item, 'display') || item.display;
       const email = localized(item, 'email') || item.email;
-      if (item.breakAfterLabel && item.continuation) {
-        row.classList.add('network-row--two-lines');
-        const first = document.createElement('span');
-        first.className = 'network-line';
-        first.textContent = labelText;
-        row.appendChild(first);
-        const second = document.createElement('span');
-        second.className = 'network-line';
-        second.textContent = item.continuation + ' ';
-        const sep = document.createElement('span');
-        sep.className = 'list-separator';
-        sep.textContent = '|';
-        second.appendChild(sep);
+      if (item.autoWrap) {
+        row.classList.add('network-row--auto-wrap');
+        const paragraph = document.createElement('p');
+        paragraph.className = 'network-paragraph';
+        paragraph.appendChild(document.createTextNode(labelText));
         if (url) {
+          paragraph.appendChild(document.createTextNode(' '));
+          const separator = document.createElement('span');
+          separator.className = 'list-separator';
+          separator.textContent = '|';
+          paragraph.appendChild(separator);
+          paragraph.appendChild(document.createTextNode(' '));
           const link = document.createElement('a');
           link.href = url;
           link.textContent = display || url.replace(/^https?:\/\//i, '').replace(/\/$/, '');
           if (/^https?:\/\//i.test(link.href)) { link.target = '_blank'; link.rel = 'noopener noreferrer'; }
-          second.appendChild(document.createTextNode(' '));
-          second.appendChild(link);
+          paragraph.appendChild(link);
         }
-        row.appendChild(second);
+        row.appendChild(paragraph);
       } else {
         const label = document.createElement('span'); label.className = 'network-label'; label.textContent = labelText ? '\u00A0\u00A0' + labelText : ''; row.appendChild(label);
         if (labelText) { const sep = document.createElement('span'); sep.className = 'list-separator'; sep.textContent = '|'; row.appendChild(sep); }
