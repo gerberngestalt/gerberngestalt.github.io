@@ -830,6 +830,14 @@
       const nr = networkSection.getBoundingClientRect();
       if (pr.top <= readingY && nr.top > readingY) return 'kontakt';
     }
+    // Keep the MINI-BLOG and KONTAKT markers active on phones even when
+    // their gallery is taller than the visible viewport or its centre shifts.
+    const blogSection = document.getElementById('mini-blog');
+    if (blogSection && pastSection) {
+      const br = blogSection.getBoundingClientRect();
+      const pr = pastSection.getBoundingClientRect();
+      if (br.top <= readingY && pr.top > readingY) return 'mini-blog';
+    }
 
     const y = headH + (window.innerHeight - headH) / 2;
 
