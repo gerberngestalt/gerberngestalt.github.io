@@ -4315,16 +4315,18 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
     top:50%!important;bottom:auto!important;transform:translateY(-50%)!important;
   }
   /* Compact: hover and active use exactly the same position for each link. */
-  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::before,
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::before{
+    left:auto!important;right:calc(100% + 9px)!important;
+    background:#222!important;
+  }
   html body .fixed-head > .secondary-nav > a[href="#kontakt"]::after{
     left:calc(100% + 9px)!important;right:auto!important;
-    background:#222!important;
   }
   html body .fixed-head > .secondary-nav > a[href="#kontakt"]::after{
     background:var(--accent)!important;
   }
   html body .fixed-head > .secondary-nav > a[href="#mini-blog"]::after{
-    left:auto!important;right:calc(100% + 8px)!important;
+    left:calc(100% + 9px)!important;right:auto!important;
   }
   html body .fixed-head > .secondary-nav > a[href="#netzwerk"]::after{
     left:calc(100% + 9px)!important;right:auto!important;
