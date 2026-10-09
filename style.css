@@ -4282,7 +4282,7 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
    Both rows align; separators occupy the gaps, not extra text columns. */
 @media (min-width:651px) and (max-width:860px) and (min-height:651px){
   html body .fixed-head > .secondary-nav{
-    grid-template-columns:105px 5em max-content 5.3em max-content!important;
+    grid-template-columns:max-content 6em max-content 6em max-content!important;
   }
   html body .fixed-head > .secondary-nav > .mini-blog-separator{
     grid-column:2!important;grid-row:1!important;justify-self:center!important;
@@ -4416,4 +4416,21 @@ html body .carousel[data-gallery="kontakt"] .contact-image-hotspot:focus-visible
 html body .network-row--two-lines > .network-line:nth-child(2){
   padding-left:1em!important;
   width:calc(100% - 1em)!important;
+}
+
+/* Compact stone: preserve clear space on both sides of every separator.
+   CONTACT hover is always to the LEFT of its label; its active dot stays right. */
+@media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]:not(.active-secondary):hover::before{
+    left:auto!important;
+    right:calc(100% + 9px)!important;
+    top:50%!important;
+    transform:translateY(-50%)!important;
+    background:#222!important;
+    opacity:1!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"].active-secondary::after{
+    left:calc(100% + 9px)!important;
+    right:auto!important;
+  }
 }
