@@ -4884,3 +4884,15 @@ html body .network-row--auto-wrap .network-paragraph a{
     justify-self:start!important;
   }
 }
+
+/* Portrait phone: visibly enlarge separator whitespace.
+   Force equal 3em separator tracks, including the third track before DE. */
+@media (max-width:650px) and (orientation:portrait){
+  html body .fixed-head > .secondary-nav{
+    grid-template-columns:max-content 3em max-content 3em max-content 3em max-content!important;
+    column-gap:0!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#mini-blog"]{
+    grid-column:3!important;
+  }
+}
