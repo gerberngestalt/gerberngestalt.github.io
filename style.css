@@ -4934,3 +4934,23 @@ html body .network-row--auto-wrap .network-paragraph a{
     transform:none!important;
   }
 }
+
+/* Portrait phone: maximize square slides within the screen width.
+   Swipe and pagination dots remain available; arrows are hidden. */
+@media (max-width:650px) and (orientation:portrait){
+  html body main .section > .window-group{
+    width:calc(100vw - 44px)!important;
+    max-width:calc(100vw - 44px)!important;
+    max-height:none!important;
+  }
+  html body main .section > .window-group .carousel,
+  html body main .section > .window-group .viewport{
+    width:100%!important;
+    max-width:100%!important;
+  }
+  html body main .section > .window-group .carousel .arrow,
+  html body main .section > .window-group .carousel .prev,
+  html body main .section > .window-group .carousel .next{
+    display:none!important;
+  }
+}
