@@ -4739,7 +4739,7 @@ html body .network-row--auto-wrap .network-paragraph a{
    breathing room on both sides; preserve marker placement and other stones. */
 @media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
   html body .fixed-head > .secondary-nav{
-    grid-template-columns:max-content 7.5em max-content 7.5em max-content!important;
+    grid-template-columns:max-content 8.625em max-content 8.625em max-content!important;
   }
 }
 @media (max-width:650px) and (min-height:651px) and (hover:hover) and (pointer:fine){
