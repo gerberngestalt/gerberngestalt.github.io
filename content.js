@@ -74,6 +74,6 @@ window.SITE_CONTENT = {
   },
 
   network: [
-    { label:'Seminar für Gestalttherapie SfGT, Gestaltberatung und Gestaltphänomenologie', url:'https://www.sfgt.ch', display:'www.sfgt.ch' }
+    { label:'Seminar für Gestalttherapie SfGT, Gestaltberatung', breakAfterLabel:true, url:'https://www.sfgt.ch', display:'www.sfgt.ch', continuation:'und Gestaltphänomenologie' }
   ]
 };
