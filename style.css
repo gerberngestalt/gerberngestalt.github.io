@@ -4407,8 +4407,8 @@ html body .carousel[data-gallery="kontakt"] .contact-image-hotspot{
   cursor:pointer!important;
   background:transparent!important;
 }
-html body .carousel[data-gallery="kontakt"] .contact-instagram-hotspot{top:73%!important;}
-html body .carousel[data-gallery="kontakt"] .contact-email-hotspot{top:81%!important;}
+html body .carousel[data-gallery="kontakt"] .contact-instagram-hotspot{top:65%!important;}
+html body .carousel[data-gallery="kontakt"] .contact-email-hotspot{top:73%!important;}
 html body .carousel[data-gallery="kontakt"] .contact-image-hotspot:focus-visible{
   outline:1px solid currentColor!important;
   outline-offset:2px!important;
