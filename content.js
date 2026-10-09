@@ -17,7 +17,7 @@ window.SITE_CONTENT = {
   about: {
     title: 'ÜBER MICH',
     title_en: 'ABOUT ME',
-    images: ['https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/uebermich/passfoto.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/uebermich/niklaus-zumstein.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/uebermich/metal-stamp.jpg']
+    images: ['https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/uebermich/passfoto.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/uebermich/was-mich-privat.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/uebermich/niklaus-zumstein.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/uebermich/metal-stamp.jpg']
   },
 
   angebot: {
