@@ -4954,3 +4954,22 @@ html body .network-row--auto-wrap .network-paragraph a{
     display:none!important;
   }
 }
+
+/* Portrait phone: always reserve and show the slide pagination dots,
+   including after viewport resize and gallery navigation. */
+@media (max-width:650px) and (orientation:portrait){
+  html body main .section .carousel .dots,
+  html body main .section .carousel .dots[hidden]{
+    display:flex!important;
+    visibility:visible!important;
+    opacity:1!important;
+    position:relative!important;
+    flex:0 0 24px!important;
+    height:24px!important;
+    min-height:24px!important;
+    overflow:visible!important;
+  }
+  html body main .section .carousel{
+    overflow:visible!important;
+  }
+}
