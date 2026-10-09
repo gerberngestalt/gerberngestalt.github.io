@@ -4896,3 +4896,20 @@ html body .network-row--auto-wrap .network-paragraph a{
     grid-column:3!important;
   }
 }
+
+/* Phone landscape: keep active dots to the right of their labels,
+   and give the neighbouring separator strokes more room. */
+@media (orientation:landscape) and (max-height:650px) and (pointer:coarse){
+  html body .fixed-head > .secondary-nav{
+    column-gap:0!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#mini-blog"],
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]{
+    margin-right:14px!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#mini-blog"].active-secondary::after,
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"].active-secondary::after{
+    margin-left:0!important;
+    left:calc(100% + 7px)!important;
+  }
+}
