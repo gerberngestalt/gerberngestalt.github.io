@@ -4,6 +4,15 @@
   // v66: do not let the browser restore a slightly scrolled START position.
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
+  // CONTACT hover marker is a real element, not a legacy pseudo-element.
+  const contactNavLink = document.querySelector('.secondary-nav a[href="#kontakt"]');
+  if (contactNavLink && !contactNavLink.querySelector('.contact-hover-marker')) {
+    const marker = document.createElement('span');
+    marker.className = 'contact-hover-marker';
+    marker.setAttribute('aria-hidden', 'true');
+    contactNavLink.appendChild(marker);
+  }
+
   const content = window.SITE_CONTENT || {};
   const MAX_IMAGES = 11;
 
