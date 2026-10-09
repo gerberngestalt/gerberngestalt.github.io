@@ -4850,3 +4850,14 @@ html body .network-row--auto-wrap .network-paragraph a{
     max-width:100%!important;
   }
 }
+
+/* Narrow desktop: headings must never start left of the fixed navigation.
+   Align all section headings and reading content with its 50px inset. */
+@media (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  html body main .section,
+  html body main .list-section,
+  html body main #netzwerk.list-section{
+    padding-left:50px!important;
+    padding-right:50px!important;
+  }
+}
