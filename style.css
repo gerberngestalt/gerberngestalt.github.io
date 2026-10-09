@@ -4682,3 +4682,25 @@ html body .network-row--auto-wrap .network-paragraph a{
     transform:none!important;
   }
 }
+
+/* Small desktop CONTACT: the black hover marker is ONLY the child span.
+   Never let the legacy right-side ::after masquerade as a hover dot. */
+@media (min-width:651px) and (max-width:860px) and (hover:hover) and (pointer:fine){
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]:not(.active-secondary)::after,
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]:not(.active-secondary):hover::after{
+    content:none!important;display:none!important;opacity:0!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::before,
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]:hover::before{
+    content:none!important;display:none!important;opacity:0!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"] > .contact-hover-marker{
+    display:block!important;position:absolute!important;
+    left:-15px!important;right:auto!important;
+    top:50%!important;bottom:auto!important;
+    transform:translateY(-50%)!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]:not(.active-secondary):hover > .contact-hover-marker{
+    opacity:1!important;visibility:visible!important;
+  }
+}
