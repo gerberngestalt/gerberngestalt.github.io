@@ -4325,9 +4325,11 @@ html body .fixed-head > .secondary-nav .language-toggle{grid-column:5!important;
   html body .fixed-head > .secondary-nav > a[href="#kontakt"]::after{
     background:var(--accent)!important;
   }
-  html body .fixed-head > .secondary-nav > a[href="#mini-blog"]::after,
+  html body .fixed-head > .secondary-nav > a[href="#mini-blog"]::after{
+    left:calc(100% + 13px)!important;right:auto!important;
+  }
   html body .fixed-head > .secondary-nav > a[href="#netzwerk"]::after{
-    left:auto!important;right:calc(100% + 8px)!important;
+    left:calc(100% + 4px)!important;right:auto!important;
   }
 }
 /* Also provide predictable dots in phone layouts, without changing placement. */
