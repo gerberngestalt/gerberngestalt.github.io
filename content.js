@@ -8,37 +8,37 @@ window.SITE_CONTENT = {
     title: 'START',
     title_en: 'HOME',
     images: [
-      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/start/logo3.jpg' },
-      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/start/logo2.jpg', image_dark:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/start/logo2_dark.jpg' },
-      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/start/logo1.jpg' }
+      { image:'images/start/logo3.jpg' },
+      { image:'images/start/logo2.jpg', image_dark:'images/start/logo2_dark.jpg' },
+      { image:'images/start/logo1.jpg' }
     ]
   },
 
   about: {
     title: 'ÜBER MICH',
     title_en: 'ABOUT ME',
-    images: ['https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/uebermich/passfoto.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/uebermich/niklaus-zumstein.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/uebermich/was-mich-privat.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/uebermich/metal-stamp.jpg']
+    images: ['images/uebermich/passfoto.jpg', 'images/uebermich/niklaus-zumstein.jpg', 'images/uebermich/was-mich-privat.jpg', 'images/uebermich/metal-stamp.jpg']
   },
 
   angebot: {
     title: 'ANGEBOT',
     title_en: 'WHAT I DO',
-    images: ['images/angebot/ab-maerz.jpg', 'images/angebot/mein-angebot.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/angebot/wood-stamp.jpg']
+    images: ['images/angebot/ab-maerz.jpg', 'images/angebot/mein-angebot.jpg', 'images/angebot/wood-stamp.jpg']
   },
 
   praktisches: {
     title: 'PRAKTISCHES',
     title_en: 'PRACTICALITIES',
-    images: ['images/praktisches/erstsitzung.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/praktisches/clay-stamp.jpg']
+    images: ['images/praktisches/erstsitzung.jpg', 'images/praktisches/clay-stamp.jpg']
   },
 
   gestalt: {
     title: 'GESTALT',
     title_en: 'GESTALT',
     images: [
-      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/alles-was-ist.jpg', image_en:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/everything-that-is.jpg' },
-      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/was-sein-darf.jpg', image_en:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/what-may-be.jpg' },
-      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/gestalt/stone-stamp.jpg' }
+      { image:'images/gestalt/alles-was-ist.jpg', image_en:'images/gestalt/everything-that-is.jpg' },
+      { image:'images/gestalt/was-sein-darf.jpg', image_en:'images/gestalt/what-may-be.jpg' },
+      { image:'images/gestalt/stone-stamp.jpg' }
     ]
   },
 
@@ -46,7 +46,7 @@ window.SITE_CONTENT = {
     title: 'MINI-BLOG',
     title_en: 'MINI-BLOG',
     images: [
-      { image:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/miniblog/als-mensch-habe-ich.jpg', image_en:'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/miniblog/als-mensch-habe-ich_en.jpg' },
+      { image:'images/miniblog/als-mensch-habe-ich.jpg', image_en:'images/miniblog/als-mensch-habe-ich_en.jpg' },
       'images/miniblog/potato-stamp.jpg'
     ]
   },
@@ -54,7 +54,7 @@ window.SITE_CONTENT = {
   kontakt: {
     title: 'KONTAKT',
     title_en: 'CONTACT',
-    images: ['images/kontakt/gerberngestalt.jpg', 'https://raw.githubusercontent.com/gerberngestalt/gerberngestalt.github.io/main/images/kontakt/soap-stamp.jpg']
+    images: ['images/kontakt/gerberngestalt.jpg', 'images/kontakt/soap-stamp.jpg']
   },
 
   contact: {
