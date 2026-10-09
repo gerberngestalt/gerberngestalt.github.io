@@ -4662,3 +4662,23 @@ html body .network-row--auto-wrap .network-paragraph a{
     justify-self:center!important;
   }
 }
+
+/* CONTACT hover marker: distinct placements for the three desktop stones.
+   Keep the working medium layout unchanged. */
+@media (min-width:651px) and (max-width:860px) and (hover:hover) and (pointer:fine){
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"] > .contact-hover-marker{
+    left:-15px!important;right:auto!important;
+    top:50%!important;bottom:auto!important;
+    transform:translateY(-50%)!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]:not(.active-secondary):hover::after{
+    opacity:0!important;
+  }
+}
+@media (min-width:1201px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"] > .contact-hover-marker{
+    left:calc(50% - 3px)!important;right:auto!important;
+    top:-10px!important;bottom:auto!important;
+    transform:none!important;
+  }
+}
