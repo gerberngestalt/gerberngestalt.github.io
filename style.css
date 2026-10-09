@@ -4981,3 +4981,11 @@ html body .network-row--auto-wrap .network-paragraph a{
     grid-template-columns:max-content calc(3em + 4px) max-content calc(3em + 4px) max-content calc(3em + 4px) max-content!important;
   }
 }
+
+/* Portrait phone: another 2px only after GESTALT and after KONTAKT.
+   The third separator and other layouts remain unchanged. */
+@media (max-width:650px) and (orientation:portrait){
+  html body .fixed-head > .secondary-nav{
+    grid-template-columns:max-content calc(3em + 6px) max-content calc(3em + 6px) max-content calc(3em + 4px) max-content!important;
+  }
+}
