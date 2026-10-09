@@ -4870,3 +4870,17 @@ html body .network-row--auto-wrap .network-paragraph a{
     grid-template-columns:max-content clamp(1.65em, 7vw, 3.15em) max-content clamp(1.65em, 7vw, 3.15em) max-content clamp(1.65em, 7vw, 3.15em) max-content!important;
   }
 }
+
+/* Portrait phone: stop MINI-BLOG spanning the separator tracks.
+   Its former grid-column:3/8 made the browser redistribute widths,
+   defeating the requested equal spacing. */
+@media (max-width:650px) and (orientation:portrait){
+  html body .fixed-head > .secondary-nav{
+    grid-template-columns:max-content 2.15em max-content 2.15em max-content 2.15em max-content!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#mini-blog"]{
+    grid-column:3!important;
+    grid-row:1!important;
+    justify-self:start!important;
+  }
+}
