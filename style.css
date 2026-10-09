@@ -4796,3 +4796,28 @@ html body .network-row--auto-wrap .network-paragraph a{
     transform:none!important;
   }
 }
+
+
+/* Narrow mouse-driven browser windows: retain a safe inner margin for
+   headings, slide galleries and reading lists, even when the viewport shrinks. */
+@media (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  html body main .section,
+  html body main .list-section{
+    box-sizing:border-box!important;
+    padding-left:32px!important;
+    padding-right:32px!important;
+  }
+  html body main .window-group,
+  html body main .carousel,
+  html body main .list-inner,
+  html body main .network-links{
+    box-sizing:border-box!important;
+    max-width:calc(100% - 0px)!important;
+  }
+  html body main .window-group{
+    width:min(100%, 500px, calc(100dvh - var(--head) - var(--foot) - 105px))!important;
+  }
+  html body main .list-inner{
+    width:min(100%, 680px)!important;
+  }
+}
