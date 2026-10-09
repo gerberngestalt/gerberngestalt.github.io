@@ -229,6 +229,22 @@
       };
       setGalleryImage(img, spec, key);
       slide.appendChild(img);
+      if (key === 'kontakt' && index === 0) {
+        slide.classList.add('contact-hotspot-slide');
+        [
+          { label:'Instagram: gerberngestalt', href:'https://www.instagram.com/gerberngestalt/', cls:'contact-instagram-hotspot' },
+          { label:'E-Mail an gerberngestalt@gmail.com', href:'mailto:gerberngestalt@gmail.com', cls:'contact-email-hotspot' }
+        ].forEach(function (item) {
+          const link = document.createElement('a');
+          link.className = 'contact-image-hotspot ' + item.cls;
+          link.href = item.href;
+          link.setAttribute('aria-label', item.label);
+          link.title = item.label;
+          if (item.href.startsWith('https://')) { link.target = '_blank'; link.rel = 'noopener noreferrer'; }
+          link.addEventListener('click', function (event) { event.stopPropagation(); });
+          slide.appendChild(link);
+        });
+      }
       track.appendChild(slide);
 
       const dot = document.createElement('button');
@@ -385,11 +401,11 @@
         row.classList.add('network-row--two-lines');
         const first = document.createElement('span');
         first.className = 'network-line';
-        first.textContent = '\u00A0\u00A0' + labelText;
+        first.textContent = labelText;
         row.appendChild(first);
         const second = document.createElement('span');
         second.className = 'network-line';
-        second.textContent = '\u00A0\u00A0' + item.continuation + ' ';
+        second.textContent = item.continuation + ' ';
         const sep = document.createElement('span');
         sep.className = 'list-separator';
         sep.textContent = '|';
