@@ -4759,3 +4759,28 @@ html body .network-row--auto-wrap .network-paragraph a{
     grid-template-columns:max-content 4.32em max-content 4.32em max-content 4.32em max-content!important;
   }
 }
+
+/* Smallest mouse-driven stone: match MINI-BLOG's dot spacing to NETWORK,
+   and place NETWORK hover precisely on its active marker. */
+@media (max-width:650px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  html body .fixed-head > .secondary-nav > a[href="#mini-blog"]::after,
+  html body .fixed-head > .secondary-nav > a[href="#mini-blog"]::before{
+    left:calc(100% + 23px)!important;
+    right:auto!important;
+    margin-left:0!important;
+    top:50%!important;
+    transform:translateY(-50%)!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#netzwerk"]::before{
+    left:calc(100% + 23px)!important;
+    right:auto!important;
+    margin-left:0!important;
+    top:50%!important;
+    transform:translateY(-50%)!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#netzwerk"]::after{
+    left:calc(100% + 23px)!important;
+    right:auto!important;
+    margin-left:0!important;
+  }
+}
