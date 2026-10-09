@@ -4751,3 +4751,11 @@ html body .network-row--auto-wrap .network-paragraph a{
     margin-left:0!important;margin-right:0!important;
   }
 }
+
+/* Smallest desktop stone (<=650px): real seven-column navigation.
+   Widen the three separator tracks by 15%, without affecting touch phones. */
+@media (max-width:650px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  html body .fixed-head > .secondary-nav{
+    grid-template-columns:max-content 1.9em max-content 1.9em max-content 1.9em max-content!important;
+  }
+}
