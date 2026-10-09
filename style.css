@@ -4375,3 +4375,20 @@ html body .fixed-head .language-toggle:focus::after{
   html body .fixed-head > .secondary-nav > a,
   html body .fixed-head > .secondary-nav > .language-toggle{pointer-events:auto!important;}
 }
+
+/* Explicit two-line NETWORK entries must not inherit the legacy three-column grid. */
+html body .network-row.network-row--two-lines{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  gap:0!important;
+  grid-template-columns:none!important;
+  width:100%!important;
+}
+html body .network-row--two-lines > .network-line{
+  display:block!important;
+  width:100%!important;
+  white-space:normal!important;
+  line-height:inherit!important;
+}
+html body .network-row--two-lines .list-separator{margin:0 .35em!important;}
