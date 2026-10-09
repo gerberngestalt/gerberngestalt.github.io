@@ -4475,7 +4475,7 @@ html body .network-row.network-row--auto-wrap{
 html body .network-row--auto-wrap .network-paragraph{
   box-sizing:border-box!important;
   width:100%!important;
-  max-width:43ch!important;
+  max-width: min(100%, 580px)!important;
   margin:0!important;
   padding:0!important;
   line-height:1.65!important;
