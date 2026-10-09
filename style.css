@@ -4448,3 +4448,19 @@ html body .network-row--two-lines > .network-line:nth-child(2){
     background:#222!important;
   }
 }
+
+/* Phone portrait: CONTACT active dot to the right, with a little breathing
+   room on both sides of the first separator. */
+@media (max-width:650px) and (orientation:portrait){
+  html body .fixed-head > .secondary-nav{
+    grid-template-columns:max-content 2.05em max-content 2.65em max-content 1.65em max-content!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"].active-secondary::after{
+    left:calc(100% + 7px)!important;
+    right:auto!important;
+    top:50%!important;
+    bottom:auto!important;
+    transform:translateY(-50%)!important;
+    opacity:1!important;
+  }
+}
