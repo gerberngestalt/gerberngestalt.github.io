@@ -4765,21 +4765,21 @@ html body .network-row--auto-wrap .network-paragraph a{
 @media (max-width:650px) and (min-height:651px) and (hover:hover) and (pointer:fine){
   html body .fixed-head > .secondary-nav > a[href="#mini-blog"]::after,
   html body .fixed-head > .secondary-nav > a[href="#mini-blog"]::before{
-    left:calc(100% + 23px)!important;
+    left:calc(100% + 13px)!important;
     right:auto!important;
     margin-left:0!important;
     top:50%!important;
     transform:translateY(-50%)!important;
   }
   html body .fixed-head > .secondary-nav > a[href="#netzwerk"]::before{
-    left:calc(100% + 23px)!important;
+    left:calc(100% + 13px)!important;
     right:auto!important;
     margin-left:0!important;
     top:50%!important;
     transform:translateY(-50%)!important;
   }
   html body .fixed-head > .secondary-nav > a[href="#netzwerk"]::after{
-    left:calc(100% + 23px)!important;
+    left:calc(100% + 13px)!important;
     right:auto!important;
     margin-left:0!important;
   }
