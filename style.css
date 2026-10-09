@@ -4734,3 +4734,16 @@ html body .network-row--auto-wrap .network-paragraph a{
     opacity:1!important;visibility:visible!important;pointer-events:none!important;
   }
 }
+
+/* Small stone only: give every navigation separator about one third more
+   breathing room on both sides; preserve marker placement and other stones. */
+@media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  html body .fixed-head > .secondary-nav{
+    grid-template-columns:max-content 7.5em max-content 7.5em max-content!important;
+  }
+}
+@media (max-width:650px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  html body .fixed-head > .secondary-nav{
+    grid-template-columns:max-content 2.73em max-content 3.53em max-content 2.2em max-content!important;
+  }
+}
