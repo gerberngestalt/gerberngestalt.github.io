@@ -4596,3 +4596,13 @@ html body .network-row--auto-wrap .network-paragraph a{
     opacity:0!important;
   }
 }
+
+
+/* Phone landscape only: optically centre MINI-BLOG and CONTACT active dots
+   over their neighbouring separator strokes (1 mm ≈ 3.78 CSS px). */
+@media (orientation:landscape) and (max-height:650px) and (pointer:coarse){
+  html body .fixed-head > .secondary-nav > a[href="#mini-blog"].active-secondary::after,
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"].active-secondary::after{
+    margin-left:3.78px!important;
+  }
+}
