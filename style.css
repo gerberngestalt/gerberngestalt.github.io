@@ -4821,3 +4821,32 @@ html body .network-row--auto-wrap .network-paragraph a{
     width:min(100%, 680px)!important;
   }
 }
+
+
+/* Network reading block: explicit inner gutter for narrow desktop windows.
+   The title and text share one inset, independent of legacy list sizing. */
+@media (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  html body main #netzwerk.list-section{
+    padding-left:32px!important;
+    padding-right:32px!important;
+  }
+  html body main #netzwerk .list-inner{
+    box-sizing:border-box!important;
+    width:100%!important;
+    max-width:680px!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+  html body main #netzwerk .network-links{
+    box-sizing:border-box!important;
+    width:100%!important;
+    max-width:100%!important;
+    padding-left:0!important;
+    padding-right:0!important;
+  }
+  html body main #netzwerk .network-row,
+  html body main #netzwerk .network-paragraph{
+    box-sizing:border-box!important;
+    max-width:100%!important;
+  }
+}
