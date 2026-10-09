@@ -4740,16 +4740,16 @@ html body .network-row--auto-wrap .network-paragraph a{
 @media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
   html body .fixed-head > .secondary-nav > .mini-blog-separator,
   html body .fixed-head > .secondary-nav > b:not(.mini-blog-separator):not(.language-separator):not(.blog-contact-separator){
-    left:22px!important;
+    left:15px!important;
   }
   html body .fixed-head > .secondary-nav > a[href="#mini-blog"],
   html body .fixed-head > .secondary-nav > a[href="#netzwerk"]{
-    left:19px!important;
+    left:30px!important;
   }
   html body .fixed-head > .secondary-nav > .language-separator{
-    left:31px!important;
+    left:43px!important;
   }
   html body .fixed-head > .secondary-nav > .language-toggle{
-    left:38px!important;
+    left:58px!important;
   }
 }
