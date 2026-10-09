@@ -4619,7 +4619,8 @@ html body .network-row--auto-wrap .network-paragraph a{
     border-radius:50%!important;
     background:#222!important;
     left:auto!important;
-    right:calc(100% + 9px)!important;
+    right:auto!important;
+    left:-15px!important;
     top:50%!important;
     transform:translateY(-50%)!important;
     opacity:0!important;
@@ -4627,5 +4628,27 @@ html body .network-row--auto-wrap .network-paragraph a{
   }
   html body .fixed-head > .secondary-nav > a[href="#kontakt"]:not(.active-secondary):hover > .contact-hover-marker{
     opacity:1!important;
+  }
+}
+
+/* Small-stone desktop: give active dots real breathing room before separators.
+   Shift separators and the following links together, preserving their mutual gap. */
+@media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  html body .fixed-head > .secondary-nav > .mini-blog-separator,
+  html body .fixed-head > .secondary-nav > b:not(.mini-blog-separator):not(.language-separator):not(.blog-contact-separator){
+    left:15px!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#mini-blog"],
+  html body .fixed-head > .secondary-nav > a[href="#netzwerk"]{
+    position:relative!important;
+    left:5px!important;
+  }
+  html body .fixed-head > .secondary-nav > .language-separator{
+    position:relative!important;
+    left:10px!important;
+  }
+  html body .fixed-head > .secondary-nav > .language-toggle{
+    position:relative!important;
+    left:10px!important;
   }
 }
