@@ -4739,7 +4739,7 @@ html body .network-row--auto-wrap .network-paragraph a{
    6em tracks leave space for active markers on either side. */
 @media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
   html body .fixed-head > .secondary-nav{
-    grid-template-columns:max-content 7.2em max-content 7.2em max-content!important;
+    grid-template-columns:max-content 8.4em max-content 8.4em max-content!important;
   }
   html body .fixed-head > .secondary-nav > .mini-blog-separator,
   html body .fixed-head > .secondary-nav > b:not(.mini-blog-separator):not(.language-separator):not(.blog-contact-separator),
