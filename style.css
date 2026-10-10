@@ -5032,6 +5032,6 @@ html body .network-row--auto-wrap .network-paragraph a{
   html body main .section,
   html body main .list-section,
   html body main #netzwerk.list-section{
-    padding-top:calc(7mm - 0.75 * var(--type-size) * var(--type-leading))!important;
+    padding-top:7mm!important;
   }
 }
