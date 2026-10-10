@@ -54,16 +54,26 @@
 
   function galleryImageCandidates(spec, key) {
     const darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const phone = window.matchMedia('(max-width:650px) and (orientation:portrait)').matches;
     const english = currentLanguage === 'en';
     const withSuffix = (url, suffix) => url.replace(/(\.[^./?#]+)([?#].*)?$/, suffix + '$1$2');
     const englishImage = spec.en || withSuffix(spec.base, '_en');
-    const englishDark = withSuffix(englishImage, '_dark');
-    const baseDark = spec.dark || withSuffix(spec.base, '_dark');
     const candidates = [];
-    if (english && darkMode) candidates.push(englishDark);
-    if (english) candidates.push(englishImage);
-    if (darkMode) candidates.push(baseDark);
-    candidates.push(spec.base);
+    const add = (url) => {
+      if (!url) return;
+      if (phone) {
+        if (darkMode) candidates.push(withSuffix(url, '_dark_phone'));
+        candidates.push(withSuffix(url, '_phone'));
+      }
+      if (darkMode) candidates.push(withSuffix(url, '_dark'));
+      candidates.push(url);
+    };
+    if (english) add(englishImage);
+    if (spec.dark && darkMode) {
+      if (phone) candidates.push(withSuffix(spec.dark, '_phone'));
+      candidates.push(spec.dark);
+    }
+    add(spec.base);
     return [...new Set(candidates.filter(Boolean))];
   }
 
