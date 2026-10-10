@@ -17,7 +17,7 @@ window.SITE_CONTENT = {
   about: {
     title: 'ÜBER MICH',
     title_en: 'ABOUT ME',
-    images: ['images/uebermich/passfoto.jpg', 'images/uebermich/niklaus-zumstein.png', 'images/uebermich/was-mich-privat.png', 'images/uebermich/metal-stamp.jpg']
+    images: ['images/about/passfoto.jpg', 'images/about/niklaus-zumstein.png', 'images/about/was-mich-privat.png', 'images/about/metal-stamp.jpg']
   },
 
   angebot: {
