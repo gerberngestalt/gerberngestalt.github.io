@@ -5086,3 +5086,17 @@ html body .network-row--auto-wrap .network-paragraph a{
     transform:translateY(-50%)!important;
   }
 }
+
+/* Align portrait section titles with the primary navigation's 22px inset.
+   Keep the image/window itself in its existing position. */
+@media (max-width:650px) and (orientation:portrait){
+  html body main .section > .window-group > .section-title{
+    margin-left:0!important;
+    padding-left:0!important;
+    left:auto!important;
+    transform:none!important;
+  }
+  html body main .section{
+    padding-left:22px!important;
+  }
+}
