@@ -17,7 +17,7 @@ window.SITE_CONTENT = {
   about: {
     title: 'ÜBER MICH',
     title_en: 'ABOUT ME',
-    images: ['images/about/passfoto.jpg', 'images/about/niklaus-zumstein.png', 'images/about/was-mich-privat.png', 'images/about/metal-stamp.jpg']
+    images: ['images/about/passfoto.jpg', 'images/about/niklaus-zumstein.png', 'images/about/was-mich-privat.png', 'images/about/ich-sehe-ausgesprochen_phone.png', 'images/about/meditation-wird-auch_phone.png', 'images/about/metal-stamp.jpg']
   },
 
   angebot: {
