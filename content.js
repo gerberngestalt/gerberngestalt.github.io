@@ -17,19 +17,19 @@ window.SITE_CONTENT = {
   about: {
     title: 'ÜBER MICH',
     title_en: 'ABOUT ME',
-    images: ['images/about/passfoto.jpg', 'images/about/niklaus-zumstein.png', 'images/about/was-mich-privat.png', 'images/about/metal-stamp.jpg', 'images/about/ich-sehe-ausgesprochen.png', 'images/about/meditation-wird-auch.png', 'images/about/wir-wollen-uns.png']
+    images: ['images/about/passfoto.png', 'images/about/niklaus-zumstein.png', 'images/about/was-mich-privat.png', 'images/about/metal-stamp.jpg', 'images/about/ich-sehe-ausgesprochen.png', 'images/about/meditation-wird-auch.png', 'images/about/wir-wollen-uns.png']
   },
 
   angebot: {
     title: 'ANGEBOT',
     title_en: 'WHAT I DO',
-    images: ['images/angebot/ab-maerz.jpg', 'images/angebot/mein-angebot.jpg', 'images/angebot/wood-stamp.jpg']
+    images: ['images/angebot/ab-maerz.png', 'images/angebot/mein-angebot.png', 'images/angebot/wood-stamp.jpg']
   },
 
   praktisches: {
     title: 'PRAKTISCHES',
     title_en: 'PRACTICALITIES',
-    images: ['images/praktisches/erstsitzung.jpg', 'images/praktisches/clay-stamp.jpg']
+    images: ['images/praktisches/erstsitzung.png', 'images/praktisches/clay-stamp.jpg']
   },
 
   gestalt: {
@@ -46,7 +46,7 @@ window.SITE_CONTENT = {
     title: 'MINI-BLOG',
     title_en: 'MINI-BLOG',
     images: [
-      { image:'images/miniblog/als-mensch-habe-ich.jpg', image_en:'images/miniblog/als-mensch-habe-ich_en.jpg' },
+      { image:'images/miniblog/als-mensch-mache-ich.png', image_en:'images/miniblog/als-mensch-mache-ich_en.png' },
       'images/miniblog/potato-stamp.jpg'
     ]
   },
@@ -54,7 +54,7 @@ window.SITE_CONTENT = {
   kontakt: {
     title: 'KONTAKT',
     title_en: 'CONTACT',
-    images: ['images/kontakt/gerberngestalt.jpg', 'images/kontakt/soap-stamp.jpg']
+    images: ['images/kontakt/erstsitzung.png', 'images/kontakt/soap-stamp.jpg']
   },
 
   contact: {
