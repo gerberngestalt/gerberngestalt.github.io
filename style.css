@@ -5035,3 +5035,42 @@ html body .network-row--auto-wrap .network-paragraph a{
     padding-top:7mm!important;
   }
 }
+
+/* Wide desktop secondary navigation: horizontal hover/active markers,
+   with room around the three vertical separators. */
+@media (min-width:861px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  html body .fixed-head > .secondary-nav{
+    column-gap:0!important;
+    grid-template-columns:max-content 3.3em max-content 3.3em max-content 3.3em max-content!important;
+  }
+  html body .fixed-head > .secondary-nav > b{
+    justify-self:center!important;
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#mini-blog"]::before,
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::before,
+  html body .fixed-head > .secondary-nav > a[href="#netzwerk"]::before{
+    left:auto!important;
+    right:calc(100% + 10px)!important;
+    top:50%!important;
+    bottom:auto!important;
+    transform:translateY(-50%)!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#mini-blog"]::after,
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::after,
+  html body .fixed-head > .secondary-nav > a[href="#netzwerk"]::after{
+    left:calc(100% + 10px)!important;
+    right:auto!important;
+    top:50%!important;
+    bottom:auto!important;
+    transform:translateY(-50%)!important;
+    margin:0!important;
+  }
+  html body .fixed-head > .secondary-nav > a[href="#kontakt"] > .contact-hover-marker{
+    left:-16px!important;
+    right:auto!important;
+    top:50%!important;
+    transform:translateY(-50%)!important;
+  }
+}
