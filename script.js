@@ -59,21 +59,32 @@
     const withSuffix = (url, suffix) => url.replace(/(\.[^./?#]+)([?#].*)?$/, suffix + '$1$2');
     const englishImage = spec.en || withSuffix(spec.base, '_en');
     const candidates = [];
-    const add = (url) => {
+    const add = (url, usePhone) => {
       if (!url) return;
-      if (phone) {
+      if (usePhone) {
         if (darkMode) candidates.push(withSuffix(url, '_dark_phone'));
         candidates.push(withSuffix(url, '_phone'));
       }
       if (darkMode) candidates.push(withSuffix(url, '_dark'));
       candidates.push(url);
     };
-    if (english) add(englishImage);
+    // Prefer the matching language and screen, but never hide a slide just
+    // because only an English or phone-specific asset has been uploaded.
+    if (english) {
+      add(englishImage, phone);
+      add(spec.base, phone);
+      add(englishImage, !phone);
+      add(spec.base, !phone);
+    } else {
+      add(spec.base, phone);
+      add(englishImage, phone);
+      add(spec.base, !phone);
+      add(englishImage, !phone);
+    }
     if (spec.dark && darkMode) {
       if (phone) candidates.push(withSuffix(spec.dark, '_phone'));
       candidates.push(spec.dark);
     }
-    add(spec.base);
     return [...new Set(candidates.filter(Boolean))];
   }
 
