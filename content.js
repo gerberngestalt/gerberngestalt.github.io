@@ -27,8 +27,7 @@ window.SITE_CONTENT = {
       'images/about/07_smile.png',
       'images/about/08_wir-wollen-uns.png',
       'images/about/09_einen-dialog-mit.png',
-      'images/about/10_guitar.png',
-      'images/about/11_hat-moustache.png'
+      'images/about/10_hat-moustache.png'
     ]
   },
 
