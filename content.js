@@ -10,7 +10,7 @@ window.SITE_CONTENT = {
     images: [
       { image:'images/start/logo3.jpg' },
       { image:'images/start/logo2.jpg', image_dark:'images/start/logo2_dark.jpg' },
-      { image:'images/start/logo1.jpg' }
+      { image:'images/start/slide3.png' }
     ]
   },
 
