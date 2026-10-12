@@ -24,10 +24,11 @@ window.SITE_CONTENT = {
       'images/about/04_metal-stamp.jpg',
       'images/about/05_ich-sehe-ausgesprochen.png',
       'images/about/06_offensichtliches-erschliesst.png',
-      'images/about/07_wir-wollen-uns.png',
-      'images/about/08_einen-dialog-mit.png',
-      'images/about/09_guitar.png',
-      'images/about/10_hat-moustache.png'
+      'images/about/07_smile.png',
+      'images/about/08_wir-wollen-uns.png',
+      'images/about/09_einen-dialog-mit.png',
+      'images/about/10_guitar.png',
+      'images/about/11_hat-moustache.png'
     ]
   },
 
