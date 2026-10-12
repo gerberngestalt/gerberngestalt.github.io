@@ -447,7 +447,7 @@
         }
         row.appendChild(paragraph);
       } else {
-        const label = document.createElement('span'); label.className = 'network-label'; label.textContent = labelText ? '\u00A0\u00A0' + labelText : ''; row.appendChild(label);
+        const label = document.createElement('span'); label.className = 'network-label'; label.textContent = labelText || ''; row.appendChild(label);
         if (labelText) { const sep = document.createElement('span'); sep.className = 'list-separator'; sep.textContent = '|'; row.appendChild(sep); }
         if (url) {
           const link = document.createElement('a'); link.href = url; link.textContent = display || url.replace(/^https?:\/\//i, '').replace(/\/$/, '');
