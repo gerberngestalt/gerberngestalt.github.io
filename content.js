@@ -47,10 +47,13 @@ window.SITE_CONTENT = {
     title: 'GESTALT',
     title_en: 'GESTALT',
     images: [
-      { image:'images/gestalt/alles-was-ist.jpg', image_en:'images/gestalt/everything-that-is.jpg' },
-      { image:'images/gestalt/was-sein-darf.jpg', image_en:'images/gestalt/what-may-be.jpg' },
-      { image:'images/gestalt/gestalttherapie-betont.png' },
-      { image:'images/gestalt/stone-stamp.jpg' }
+      { image:'images/gestalt/01_alles-was-ist.jpg', image_en:'images/gestalt/01_alles-was-ist_en.jpg' },
+      { image:'images/gestalt/02_was-sein-darf.jpg', image_en:'images/gestalt/02_was-sein-darf_en.jpg' },
+      { image:'images/gestalt/03_gestalttherapie-betont.png' },
+      { image:'images/gestalt/04_nicht-alles-ist.png' },
+      { image:'images/gestalt/05_ich-bin-ich.png' },
+      { image:'images/gestalt/06_gestalttherapie-uebt.png' },
+      { image:'images/gestalt/07_stone-stamp.jpg' }
     ]
   },
 
