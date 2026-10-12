@@ -75,8 +75,8 @@ window.SITE_CONTENT = {
   },
 
   network: [
-    {"label":"Seminar für Gestalttherapie SfGT, Gestaltberatung und Gestaltphänomenologie","autoWrap":true,"url":"https://www.sfgt.ch/","display":"www.sfgt.ch"},
-    {"label":"Miguel Guldimann, Solothurn","url":"https://www.zenmeditation.ch/","display":"www.zenmeditation.ch","spaceAfter":true},
+    {"label":"Seminar für Gestalttherapie SfGT, Gestaltberatung und Gestaltphänomenologie","autoWrap":true,"url":"https://www.sfgt.ch/","display":"www.sfgt.ch","spaceAfter":true},
+    {"label":"Miguel Guldimann, Solothurn","url":"https://www.zenmeditation.ch/","display":"www.zenmeditation.ch"},
     {"label":"Lapis Dharma Centre, Mullumbimby Creek, Australien","label_en":"Lapis Dharma Centre, Mullumbimby Creek, Australia","url":"https://www.lapisdharma.com/","display":"www.lapisdharma.com"},
     {"label":"Shambhala Zentrum, Bern","label_en":"Shambhala Centre, Bern","url":"https://bern.shambhala.org/","url_en":"https://bern.shambhala.org/?lang=en","display":"bern.shambhala.org"},
     {"label":"Shambhala Zentrum, Köln","label_en":"Shambhala Centre, Cologne","url":"https://cologne.shambhala.org/","url_en":"https://cologne.shambhala.org/?lang=en","display":"cologne.shambhala.org"},
