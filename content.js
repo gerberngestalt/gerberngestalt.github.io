@@ -38,6 +38,7 @@ window.SITE_CONTENT = {
     images: [
       { image:'images/gestalt/alles-was-ist.jpg', image_en:'images/gestalt/everything-that-is.jpg' },
       { image:'images/gestalt/was-sein-darf.jpg', image_en:'images/gestalt/what-may-be.jpg' },
+      { image:'images/gestalt/gestalttherapie-betont.png' },
       { image:'images/gestalt/stone-stamp.jpg' }
     ]
   },
