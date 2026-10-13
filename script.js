@@ -809,47 +809,91 @@
     }, { passive:true });
   }
 
-  function settleResize() {
-    // Mobile Chrome changes visualViewport height while its browser chrome moves.
-    // Re-centering the page on every one of those pseudo-resizes fights the user's
-    // finger and causes the visible jump/jitter on a fast swipe. On touch/mobile
-    // layouts scrolling must stay completely native.
-    if (window.matchMedia('(max-width: 900px), (pointer: coarse)').matches) return;
-    if (!location.hash || location.hash === '#start') {
-      window.clearTimeout(resizeSettleTimer);
-      resizeInProgress = true;
-      window.scrollTo({ top:0, left:0, behavior:'instant' });
-      resizeSettleTimer = window.setTimeout(function () {
-        window.scrollTo({ top:0, left:0, behavior:'instant' });
-        resizeInProgress = false;
-      }, 200);
-      return;
+  // A horizontal window resize must never navigate or re-center a slide.
+  // The previous resize handler repeatedly called centerGallery for 1.35s,
+  // also jumping back to START when its hash was still in the address bar.
+  // Remember the visible section's actual screen position BEFORE layout
+  // changes, and correct only the offset caused by responsive reflow.
+  // Browser-toolbar height changes are ignored; phone rotation keeps its
+  // own dedicated handler below.
+  let lastResizeWidth = window.innerWidth;
+  let resizeAnchorSnapshot = null;
+  let resizeRememberFrame = 0;
+
+  function visibleSectionAnchor() {
+    const sections = document.querySelectorAll('main .section, main .list-section');
+    const head = document.querySelector('.fixed-head');
+    const headH = head ? head.getBoundingClientRect().height : 0;
+    const viewTop = Math.min(window.innerHeight - 8, Math.max(0, headH));
+    const viewBottom = window.innerHeight;
+    let best = null;
+    let mostVisible = 0;
+    sections.forEach(function (section) {
+      const rect = section.getBoundingClientRect();
+      const overlap = Math.max(0, Math.min(rect.bottom, viewBottom) - Math.max(rect.top, viewTop));
+      if (overlap > mostVisible) {
+        mostVisible = overlap;
+        best = section;
+      }
+    });
+    if (!best) return null;
+    if (best.classList.contains('section')) {
+      return best.querySelector('.window-group') || best;
     }
+    return best.querySelector('.list-inner') || best;
+  }
+
+  function rememberResizePosition() {
+    if (resizeInProgress || window.innerWidth !== lastResizeWidth) return;
+    const anchor = visibleSectionAnchor();
+    if (!anchor) return;
+    resizeAnchorSnapshot = {
+      anchor: anchor,
+      top: anchor.getBoundingClientRect().top,
+      atPageTop: window.scrollY <= 1
+    };
+  }
+
+  function scheduleRememberResizePosition() {
+    if (resizeInProgress || resizeRememberFrame) return;
+    resizeRememberFrame = window.requestAnimationFrame(function () {
+      resizeRememberFrame = 0;
+      rememberResizePosition();
+    });
+  }
+  window.addEventListener('scroll', scheduleRememberResizePosition, { passive:true });
+  window.addEventListener('pageshow', scheduleRememberResizePosition);
+  window.requestAnimationFrame(rememberResizePosition);
+
+  function restoreResizePosition() {
+    const state = resizeAnchorSnapshot;
+    if (!state || !state.anchor.isConnected) return;
+    const delta = state.anchor.getBoundingClientRect().top - state.top;
+    const targetY = state.atPageTop ? 0 : window.scrollY + delta;
+    if (!Number.isFinite(targetY) || Math.abs(targetY - window.scrollY) < 1) return;
+    // The stylesheet has scroll-behavior:smooth; resizing must never
+    // initiate an animated scroll.
+    const root = document.documentElement;
+    const oldBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+    window.scrollTo({ top:Math.max(0, targetY), left:0, behavior:'instant' });
+    root.style.scrollBehavior = oldBehavior;
+  }
+
+  function settleResize() {
+    const width = window.innerWidth;
+    if (width === lastResizeWidth) return; // Height-only/browser chrome resize.
+    lastResizeWidth = width;
+    if (window.matchMedia('(pointer:coarse)').matches) return;
+
     resizeInProgress = true;
     window.clearTimeout(resizeSettleTimer);
-
-    // Windows/Chrome restore/maximize can rebuild the viewport in several passes.
-    // Keep the explicitly selected/hash gallery authoritative throughout that
-    // sequence and re-center it after each likely layout pass.
-    const target = galleryFromHash() || activeGallery || chooseActiveGallery();
-    if (target) activeGallery = target;
-
-    [0, 80, 180, 320, 520, 800, 1200].forEach(function (delay) {
-      window.setTimeout(function () {
-        const wanted = galleryFromHash() || activeGallery;
-        if (!wanted) return;
-        window.requestAnimationFrame(function () { centerGallery(wanted); });
-      }, delay);
-    });
-
+    window.requestAnimationFrame(restoreResizePosition);
     resizeSettleTimer = window.setTimeout(function () {
-      const wanted = galleryFromHash() || activeGallery || chooseActiveGallery();
-      if (wanted) {
-        activeGallery = wanted;
-        centerGallery(wanted);
-      }
+      restoreResizePosition();
       resizeInProgress = false;
-    }, 1350);
+      rememberResizePosition();
+    }, 180);
   }
   // Phone rotation: restore the selected section after the layout switches.
   // Ordinary viewport resizes (browser toolbar appearing/disappearing) are ignored.
@@ -877,7 +921,6 @@
   phoneOrientation.addEventListener('change', restorePhoneSectionAfterRotation);
 
   window.addEventListener('resize', settleResize, { passive:true });
-  if (window.visualViewport) window.visualViewport.addEventListener('resize', settleResize, { passive:true });
 
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener('click', function (event) {
