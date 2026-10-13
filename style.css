@@ -5264,8 +5264,8 @@ html body .network-row--auto-wrap .network-paragraph a{
    Height is set by visualViewport in JS, with 100dvh as a CSS fallback. */
 @media (max-width:650px) and (orientation:portrait){
   html body main .section > .window-group{
-    width:min(calc(100vw - 44px),500px,calc(var(--gg-gallery-visible-height, 100dvh) - var(--head) - 7mm - 82px))!important;
-    max-width:min(calc(100vw - 44px),500px,calc(var(--gg-gallery-visible-height, 100dvh) - var(--head) - 7mm - 82px))!important;
+    width:min(calc(100vw - 44px),500px,calc(var(--gg-gallery-visible-height, 100svh) - var(--head) - 7mm - 82px))!important;
+    max-width:min(calc(100vw - 44px),500px,calc(var(--gg-gallery-visible-height, 100svh) - var(--head) - 7mm - 82px))!important;
   }
 }
 @media (orientation:landscape) and (max-height:650px) and (pointer:coarse){
