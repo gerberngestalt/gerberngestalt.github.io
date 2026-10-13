@@ -5422,3 +5422,39 @@ html body main #netzwerk .network-link-break{
     display:inline!important;
   }
 }
+
+
+/* Narrow portrait alignment, same 22px axis as gerbern drei.
+   Legacy compact *mouse* rules set 40px header / 50px list insets with
+   !important even after the viewport crosses the phone breakpoint.
+   Override those without touching wide desktop or phone landscape. */
+@media (max-width:650px) and (orientation:portrait){
+  html body .fixed-head{
+    padding-left:22px!important;
+    padding-right:22px!important;
+  }
+  html body .fixed-head > .secondary-nav{
+    left:22px!important;
+    right:auto!important;
+  }
+  html body main .section,
+  html body main .list-section,
+  html body main #netzwerk.list-section{
+    padding-left:22px!important;
+    padding-right:22px!important;
+  }
+  html body main #netzwerk .list-inner{
+    box-sizing:border-box!important;
+    width:100%!important;
+    max-width:100%!important;
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+  html body main > .legal-links{
+    box-sizing:border-box!important;
+    width:calc(100% - 44px)!important;
+    max-width:500px!important;
+    margin-left:22px!important;
+    margin-right:22px!important;
+  }
+}
