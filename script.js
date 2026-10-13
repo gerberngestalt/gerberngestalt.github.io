@@ -809,14 +809,15 @@
     }, { passive:true });
   }
 
-  // A horizontal window resize must never navigate or re-center a slide.
+  // Resizing a desktop window in either direction must not move the open section.
   // The previous resize handler repeatedly called centerGallery for 1.35s,
   // also jumping back to START when its hash was still in the address bar.
   // Remember the visible section's actual screen position BEFORE layout
   // changes, and correct only the offset caused by responsive reflow.
-  // Browser-toolbar height changes are ignored; phone rotation keeps its
+  // Touch-phone browser toolbar changes are ignored; rotation keeps its
   // own dedicated handler below.
   let lastResizeWidth = window.innerWidth;
+  let lastResizeHeight = window.innerHeight;
   let resizeAnchorSnapshot = null;
   let resizeRememberFrame = 0;
 
@@ -844,7 +845,8 @@
   }
 
   function rememberResizePosition() {
-    if (resizeInProgress || window.innerWidth !== lastResizeWidth) return;
+    if (resizeInProgress || window.innerWidth !== lastResizeWidth ||
+        window.innerHeight !== lastResizeHeight) return;
     const anchor = visibleSectionAnchor();
     if (!anchor) return;
     resizeAnchorSnapshot = {
@@ -882,8 +884,12 @@
 
   function settleResize() {
     const width = window.innerWidth;
-    if (width === lastResizeWidth) return; // Height-only/browser chrome resize.
+    const height = window.innerHeight;
+    if (width === lastResizeWidth && height === lastResizeHeight) return;
     lastResizeWidth = width;
+    lastResizeHeight = height;
+    // Mobile browser bars can change the viewport height while scrolling.
+    // Keep their existing native behavior (and the separate rotation handler).
     if (window.matchMedia('(pointer:coarse)').matches) return;
 
     resizeInProgress = true;
