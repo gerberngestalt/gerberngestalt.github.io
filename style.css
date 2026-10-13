@@ -5339,3 +5339,70 @@ html body main > .legal-links{
     line-height:var(--gg-network-blank-line)!important;
   }
 }
+
+
+/* Narrow windows and phone portrait: NETWORK entries are continuous text,
+   not a three-column grid/flex layout. This prevents premature breaks inside
+   names such as "Miguel Guldimann, Solothurn" just to reserve a URL column.
+   Wrap only when the entire line really needs more horizontal space; wrapped
+   lines use the same subtle hanging indent. Other orientations are unchanged. */
+@media (max-width:900px) and (orientation:portrait){
+  html body main #netzwerk .network-links{
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    box-sizing:border-box!important;
+    padding-left:0!important;
+    padding-right:0!important;
+    text-align:left!important;
+  }
+  html body main #netzwerk .network-row,
+  html body main #netzwerk .network-row.network-row--auto-wrap{
+    display:block!important;
+    box-sizing:border-box!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    grid-template-columns:none!important;
+    grid-template-rows:none!important;
+    column-gap:0!important;
+    row-gap:0!important;
+    padding:0 0 0 .8em!important;
+    margin:0!important;
+    text-indent:-.8em!important;
+    white-space:normal!important;
+    text-align:left!important;
+  }
+  html body main #netzwerk .network-row .network-label,
+  html body main #netzwerk .network-row .list-separator,
+  html body main #netzwerk .network-row a,
+  html body main #netzwerk .network-row .network-paragraph,
+  html body main #netzwerk .network-row .network-paragraph a{
+    display:inline!important;
+    position:static!important;
+    float:none!important;
+    width:auto!important;
+    max-width:none!important;
+    min-width:0!important;
+    grid-column:auto!important;
+    padding:0!important;
+    text-indent:0!important;
+    white-space:normal!important;
+    vertical-align:baseline!important;
+  }
+  html body main #netzwerk .network-row .network-label{
+    overflow-wrap:normal!important;
+    word-break:normal!important;
+  }
+  html body main #netzwerk .network-row .list-separator{
+    margin:0 0 0 .35em!important;
+    white-space:nowrap!important;
+  }
+  html body main #netzwerk .network-row a,
+  html body main #netzwerk .network-row .network-paragraph a{
+    margin:0!important;
+    overflow-wrap:anywhere!important;
+    word-break:normal!important;
+  }
+}
