@@ -5325,3 +5325,17 @@ html body main > .legal-links{
     margin-top:calc(3 * var(--gg-network-blank-line))!important;
   }
 }
+
+
+/* Desktop NETZWERK epilogue: two additional network-text lines before
+   IMPRESSUM (three in total) and legal labels at the same 15px type size
+   as the network entries. Touch portrait and phone landscape stay as-is. */
+@media (min-width:651px) and (hover:hover) and (pointer:fine){
+  html body main > .legal-links{
+    margin-top:calc(3 * var(--gg-network-blank-line))!important;
+  }
+  html body main > .legal-links details > summary{
+    font-size:var(--type-size)!important;
+    line-height:var(--gg-network-blank-line)!important;
+  }
+}
