@@ -318,13 +318,15 @@
       if (event.key === 'ArrowRight') { event.preventDefault(); goTo(index + 1); }
     });
 
-    // On devices with a real cursor, clicking the image advances one slide.
-    // Touch devices keep their native swipe behaviour and do not advance on a tap.
-    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      track.addEventListener('click', function (event) {
-        if (event.target.tagName === 'IMG' && index < images.length - 1) goTo(index + 1);
-      });
-    }
+    // A mouse click or a short finger tap on the image advances one slide.
+    // Ignore the compatibility click some phones fire after a swipe/scroll.
+    // Contact overlays are links, not images, so they remain independently clickable.
+    let suppressSwipeClick = false;
+    track.addEventListener('click', function (event) {
+      if (event.target.tagName !== 'IMG') return;
+      if (suppressSwipeClick) { suppressSwipeClick = false; return; }
+      if (index < images.length - 1) goTo(index + 1);
+    });
 
     // One swipe = one neighbouring slide. Horizontal native momentum is disabled
     // by touch-action:pan-y on the track, so fast swipes cannot skip slides.
@@ -332,12 +334,21 @@
     let touchOriginY = 0;
     let touchStartIndex = 0;
     let touchActive = false;
+    let touchMoved = false;
     track.addEventListener('touchstart', function (event) {
-      if (!event.touches.length) return;
+      if (event.touches.length !== 1) { touchActive = false; suppressSwipeClick = true; return; }
+      suppressSwipeClick = false; // A new gesture may be a real tap after a swipe.
+      touchMoved = false;
       touchOriginX = event.touches[0].clientX;
       touchOriginY = event.touches[0].clientY;
       touchStartIndex = Math.round(track.scrollLeft / slideWidth());
       touchActive = true;
+    }, { passive:true });
+    track.addEventListener('touchmove', function (event) {
+      if (!touchActive || event.touches.length !== 1) return;
+      const finger = event.touches[0];
+      if (Math.abs(finger.clientX - touchOriginX) > 12 ||
+          Math.abs(finger.clientY - touchOriginY) > 12) touchMoved = true;
     }, { passive:true });
     track.addEventListener('touchend', function (event) {
       if (!touchActive) return;
@@ -345,10 +356,16 @@
       const finger = event.changedTouches[0];
       const dx = finger ? finger.clientX - touchOriginX : 0;
       const dy = finger ? finger.clientY - touchOriginY : 0;
+      if (touchMoved || Math.abs(dx) > 12 || Math.abs(dy) > 12) {
+        suppressSwipeClick = true;
+      }
       if (Math.abs(dx) < 36 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
       goTo(touchStartIndex + (dx < 0 ? 1 : -1));
     }, { passive:true });
-    track.addEventListener('touchcancel', function () { touchActive = false; }, { passive:true });
+    track.addEventListener('touchcancel', function () {
+      touchActive = false;
+      suppressSwipeClick = true;
+    }, { passive:true });
 
     track.addEventListener('scroll', function () { window.requestAnimationFrame(update); }, { passive: true });
 
