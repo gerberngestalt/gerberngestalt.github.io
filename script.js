@@ -471,6 +471,8 @@
           const separator = document.createElement('span');
           separator.className = 'list-separator';
           separator.textContent = '|\u00A0';
+          const br = document.createElement('br'); br.className = 'network-link-break';
+          paragraph.appendChild(br);
           paragraph.appendChild(separator);
           const link = document.createElement('a');
           link.href = url;
@@ -481,7 +483,7 @@
         row.appendChild(paragraph);
       } else {
         const label = document.createElement('span'); label.className = 'network-label'; label.textContent = labelText || ''; row.appendChild(label);
-        if (labelText) { const sep = document.createElement('span'); sep.className = 'list-separator'; sep.textContent = '|\u00A0'; row.appendChild(sep); }
+        if (labelText) { const br = document.createElement('br'); br.className = 'network-link-break'; row.appendChild(br); const sep = document.createElement('span'); sep.className = 'list-separator'; sep.textContent = '|\u00A0'; row.appendChild(sep); }
         if (url) {
           const link = document.createElement('a'); link.href = url; link.textContent = display || url.replace(/^https?:\/\//i, '').replace(/\/$/, '');
           if (/^https?:\/\//i.test(link.href)) { link.target = '_blank'; link.rel = 'noopener noreferrer'; }

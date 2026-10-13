@@ -5409,3 +5409,16 @@ html body main > .legal-links{
     word-break:normal!important;
   }
 }
+
+
+/* In narrow portrait layouts each NETWORK entry uses exactly one deliberate
+   line break BEFORE the vertical bar. The bar and link stay together on the
+   second line. Wide desktop and landscape suppress this <br> entirely. */
+html body main #netzwerk .network-link-break{
+  display:none!important;
+}
+@media (max-width:900px) and (orientation:portrait){
+  html body main #netzwerk .network-row .network-link-break{
+    display:inline!important;
+  }
+}
