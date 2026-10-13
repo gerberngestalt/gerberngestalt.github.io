@@ -5258,19 +5258,19 @@ html body .network-row--auto-wrap .network-paragraph a{
   }
 }
 
-/* START on phones: fit title, square and pagination within the currently
-   visible viewport, including when Samsung/Android browser chrome retracts.
-   JS tracks VisualViewport.height; 100dvh is the fallback. Keep a gap below
-   the dots and never exceed the available screen width. */
+/* All phone galleries respond to the visible viewport (Samsung/Android
+   browser chrome included). Reserve header, title, square, pagination and
+   breathing room. Keep slide dimensions proportional and capped by width.
+   Height is set by visualViewport in JS, with 100dvh as a CSS fallback. */
 @media (max-width:650px) and (orientation:portrait){
-  html body main #start.section > .window-group{
-    width:min(calc(100vw - 44px),500px,calc(var(--gg-start-visible-height, 100dvh) - var(--head) - 7mm - 82px))!important;
-    max-width:min(calc(100vw - 44px),500px,calc(var(--gg-start-visible-height, 100dvh) - var(--head) - 7mm - 82px))!important;
+  html body main .section > .window-group{
+    width:min(calc(100vw - 44px),500px,calc(var(--gg-gallery-visible-height, 100dvh) - var(--head) - 7mm - 82px))!important;
+    max-width:min(calc(100vw - 44px),500px,calc(var(--gg-gallery-visible-height, 100dvh) - var(--head) - 7mm - 82px))!important;
   }
 }
 @media (orientation:landscape) and (max-height:650px) and (pointer:coarse){
-  html body main #start.section > .window-group{
-    width:min(calc(100vw - 44px),500px,calc(var(--gg-start-visible-height, 100dvh) - var(--head) - 78px))!important;
-    max-width:min(calc(100vw - 44px),500px,calc(var(--gg-start-visible-height, 100dvh) - var(--head) - 78px))!important;
+  html body main .section > .window-group{
+    width:min(calc(100vw - 44px),500px,calc(var(--gg-gallery-visible-height, 100dvh) - var(--head) - 78px))!important;
+    max-width:min(calc(100vw - 44px),500px,calc(var(--gg-gallery-visible-height, 100dvh) - var(--head) - 78px))!important;
   }
 }

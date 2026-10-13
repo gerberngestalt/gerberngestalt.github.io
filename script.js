@@ -558,15 +558,14 @@
   applyLanguage();
 
 
-  // START uses the actually visible phone height, not the small fixed svh:
-  // on Samsung Internet both browser toolbars shrink as the visitor scrolls.
-  // Update a CSS variable on viewport resize only. Never change scroll position
-  // or re-center the gallery during touch scrolling.
-  let startViewportResizeFrame = 0;
-  function syncStartVisibleHeight() {
+  // All phone galleries use the actually visible height, not the small
+  // fixed svh. Samsung Internet can retract its top and bottom browser bars.
+  // Update only CSS geometry on resize; never recenter or force scroll.
+  let galleryViewportResizeFrame = 0;
+  function syncGalleryVisibleHeight() {
     const phone = window.matchMedia('(max-width:650px) and (orientation:portrait), (orientation:landscape) and (max-height:650px) and (pointer:coarse)').matches;
     if (!phone) {
-      document.documentElement.style.removeProperty('--gg-start-visible-height');
+      document.documentElement.style.removeProperty('--gg-gallery-visible-height');
       return;
     }
     const visual = window.visualViewport;
@@ -574,21 +573,21 @@
     if (!Number.isFinite(height) || height <= 0) return;
     const pixels = Math.round(height) + 'px';
     const rootStyle = document.documentElement.style;
-    if (rootStyle.getPropertyValue('--gg-start-visible-height') !== pixels) {
-      rootStyle.setProperty('--gg-start-visible-height', pixels);
+    if (rootStyle.getPropertyValue('--gg-gallery-visible-height') !== pixels) {
+      rootStyle.setProperty('--gg-gallery-visible-height', pixels);
     }
   }
-  function scheduleStartVisibleHeight() {
-    if (startViewportResizeFrame) return;
-    startViewportResizeFrame = window.requestAnimationFrame(function () {
-      startViewportResizeFrame = 0;
-      syncStartVisibleHeight();
+  function scheduleGalleryVisibleHeight() {
+    if (galleryViewportResizeFrame) return;
+    galleryViewportResizeFrame = window.requestAnimationFrame(function () {
+      galleryViewportResizeFrame = 0;
+      syncGalleryVisibleHeight();
     });
   }
-  syncStartVisibleHeight();
-  window.addEventListener('resize', scheduleStartVisibleHeight, { passive:true });
+  syncGalleryVisibleHeight();
+  window.addEventListener('resize', scheduleGalleryVisibleHeight, { passive:true });
   if (window.visualViewport) {
-    window.visualViewport.addEventListener('resize', scheduleStartVisibleHeight, { passive:true });
+    window.visualViewport.addEventListener('resize', scheduleGalleryVisibleHeight, { passive:true });
   }
 
   // Gallery navigation: title + image + dots are one visual unit.
