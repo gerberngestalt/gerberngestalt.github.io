@@ -5258,19 +5258,19 @@ html body .network-row--auto-wrap .network-paragraph a{
   }
 }
 
-/* START on phones: the title, square slide and pagination dots must all fit
-   into the *small* visible viewport before the visitor scrolls. Using svh
-   prevents browser chrome opening/closing from resizing the gallery.
-   The portrait full-width override above must not override this height cap. */
+/* START on phones: fit title, square and pagination within the currently
+   visible viewport, including when Samsung/Android browser chrome retracts.
+   JS tracks VisualViewport.height; 100dvh is the fallback. Keep a gap below
+   the dots and never exceed the available screen width. */
 @media (max-width:650px) and (orientation:portrait){
   html body main #start.section > .window-group{
-    width:min(calc(100vw - 44px),500px,calc(100svh - var(--head) - 7mm - 82px))!important;
-    max-width:min(calc(100vw - 44px),500px,calc(100svh - var(--head) - 7mm - 82px))!important;
+    width:min(calc(100vw - 44px),500px,calc(var(--gg-start-visible-height, 100dvh) - var(--head) - 7mm - 82px))!important;
+    max-width:min(calc(100vw - 44px),500px,calc(var(--gg-start-visible-height, 100dvh) - var(--head) - 7mm - 82px))!important;
   }
 }
 @media (orientation:landscape) and (max-height:650px) and (pointer:coarse){
   html body main #start.section > .window-group{
-    width:min(calc(100vw - 44px),500px,calc(100svh - var(--head) - 78px))!important;
-    max-width:min(calc(100vw - 44px),500px,calc(100svh - var(--head) - 78px))!important;
+    width:min(calc(100vw - 44px),500px,calc(var(--gg-start-visible-height, 100dvh) - var(--head) - 78px))!important;
+    max-width:min(calc(100vw - 44px),500px,calc(var(--gg-start-visible-height, 100dvh) - var(--head) - 78px))!important;
   }
 }
