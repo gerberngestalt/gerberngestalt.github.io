@@ -1,7 +1,19 @@
+/*
+ * GERBERNGESTALT — INTERAKTION UND ANZEIGE
+ *
+ * Dieses Skript steuert Galerien, Klick-/Touch-Bedienung, Sprachwechsel,
+ * Navigation, Scrollposition und responsive Bildgrössen.
+ * Texte, Bilderlisten und NETZWERK-Einträge bitte in content.js bearbeiten.
+ * Für KONTAKT-Kartenlinks nach "contactMapLinks" suchen.
+ *
+ * Hinweis: Die Initialisierungsreihenfolge und Eventhandler sind wichtig.
+ * Hinweise für manuelle Änderungen stehen in README.md.
+ */
+
 (function () {
   'use strict';
 
-  // v66: do not let the browser restore a slightly scrolled START position.
+  // do not let the browser restore a slightly scrolled START position.
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
   // CONTACT hover marker is a real element, not a legacy pseudo-element.
@@ -16,7 +28,7 @@
   const content = window.SITE_CONTENT || {};
   const MAX_IMAGES = 11;
 
-  // v76: German/original is the default. English is an optional overlay:
+  // German/original is the default. English is an optional overlay:
   // whenever a *_en value is missing, the original value stays visible.
   const urlLanguage = new URLSearchParams(window.location.search).get('lang');
   let currentLanguage = urlLanguage === 'en' ? 'en' : (urlLanguage === 'de' ? 'de' : (localStorage.getItem('gerberngestalt-language') === 'en' ? 'en' : 'de'));
