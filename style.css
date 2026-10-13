@@ -3773,7 +3773,7 @@ html body .fixed-head .secondary-nav b{
  main .section .window-group{width:min(calc(100vw - 44px),500px,calc(100dvh - var(--head) - 48px))!important;}
  #netzwerk{padding-top:0!important;scroll-margin-top:var(--head)!important;}
 }
-@media (max-width:650px) and (orientation:portrait){#netzwerk{margin-bottom:calc(-2 * var(--type-size) * var(--type-leading))!important;}}
+/* Portrait NETWORK: remove the old negative bottom margin that overlapped legal links. */
 @media (max-height:650px) and (orientation:landscape){#netzwerk{margin-bottom:calc(-1 * var(--type-size) * var(--type-leading))!important;}}
 
 /* Controlled gallery swipes: no native horizontal fling across multiple slides. */
@@ -5162,5 +5162,30 @@ html body .network-row--auto-wrap .network-paragraph a{
     height:1lh!important;
     min-height:1lh!important;
     width:100%!important;
+  }
+}
+
+/* Portrait NETWORK: legal information follows all naturally wrapped entries.
+   Reserve a clear gap after the final network row, without changing landscape/desktop. */
+@media (max-width:650px) and (orientation:portrait){
+  html body main #netzwerk.list-section{
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    overflow:visible!important;
+    margin-bottom:0!important;
+    padding-bottom:32px!important;
+  }
+  html body main #netzwerk .list-inner{
+    height:auto!important;
+    max-height:none!important;
+    overflow:visible!important;
+  }
+  html body main #netzwerk .legal-links{
+    position:relative!important;
+    top:auto!important;
+    bottom:auto!important;
+    margin-top:40px!important;
+    clear:both!important;
   }
 }
