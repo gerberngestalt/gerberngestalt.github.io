@@ -5274,3 +5274,21 @@ html body .network-row--auto-wrap .network-paragraph a{
     max-width:min(calc(100vw - 44px),500px,calc(var(--gg-gallery-visible-height, 100dvh) - var(--head) - 78px))!important;
   }
 }
+
+
+/* Desktop first paint: START must show its title, square image AND dot row
+   without depending on JS timing or a second click on the START navigation.
+   Keep the established 14 mm title position and square aspect ratio. */
+@media (min-width:861px) and (hover:hover) and (pointer:fine){
+  html body main #start.section > .window-group{
+    width:min(50vw,500px,calc(100dvh - var(--head) - 144px))!important;
+    max-width:min(50vw,500px,calc(100dvh - var(--head) - 144px))!important;
+  }
+}
+/* Compact desktop has a deeper 27 mm title inset, so reserve that as well. */
+@media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine){
+  html body main #start.section > .window-group{
+    width:min(100%,500px,calc(100dvh - var(--head) - 190px))!important;
+    max-width:min(100%,500px,calc(100dvh - var(--head) - 190px))!important;
+  }
+}
