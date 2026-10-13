@@ -1,8 +1,12 @@
 /*
-  GERBERNGESTALT — INHALTE
-  Erste Strukturfassung. Vorhandene gerbern-drei-Bilder dienen vorerst als Dummy-Slides.
-  Die Inhalte und Stempelbilder werden später ersetzt.
-*/
+ * GERBERNGESTALT — INHALTE
+ *
+ * Texte, Bilder, Übersetzungen und NETZWERK-Einträge werden hier bearbeitet.
+ * Jede Galerie enthält ein images-Array; optionale englische Bilddateien
+ * stehen in image_en und die dunkle Variante gegebenenfalls in image_dark.
+ * Bedienung und klickbare KONTAKT-Karten stehen in script.js.
+ * Weitere Hinweise: README.md.
+ */
 window.SITE_CONTENT = {
   start: {
     title: 'START',
@@ -94,14 +98,61 @@ window.SITE_CONTENT = {
   },
 
   network: [
-    {"label":"Seminar für Gestalttherapie SfGT, Winterthur","autoWrap":true,"url":"https://www.sfgt.ch/","display":"www.sfgt.ch","spaceAfter":true},
-    {"label":"Miguel Guldimann, Solothurn","url":"https://www.zenmeditation.ch/","display":"www.zenmeditation.ch"},
-    {"label":"Lapis Dharma Centre, Mullumbimby Creek, Australien","label_en":"Lapis Dharma Centre, Mullumbimby Creek, Australia","url":"https://www.lapisdharma.com/","display":"www.lapisdharma.com"},
-    {"label":"Shambhala Zentrum, Bern","label_en":"Shambhala Centre, Bern","url":"https://bern.shambhala.org/","url_en":"https://bern.shambhala.org/?lang=en","display":"bern.shambhala.org"},
-    {"label":"Shambhala Zentrum, Köln","label_en":"Shambhala Centre, Cologne","url":"https://cologne.shambhala.org/","url_en":"https://cologne.shambhala.org/?lang=en","display":"cologne.shambhala.org"},
-    {"label":"Shambhala Zentrum, Wien","label_en":"Shambhala Centre, Vienna","url":"https://wien.shambhala.info/","url_en":"https://wien.shambhala.info/?lang=en","display":"wien.shambhala.info"},
-    {"label":"Shambhala Zentrum, Zürich","label_en":"Shambhala Centre, Zurich","url":"https://zuerich.shambhala.org/","url_en":"https://zuerich.shambhala.org/?lang=en","display":"zuerich.shambhala.org"},
-    {"label":"Siddhartha's Intent, Dzongsar Khyentse Rinpoche","url":"https://siddharthasintent.org/","display":"siddharthasintent.org"},
-    {"label":"Songtsen, Pema Wangyal Rinpoche","url":"https://www.songtsen.org/","display":"www.songtsen.org"}
+    {
+      label: "Seminar für Gestalttherapie SfGT, Winterthur",
+      autoWrap: true,
+      url: "https://www.sfgt.ch/",
+      display: "www.sfgt.ch",
+      spaceAfter: true
+    },
+    {
+      label: "Miguel Guldimann, Solothurn",
+      url: "https://www.zenmeditation.ch/",
+      display: "www.zenmeditation.ch"
+    },
+    {
+      label: "Lapis Dharma Centre, Mullumbimby Creek, Australien",
+      label_en: "Lapis Dharma Centre, Mullumbimby Creek, Australia",
+      url: "https://www.lapisdharma.com/",
+      display: "www.lapisdharma.com"
+    },
+    {
+      label: "Shambhala Zentrum, Bern",
+      label_en: "Shambhala Centre, Bern",
+      url: "https://bern.shambhala.org/",
+      url_en: "https://bern.shambhala.org/?lang=en",
+      display: "bern.shambhala.org"
+    },
+    {
+      label: "Shambhala Zentrum, Köln",
+      label_en: "Shambhala Centre, Cologne",
+      url: "https://cologne.shambhala.org/",
+      url_en: "https://cologne.shambhala.org/?lang=en",
+      display: "cologne.shambhala.org"
+    },
+    {
+      label: "Shambhala Zentrum, Wien",
+      label_en: "Shambhala Centre, Vienna",
+      url: "https://wien.shambhala.info/",
+      url_en: "https://wien.shambhala.info/?lang=en",
+      display: "wien.shambhala.info"
+    },
+    {
+      label: "Shambhala Zentrum, Zürich",
+      label_en: "Shambhala Centre, Zurich",
+      url: "https://zuerich.shambhala.org/",
+      url_en: "https://zuerich.shambhala.org/?lang=en",
+      display: "zuerich.shambhala.org"
+    },
+    {
+      label: "Siddhartha's Intent, Dzongsar Khyentse Rinpoche",
+      url: "https://siddharthasintent.org/",
+      display: "siddharthasintent.org"
+    },
+    {
+      label: "Songtsen, Pema Wangyal Rinpoche",
+      url: "https://www.songtsen.org/",
+      display: "www.songtsen.org"
+    }
   ]
 };
