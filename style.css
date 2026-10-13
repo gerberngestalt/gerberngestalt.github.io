@@ -5292,3 +5292,26 @@ html body .network-row--auto-wrap .network-paragraph a{
     max-width:min(100%,500px,calc(100dvh - var(--head) - 190px))!important;
   }
 }
+
+
+/* NETZWERK -> IMPRESSUM: exactly three empty network-text lines.
+   Previous breakpoint overrides cancelled each other, sometimes collapsing
+   the gap to zero. Measure in the NETWORK rows' existing line pitch:
+   29px on desktop/tablet; the current text size x leading on phones.
+   Reset only the section's trailing spacing; do not change the spacing
+   between IMPRESSUM and DATENSCHUTZ or the network row layout. */
+:root{
+  --gg-network-blank-line:calc(var(--type-size) * var(--type-leading));
+}
+@media (min-width:651px){
+  :root{--gg-network-blank-line:29px;}
+}
+html body main #netzwerk.list-section{
+  height:auto!important;
+  min-height:0!important;
+  margin-bottom:0!important;
+  padding-bottom:0!important;
+}
+html body main > .legal-links{
+  margin-top:calc(3 * var(--gg-network-blank-line))!important;
+}
