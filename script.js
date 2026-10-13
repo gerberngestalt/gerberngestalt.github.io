@@ -561,28 +561,86 @@
   // All phone galleries use the actually visible height, not the small
   // fixed svh. Samsung Internet can retract its top and bottom browser bars.
   // Update only CSS geometry on resize; never recenter or force scroll.
+  const portraitGalleryQuery = window.matchMedia('(max-width:650px) and (orientation:portrait)');
+  const phoneGalleryQuery = window.matchMedia('(max-width:650px) and (orientation:portrait), (orientation:landscape) and (max-height:650px) and (pointer:coarse)');
+  const phoneGalleryGroups = Array.from(document.querySelectorAll('main .section > .window-group'));
   let galleryViewportResizeFrame = 0;
-  function syncGalleryVisibleHeight() {
-    const phone = window.matchMedia('(max-width:650px) and (orientation:portrait), (orientation:landscape) and (max-height:650px) and (pointer:coarse)').matches;
-    if (!phone) {
-      document.documentElement.style.removeProperty('--gg-gallery-visible-height');
-      return;
-    }
+
+  function phoneVisibleHeight() {
     const visual = window.visualViewport;
-    const height = visual && visual.scale === 1 ? visual.height : window.innerHeight;
+    return visual && visual.scale === 1 ? visual.height : window.innerHeight;
+  }
+
+  // A phone's portrait galleries must size independently. Resizing every
+  // earlier gallery when Samsung's browser bars retract would shift the
+  // current section and could push its pagination offscreen.
+  function setPortraitGalleryHeight(group) {
+    if (!portraitGalleryQuery.matches || !group) return;
+    const height = phoneVisibleHeight();
     if (!Number.isFinite(height) || height <= 0) return;
     const pixels = Math.round(height) + 'px';
-    const rootStyle = document.documentElement.style;
-    if (rootStyle.getPropertyValue('--gg-gallery-visible-height') !== pixels) {
-      rootStyle.setProperty('--gg-gallery-visible-height', pixels);
+    if (group.style.getPropertyValue('--gg-gallery-visible-height') !== pixels) {
+      group.style.setProperty('--gg-gallery-visible-height', pixels);
     }
   }
+
+  function syncGalleryVisibleHeight() {
+    const rootStyle = document.documentElement.style;
+    if (!phoneGalleryQuery.matches) {
+      rootStyle.removeProperty('--gg-gallery-visible-height');
+      phoneGalleryGroups.forEach(function (group) {
+        group.style.removeProperty('--gg-gallery-visible-height');
+      });
+      return;
+    }
+
+    const height = phoneVisibleHeight();
+    if (!Number.isFinite(height) || height <= 0) return;
+    if (portraitGalleryQuery.matches) {
+      rootStyle.removeProperty('--gg-gallery-visible-height');
+      const head = document.querySelector('.fixed-head');
+      const headHeight = head ? head.getBoundingClientRect().height : 0;
+      let visibleGroup = null;
+      let greatestOverlap = 0;
+      phoneGalleryGroups.forEach(function (group) {
+        const rect = group.getBoundingClientRect();
+        const overlap = Math.max(0, Math.min(rect.bottom, height) - Math.max(rect.top, headHeight));
+        if (overlap > greatestOverlap) {
+          greatestOverlap = overlap;
+          visibleGroup = group;
+        }
+      });
+      if (visibleGroup) setPortraitGalleryHeight(visibleGroup);
+    } else {
+      // The existing landscape behaviour works: retain global viewport sizing.
+      phoneGalleryGroups.forEach(function (group) {
+        group.style.removeProperty('--gg-gallery-visible-height');
+      });
+      const pixels = Math.round(height) + 'px';
+      if (rootStyle.getPropertyValue('--gg-gallery-visible-height') !== pixels) {
+        rootStyle.setProperty('--gg-gallery-visible-height', pixels);
+      }
+    }
+  }
+
   function scheduleGalleryVisibleHeight() {
     if (galleryViewportResizeFrame) return;
     galleryViewportResizeFrame = window.requestAnimationFrame(function () {
       galleryViewportResizeFrame = 0;
       syncGalleryVisibleHeight();
     });
+  }
+
+  // Activate each portrait gallery as it enters the reading area. Offscreen
+  // galleries keep their prior dimensions so they cannot displace this one.
+  if ('IntersectionObserver' in window) {
+    const galleryObserver = new IntersectionObserver(function (entries) {
+      if (!portraitGalleryQuery.matches) return;
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) setPortraitGalleryHeight(entry.target);
+      });
+    }, { rootMargin: '-30% 0px -25% 0px', threshold: 0 });
+    phoneGalleryGroups.forEach(function (group) { galleryObserver.observe(group); });
   }
   syncGalleryVisibleHeight();
   window.addEventListener('resize', scheduleGalleryVisibleHeight, { passive:true });
@@ -771,7 +829,8 @@
         const head = document.querySelector('.fixed-head');
         const headH = head ? head.getBoundingClientRect().height : 0;
         const group = target.querySelector('.window-group');
-        const anchor = landscape && group ? group : target;
+        if (group) setPortraitGalleryHeight(group);
+        const anchor = group || target;
         const gap = landscape ? 0 : (7 * 96 / 25.4);
         const top = window.scrollY + anchor.getBoundingClientRect().top - headH - gap;
         window.scrollTo({top: Math.max(0, top), left: 0, behavior: 'instant'});
@@ -805,7 +864,8 @@
         const headH = head ? head.getBoundingClientRect().height : 0;
         const landscapePhone = window.matchMedia('(orientation:landscape) and (max-height:650px)').matches;
         const group = target.classList.contains('section') ? target.querySelector('.window-group') : null;
-        const anchor = (landscapePhone && group) ? group : target;
+        if (group) setPortraitGalleryHeight(group);
+        const anchor = group || target;
         const gap = landscapePhone ? 0 : (7 * 96 / 25.4);
         const top = window.scrollY + anchor.getBoundingClientRect().top - headH - gap;
         window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
