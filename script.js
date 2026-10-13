@@ -684,8 +684,8 @@
       const overflow = r.bottom - bottomLimit;
       if (overflow <= 0.5) break;
       const fitted = Math.max(180, r.width - (overflow * 2) - 3);
-      group.style.width = fitted + 'px';
-      group.style.maxWidth = fitted + 'px';
+      group.style.setProperty('width', fitted + 'px', 'important');
+      group.style.setProperty('max-width', fitted + 'px', 'important');
       void group.offsetHeight;
     }
 
@@ -926,6 +926,17 @@
     if (!window.matchMedia('(max-width:900px), (pointer:coarse)').matches) window.scrollTo({top:0,left:0,behavior:'auto'});
   }
 
+
+  // The first START measurement can run before images/browser scroll
+  // restoration have settled. Refit after the complete page loads and when
+  // restoring a tab from the back-forward cache. Keep mobile untouched.
+  function finalizeInitialDesktopStart() {
+    if (location.hash && location.hash !== '#start') return;
+    if (window.matchMedia('(max-width:900px), (pointer:coarse)').matches) return;
+    window.requestAnimationFrame(fitStartToViewport);
+  }
+  window.addEventListener('load', finalizeInitialDesktopStart, { once:true });
+  window.addEventListener('pageshow', finalizeInitialDesktopStart);
 
   // Navigation marker: the yellow dot follows the section that actually
   // occupies the centre of the visible browser area. This prevents KONTAKT
