@@ -69,7 +69,12 @@ window.SITE_CONTENT = {
   kontakt: {
     title: 'KONTAKT',
     title_en: 'CONTACT',
-    images: ['images/kontakt/erstsitzung.png', 'images/kontakt/soap-stamp.jpg']
+    images: [
+      'images/kontakt/01_gerberngestalt.png',
+      { image:'images/kontakt/02_kroki.jpg', image_en:'images/kontakt/02_kroki_en.jpg' },
+      { image:'images/kontakt/03_kroki.jpg', image_en:'images/kontakt/03_kroki_en.jpg' },
+      'images/kontakt/04_soap-stamp.jpg'
+    ]
   },
 
   contact: {
