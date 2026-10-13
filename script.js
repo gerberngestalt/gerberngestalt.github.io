@@ -418,6 +418,40 @@
     });
   }
 
+  // Keep an entire NETWORK name/location together if it fits on one
+  // narrow portrait line. Never force a too-long label beyond the viewport.
+  // A full-width/landscape list keeps its existing natural formatting.
+  let networkWrapResizeFrame = 0;
+  function fitNetworkLabels() {
+    const labels = network.querySelectorAll('.network-row > .network-label');
+    const narrow = window.matchMedia('(max-width:900px) and (orientation:portrait)').matches;
+    const context = document.createElement('canvas').getContext('2d');
+    labels.forEach(function (label) {
+      label.classList.remove('network-label--keep');
+      if (!narrow || !context) return;
+      const row = label.parentElement;
+      const rowStyle = window.getComputedStyle(row);
+      const style = window.getComputedStyle(label);
+      const space = row.clientWidth - (parseFloat(rowStyle.paddingLeft) || 0);
+      context.font = style.font;
+      const letterSpacing = parseFloat(style.letterSpacing) || 0;
+      const text = label.textContent || '';
+      const textWidth = context.measureText(text).width +
+        Math.max(0, text.length - 1) * letterSpacing;
+      if (textWidth > 0 && textWidth <= space - 10) {
+        label.classList.add('network-label--keep');
+      }
+    });
+  }
+  function scheduleNetworkLabelFit() {
+    if (networkWrapResizeFrame) return;
+    networkWrapResizeFrame = window.requestAnimationFrame(function () {
+      networkWrapResizeFrame = 0;
+      fitNetworkLabels();
+    });
+  }
+  window.addEventListener('resize', scheduleNetworkLabelFit, { passive:true });
+
   function renderNetwork() {
     network.innerHTML = '';
     const links = Array.isArray(content.network) ? content.network : [];
@@ -462,6 +496,7 @@
       network.appendChild(gap);
 }
     });
+    scheduleNetworkLabelFit();
   }
 
   renderPastEvents();
