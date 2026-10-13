@@ -5399,6 +5399,9 @@ html body main > .legal-links{
     margin:0 0 0 .35em!important;
     white-space:nowrap!important;
   }
+  html body main #netzwerk .network-row .network-label.network-label--keep{
+    white-space:nowrap!important;
+  }
   html body main #netzwerk .network-row a,
   html body main #netzwerk .network-row .network-paragraph a{
     margin:0!important;
