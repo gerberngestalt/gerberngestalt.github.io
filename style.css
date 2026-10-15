@@ -4453,9 +4453,8 @@ html body .fixed-head .secondary-nav b {
     visibility: hidden;
   }
 }
-/* Narrow mouse-driven layouts: show side arrows. Touch phones navigate
-   galleries by swipe/tap and the pagination dots, not side arrows. */
-@media (max-width:900px) and (hover:hover) and (pointer:fine) {
+/* Phone portrait + landscape: gallery arrows always visible outside the image. */
+@media (hover:none), (pointer:coarse), (max-width:900px) {
   html body .carousel .arrow:not([hidden]) {
     display:block!important;
     visibility:visible!important;
@@ -4477,16 +4476,6 @@ html body .fixed-head .secondary-nav b {
   html body .carousel .arrow::before,
     html body .carousel .arrow::after {
     background:#625a54!important;
-  }
-}
-/* Phone landscape: do not show left/right gallery arrows in addition to
-   the top site navigation. Swipe/tap and pagination dots remain available. */
-@media (orientation:landscape) and (max-height:650px) and (pointer:coarse) {
-  html body main .carousel .arrow,
-  html body main .carousel .arrow:not([hidden]) {
-    display:none!important;
-    visibility:hidden!important;
-    pointer-events:none!important;
   }
 }
 @media (prefers-color-scheme:dark) and (hover:none),
