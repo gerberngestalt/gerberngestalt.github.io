@@ -1459,6 +1459,7 @@ main {
   cursor:pointer;
   list-style:none;
   display:inline-block;
+  font-size:var(--type-size);
 }
 .legal-links summary::-webkit-details-marker {
   display:none;
