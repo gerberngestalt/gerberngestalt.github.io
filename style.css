@@ -6222,3 +6222,61 @@ html body main #netzwerk .network-link-break {
     margin-right:22px!important;
   }
 }
+
+/* NETWORK corrections: phone landscape must wrap within the visible viewport.
+   Keep portrait and wide mouse-driven layouts unchanged. */
+@media (orientation:landscape) and (max-height:650px) and (pointer:coarse) {
+  html body main #netzwerk.list-section {
+    box-sizing:border-box!important;
+    max-width:100%!important;
+    padding-left:22px!important;
+    padding-right:22px!important;
+  }
+  html body main #netzwerk .list-inner,
+  html body main #netzwerk .network-links,
+  html body main #netzwerk .network-row,
+  html body main #netzwerk .network-paragraph {
+    box-sizing:border-box!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+  }
+  html body main #netzwerk .network-row,
+  html body main #netzwerk .network-row.network-row--auto-wrap {
+    display:block!important;
+    grid-template-columns:none!important;
+    white-space:normal!important;
+  }
+  html body main #netzwerk .network-row .network-paragraph {
+    display:block!important;
+    padding-left:.8em!important;
+    text-indent:-.8em!important;
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+  }
+  html body main #netzwerk .network-row a,
+  html body main #netzwerk .network-paragraph a {
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+    word-break:normal!important;
+  }
+}
+/* Match NETWORK's established 29px reading rhythm in narrow and wide
+   mouse-driven desktop windows, including wrapped network paragraphs. */
+@media (min-width:651px) and (min-height:651px) and (hover:hover) and (pointer:fine) {
+  html body main #netzwerk .network-links,
+  html body main #netzwerk .network-row,
+  html body main #netzwerk .network-row .network-paragraph,
+  html body main #netzwerk .network-row .network-label,
+  html body main #netzwerk .network-row .list-separator,
+  html body main #netzwerk .network-row a {
+    line-height:29px!important;
+  }
+  html body main #netzwerk .network-row {
+    min-height:29px!important;
+  }
+  html body main #netzwerk .network-block-gap {
+    height:29px!important;
+    min-height:29px!important;
+  }
+}
