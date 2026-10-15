@@ -996,14 +996,25 @@
   let networkHeadingAlignmentFrame = 0;
   function syncNetworkHeadingHorizontalPosition() {
     const heading = document.querySelector('#netzwerk .list-inner > .section-title');
+    const links = document.querySelector('#netzwerk .network-links');
     const galleryHeading = document.querySelector('#kontakt .window-group > .section-title');
-    if (!heading || !galleryHeading) return;
-    heading.style.removeProperty('padding-left');
-    heading.style.removeProperty('box-sizing');
-    if (!window.matchMedia('(min-width:651px) and (hover:hover) and (pointer:fine)').matches) return;
-    const offset = galleryHeading.getBoundingClientRect().left - heading.getBoundingClientRect().left;
-    heading.style.boxSizing = 'border-box';
-    heading.style.paddingLeft = Math.max(0, offset).toFixed(2) + 'px';
+    if (!heading || !links || !galleryHeading) return;
+    // Read the natural positions first, without the previous correction.
+    [heading, links].forEach(function (el) {
+      el.style.removeProperty('padding-left');
+      el.style.removeProperty('box-sizing');
+    });
+    const referenceLeft = galleryHeading.getBoundingClientRect().left;
+    const headingInset = Math.max(0, referenceLeft - heading.getBoundingClientRect().left);
+    const listInset = Math.max(0, referenceLeft - links.getBoundingClientRect().left);
+    // Inline important overrides older narrow-window/phone padding rules.
+    heading.style.setProperty('box-sizing', 'border-box', 'important');
+    heading.style.setProperty('padding-left', headingInset.toFixed(2) + 'px', 'important');
+    links.style.setProperty('box-sizing', 'border-box', 'important');
+    links.style.setProperty('padding-left', listInset.toFixed(2) + 'px', 'important');
+    // The list begins where a slide begins: directly below the heading's
+    // normal 18px gap, without the old extra empty line.
+    links.style.setProperty('margin-top', '0px', 'important');
   }
   function scheduleNetworkHeadingHorizontalAlignment() {
     if (networkHeadingAlignmentFrame) return;
