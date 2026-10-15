@@ -49,19 +49,14 @@ body {
   letter-spacing:.16em;
   line-height:1.05
 }
-.fixed-head nav span {
-  height:8px
-}
+
 .secondary-nav {
   display:flex;
   align-items:center;
   gap:10px;
   white-space:nowrap
 }
-.secondary-nav b {
-  font-weight:300;
-  color:#777
-}
+
 .fixed-head a {
   color:inherit;
   text-decoration:none
@@ -1621,9 +1616,7 @@ main {
 .primary-nav a:hover::before {
   opacity:1;
 }
-.primary-nav a.active-section:hover::before {
-  opacity:0;
-}
+
 .primary-nav a:hover::after {
   background:var(--accent);
   opacity:0;
@@ -1652,14 +1645,8 @@ main {
 .secondary-nav a[href="#netzwerk"]::before {
   right:calc(100% + .7em);
 }
-.secondary-nav a[href="#past"]:hover::after,
-.secondary-nav a[href="#netzwerk"]:hover::before {
-  opacity:1;
-}
-.secondary-nav a.active-secondary:hover::after,
-.secondary-nav a.active-secondary:hover::before {
-  opacity:0;
-}
+
+
 /* Do not turn the active yellow marker black on hover. */
 .secondary-nav a[href="#past"]:hover::before,
 .secondary-nav a[href="#netzwerk"]:hover::after {
@@ -1695,10 +1682,7 @@ main {
   opacity:0;
   background:var(--accent);
 }
-.secondary-nav a[href="#past"].active-secondary::before,
-.secondary-nav a[href="#netzwerk"].active-secondary::after {
-  opacity:1;
-}
+
 .secondary-nav a[href="#past"]:hover::before,
 .secondary-nav a[href="#netzwerk"]:hover::after {
   opacity:0;
@@ -1731,10 +1715,7 @@ main {
   background:var(--accent);
   opacity:0;
 }
-.secondary-nav a[href="#past"].active-secondary::before,
-.secondary-nav a[href="#netzwerk"].active-secondary::after {
-  opacity:1;
-}
+
 .secondary-nav a[href="#past"]::after,
 .secondary-nav a[href="#netzwerk"]::before {
   background:#000;
@@ -2112,9 +2093,7 @@ main {
 .mark:focus-visible::before {
   opacity:1;
 }
-.mark:focus {
-  outline:none;
-}
+
 .mark::after {
   content:none!important;
   display:none!important;
@@ -2347,9 +2326,7 @@ button.misc-divider-dot > .misc-divider-tooltip {
     width:min(calc(100vw - 44px),500px);
     margin-left:0;
   }
-  #past-events .past-year {
-    margin-left:.5em!important;
-  }
+  
   #past-events .past-row {
     margin-left:1.5em!important;
   }
@@ -2796,17 +2773,10 @@ html,body {
   #past-events .past-row > span:first-child {
     margin-right:.7em!important;
   }
-  #past-events .past-row .past-separator {
-    display:none!important;
-  }
+  
 }
 @media (max-width:650px) and (orientation:portrait) {
-  #past-events .past-row {
-    display:block!important;
-    margin-left:1.25em!important;
-    padding-left:0!important;
-    text-indent:0!important;
-  }
+  
   #past-events .past-row > span:first-child {
     display:inline!important;
     margin-right:.7em!important;
@@ -3185,10 +3155,7 @@ html,body {
     -webkit-font-smoothing:antialiased!important;
     -moz-osx-font-smoothing:grayscale!important;
   }
-  .mark-dot, .misc-divider-dot img, .slide img {
-    color:initial!important;
-    -webkit-text-fill-color:initial!important;
-  }
+  
 }
 @media (prefers-color-scheme: dark) {
   body, body * {
@@ -3405,11 +3372,7 @@ html,body {
     .network-row {
     min-height:24.08px!important;
   }
-  .network-block-gap,
-    #past-events .past-block-gap {
-    height:24.08px!important;
-    min-height:24.08px!important;
-  }
+  
   .network-block-gap {
     flex:0 0 24.08px!important;
   }
@@ -3426,11 +3389,7 @@ html,body {
   }
 }
 @media (max-width:650px) and (orientation:portrait) {
-  .fixed-head > .secondary-nav a[href="#netzwerk"]::after {
-    left:100%!important;
-    right:auto!important;
-    margin-left:5px!important;
-  }
+  
 }
 @media (min-width:651px) {
   .network-row {
@@ -4372,17 +4331,10 @@ html body .fixed-head .secondary-nav b {
     width:48px!important;
     height:48px!important;
   }
-  html body .fixed-head button.mark > img.mark-dot {
-    width:48px!important;
-    min-width:48px!important;
-    height:auto!important;
-  }
+  
 }
 @media (max-width:650px) and (orientation:portrait) {
-  html body .fixed-head .mark {
-    width:48px!important;
-    height:48px!important;
-  }
+  
   html body .fixed-head button.mark > img.mark-dot {
     width:48px!important;
     min-width:48px!important;
