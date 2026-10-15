@@ -86,8 +86,8 @@ window.SITE_CONTENT = {
     role: 'Gestalttherapeut in Ausbildung',
     service: 'psychologische beratung',
     location: 'Solothurner Altstadt',
-    address: 'Praxisadresse folgt',
-    email: 'niklauszumstein@gmail.com'
+    address: 'Gerberngasse 3, 4500 Solothurn',
+    email: 'gerberngestalt@gmail.com'
   },
 
   legal: {
