@@ -4953,10 +4953,12 @@ html body .fixed-head > .secondary-nav .language-toggle {
     margin-left:max(0px, calc(40px - (100vw - 100%) / 2))!important;
   }
 }
-/* Wide desktop: two additional text lines of scroll runway after legal links. */
-@media (min-width:901px) and (min-height:651px) {
+/* Mouse-driven desktop: six reading lines after DATENSCHUTZ.
+   Use the established 29px NETWORK line rhythm at all desktop widths,
+   replacing both the old 620px minimum and the wide-desktop extra runway. */
+@media (min-height:651px) and (hover:hover) and (pointer:fine) {
   html body main > .end-spacer {
-    height:calc(clamp(120px,18vh,190px) + 58px)!important;
+    height:calc(6 * var(--gg-network-blank-line))!important;
   }
 }
 /* SINGLE NAVIGATION DOT SYSTEM (desktop + compact).
