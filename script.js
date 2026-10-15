@@ -979,7 +979,7 @@
         const headH = head ? head.getBoundingClientRect().height : 0;
         const group = target.querySelector('.window-group');
         if (group) setPortraitGalleryHeight(group);
-        const anchor = group || target;
+        const anchor = id === '#netzwerk' ? (target.querySelector('.section-title') || target) : (group || target);
         const gap = landscape ? 0 : (7 * 96 / 25.4);
         const top = window.scrollY + anchor.getBoundingClientRect().top - headH - gap;
         window.scrollTo({top: Math.max(0, top), left: 0, behavior: 'instant'});
@@ -989,6 +989,30 @@
   phoneOrientation.addEventListener('change', restorePhoneSectionAfterRotation);
 
   window.addEventListener('resize', settleResize, { passive:true });
+
+  function alignNetworkHeading(behavior) {
+    const heading = document.querySelector('#netzwerk .section-title');
+    if (!heading) return;
+    const head = document.querySelector('.fixed-head');
+    const headH = head ? head.getBoundingClientRect().height : 0;
+    const landscapePhone = window.matchMedia('(orientation:landscape) and (max-height:650px)').matches;
+    const mobile = window.matchMedia('(max-width:650px)').matches || landscapePhone;
+    const compactDesktop = window.matchMedia('(min-width:651px) and (max-width:860px) and (min-height:651px)').matches;
+    let desiredTop;
+    if (mobile) {
+      desiredTop = headH + (landscapePhone ? 0 : (7 * 96 / 25.4));
+    } else if (compactDesktop) {
+      const limits = galleryLimits();
+      const gallery = document.querySelector('#kontakt .window-group');
+      desiredTop = gallery
+        ? limits.top + (limits.bottom - limits.top - gallery.getBoundingClientRect().height) / 2
+        : limits.top;
+    } else {
+      desiredTop = headH + (8 * 96 / 25.4) + 24;
+    }
+    const top = window.scrollY + heading.getBoundingClientRect().top - desiredTop;
+    window.scrollTo({ top:Math.max(0, top), behavior:behavior || 'auto' });
+  }
 
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener('click', function (event) {
@@ -1022,20 +1046,14 @@
         return;
       }
 
-      // Reading sections (PAST EVENTS / NETZWERK) need their title to remain
-      // visibly below the fixed header + 9 mm white finish. Native anchor
-      // scrolling would otherwise tuck the title underneath the header.
+      // Align the NETWORK heading itself (not its padded section box)
+      // to the same vertical target as the carousel section headings.
       if (id === '#netzwerk') {
         event.preventDefault();
         if (history.replaceState) history.replaceState(null, '', id);
-        const head = document.querySelector('.fixed-head');
-        const headH = head ? head.getBoundingClientRect().height : 0;
-        const underStrip = 34.02; // 9 mm
-        const breathingRoom = 22;
-        const top = window.scrollY + target.getBoundingClientRect().top - headH - underStrip - breathingRoom;
-        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
-        if (secondaryPast) secondaryPast.classList.toggle('active-secondary', id === '#kontakt');
-        if (secondaryNetwork) secondaryNetwork.classList.toggle('active-secondary', id === '#netzwerk');
+        alignNetworkHeading('smooth');
+        if (secondaryPast) secondaryPast.classList.toggle('active-secondary', false);
+        if (secondaryNetwork) secondaryNetwork.classList.toggle('active-secondary', true);
         return;
       }
 
@@ -1061,6 +1079,12 @@
       window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
     });
   });
+  // Direct #netzwerk links and reloads must match menu-click alignment too.
+  window.addEventListener('load', function () {
+    if (location.hash === '#netzwerk') {
+      window.requestAnimationFrame(function () { alignNetworkHeading('auto'); });
+    }
+  }, { once:true });
   activeGallery = galleryFromHash() || chooseActiveGallery();
   if (!location.hash || location.hash === '#start') {
     // START is a fitted first screen, never a remembered scroll position.
