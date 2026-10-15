@@ -6251,6 +6251,13 @@ html body main #netzwerk .network-link-break {
     min-width:0!important;
     white-space:normal!important;
   }
+  /* The first (Winterthur) entry uses a hanging paragraph indent of 1em.
+     Apply that same indent to regular entries: labels stay on the original
+     left axis, while the separator/link line begins exactly 1em inward. */
+  html body main #netzwerk #network-links.network-links > .network-row:not(.network-row--auto-wrap) {
+    padding-left:1em!important;
+    text-indent:-1em!important;
+  }
   html body main #netzwerk #network-links.network-links > .network-row .network-paragraph {
     display:block!important;
     box-sizing:border-box!important;
