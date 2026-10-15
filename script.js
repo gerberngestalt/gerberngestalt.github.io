@@ -990,6 +990,32 @@
 
   window.addEventListener('resize', settleResize, { passive:true });
 
+  // Match the NETWORK heading's text start with the gallery headings, even
+  // where the compact desktop reading column is wider than the image window.
+  // Keep the network entries and their natural line wrapping unchanged.
+  let networkHeadingAlignmentFrame = 0;
+  function syncNetworkHeadingHorizontalPosition() {
+    const heading = document.querySelector('#netzwerk .list-inner > .section-title');
+    const galleryHeading = document.querySelector('#kontakt .window-group > .section-title');
+    if (!heading || !galleryHeading) return;
+    heading.style.removeProperty('padding-left');
+    heading.style.removeProperty('box-sizing');
+    if (!window.matchMedia('(min-width:651px) and (hover:hover) and (pointer:fine)').matches) return;
+    const offset = galleryHeading.getBoundingClientRect().left - heading.getBoundingClientRect().left;
+    heading.style.boxSizing = 'border-box';
+    heading.style.paddingLeft = Math.max(0, offset).toFixed(2) + 'px';
+  }
+  function scheduleNetworkHeadingHorizontalAlignment() {
+    if (networkHeadingAlignmentFrame) return;
+    networkHeadingAlignmentFrame = window.requestAnimationFrame(function () {
+      networkHeadingAlignmentFrame = 0;
+      syncNetworkHeadingHorizontalPosition();
+    });
+  }
+  window.addEventListener('resize', scheduleNetworkHeadingHorizontalAlignment, { passive:true });
+  window.addEventListener('load', scheduleNetworkHeadingHorizontalAlignment, { once:true });
+  scheduleNetworkHeadingHorizontalAlignment();
+
   function alignNetworkHeading(behavior) {
     const heading = document.querySelector('#netzwerk .section-title');
     if (!heading) return;
