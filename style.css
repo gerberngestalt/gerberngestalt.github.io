@@ -1482,12 +1482,6 @@ main {
 .legal-links {
   margin-top:58px;
 }
-.legal-links details {
-  margin-bottom:calc(1em * 1.55);
-}
-.legal-links details:last-child {
-  margin-bottom:0;
-}
 .legal-links {
   margin-top:76px;
 }
@@ -3410,9 +3404,6 @@ html,body {
     #past-events .past-year,
     .network-row {
     min-height:24.08px!important;
-  }
-  .network-links {
-    gap:0!important;
   }
   .network-block-gap,
     #past-events .past-block-gap {
