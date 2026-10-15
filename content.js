@@ -106,15 +106,15 @@ window.SITE_CONTENT = {
       spaceAfter: true
     },
     {
-      label: "Miguel Guldimann, Solothurn",
-      url: "https://www.zenmeditation.ch/",
-      display: "www.zenmeditation.ch"
-    },
-    {
       label: "Lapis Dharma Centre, Mullumbimby Creek, Australien",
       label_en: "Lapis Dharma Centre, Mullumbimby Creek, Australia",
       url: "https://www.lapisdharma.com/",
       display: "www.lapisdharma.com"
+    },
+    {
+      label: "Miguel Guldimann, Solothurn",
+      url: "https://www.zenmeditation.ch/",
+      display: "www.zenmeditation.ch"
     },
     {
       label: "Shambhala Zentrum, Bern",
