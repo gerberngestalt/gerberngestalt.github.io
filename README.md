@@ -13,25 +13,23 @@ Live-Website: https://gerberngestalt.github.io/
 | `script.js` | Klicks, Touch, Wischen, Maps-Karten, Sprachwechsel, Scrollen | Nur für Interaktionen |
 | `.nojekyll` | Konfigurationsdatei für GitHub Pages | **Nicht ändern** |
 
-> Für neue Texte und Bilddateien **zuerst `content.js`** öffnen; nicht im langen `script.js` suchen.
+> Neue Bilder werden jetzt **automatisch aus den sieben nummerierten Bildordnern eingelesen**. Für Übersetzungen, NETZWERK und rechtliche Texte weiterhin `content.js` verwenden.
 
 ## Bilder in einer Galerie ändern
 
-In `content.js` ist jede Galerie ein eigenes Objekt. Die Galerien heissen:
+Die sieben Galerien werden automatisch synchronisiert. Du musst die `images`-Arrays in `content.js` **nicht mehr manuell bearbeiten**.
 
-`start, about, angebot, praktisches, gestalt, miniBlog, kontakt`
+1. Im passenden Ordner unter `images/` Bilder hochladen, ersetzen, umbenennen oder löschen und den GitHub-Commit speichern.
+2. GitHub Actions startet **Sync numbered gallery images** automatisch. Das Skript erfasst die Dateien nach Nummer (`01_`, `02_`, `03_` usw.) und übernimmt ihre tatsächliche Endung (`.jpg`, `.jpeg`, `.png`, `.webp`, `.gif`, `.avif`).
+3. Bei Änderungen schreibt die Action die passenden vollständigen Dateipfade in `content.js`, aktualisiert den Cache-Verweis in `index.html` und fordert einen GitHub-Pages-Neuaufbau an.
 
-Im Feld `images: [ ... ]` die entsprechenden Dateinamen ändern oder einen weiteren Eintrag ergänzen. Beispiel für einen Bild-Eintrag:
+Die Galerien sind `start`, `about`, `angebot`, `praktisches`, `gestalt`, `miniBlog` (Ordner **`images/miniblog/`**) und `kontakt`. `images/stones/` enthält die Farbakzente und gehört nicht zu den Galerien.
 
-```js
-images: [
-  'images/about/01_passfoto.jpg'
-]
-```
+Sprach- und Gerätevarianten wie `01_bild_en.png`, `01_bild_phone.png`, `01_bild_dark.png` sind **keine zusätzlichen Slides**. Für `_dark`/`_phone` bitte die Dateiendung des Basisbilds verwenden; abweichende Dateiformate bei `_en` werden ausdrücklich in `content.js` referenziert. Existiert eine englische Variante nicht, wird das Basisbild verwendet.
 
-Bei **gerberngestalt** sind Bildpfade in `content.js` vollständig, z. B. `images/about/01_passfoto.jpg`. Eine englische Bildversion kann als `{ image: 'images/gestalt/bild.jpg', image_en: 'images/gestalt/bild_en.jpg' }` angegeben werden. Für einzelne START-Bilder gibt es auch `image_dark`.
+**Maximal 12 Slides pro Galerie.** Mehr Bilder oder zwei Originaldateien für dasselbe Motiv in verschiedenen Formaten führen zu einer Fehlermeldung statt einer unbemerkten falschen Darstellung. Doppelte Nummern werden als Warnung gemeldet; bitte pro Bildmotiv eine eindeutige Nummer verwenden.
 
-Die Galerie-Logik unterstützt **höchstens 11 Slides** je Galerie. Nach dem Hinzufügen einer Bilddatei prüfen, dass die Schreibweise und die Dateiendung exakt stimmen. Englische Varianten sind optional; wenn keine verfügbar ist, bleibt das Standardbild sichtbar.
+Die Technik liegt in `.github/workflows/sync-gallery-images.yml` und `scripts/sync-gallery-images.mjs`. Unter **Actions → Sync numbered gallery images** kannst du den automatischen Lauf prüfen oder optional manuell starten. Nur die Bildlisten und die Cache-Version werden automatisch verändert; NETZWERK, Texte und übrige Funktionen bleiben erhalten.
 
 ## NETZWERK pflegen
 
