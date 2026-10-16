@@ -681,6 +681,12 @@
     if (group.style.getPropertyValue('--gg-gallery-visible-height') !== pixels) {
       group.style.setProperty('--gg-gallery-visible-height', pixels);
     }
+    // Match only this section's height to the visual viewport. Earlier
+    // sections keep their prior geometry and cannot push the active one away.
+    const section = group.closest('.section');
+    if (section && section.style.getPropertyValue('--gg-gallery-visible-height') !== pixels) {
+      section.style.setProperty('--gg-gallery-visible-height', pixels);
+    }
   }
 
   function syncGalleryVisibleHeight() {
@@ -689,6 +695,8 @@
       rootStyle.removeProperty('--gg-gallery-visible-height');
       phoneGalleryGroups.forEach(function (group) {
         group.style.removeProperty('--gg-gallery-visible-height');
+        const section = group.closest('.section');
+        if (section) section.style.removeProperty('--gg-gallery-visible-height');
       });
       return;
     }
@@ -716,6 +724,8 @@
       // which moved the page under the user's scroll position.
       phoneGalleryGroups.forEach(function (group) {
         group.style.removeProperty('--gg-gallery-visible-height');
+        const section = group.closest('.section');
+        if (section) section.style.removeProperty('--gg-gallery-visible-height');
       });
       rootStyle.removeProperty('--gg-gallery-visible-height');
     }
@@ -979,10 +989,11 @@
         const group = target.querySelector('.window-group');
         if (group) setPortraitGalleryHeight(group);
         const networkFirstRow = id === '#netzwerk' ? target.querySelector('#network-links .network-row') : null;
-        const anchor = landscape && networkFirstRow ? target : (networkFirstRow || group || target);
+        const bottomFitGallery = group && portraitGalleryQuery.matches && window.matchMedia('(pointer:coarse)').matches;
+        const anchor = bottomFitGallery || (landscape && networkFirstRow) ? target : (networkFirstRow || group || target);
         const lineHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--type-size')) *
           parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--type-leading'));
-        const gap = landscape ? 0 : (7 * 96 / 25.4) + (networkFirstRow ? (Number.isFinite(lineHeight) ? lineHeight : 24) : 0);
+        const gap = landscape || bottomFitGallery ? 0 : (7 * 96 / 25.4) + (networkFirstRow ? (Number.isFinite(lineHeight) ? lineHeight : 24) : 0);
         const top = window.scrollY + anchor.getBoundingClientRect().top - headH - gap;
         window.scrollTo({top: Math.max(0, top), left: 0, behavior: 'instant'});
       }, delay);
@@ -1087,10 +1098,11 @@
         const group = target.classList.contains('section') ? target.querySelector('.window-group') : null;
         if (group) setPortraitGalleryHeight(group);
         const networkFirstRow = id === '#netzwerk' ? target.querySelector('#network-links .network-row') : null;
-        const anchor = landscapePhone && networkFirstRow ? target : (networkFirstRow || group || target);
+        const bottomFitGallery = group && portraitGalleryQuery.matches && window.matchMedia('(pointer:coarse)').matches;
+        const anchor = bottomFitGallery || (landscapePhone && networkFirstRow) ? target : (networkFirstRow || group || target);
         const rootStyle = getComputedStyle(document.documentElement);
         const readingLine = parseFloat(rootStyle.getPropertyValue('--type-size')) * parseFloat(rootStyle.getPropertyValue('--type-leading'));
-        const gap = landscapePhone ? 0 : (7 * 96 / 25.4) +
+        const gap = landscapePhone || bottomFitGallery ? 0 : (7 * 96 / 25.4) +
           (networkFirstRow ? (Number.isFinite(readingLine) ? readingLine : 24) : 0);
         const top = window.scrollY + anchor.getBoundingClientRect().top - headH - gap;
         window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
