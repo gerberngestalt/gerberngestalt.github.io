@@ -26,7 +26,7 @@
   }
 
   const content = window.SITE_CONTENT || {};
-  const MAX_IMAGES = 11;
+  const MAX_IMAGES = 12;
 
   // German/original is the default. English is an optional overlay:
   // whenever a *_en value is missing, the original value stays visible.
