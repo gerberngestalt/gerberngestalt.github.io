@@ -3,7 +3,8 @@
  *
  * Texte, Bilder, Übersetzungen und NETZWERK-Einträge werden hier bearbeitet.
  * Jede Galerie enthält ein images-Array; optionale englische Bilddateien
- * stehen in image_en und die dunkle Variante gegebenenfalls in image_dark.
+ * stehen bei Bedarf in image_en; Varianten mit _dark und _phone im
+ * Dateinamen werden automatisch erkannt.
  * Bedienung und klickbare KONTAKT-Karten stehen in script.js.
  * Weitere Hinweise: README.md.
  */
@@ -13,7 +14,7 @@ window.SITE_CONTENT = {
     title_en: 'HOME',
     images: [
       { image:'images/start/logo3.jpg' },
-      { image:'images/start/logo2.jpg', image_dark:'images/start/logo2_dark.jpg' },
+      { image:'images/start/logo2.jpg' },
       { image:'images/start/slide3.png' }
     ]
   },
