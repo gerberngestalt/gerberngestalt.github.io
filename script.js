@@ -59,16 +59,32 @@
     return { base:entry || '', en:enList[index] || '', dark:'', alt:altList[index] || '' };
   }
 
+  // ================================================================
+  // BILDVARIANTEN: derzeit deaktiviert, Code fuer spaeter erhalten.
+  //
+  // HIER KANN DIE UNTERSTUETZUNG VON DARK-MODE-SLIDES WIEDER AKTIVIERT WERDEN:
+  // ENABLE_DARK_SLIDE_VARIANTS auf true setzen. Der normale Dark Mode der
+  // Website (Farben, Hintergrund) bleibt auch bei false aktiv.
+  const ENABLE_DARK_SLIDE_VARIANTS = false;
+
+  // HIER KANN DIE UNTERSTUETZUNG VON PHONE-MODE-SLIDES WIEDER AKTIVIERT WERDEN:
+  // ENABLE_PHONE_SLIDE_VARIANTS auf true setzen (Handy-Hochformat).
+  // Sind beide Schalter true, werden auch _dark_phone-Dateien gesucht.
+  const ENABLE_PHONE_SLIDE_VARIANTS = false;
+  // ================================================================
+
   function galleryImageCandidates(spec, key) {
-    const darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const phone = window.matchMedia('(max-width:650px) and (orientation:portrait)').matches;
+    const darkMode = ENABLE_DARK_SLIDE_VARIANTS &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const phone = ENABLE_PHONE_SLIDE_VARIANTS &&
+      window.matchMedia('(max-width:650px) and (orientation:portrait)').matches;
     const english = currentLanguage === 'en';
     const withSuffix = (url, suffix) => url.replace(/(\.[^./?#]+)([?#].*)?$/, suffix + '$1$2');
     const englishImage = spec.en || withSuffix(spec.base, '_en');
     const candidates = [];
     const add = (url, usePhone) => {
       if (!url) return;
-      if (usePhone) {
+      if (usePhone && ENABLE_PHONE_SLIDE_VARIANTS) {
         if (darkMode) candidates.push(withSuffix(url, '_dark_phone'));
         candidates.push(withSuffix(url, '_phone'));
       }
@@ -488,11 +504,14 @@
     });
   }
 
-  // Keep the START logo aligned with the site's actual light/dark media query.
-  const logoScheme = window.matchMedia('(prefers-color-scheme: dark)');
-  logoScheme.addEventListener('change', function () {
-    updateGalleryLanguage();
-  });
+  // Nur mit aktivierten Dark-Mode-Slides Bilder beim Systemwechsel neu pruefen.
+  // Die CSS-Farben wechseln unabhaengig davon weiterhin automatisch.
+  if (ENABLE_DARK_SLIDE_VARIANTS) {
+    const slideColorScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    slideColorScheme.addEventListener('change', function () {
+      updateGalleryLanguage();
+    });
+  }
 
   function setText(selector, value) {
     const el = document.querySelector(selector);
