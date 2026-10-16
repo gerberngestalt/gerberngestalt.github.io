@@ -1,0 +1,65 @@
+name: Sync numbered gallery images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'images/start/**'
+      - 'images/about/**'
+      - 'images/angebot/**'
+      - 'images/praktisches/**'
+      - 'images/gestalt/**'
+      - 'images/miniblog/**'
+      - 'images/kontakt/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: gallery-sync-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  synchronize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out latest repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Verify synchronization script
+        run: node --check scripts/sync-gallery-images.mjs
+
+      - name: Update galleries from image folders
+        run: node scripts/sync-gallery-images.mjs
+
+      - name: Commit changed image lists and cache version
+        id: changes
+        run: |
+          if git diff --quiet -- content.js index.html; then
+            echo "No changes required."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content.js index.html
+          git commit -m "Automatically update galleries after image uploads"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+          echo "updated=true" >> "$GITHUB_OUTPUT"
+
+      # Commits by GITHUB_TOKEN do not trigger another Pages build, so
+      # request one explicitly after the generated files have been pushed.
+      - name: Publish updated files to GitHub Pages
+        if: steps.changes.outputs.updated == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds"
