@@ -1238,7 +1238,6 @@ main {
 .secondary-nav a {
   position:relative;
 }
-.secondary-nav a[href="#past"]::before,
 .secondary-nav a[href="#netzwerk"]::after {
   content:"";
   position:absolute;
@@ -1246,9 +1245,7 @@ main {
   height:6px;
   border-radius:50%;
 }
-.secondary-nav a[href="#past"]::before {
-  right:calc(100% + .7em);
-}
+
 .secondary-nav a[href="#netzwerk"]::after {
   left:calc(100% + .7em);
 }
@@ -1289,7 +1286,6 @@ main {
 .primary-nav a.active-section:hover::after {
   background:var(--accent);
 }
-.secondary-nav a[href="#past"]:hover::before,
 .secondary-nav a[href="#netzwerk"]:hover::after {
   background:#000;
 }
@@ -1332,7 +1328,6 @@ main {
   opacity:1;
 }
 /* Secondary navigation: hover preview appears on the side opposite the active yellow marker. */
-.secondary-nav a[href="#past"]::after,
 .secondary-nav a[href="#netzwerk"]::before {
   content:"";
   position:absolute;
@@ -1340,9 +1335,7 @@ main {
   height:6px;
   border-radius:50%;
 }
-.secondary-nav a[href="#past"]::after {
-  left:calc(100% + .7em);
-}
+
 .secondary-nav a[href="#netzwerk"]::before {
   right:calc(100% + .7em);
 }
@@ -1355,9 +1348,7 @@ main {
 
 
 /* PAST EVENTS may use the open horizontal field instead of the gallery-window measure. */
-#past .list-inner {
-  width:min(78vw,980px);
-}
+
 
 /* NETZWERK -> MISC: 30% more distance than v37/v38. */
 #netzwerk {
@@ -1369,7 +1360,6 @@ main {
    Hover never creates a second yellow marker on an inactive item. */
 
 
-.secondary-nav a[href="#past"]:hover::before,
 .secondary-nav a[href="#netzwerk"]:hover::after {
   opacity:0;
   background:var(--accent);
@@ -1382,24 +1372,20 @@ main {
 
 /* Secondary navigation grammar:
    active = yellow outside; hover = black inside.  The two states may coexist. */
-.secondary-nav a[href="#past"]::before,
 .secondary-nav a[href="#netzwerk"]::after {
   background:var(--accent);
   opacity:0;
 }
 
-.secondary-nav a[href="#past"]::after,
 .secondary-nav a[href="#netzwerk"]::before {
   background:#000;
   opacity:0;
 }
-.secondary-nav a[href="#past"]:hover::after,
 .secondary-nav a[href="#netzwerk"]:hover::before {
   background:#000;
   opacity:1;
 }
 /* Keep an active outer marker yellow even while hovering it. */
-.secondary-nav a[href="#past"].active-secondary:hover::before,
 .secondary-nav a[href="#netzwerk"].active-secondary:hover::after {
   background:var(--accent);
   opacity:1;
@@ -1467,20 +1453,14 @@ main {
   display:inline-block;
   line-height:inherit;
 }
-.secondary-nav a[href="#past"]::before {
-  right:calc(100% + var(--nav-active-gap));
-}
-.secondary-nav a[href="#past"]::after {
-  left:calc(100% + var(--nav-hover-gap));
-}
+
+
 .secondary-nav a[href="#netzwerk"]::before {
   right:calc(100% + var(--nav-hover-gap));
 }
 .secondary-nav a[href="#netzwerk"]::after {
   left:calc(100% + var(--nav-active-gap));
 }
-.secondary-nav a[href="#past"]::before,
-.secondary-nav a[href="#past"]::after,
 .secondary-nav a[href="#netzwerk"]::before,
 .secondary-nav a[href="#netzwerk"]::after {
   top:50%;
@@ -1490,7 +1470,6 @@ main {
 .secondary-nav a.active-secondary:hover::before {
   opacity:0;
 }
-.secondary-nav a[href="#past"].active-secondary::before,
 .secondary-nav a[href="#netzwerk"].active-secondary::after {
   opacity:1;
 }
@@ -1532,14 +1511,12 @@ main {
   --secondary-hover-gap:.52em;
 }
 /* Centre both different-sized dots on exactly the same typographic midline. */
-.secondary-nav a[href="#past"]::before,
 .secondary-nav a[href="#netzwerk"]::after {
   width:var(--secondary-active-dot);
   height:var(--secondary-active-dot);
   top:50%;
   transform:translateY(-50%);
 }
-.secondary-nav a[href="#past"]::after,
 .secondary-nav a[href="#netzwerk"]::before {
   width:var(--secondary-hover-dot);
   height:var(--secondary-hover-dot);
@@ -1547,15 +1524,11 @@ main {
   transform:translateY(-50%);
 }
 /* Active yellow markers sit farther outside, like the primary navigation. */
-.secondary-nav a[href="#past"]::before {
-  right:calc(100% + var(--secondary-active-gap));
-}
+
 .secondary-nav a[href="#netzwerk"]::after {
   left:calc(100% + var(--secondary-active-gap));
 }
-.secondary-nav a[href="#past"]::after {
-  left:calc(100% + var(--secondary-hover-gap));
-}
+
 .secondary-nav a[href="#netzwerk"]::before {
   right:calc(100% + var(--secondary-hover-gap));
 }
@@ -1576,16 +1549,11 @@ main {
 }
 /* Keep the PAST EVENTS heading/year on exactly the gallery-window left axis,
    while allowing long event rows to use the open space to the right. */
-#past .list-inner {
-  width:min(50vw,500px,calc(100vw - (2 * var(--edge))));
-  overflow:visible;
-}
+
 
 /* Optical correction: PAST EVENTS' outside active marker gets the same generous
    separation perceived in the primary navigation. NETZWERK already reads correctly. */
-.secondary-nav a[href="#past"]::before {
-  right:calc(100% + 1.15em);
-}
+
 
 :root {
   --inter-section-gap:clamp(85px,15.3vh,204px);
@@ -1596,10 +1564,7 @@ main {
 }
 /* The reading sections use the same outside rhythm instead of their older,
    individually tuned separation. */
-#past {
-  margin-top:var(--inter-section-gap);
-  padding-top:0;
-}
+
 #netzwerk {
   margin-top:var(--inter-section-gap);
   margin-bottom:0;
@@ -1613,7 +1578,7 @@ main {
     --inter-section-gap:clamp(46px,8.5vh,85px);
   }
 }
-#past,#netzwerk {
+#netzwerk {
   scroll-margin-top:calc(9mm + 150px);
 }
 
@@ -1821,12 +1786,8 @@ main {
     scroll-margin-top:22px;
   }
   /* Keep all secondary markers safely inside the phone viewport. */
-    .secondary-nav a[href="#past"]::before {
-    right:calc(100% + .55em);
-  }
-  .secondary-nav a[href="#past"]::after {
-    left:calc(100% + .38em);
-  }
+
+
   .secondary-nav a[href="#netzwerk"]::before {
     right:calc(100% + .38em);
   }
@@ -1834,8 +1795,7 @@ main {
     left:calc(100% + .55em);
   }
   /* Reading columns must never create horizontal page scrolling. */
-    .list-inner,
-    #past .list-inner {
+    .list-inner {
     width:calc(100vw - 44px);
     max-width:calc(100vw - 44px);
   }
@@ -1971,10 +1931,7 @@ main {
     color:inherit!important;
   }
   /* Keep long event prose away from the right screen edge. */
-    #past .list-inner {
-    width:min(68vw,680px)!important;
-    max-width:68vw!important;
-  }
+
   
   /* The active NETZWERK marker stays comfortably inside the viewport. */
     .secondary-nav a[href="#netzwerk"]::after {
@@ -2071,8 +2028,7 @@ html,body {
   }
   /* No emulated hover/focus preview dots on touch. Only the real active accent dot remains. */
     .primary-nav a::before,
-    .secondary-nav a[href="#past"]::after,
-    .secondary-nav a[href="#netzwerk"]::before {
+.secondary-nav a[href="#netzwerk"]::before {
     display:none!important;
     content:none!important;
   }
@@ -2102,8 +2058,7 @@ html,body {
   }
   /* Remove the black hover previews completely on touch. Keep only coloured active markers. */
     .primary-nav a::before,
-    .secondary-nav a[href="#past"]::after,
-    .secondary-nav a[href="#netzwerk"]::before {
+.secondary-nav a[href="#netzwerk"]::before {
     content:none!important;
     display:none!important;
   }
@@ -2472,9 +2427,7 @@ body a:active,
   /* Older high-specificity nav rules kept selected links at weight 300.
        Match the normal-weight dark-mode body text for the affected labels only. */
     html[lang="de"] body .fixed-head .primary-nav a[href="#start"],
-html[lang="de"] body .fixed-head .secondary-nav a[href="#past"],
 html[lang="de"] body .fixed-head .secondary-nav a[href="#netzwerk"],
-html[lang="en"] body .fixed-head .secondary-nav a[href="#past"],
 html[lang="en"] body .fixed-head .secondary-nav a[href="#netzwerk"] {
     font-weight:normal!important;
     color:var(--gg-ink)!important;
@@ -2615,8 +2568,7 @@ html[lang="en"] body .fixed-head .secondary-nav a[href="#netzwerk"] {
 /* Portrait header optical fixes only: secondary labels match HOME paint;
    active NETWORK marker gets 3px of air from the word. */
 @media (max-width:650px) and (orientation:portrait) and (prefers-color-scheme:dark) {
-  html body .fixed-head > .secondary-nav a[href="#past"],
-    html body .fixed-head > .secondary-nav a[href="#netzwerk"] {
+  html body .fixed-head > .secondary-nav a[href="#netzwerk"] {
     color:#dedede!important;
     -webkit-text-fill-color:#dedede!important;
     font-weight:400!important;
@@ -2788,19 +2740,16 @@ html body .fixed-head > .secondary-nav a:active {
   }
 }
 html body .fixed-head .primary-nav a[href="#start"],
-html body .fixed-head > .secondary-nav a[href="#past"],
 html body .fixed-head > .secondary-nav a[href="#netzwerk"] {
   font-weight:500!important;
 }
 @media (prefers-color-scheme:dark) {
   html body .fixed-head .primary-nav a[href="#start"],
-    html body .fixed-head > .secondary-nav a[href="#past"],
-    html body .fixed-head > .secondary-nav a[href="#netzwerk"] {
+html body .fixed-head > .secondary-nav a[href="#netzwerk"] {
     font-weight:500!important;
   }
 }
 html body .fixed-head .primary-nav a[href="#start"],
-html body .fixed-head > .secondary-nav a[href="#past"],
 html body .fixed-head > .secondary-nav a[href="#netzwerk"] {
   font-weight:400!important;
   color:#171717!important;
@@ -2808,31 +2757,27 @@ html body .fixed-head > .secondary-nav a[href="#netzwerk"] {
 }
 @media (prefers-color-scheme:dark) {
   html body .fixed-head .primary-nav a[href="#start"],
-    html body .fixed-head > .secondary-nav a[href="#past"],
-    html body .fixed-head > .secondary-nav a[href="#netzwerk"] {
+html body .fixed-head > .secondary-nav a[href="#netzwerk"] {
     color:var(--gg-ink)!important;
     -webkit-text-fill-color:var(--gg-ink)!important;
   }
 }
 @media (prefers-color-scheme:dark) {
   html body .fixed-head .primary-nav a[href="#start"],
-    html body .fixed-head > .secondary-nav a[href="#past"],
-    html body .fixed-head > .secondary-nav a[href="#netzwerk"] {
+html body .fixed-head > .secondary-nav a[href="#netzwerk"] {
     font-weight:400!important;
     color:inherit!important;
     -webkit-text-fill-color:currentColor!important;
   }
 }
 @media (prefers-color-scheme:dark) {
-  html body .fixed-head > .secondary-nav a[href="#past"],
-    html body .fixed-head > .secondary-nav a[href="#netzwerk"] {
+  html body .fixed-head > .secondary-nav a[href="#netzwerk"] {
     color:#fff!important;
     -webkit-text-fill-color:#fff!important;
   }
 }
 @media (prefers-color-scheme:dark) {
-  html body .fixed-head > .secondary-nav a[href="#past"],
-    html body .fixed-head > .secondary-nav a[href="#netzwerk"] {
+  html body .fixed-head > .secondary-nav a[href="#netzwerk"] {
     font-weight:400!important;
     color:#e6e6e6!important;
     -webkit-text-fill-color:#e6e6e6!important;
@@ -2840,8 +2785,7 @@ html body .fixed-head > .secondary-nav a[href="#netzwerk"] {
   }
 }
 @media (prefers-color-scheme:dark) {
-  html body .fixed-head > .secondary-nav a[href="#past"],
-    html body .fixed-head > .secondary-nav a[href="#netzwerk"] {
+  html body .fixed-head > .secondary-nav a[href="#netzwerk"] {
     color:#f2f2f2!important;
     -webkit-text-fill-color:#f2f2f2!important;
   }
@@ -2978,9 +2922,7 @@ html body .fixed-head .secondary-nav b {
   -webkit-text-fill-color:color-mix(in srgb,var(--gg-ink) 62%,white)!important;
 }
 /* Retired gerbern drei sections */
-#past {
-  display:none!important;
-}
+
 /* CONTACT active dot */
 .fixed-head > .secondary-nav a[href="#kontakt"] {
   position:relative!important;
