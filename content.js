@@ -145,7 +145,7 @@ window.SITE_CONTENT = {
       display: "zuerich.shambhala.org"
     },
     {
-      label: "Siddhartha's Intent, Dzongsar Khyentse Rinpoche",
+      label: "Siddhartha's Intent, Dzongsar Khyentse Rinpoche Siddhartha's Intent, Dzongsar Khyentse Rinpoche",
       url: "https://siddharthasintent.org/",
       display: "siddharthasintent.org"
     },
