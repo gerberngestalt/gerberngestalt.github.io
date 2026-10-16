@@ -661,20 +661,21 @@
   // fixed svh. Samsung Internet can retract its top and bottom browser bars.
   // Update only CSS geometry on resize; never recenter or force scroll.
   const portraitGalleryQuery = window.matchMedia('(max-width:650px) and (orientation:portrait)');
+  const landscapeGalleryQuery = window.matchMedia('(orientation:landscape) and (max-height:650px) and (pointer:coarse)');
   const phoneGalleryQuery = window.matchMedia('(max-width:650px) and (orientation:portrait), (orientation:landscape) and (max-height:650px) and (pointer:coarse)');
   const phoneGalleryGroups = Array.from(document.querySelectorAll('main .section > .window-group'));
   let galleryViewportResizeFrame = 0;
+  let lastGalleryOrientation = portraitGalleryQuery.matches ? 'portrait' : (landscapeGalleryQuery.matches ? 'landscape' : 'other');
 
   function phoneVisibleHeight() {
     const visual = window.visualViewport;
     return visual && visual.scale === 1 ? visual.height : window.innerHeight;
   }
 
-  // A phone's portrait galleries must size independently. Resizing every
-  // earlier gallery when Samsung's browser bars retract would shift the
-  // current section and could push its pagination offscreen.
-  function setPortraitGalleryHeight(group) {
-    if (!portraitGalleryQuery.matches || !group) return;
+  // Phone galleries update independently: a retracting browser toolbar
+  // must not resize every earlier section or shift the current scroll.
+  function setPhoneGalleryHeight(group) {
+    if (!phoneGalleryQuery.matches || !group) return;
     const height = phoneVisibleHeight();
     if (!Number.isFinite(height) || height <= 0) return;
     const pixels = Math.round(height) + 'px';
@@ -691,6 +692,17 @@
 
   function syncGalleryVisibleHeight() {
     const rootStyle = document.documentElement.style;
+    const layout = portraitGalleryQuery.matches ? 'portrait' : (landscapeGalleryQuery.matches ? 'landscape' : 'other');
+    if (layout !== lastGalleryOrientation) {
+      // Recalculate from the new orientation; the delayed rotation handler
+      // keeps the requested section in place after this single reset.
+      phoneGalleryGroups.forEach(function (group) {
+        group.style.removeProperty('--gg-gallery-visible-height');
+        const section = group.closest('.section');
+        if (section) section.style.removeProperty('--gg-gallery-visible-height');
+      });
+      lastGalleryOrientation = layout;
+    }
     if (!phoneGalleryQuery.matches) {
       rootStyle.removeProperty('--gg-gallery-visible-height');
       phoneGalleryGroups.forEach(function (group) {
@@ -717,17 +729,25 @@
           visibleGroup = group;
         }
       });
-      if (visibleGroup) setPortraitGalleryHeight(visibleGroup);
+      if (visibleGroup) setPhoneGalleryHeight(visibleGroup);
     } else {
-      // Phone landscape uses stable CSS 100svh. Updating a global viewport
-      // height here on browser-toolbar changes resized every preceding slide,
-      // which moved the page under the user's scroll position.
-      phoneGalleryGroups.forEach(function (group) {
-        group.style.removeProperty('--gg-gallery-visible-height');
-        const section = group.closest('.section');
-        if (section) section.style.removeProperty('--gg-gallery-visible-height');
-      });
+      // Use the full currently visible height only for the foremost gallery.
+      // 100svh remains the fallback for unseen sections; existing sizes in
+      // sections above the viewport are never changed on toolbar resize.
       rootStyle.removeProperty('--gg-gallery-visible-height');
+      const head = document.querySelector('.fixed-head');
+      const headHeight = head ? head.getBoundingClientRect().height : 0;
+      let visibleGroup = null;
+      let greatestOverlap = 0;
+      phoneGalleryGroups.forEach(function (group) {
+        const rect = group.getBoundingClientRect();
+        const overlap = Math.max(0, Math.min(rect.bottom, height) - Math.max(rect.top, headHeight));
+        if (overlap > greatestOverlap) {
+          greatestOverlap = overlap;
+          visibleGroup = group;
+        }
+      });
+      if (visibleGroup) setPhoneGalleryHeight(visibleGroup);
     }
   }
 
@@ -739,19 +759,22 @@
     });
   }
 
-  // Activate each portrait gallery as it enters the reading area. Offscreen
-  // galleries keep their prior dimensions so they cannot displace this one.
+  // Activate each visible phone gallery independently. Browser toolbar
+  // changes resize only the current one, never all galleries in the document.
   if ('IntersectionObserver' in window) {
     const galleryObserver = new IntersectionObserver(function (entries) {
-      if (!portraitGalleryQuery.matches) return;
+      if (!phoneGalleryQuery.matches) return;
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) setPortraitGalleryHeight(entry.target);
+        if (entry.isIntersecting) setPhoneGalleryHeight(entry.target);
       });
     }, { rootMargin: '-30% 0px -25% 0px', threshold: 0 });
     phoneGalleryGroups.forEach(function (group) { galleryObserver.observe(group); });
   }
   syncGalleryVisibleHeight();
   window.addEventListener('resize', scheduleGalleryVisibleHeight, { passive:true });
+  window.addEventListener('scroll', function () {
+    if (landscapeGalleryQuery.matches) scheduleGalleryVisibleHeight();
+  }, { passive:true });
   if (window.visualViewport) {
     window.visualViewport.addEventListener('resize', scheduleGalleryVisibleHeight, { passive:true });
   }
@@ -987,7 +1010,7 @@
         const head = document.querySelector('.fixed-head');
         const headH = head ? head.getBoundingClientRect().height : 0;
         const group = target.querySelector('.window-group');
-        if (group) setPortraitGalleryHeight(group);
+        if (group) setPhoneGalleryHeight(group);
         const networkFirstRow = id === '#netzwerk' ? target.querySelector('#network-links .network-row') : null;
         const bottomFitGallery = group && portraitGalleryQuery.matches && window.matchMedia('(pointer:coarse)').matches;
         const anchor = bottomFitGallery || (landscape && networkFirstRow) ? target : (networkFirstRow || group || target);
@@ -1096,7 +1119,7 @@
         const headH = head ? head.getBoundingClientRect().height : 0;
         const landscapePhone = window.matchMedia('(orientation:landscape) and (max-height:650px)').matches;
         const group = target.classList.contains('section') ? target.querySelector('.window-group') : null;
-        if (group) setPortraitGalleryHeight(group);
+        if (group) setPhoneGalleryHeight(group);
         const networkFirstRow = id === '#netzwerk' ? target.querySelector('#network-links .network-row') : null;
         const bottomFitGallery = group && portraitGalleryQuery.matches && window.matchMedia('(pointer:coarse)').matches;
         const anchor = bottomFitGallery || (landscapePhone && networkFirstRow) ? target : (networkFirstRow || group || target);
