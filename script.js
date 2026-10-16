@@ -711,14 +711,13 @@
       });
       if (visibleGroup) setPortraitGalleryHeight(visibleGroup);
     } else {
-      // The existing landscape behaviour works: retain global viewport sizing.
+      // Phone landscape uses stable CSS 100svh. Updating a global viewport
+      // height here on browser-toolbar changes resized every preceding slide,
+      // which moved the page under the user's scroll position.
       phoneGalleryGroups.forEach(function (group) {
         group.style.removeProperty('--gg-gallery-visible-height');
       });
-      const pixels = Math.round(height) + 'px';
-      if (rootStyle.getPropertyValue('--gg-gallery-visible-height') !== pixels) {
-        rootStyle.setProperty('--gg-gallery-visible-height', pixels);
-      }
+      rootStyle.removeProperty('--gg-gallery-visible-height');
     }
   }
 
@@ -980,7 +979,7 @@
         const group = target.querySelector('.window-group');
         if (group) setPortraitGalleryHeight(group);
         const networkFirstRow = id === '#netzwerk' ? target.querySelector('#network-links .network-row') : null;
-        const anchor = networkFirstRow || group || target;
+        const anchor = landscape && networkFirstRow ? target : (networkFirstRow || group || target);
         const lineHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--type-size')) *
           parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--type-leading'));
         const gap = landscape ? 0 : (7 * 96 / 25.4) + (networkFirstRow ? (Number.isFinite(lineHeight) ? lineHeight : 24) : 0);
@@ -1088,7 +1087,7 @@
         const group = target.classList.contains('section') ? target.querySelector('.window-group') : null;
         if (group) setPortraitGalleryHeight(group);
         const networkFirstRow = id === '#netzwerk' ? target.querySelector('#network-links .network-row') : null;
-        const anchor = networkFirstRow || group || target;
+        const anchor = landscapePhone && networkFirstRow ? target : (networkFirstRow || group || target);
         const rootStyle = getComputedStyle(document.documentElement);
         const readingLine = parseFloat(rootStyle.getPropertyValue('--type-size')) * parseFloat(rootStyle.getPropertyValue('--type-leading'));
         const gap = landscapePhone ? 0 : (7 * 96 / 25.4) +
