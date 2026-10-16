@@ -1303,3 +1303,31 @@
     new MutationObserver(align).observe(reference, {childList:true, characterData:true, subtree:true});
   }
 })();
+
+/* Wide desktop: cap the NETWORK link column at the beginning of KONTAKT
+   in the right-hand secondary navigation. Measure the live navigation so
+   translation/font changes and browser resizing preserve the alignment. */
+(function capWideDesktopNetworkColumn(){
+  const links = document.querySelector('#netzwerk #network-links');
+  const contactNav = document.querySelector('.fixed-head .secondary-nav a[href="#kontakt"]');
+  if (!links || !contactNav) return;
+  const wide = window.matchMedia('(min-width:1201px) and (min-height:651px) and (hover:hover) and (pointer:fine)');
+  function align(){
+    if (!wide.matches) {
+      links.style.removeProperty('--gg-wide-network-reading-width');
+      return;
+    }
+    const right = contactNav.getBoundingClientRect().left;
+    const left = links.getBoundingClientRect().left;
+    const width = Math.floor(Math.min(right,window.innerWidth - 22) - left);
+    if (width > 0) links.style.setProperty('--gg-wide-network-reading-width',width+'px');
+    else links.style.removeProperty('--gg-wide-network-reading-width');
+  }
+  align();
+  window.addEventListener('resize',align,{passive:true});
+  window.addEventListener('pageshow',align);
+  window.addEventListener('load',align,{once:true});
+  if (typeof MutationObserver !== 'undefined') {
+    new MutationObserver(align).observe(contactNav,{childList:true,characterData:true,subtree:true});
+  }
+})();
