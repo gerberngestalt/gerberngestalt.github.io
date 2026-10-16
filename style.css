@@ -6476,3 +6476,13 @@ html body main #netzwerk .network-link-break {
     min-height:1lh!important;
   }
 }
+
+/* Wide desktop NETWORK: match the balanced spaces around | already used
+   by the medium-width three-column reading layout. Both sides of the
+   separator receive room; phone and medium-width rules are unchanged. */
+@media (min-width:1201px) and (min-height:651px) and (hover:hover) and (pointer:fine) {
+  html body main #netzwerk #network-links.network-links > .network-row .list-separator {
+    margin-left:1.15em!important;
+    margin-right:.9em!important;
+  }
+}
