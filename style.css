@@ -6378,10 +6378,10 @@ html body main #netzwerk .network-link-break {
   }
 }
 
-/* Wide desktop NETWORK reading-column right edge follows the beginning
+/* Desktop NETWORK reading-column right edge follows the beginning
    of KONTAKT in the right-hand secondary navigation. Only the network
    entries expand; the heading and legal-information positioning stay put. */
-@media (min-width:1201px) and (min-height:651px) and (hover:hover) and (pointer:fine) {
+@media (min-width:861px) and (min-height:651px) and (hover:hover) and (pointer:fine) {
   html body main #netzwerk #network-links.network-links {
     box-sizing:border-box!important;
     width:var(--gg-wide-network-reading-width,500px)!important;
@@ -6399,11 +6399,11 @@ html body main #netzwerk .network-link-break {
   }
 }
 
-/* Wide desktop NETWORK: use a true inline text flow rather than the older
+/* Desktop NETWORK: use a true inline text flow rather than the older
    max-content three-column grid. A long label must wrap at word boundaries
-   inside the navigation-defined right limit; its URL must never be squeezed
+   inside the calculated right limit; its URL must never be squeezed
    to a one-character column. Short entries still remain on one line. */
-@media (min-width:1201px) and (min-height:651px) and (hover:hover) and (pointer:fine) {
+@media (min-width:861px) and (min-height:651px) and (hover:hover) and (pointer:fine) {
   html body main #netzwerk #network-links.network-links > .network-row,
   html body main #netzwerk #network-links.network-links > .network-row.network-row--auto-wrap {
     display:block!important;
