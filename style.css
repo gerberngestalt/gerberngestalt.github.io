@@ -54,7 +54,7 @@ body {
   color:inherit;
   text-decoration:none
 }
-.mark {}
+
 .dot {
   position:absolute;
   width:8px;
@@ -152,8 +152,8 @@ main {
   top:25px;}
 .next::after {
   top:37px;}
-.prev {}
-.next {}
+
+
 .dots {
   display:flex;
   justify-content:center;
@@ -207,7 +207,7 @@ main {
   font:300 13px/1.9 Arial,Helvetica,sans-serif;
   letter-spacing:.04em
 }
-.network-section {}
+
 .network-links {
   margin-top:28px;
   display:flex;
@@ -236,7 +236,7 @@ main {
   }
 }
 @media(max-width:650px) {
-  :root {}
+  
   .fixed-head {
     padding-top:22px
   }
@@ -290,7 +290,7 @@ main {
 .fixed-head nav {
   font-size:15px
 }
-.mark {}
+
 .mark img {
   display:block;
   width:100%;
@@ -323,12 +323,12 @@ main {
   .mark {
     width:52px;}
 }
-.secondary-nav {}
+
 .secondary-nav b {
   margin-left:2.8em;
   margin-right:2.8em
 }
-.mark {}
+
 @media(max-width:650px) {
   .secondary-nav b {
     margin-left:2.15em;
@@ -338,7 +338,7 @@ main {
     width:72px
   }
 }
-.mark {}
+
 @media(max-width:650px) {
   .mark {
     width:110px
@@ -383,10 +383,7 @@ main {
   .fixed-head nav {
     gap:8px;
   }
-  .section-title,
-    .list-section .section-title,
-    .list-section pre,
-    .network-links {}
+  
   .mark {
     width:86px;
     top:78px;
@@ -395,7 +392,7 @@ main {
     padding-top:8vh;
     padding-bottom:34px
   }
-  .end-spacer {}
+  
 }
 .fixed-head nav {
   font-size: 13px;
@@ -452,8 +449,7 @@ main {
     font-size: 14px;
     line-height: 1.2;
   }
-  .fixed-head > .secondary-nav b {
-  }
+  
   .section-title,
     .list-section .section-title,
     .list-section pre,
@@ -518,10 +514,10 @@ main {
 
 
 @media(max-width:650px) {
-  :root {}
+  
   .fixed-head > .secondary-nav {
     top:var(--head-pad-top);}
-  .fixed-head > .secondary-nav b {}
+  
   .mark {
     top:58px;
     width:96px;}
@@ -538,8 +534,7 @@ main {
   }
   
 }
-:root {
-}
+
 /* The signet remains geometrically centered. On desktop its top starts no
    higher than ABOUT and its bottom meets the KONTAKT row. */
 .mark {
@@ -616,9 +611,9 @@ main {
     line-height:var(--type-leading)
   }
   
-  .end-spacer {}
+  
 }
-:root {}
+
 /* Window headings: on narrow layouts use exactly the same left page axis as
    the primary navigation. On roomy layouts they remain attached to the window. */
 @media(max-width:900px) {
@@ -654,24 +649,23 @@ main {
 }
 .arrow::before,.arrow::after {
   width:clamp(9px,3.6%,18px);}
-.prev::before {}
-.prev::after {}
-.next::before {}
-.next::after {}
+
+
+
+
 @media(max-width:650px) {
-  :root {}
+  
   /* Keep the mobile signet on the right, but align its black lower edge with
        the secondary-navigation row. */
     .mark {
     top:auto;
     bottom:calc(var(--head) - (var(--head-pad-top) + 5 * (var(--type-size) * var(--type-leading) + var(--nav-gap)) + .65 * (var(--type-size) * var(--type-leading)) + (var(--type-size) * var(--type-leading))));
   }
-  .window-group .section-title {
-  }
+  
   .network-links {
     gap:calc(.38em * var(--type-leading))
   }
-  .end-spacer {}
+  
 }
 :root {
   --type-leading:1.72;
@@ -697,12 +691,12 @@ main {
 .network-links {
   gap:calc(.55em * var(--type-leading))
 }
-.network-row {}
+
 /* The only fixed lower mask is now a hairline white finish. */
 .fixed-foot {
   height:var(--bottom-mask)
 }
-.end-spacer {}
+
 /* Keep gallery headings attached to the window, but guarantee that the window
    (and therefore its heading) can never begin left of the navigation axis. */
 .section {
@@ -778,7 +772,7 @@ main {
   .network-links {
     gap:calc(.55em * var(--type-leading))
   }
-  .end-spacer {}
+  
 }
 :root {
   --list-row-gap:.42em;
@@ -856,7 +850,7 @@ main {
 main {
   padding-bottom:var(--bottom-mask)
 }
-.end-spacer {}
+
 .section {
   min-height:calc(100dvh - var(--head) - var(--bottom-mask));
 }
@@ -894,10 +888,10 @@ main {
   left:50%;
   transform-origin:0 50%;
 }
-.prev::before {}
-.prev::after {}
-.next::before {}
-.next::after {}
+
+
+
+
 @media(max-width:900px) {
   .window-group {
     width:min(calc(100vw - (2 * var(--edge))),500px,calc(100dvh - var(--head) - var(--bottom-mask) - var(--gallery-reserve)));
@@ -993,9 +987,9 @@ main {
 /* Reading sections: title and entries share one centered column. */
 .list-inner {
   width:min(72vw,680px);}
-.list-section pre {}
-.network-links {}
-.network-row {}
+
+
+
 /* Keep both chevrons at the same optical inset from the square viewport. */
 .prev {
   left:1.5%
@@ -1038,8 +1032,7 @@ main {
   width:100%
 }
 /* Equal breathing room around the network arrow. */
-.network-row {
-}
+
 .network-label {
   margin:0
 }
@@ -1099,7 +1092,7 @@ main {
 .fixed-head::after {
   content:none!important
 }
-.fixed-head {}
+
 /* The very shallow desktop view must never let the white header extension
    paint over KONTAKT. Keep the navigation itself unchanged and visible. */
 @media (min-width:651px) and (max-height:420px) {
@@ -1118,10 +1111,8 @@ main {
     bottom:calc(var(--head) - (var(--head-pad-top) + 5 * (var(--type-size) * var(--type-leading) + var(--nav-gap)) + .58 * (var(--type-size) * var(--type-leading)) + (var(--type-size) * var(--type-leading))))!important;
   }
 }
-.fixed-head {}
-@media (min-width:651px) and (max-height:420px) {
-  .fixed-head {}
-}
+
+
 .list-section .section-title {
   text-align:left
 }
@@ -1131,9 +1122,7 @@ main {
 
 
 
-@media(max-width:650px) {
-  
-}
+
 :root {
   --type-size:15px
 }
@@ -1314,10 +1303,8 @@ main {
   object-fit:contain;
 }
 /* More breathing room between the two secondary destinations. */
-.secondary-nav {
-}
-.secondary-nav b {
-}
+
+
 /* Primary navigation: active yellow stays on the right; hover preview is black on the left. */
 .primary-nav a::before {
   content:"";
@@ -1362,9 +1349,7 @@ main {
 
 
 /* Do not turn the active yellow marker black on hover. */
-.secondary-nav a[href="#past"]:hover::before,
-.secondary-nav a[href="#netzwerk"]:hover::after {
-}
+
 /* Events form the third indentation level: title -> year -> event. */
 
 
@@ -1382,29 +1367,19 @@ main {
    PAST EVENTS: active yellow left, hover black right.
    NETZWERK: active yellow right, hover black left.
    Hover never creates a second yellow marker on an inactive item. */
-.secondary-nav a[href="#past"]::before,
-.secondary-nav a[href="#netzwerk"]::after {
-}
+
 
 .secondary-nav a[href="#past"]:hover::before,
 .secondary-nav a[href="#netzwerk"]:hover::after {
   opacity:0;
   background:var(--accent);
 }
-.secondary-nav a[href="#past"].active-secondary:hover::before,
-.secondary-nav a[href="#netzwerk"].active-secondary:hover::after {
-}
-.secondary-nav a[href="#past"]::after,
-.secondary-nav a[href="#netzwerk"]::before {
-}
-.secondary-nav a[href="#past"]:hover::after,
-.secondary-nav a[href="#netzwerk"]:hover::before {
-}
+
+
+
 /* More room around the divider so the two inner hover dots have the same visual breathing room as the outer dots. */
-.secondary-nav {
-}
-.secondary-nav b {
-}
+
+
 /* Secondary navigation grammar:
    active = yellow outside; hover = black inside.  The two states may coexist. */
 .secondary-nav a[href="#past"]::before,
@@ -1549,11 +1524,7 @@ main {
 
 
 
-@media(max-width:650px) {
-  /* On a phone, keep the hierarchy but reclaim horizontal space. */
-    
-  
-}
+
 :root {
   --secondary-active-dot:5px;
   --secondary-hover-dot:6px;
@@ -1594,9 +1565,7 @@ main {
 }
 /* Larger diagonal brush gesture: heavy at upper left, fading toward lower right. */
 
-@media(max-width:650px) {
-  
-}
+
 .fixed-head {
   box-shadow:0 9mm 0 #fff
 }
@@ -1650,12 +1619,8 @@ main {
 
 /* Keep MISC smaller than the other gallery windows, but place its title on the
    same left axis as their titles rather than centring the whole MISC block. */
-@media(min-width:651px) {
-  
-}
-@media(max-width:650px) {
-  
-}
+
+
 /* Use the irregular dot silhouette as a colourable mask. */
 .mark img {
   opacity:0;
@@ -1666,10 +1631,8 @@ main {
   -webkit-mask:url("dot.png") center/contain no-repeat;
   mask:url("dot.png") center/contain no-repeat;
 }
-.mark {
-}
-.mark {
-}
+
+
 .mark img {
   display:none!important;
 }
@@ -1830,11 +1793,7 @@ main {
 /* Year stays close to the shared reading axis; event dates step farther in. */
 
 
-@media(max-width:650px) {
-  
-  
-  
-}
+
 :root {
   --misc-epilogue-gap:clamp(92px,12vh,150px);
 }
@@ -1845,14 +1804,10 @@ main {
 /* Date rows step clearly farther in than the year steps in from the title. */
 
 
-@media(max-width:650px) {
-  
-  
-}
+
 @media (max-width:650px) {
   /* On phones the navigation belongs to the page and scrolls away with it. */
-    .fixed-head {
-  }
+    
   /* Section headings use the same light voice as the navigation. */
     .section-title,
     .list-section .section-title {
@@ -2089,15 +2044,8 @@ main {
     opacity:1!important;
   }
 }
-@media (max-width:650px) {
-  /* Date + dash + title read as one compact line. Wrapped prose hangs beneath
-       the title rather than returning to the far-left date axis. */
-    
-  
-}
-@media (max-width:900px) and (orientation:landscape) and (max-height:650px) {
-  
-}
+
+
 @media (hover:none), (pointer:coarse) {
   /* Remove Chrome/Android's pale-blue tap rectangle without changing focus
        treatment for keyboard/pointer users. */
@@ -2112,13 +2060,7 @@ main {
     visibility:visible!important;
   }
 }
-@media (max-width:650px) {
-  /* Three real columns on portrait phones: date | dash | description.
-       The description therefore wraps beneath itself, never beneath the date. */
-    
-  
-  
-}
+
 html,body {
   overflow-x:hidden;
 }
@@ -2181,24 +2123,10 @@ html,body {
     max-height:calc(100vh - var(--head) - 18px)!important;
   }
 }
-@media (max-width:650px) and (orientation:portrait) {
-  
-  
-  
-  
-}
-@media (max-width:650px) and (orientation:portrait) {
-  
-  
-  
-  
-}
 
-@media (max-width:650px) and (orientation:portrait) {
-  
-  
-  
-}
+
+
+
 .language-toggle {
   position:absolute;
   right:0;
@@ -2278,8 +2206,7 @@ html,body {
 .network-row {
     line-height:var(--type-leading)!important;
   }
-  .network-links {
-  }
+  
 }
 /* Portrait phone: give the three-part secondary row more breathing room,
    especially between the active NETWORK marker and the following divider. */
@@ -2422,13 +2349,7 @@ html,body {
     left:calc(100% + .82em)!important;
   }
 }
-.fixed-head .primary-nav a,
-.fixed-head .primary-nav a:link,
-.fixed-head .primary-nav a:visited,
-.fixed-head .primary-nav a:hover,
-.fixed-head .primary-nav a:focus,
-.fixed-head .primary-nav a:active {
-}
+
 @media (max-width:650px) and (orientation:portrait) {
   .fixed-head > .secondary-nav a[href="#netzwerk"]::after {
     left:calc(100% + .74em)!important;
@@ -2590,10 +2511,7 @@ html[lang="en"] body .fixed-head .secondary-nav a[href="#netzwerk"] {
 }
 /* Portrait phone PAST EVENTS: real date/description elements, no NBSP spacing. */
 
-@media (max-width:650px) and (orientation:portrait) {
-  
-  
-}
+
 /* NETWORK active marker: attach it to the text itself.  Do not center it in
    the remaining space before the divider. */
 .fixed-head > .secondary-nav a[href="#netzwerk"] {
@@ -2636,9 +2554,7 @@ html[lang="en"] body .fixed-head .secondary-nav a[href="#netzwerk"] {
   margin-left:3px!important;
 }
 /* Portrait PAST EVENTS: one step less date/description air. */
-@media (max-width:650px) and (orientation:portrait) {
-  
-}
+
 /* Dark navigation: force every primary/secondary link through exactly the
    same final paint/weight rule, including PAST EVENTS and NETWORK. */
 @media (prefers-color-scheme:dark) {
@@ -2707,9 +2623,7 @@ html[lang="en"] body .fixed-head .secondary-nav a[href="#netzwerk"] {
     opacity:1!important;
   }
 }
-@media (max-width:650px) and (orientation:portrait) {
-  
-}
+
 @media (min-width:651px) {
   .network-row {
     display:grid!important;
@@ -2781,11 +2695,7 @@ html[lang="en"] body .fixed-head .secondary-nav a[href="#netzwerk"] {
     flex-basis:28px!important;
   }
 }
-@media (min-width:651px) {
-  
-  
-  
-}
+
 @media (min-width:651px) {
   .network-links,
     .network-row,
@@ -2956,8 +2866,7 @@ html body .fixed-head > .secondary-nav a:not(.language-toggle):active {
   text-shadow:none!important;
   font-synthesis:none!important;
 }
-html body .fixed-head .language-toggle {
-}
+
 @media (prefers-color-scheme:dark) {
   html body .fixed-head .primary-nav a,
     html body .fixed-head .primary-nav a:link,
@@ -3315,8 +3224,7 @@ html body .fixed-head .secondary-nav b {
     margin-top:0!important;
     transform:none!important;
   }
-  #netzwerk {
-  }
+  
   .legal-links {
     margin-top:0!important;
   }
@@ -3327,10 +3235,8 @@ html body .fixed-head .secondary-nav b {
   main .section {
     padding-top:10px!important;
   }
-  main .section .window-group {
-  }
-  .legal-links details + details {
-  }
+  
+  
 }
 /* Desktop: arrows remain visible instead of appearing only on hover. */
 @media (min-width:901px) and (hover:hover) and (pointer:fine) {
@@ -3341,26 +3247,8 @@ html body .fixed-head .secondary-nav b {
 }
 /* Dark mode: warm light brown typography; DE/EN deliberately darker. */
 @media (prefers-color-scheme:dark) {
-  :root {
-  }
-  html body,
-    html body .fixed-head,
-    html body .fixed-head nav,
-    html body .fixed-head nav a,
-    html body .fixed-head .secondary-nav,
-    html body .fixed-head .secondary-nav a:not(.language-toggle),
-    html body .fixed-head .secondary-nav b,
-    html body .section-title,
-    html body .list-section,
-    html body .list-section pre,
-    html body .network-links,
-    html body .network-row,
-    html body .network-row a,
-    html body .legal-links,
-    html body .legal-links summary,
-    html body .carousel,
-    html body .slide {
-  }
+  
+  
   html body .fixed-head .language-toggle {
     color:#8f837b!important;
     -webkit-text-fill-color:#8f837b!important;
@@ -3375,14 +3263,12 @@ html body .fixed-head .secondary-nav b {
   .legal-links {
     margin-top:0!important;
   }
-  .legal-links details + details {
-  }
+  
 }
 /* Landscape phone: all galleries reserve their dots; NETWORK follows the
    compact gallery rhythm; legal begins one extra line later; stone smaller/higher. */
 @media (max-height:650px) and (orientation:landscape) {
-  .section .carousel .dots {
-  }
+  
   #netzwerk {
     min-height:0!important;
     margin-bottom:0!important;
@@ -3391,8 +3277,7 @@ html body .fixed-head .secondary-nav b {
   .legal-links {
     margin-top:calc(var(--type-size) * var(--type-leading))!important;
   }
-  .legal-links details + details {
-  }
+  
   html body .fixed-head .mark {
     top:48px!important;
     width:58px!important;
@@ -3497,8 +3382,7 @@ html body .fixed-head .secondary-nav b {
 /* Portrait: make the requested NETWORK → legal gap explicit and positive.
    This replaces the accumulated negative-margin experiments. */
 @media (max-width:650px) and (orientation:portrait) {
-  #netzwerk {
-  }
+  
   .legal-links {
     margin-top:calc(2 * var(--type-size) * var(--type-leading))!important;
   }
@@ -3593,16 +3477,8 @@ html body .fixed-head .secondary-nav b {
     min-height:24px!important;
   }
 }
-@media (max-height:650px) and (orientation:landscape) {
-  html body .fixed-head .mark {
-  }
-  
-}
-@media (max-width:650px) and (orientation:portrait) {
-  
-  html body .fixed-head button.mark > img.mark-dot {
-  }
-}
+
+
 @media (max-width:650px) and (orientation:portrait) {
   html body .fixed-head .mark {
     width:66px!important;
@@ -4387,10 +4263,8 @@ html body .fixed-head > .secondary-nav .language-toggle {
     left:auto!important;
     right:calc(100% + 9px)!important;
   }
-  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::after {
-  }
-  html body .fixed-head > .secondary-nav > a[href="#kontakt"]::after {
-  }
+  
+  
   html body .fixed-head > .secondary-nav > a[href="#mini-blog"]::after {
     left:calc(100% + 13px)!important;
     right:auto!important;
@@ -4724,8 +4598,7 @@ html body .network-row--auto-wrap .network-paragraph a {
 /* CONTACT hover marker: distinct placements for the three desktop stones.
    Keep the working medium layout unchanged. */
 @media (min-width:651px) and (max-width:860px) and (hover:hover) and (pointer:fine) {
-  html body .fixed-head > .secondary-nav > a[href="#kontakt"] > .contact-hover-marker {
-  }
+  
   html body .fixed-head > .secondary-nav > a[href="#kontakt"]:not(.active-secondary):hover::after {
     opacity:0!important;
   }
@@ -5003,8 +4876,7 @@ html body .network-row--auto-wrap .network-paragraph a {
     margin-right:0!important;
     transform:none!important;
   }
-  html body main .section > .window-group > .section-title {
-  }
+  
 }
 /* Portrait phone: maximize square slides within the screen width.
    Swipe and pagination dots remain available; arrows are hidden. */
