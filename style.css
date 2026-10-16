@@ -6299,3 +6299,72 @@ html body main #netzwerk .network-link-break {
     flex-basis:29px!important;
   }
 }
+
+/* Ported gerbern drei phone gallery and reading geometry (October 2026).
+   Existing gerberngestalt navigation, network prose and desktop are preserved. */
+@media (max-width:650px) and (orientation:portrait) and (pointer:coarse) {
+  /* Half the shared white spacer between sections: 46px -> 23px minimum. */
+  :root {
+    --inter-section-gap:clamp(23px,4.25vh,42.5px);
+  }
+  /* Square slides rise half a reading line above the former title anchor. */
+  html body main .section {
+    padding-top:calc(7mm - .25 * var(--type-size) * var(--type-leading))!important;
+  }
+  html body main .section > .window-group > .section-title {
+    visibility:hidden!important;
+    margin-bottom:0!important;
+  }
+  /* Keep the invisible title's line box. The 24px pagination row stays visible. */
+  html body main .section > .window-group {
+    width:min(calc(100vw - 44px),500px,calc(var(--gg-gallery-visible-height, 100svh) - var(--head) - 7mm - 64px))!important;
+    max-width:min(calc(100vw - 44px),500px,calc(var(--gg-gallery-visible-height, 100svh) - var(--head) - 7mm - 64px))!important;
+  }
+
+  /* NETWORK has no extra invisible title box or initial blank line. */
+  html body main #netzwerk.list-section > .list-inner > .section-title {
+    display:none!important;
+  }
+  html body main #netzwerk.list-section {
+    padding-top:calc(7mm - .5 * var(--type-size) * var(--type-leading))!important;
+  }
+  html body main #netzwerk #network-links.network-links {
+    margin-top:0!important;
+  }
+}
+@media (orientation:landscape) and (max-height:650px) and (pointer:coarse) {
+  /* The mobile navigation remains fixed; section headings take no space. */
+  html body main .section-title {
+    display:none!important;
+  }
+  html body main .section {
+    padding-top:0!important;
+    padding-bottom:4px!important;
+  }
+  /* 24px dots + 4px bottom strip + 4px safety; no hidden 78px reserve. */
+  html body main .section > .window-group {
+    width:min(calc(100vw - 44px),500px,calc(var(--gg-gallery-visible-height, 100dvh) - var(--head) - 32px))!important;
+    max-width:min(calc(100vw - 44px),500px,calc(var(--gg-gallery-visible-height, 100dvh) - var(--head) - 32px))!important;
+  }
+  html body main #netzwerk.list-section {
+    padding-top:0!important;
+  }
+  html body main #netzwerk #network-links.network-links {
+    margin-top:0!important;
+    padding-left:0!important;
+    padding-right:0!important;
+    box-sizing:border-box!important;
+    width:100%!important;
+    max-width:100%!important;
+  }
+  /* Same left/right gutter, measured from the fourth navigation label
+     PRAKTISCHES as SOLOTHURN was on gerbern drei. */
+  html body main #netzwerk.list-section > .list-inner {
+    box-sizing:border-box!important;
+    width:calc(100vw - 2 * var(--gg-landscape-reading-inset, 175px))!important;
+    max-width:calc(100vw - 2 * var(--gg-landscape-reading-inset, 175px))!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+    min-width:0!important;
+  }
+}
