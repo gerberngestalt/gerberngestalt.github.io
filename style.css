@@ -6455,3 +6455,24 @@ html body main #netzwerk .network-link-break {
     word-break:normal!important;
   }
 }
+
+/* Phone landscape: browser navigation bars appearing/disappearing must not
+   resize all gallery sections and shift the current scroll position. Use
+   stable svh instead of dynamic visualViewport/dvh; reserve the 24px dots,
+   4px bottom mask and 4px safety gap just as before. */
+@media (orientation:landscape) and (max-height:650px) and (pointer:coarse) {
+  html body main .section > .window-group {
+    width:min(calc(100vw - 44px),500px,calc(100svh - var(--head) - 32px))!important;
+    max-width:min(calc(100vw - 44px),500px,calc(100svh - var(--head) - 32px))!important;
+  }
+  /* An actual empty reading line before the first NETWORK entry. */
+  html body main #netzwerk #network-links.network-links::before {
+    content:""!important;
+    display:block!important;
+    box-sizing:border-box!important;
+    flex:0 0 1lh!important;
+    width:100%!important;
+    height:1lh!important;
+    min-height:1lh!important;
+  }
+}
