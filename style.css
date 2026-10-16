@@ -9,8 +9,6 @@
 
 :root {
   --edge:clamp(22px,4vw,58px);
-  --head:160px;
-  --foot:64px;
   --ink:#111;
   --muted:#bbb;
   --accent:#e8a300
@@ -34,7 +32,6 @@ body {
   top:0;
   left:0;
   right:0;
-  height:var(--head);
   background:#fff;
   padding:clamp(24px,3.2vw,46px) var(--edge);
   display:flex;
@@ -46,14 +43,10 @@ body {
   flex-direction:column;
   gap:5px;
   font-size:11px;
-  letter-spacing:.16em;
   line-height:1.05
 }
 
 .secondary-nav {
-  display:flex;
-  align-items:center;
-  gap:10px;
   white-space:nowrap
 }
 
@@ -61,12 +54,7 @@ body {
   color:inherit;
   text-decoration:none
 }
-.mark {
-  width:54px;
-  height:64px;
-  position:relative;
-  display:block
-}
+.mark {}
 .dot {
   position:absolute;
   width:8px;
@@ -76,15 +64,7 @@ body {
   top:0;
   left:23px
 }
-.arches {
-  position:absolute;
-  top:15px;
-  right:0;
-  font-family:Georgia,serif;
-  font-size:34px;
-  letter-spacing:-12px;
-  transform:scaleX(1.05)
-}
+
 main {
   padding-top:var(--head);
   padding-bottom:var(--foot)
@@ -163,38 +143,19 @@ main {
 .arrow::before,.arrow::after {
   content:"";
   position:absolute;
-  left:50%;
-  width:18px;
-  height:1px;
-  background:rgba(0,0,0,.38);
-  transform-origin:center
-}
+  background:rgba(0,0,0,.38);}
 .prev::before {
-  top:25px;
-  transform:translateX(-50%) rotate(-45deg)
-}
+  top:25px;}
 .prev::after {
-  top:37px;
-  transform:translateX(-50%) rotate(45deg)
-}
+  top:37px;}
 .next::before {
-  top:25px;
-  transform:translateX(-50%) rotate(45deg)
-}
+  top:25px;}
 .next::after {
-  top:37px;
-  transform:translateX(-50%) rotate(-45deg)
-}
-.prev {
-  left:0
-}
-.next {
-  right:0
-}
+  top:37px;}
+.prev {}
+.next {}
 .dots {
-  height:24px;
   display:flex;
-  align-items:flex-end;
   justify-content:center;
   gap:8px
 }
@@ -246,16 +207,12 @@ main {
   font:300 13px/1.9 Arial,Helvetica,sans-serif;
   letter-spacing:.04em
 }
-.network-section {
-  padding-top:16vh
-}
+.network-section {}
 .network-links {
   margin-top:28px;
   display:flex;
   flex-direction:column;
-  align-items:flex-start;
   gap:13px;
-  font-size:13px;
   line-height:1.5;
   letter-spacing:.04em
 }
@@ -279,10 +236,7 @@ main {
   }
 }
 @media(max-width:650px) {
-  :root {
-    --head:148px;
-    --foot:48px
-  }
+  :root {}
   .fixed-head {
     padding-top:22px
   }
@@ -295,7 +249,6 @@ main {
     padding:22px
   }
   .mark {
-    transform:scale(.82);
     transform-origin:top right
   }
   .list-section {
@@ -326,11 +279,8 @@ main {
   }
 }
 .network-row {
-  display:flex;
   flex-wrap:wrap;
-  gap:5px 14px;
-  align-items:baseline
-}
+  gap:5px 14px;}
 .network-label {
   white-space:normal
 }
@@ -340,11 +290,7 @@ main {
 .fixed-head nav {
   font-size:15px
 }
-.mark {
-  width:64px;
-  height:auto;
-  display:block
-}
+.mark {}
 .mark img {
   display:block;
   width:100%;
@@ -365,10 +311,7 @@ main {
 }
 @media(max-width:650px) {
   .fixed-head nav {
-    font-size:16px;
-    gap:5px;
-    letter-spacing:.13em
-  }
+    gap:5px;}
   .section {
     min-height:calc(100dvh - var(--head) - var(--foot));
     padding-top:clamp(38px,7vh,72px);
@@ -378,21 +321,14 @@ main {
     margin-top:clamp(54px,10vh,100px)
   }
   .mark {
-    width:52px;
-    transform:none
-  }
+    width:52px;}
 }
-.secondary-nav {
-  gap:0
-}
+.secondary-nav {}
 .secondary-nav b {
-  display:inline-block;
   margin-left:2.8em;
   margin-right:2.8em
 }
-.mark {
-  width:86px
-}
+.mark {}
 @media(max-width:650px) {
   .secondary-nav b {
     margin-left:2.15em;
@@ -402,9 +338,7 @@ main {
     width:72px
   }
 }
-.mark {
-  width:172px
-}
+.mark {}
 @media(max-width:650px) {
   .mark {
     width:110px
@@ -433,8 +367,6 @@ main {
 /* Signet: black form ends approximately on the PAST EVENTS axis;
    top begins around the AKTUELL axis. */
 .mark {
-  width:112px;
-  position:absolute;
   right:var(--edge);
   top:82px;
 }
@@ -449,49 +381,34 @@ main {
 }
 @media(max-width:650px) {
   .fixed-head nav {
-    font-size:14px;
     gap:8px;
-    letter-spacing:.13em;
   }
   .section-title,
     .list-section .section-title,
     .list-section pre,
-    .network-links {
-    font-size:14px
-  }
+    .network-links {}
   .mark {
     width:86px;
-    right:22px;
     top:78px;
   }
   .network-section {
     padding-top:8vh;
     padding-bottom:34px
   }
-  .end-spacer {
-    height:72px
-  }
+  .end-spacer {}
 }
 .fixed-head nav {
   font-size: 13px;
   line-height: 1.2;
   gap: 9px;
-  letter-spacing: .16em;
 }
 /* Signet is centered on the browser viewport, independent of side columns. */
 .mark {
-  position: absolute;
-  left: 50%;
-  right: auto;
   top: 97px;
-  width: 128px;
-  height: auto;
-  transform: translate(-50%, -50%);
 }
 /* Secondary navigation shares the fifth-row baseline with KONTAKT. */
 .fixed-head > .secondary-nav {
   position: absolute;
-  right: var(--edge);
   top: calc(clamp(24px, 3.2vw, 46px) + 4 * (13px * 1.2 + 9px));
   display: flex;
   align-items: baseline;
@@ -499,12 +416,9 @@ main {
   white-space: nowrap;
   font-size: 13px;
   line-height: 1.2;
-  letter-spacing: .16em;
 }
 .fixed-head > .secondary-nav b {
   display: inline-block;
-  margin-left: 1.4em;
-  margin-right: 1.4em;
   font-weight: 300;
   color: #777;
 }
@@ -530,22 +444,15 @@ main {
     letter-spacing: .13em;
   }
   .mark {
-    left: 50%;
-    right: auto;
     top: 91px;
     width: 96px;
-    transform: translate(-50%, -50%);
   }
   .fixed-head > .secondary-nav {
-    right: 22px;
     top: calc(22px + 4 * (14px * 1.2 + 9px));
     font-size: 14px;
     line-height: 1.2;
-    letter-spacing: .13em;
   }
   .fixed-head > .secondary-nav b {
-    margin-left: .9em;
-    margin-right: .9em;
   }
   .section-title,
     .list-section .section-title,
@@ -563,9 +470,6 @@ main {
 }
 :root {
   --head:190px;
-  --type-size:13px;
-  --type-leading:1.45;
-  --nav-gap:9px;
   --head-pad-top:clamp(24px,3.2vw,46px);
 }
 .fixed-head {
@@ -575,7 +479,6 @@ main {
 .fixed-head nav {
   font-size:var(--type-size);
   line-height:var(--type-leading);
-  gap:var(--nav-gap);
   letter-spacing:.16em;
 }
 /* Secondary navigation begins on exactly the START axis and stays independent
@@ -594,11 +497,7 @@ main {
 }
 /* Centered signet. Its black form ends on the KONTAKT row. */
 .mark {
-  left:50%;
-  right:auto;
   top:53px;
-  width:128px;
-  transform:translateX(-50%);
   z-index:2;
 }
 .section-title,
@@ -616,38 +515,16 @@ main {
   gap:20px
 }
 /* MISC is deliberately a smaller epilogue window and has no header-nav entry. */
-.misc-section {
-  min-height:auto;
-  margin-top:clamp(90px,14vh,180px);
-  padding-bottom:clamp(90px,14vh,170px)
-}
-.misc-section .window-group {
-  width:min(33.333vw,333px,calc((100dvh - var(--head) - var(--foot) - 105px) * .6667))
-}
+
+
 @media(max-width:650px) {
-  :root {
-    --head:178px;
-    --type-size:14px;
-    --type-leading:1.42;
-    --nav-gap:8px;
-    --head-pad-top:22px
-  }
+  :root {}
   .fixed-head > .secondary-nav {
-    top:var(--head-pad-top);
-    right:22px;
-    font-size:var(--type-size);
-    line-height:var(--type-leading)
-  }
-  .fixed-head > .secondary-nav b {
-    margin-left:.9em;
-    margin-right:.9em
-  }
+    top:var(--head-pad-top);}
+  .fixed-head > .secondary-nav b {}
   .mark {
-    left:50%;
     top:58px;
-    width:96px;
-    transform:translateX(-50%)
-  }
+    width:96px;}
   .section-title,.list-section .section-title,.list-section pre,.network-links {
     font-size:var(--type-size);
     line-height:var(--type-leading)
@@ -659,14 +536,9 @@ main {
     line-height:2.35;
     gap:18px
   }
-  .misc-section .window-group {
-    width:min(calc((100vw - 44px) * .6667),calc((100dvh - var(--head) - var(--foot) - 92px) * .6667))
-  }
+  
 }
 :root {
-  --foot:38px;
-  --type-leading:1.62;
-  --nav-gap:8px;
 }
 /* The signet remains geometrically centered. On desktop its top starts no
    higher than ABOUT and its bottom meets the KONTAKT row. */
@@ -674,7 +546,6 @@ main {
   left:50%;
   right:auto;
   top:calc(var(--head-pad-top) + 1 * (var(--type-size) * var(--type-leading) + var(--nav-gap)));
-  width:150px;
   transform:translateX(-50%);
 }
 /* All visible typography shares the same line-height rhythm. */
@@ -700,9 +571,7 @@ main {
   min-height:calc(1em * var(--type-leading));
 }
 /* MISC is an epilogue: deliberately smaller and more detached from NETWORK. */
-.misc-section {
-  margin-top:clamp(150px,22vh,280px);
-}
+
 /* The fixed white footer is only a slim visual frame. */
 .fixed-foot {
   height:var(--foot)
@@ -712,11 +581,6 @@ main {
 }
 @media(max-width:650px) {
   :root {
-    --head:224px;
-    --foot:30px;
-    --type-size:14px;
-    --type-leading:1.62;
-    --nav-gap:7px;
     --head-pad-top:22px;
   }
   .fixed-head {
@@ -729,19 +593,12 @@ main {
   /* Mobile: primary navigation stays left. The signet moves right but keeps
        essentially desktop presence; only very narrow phones reduce it. */
     .mark {
-    left:auto;
-    right:22px;
     top:calc(var(--head-pad-top) + 1 * (var(--type-size) * var(--type-leading) + var(--nav-gap)));
-    width:clamp(112px,31vw,150px);
-    transform:none;
   }
   /* Secondary navigation sits below KONTAKT with a visible but sub-line gap. */
     .fixed-head > .secondary-nav {
-    left:22px;
-    right:auto;
     top:calc(var(--head-pad-top) + 5 * (var(--type-size) * var(--type-leading) + var(--nav-gap)) + .65 * (var(--type-size) * var(--type-leading)));
     font-size:var(--type-size);
-    line-height:var(--type-leading);
     letter-spacing:.13em;
   }
   .fixed-head > .secondary-nav b {
@@ -758,16 +615,10 @@ main {
   .list-section pre {
     line-height:var(--type-leading)
   }
-  .misc-section {
-    margin-top:clamp(110px,18vh,190px)
-  }
-  .end-spacer {
-    height:48px
-  }
+  
+  .end-spacer {}
 }
-:root {
-  --foot:36px
-}
+:root {}
 /* Window headings: on narrow layouts use exactly the same left page axis as
    the primary navigation. On roomy layouts they remain attached to the window. */
 @media(max-width:900px) {
@@ -786,13 +637,9 @@ main {
 }
 /* Network rows use the common generous rhythm, but no full blank line. */
 .network-links {
-  gap:calc(.38em * var(--type-leading));
-  line-height:var(--type-leading)
-}
+  gap:calc(.38em * var(--type-leading));}
 .network-row {
-  min-height:auto;
-  line-height:var(--type-leading)
-}
+  min-height:auto;}
 /* Footer is now only a very slim white safety strip. */
 .fixed-foot {
   height:var(--foot)
@@ -806,48 +653,29 @@ main {
   height:clamp(38px,12%,64px)
 }
 .arrow::before,.arrow::after {
-  width:clamp(9px,3.6%,18px);
-  top:50%
-}
-.prev::before {
-  transform:translate(-50%,-4px) rotate(-45deg)
-}
-.prev::after {
-  transform:translate(-50%,4px) rotate(45deg)
-}
-.next::before {
-  transform:translate(-50%,-4px) rotate(45deg)
-}
-.next::after {
-  transform:translate(-50%,4px) rotate(-45deg)
-}
+  width:clamp(9px,3.6%,18px);}
+.prev::before {}
+.prev::after {}
+.next::before {}
+.next::after {}
 @media(max-width:650px) {
-  :root {
-    --foot:14px
-  }
+  :root {}
   /* Keep the mobile signet on the right, but align its black lower edge with
        the secondary-navigation row. */
     .mark {
     top:auto;
     bottom:calc(var(--head) - (var(--head-pad-top) + 5 * (var(--type-size) * var(--type-leading) + var(--nav-gap)) + .65 * (var(--type-size) * var(--type-leading)) + (var(--type-size) * var(--type-leading))));
-    width:clamp(112px,31vw,150px);
   }
   .window-group .section-title {
-    margin-left:0;
   }
   .network-links {
     gap:calc(.38em * var(--type-leading))
   }
-  .end-spacer {
-    height:24px
-  }
+  .end-spacer {}
 }
 :root {
-  --type-size:14px;
   --type-leading:1.72;
-  --foot:12px;
   --nav-gap:8px;
-  --bottom-mask:12px;
 }
 /* One type size and one line rhythm for navigation, headings and lists. */
 .fixed-head nav,
@@ -867,19 +695,14 @@ main {
   line-height:var(--type-leading)
 }
 .network-links {
-  line-height:var(--type-leading);
   gap:calc(.55em * var(--type-leading))
 }
-.network-row {
-  line-height:var(--type-leading)
-}
+.network-row {}
 /* The only fixed lower mask is now a hairline white finish. */
 .fixed-foot {
   height:var(--bottom-mask)
 }
-.end-spacer {
-  height:20px
-}
+.end-spacer {}
 /* Keep gallery headings attached to the window, but guarantee that the window
    (and therefore its heading) can never begin left of the navigation axis. */
 .section {
@@ -902,8 +725,6 @@ main {
   position:absolute;
   left:0;
   right:0;
-  bottom:-11px;
-  height:11px;
   background:#fff;
   pointer-events:none;
 }
@@ -917,10 +738,7 @@ main {
 }
 @media(max-width:650px) {
   :root {
-    --type-size:14px;
     --type-leading:1.72;
-    --foot:12px;
-    --bottom-mask:12px;
     --head:236px;
     --nav-gap:8px;
   }
@@ -960,9 +778,7 @@ main {
   .network-links {
     gap:calc(.55em * var(--type-leading))
   }
-  .end-spacer {
-    height:18px
-  }
+  .end-spacer {}
 }
 :root {
   --list-row-gap:.42em;
@@ -996,9 +812,6 @@ main {
 }
 .arrow::before,.arrow::after {
   width:var(--arrow-leg);
-  height:1px;
-  top:50%;
-  left:50%;
 }
 .prev::before {
   transform:translate(-50%,calc(var(--arrow-spread) * -.5)) rotate(-45deg)
@@ -1017,11 +830,9 @@ main {
   line-height:var(--type-leading)
 }
 .network-links {
-  line-height:var(--type-leading);
   gap:var(--list-row-gap)
 }
 .network-row {
-  line-height:var(--type-leading);
   min-height:calc(1em * var(--type-leading))
 }
 @media(max-width:650px) {
@@ -1036,8 +847,6 @@ main {
   }
 }
 :root {
-  --bottom-mask:4px;
-  --foot:4px;
   --gallery-reserve:116px;
 }
 /* The bottom frame is genuinely only a hairline, including all sizing maths. */
@@ -1047,15 +856,12 @@ main {
 main {
   padding-bottom:var(--bottom-mask)
 }
-.end-spacer {
-  height:12px
-}
+.end-spacer {}
 .section {
   min-height:calc(100dvh - var(--head) - var(--bottom-mask));
 }
 .window-group {
   width:min(50vw,500px,calc(100vw - (2 * var(--edge))),calc(100dvh - var(--head) - var(--bottom-mask) - var(--gallery-reserve)));
-  max-height:none;
 }
 /* PAST EVENTS and NETWORK use exactly the same line box. Only the blank line
    between years in PAST EVENTS creates an intentional larger break. */
@@ -1074,7 +880,6 @@ main {
 /* Content headings for the two reading sections are centered on their text column. */
 .list-section .section-title {
   width:100%;
-  text-align:center;
 }
 /* Two strokes meet at one point: no crossed / detached chevron.  Percentages
    are relative to the responsive arrow box, so the symbol grows with the window. */
@@ -1089,18 +894,10 @@ main {
   left:50%;
   transform-origin:0 50%;
 }
-.prev::before {
-  transform:translate(-35%,0) rotate(135deg)
-}
-.prev::after {
-  transform:translate(-35%,0) rotate(-135deg)
-}
-.next::before {
-  transform:translate(-65%,0) rotate(45deg)
-}
-.next::after {
-  transform:translate(-65%,0) rotate(-45deg)
-}
+.prev::before {}
+.prev::after {}
+.next::before {}
+.next::after {}
 @media(max-width:900px) {
   .window-group {
     width:min(calc(100vw - (2 * var(--edge))),500px,calc(100dvh - var(--head) - var(--bottom-mask) - var(--gallery-reserve)));
@@ -1195,22 +992,10 @@ main {
 }
 /* Reading sections: title and entries share one centered column. */
 .list-inner {
-  width:min(72vw,680px);
-  margin-left:auto;
-  margin-right:auto;
-  text-align:center
-}
-.list-section pre {
-  text-align:center
-}
-.network-links {
-  align-items:center;
-  text-align:center
-}
-.network-row {
-  justify-content:center;
-  width:100%
-}
+  width:min(72vw,680px);}
+.list-section pre {}
+.network-links {}
+.network-row {}
 /* Keep both chevrons at the same optical inset from the square viewport. */
 .prev {
   left:1.5%
@@ -1222,9 +1007,7 @@ main {
    all five primary links.  Reducing only the top inset avoids clipping KONTAKT. */
 @media (min-width:651px) and (max-height:420px) {
   .fixed-head {
-    padding-top:18px;
-    padding-bottom:12px
-  }
+    padding-top:18px;}
   .fixed-head > .secondary-nav {
     top:calc(18px + 4 * (13px * 1.2 + 9px));
   }
@@ -1256,7 +1039,6 @@ main {
 }
 /* Equal breathing room around the network arrow. */
 .network-row {
-  column-gap:1.15em;
 }
 .network-label {
   margin:0
@@ -1308,9 +1090,7 @@ main {
   column-gap:1.15em;
   align-items:baseline
 }
-.network-separator {
-  display:inline-block
-}
+
 @media(max-width:650px) {
   .network-row {
     grid-template-columns:max-content max-content minmax(0,1fr)
@@ -1319,16 +1099,12 @@ main {
 .fixed-head::after {
   content:none!important
 }
-.fixed-head {
-  box-shadow:0 10mm 0 #fff
-}
+.fixed-head {}
 /* The very shallow desktop view must never let the white header extension
    paint over KONTAKT. Keep the navigation itself unchanged and visible. */
 @media (min-width:651px) and (max-height:420px) {
   .fixed-head {
-    overflow:visible;
-    box-shadow:0 10mm 0 #fff
-  }
+    overflow:visible;}
   .fixed-head nav {
     position:relative;
     z-index:4
@@ -1342,43 +1118,21 @@ main {
     bottom:calc(var(--head) - (var(--head-pad-top) + 5 * (var(--type-size) * var(--type-leading) + var(--nav-gap)) + .58 * (var(--type-size) * var(--type-leading)) + (var(--type-size) * var(--type-leading))))!important;
   }
 }
-.fixed-head {
-  box-shadow:0 7mm 0 #fff
-}
+.fixed-head {}
 @media (min-width:651px) and (max-height:420px) {
-  .fixed-head {
-    box-shadow:0 7mm 0 #fff
-  }
+  .fixed-head {}
 }
 .list-section .section-title {
   text-align:left
 }
 /* PAST EVENTS uses the same separator rhythm as NETZWERK. */
-#past-events {
-  white-space:normal;
-  font-family:inherit;
-  margin:0
-}
-.past-year {
-  line-height:var(--type-leading)
-}
-.past-year-gap {
-  height:calc(1em * var(--type-leading))
-}
-.past-row {
-  display:grid;
-  grid-template-columns:max-content max-content minmax(0,1fr);
-  column-gap:1.15em;
-  align-items:baseline;
-  line-height:var(--type-leading)
-}
-.past-block-gap {
-  height:calc(1em * var(--type-leading))
-}
+
+
+
+
+
 @media(max-width:650px) {
-  .past-row {
-    grid-template-columns:max-content max-content minmax(0,1fr)
-  }
+  
 }
 :root {
   --type-size:15px
@@ -1388,7 +1142,7 @@ main {
     --type-size:15px
   }
 }
-.network-row,.past-row {
+.network-row {
   grid-template-columns:max-content minmax(0,1fr);
   column-gap:1.15em;
 }
@@ -1398,9 +1152,7 @@ main {
 .list-section .section-title,
 .list-section pre,
 .network-links,
-.network-row,
-.past-row,
-.past-year {
+.network-row {
   font-size:15px;
 }
 /* Reading text is intentionally less tracked than navigation, but not smaller. */
@@ -1416,10 +1168,10 @@ main {
   text-decoration:none;
   border-bottom:0;
 }
-.network-row,.past-row {
+.network-row {
   column-gap:0
 }
-.network-row,.past-row {
+.network-row {
   grid-template-columns:max-content max-content minmax(0,1fr);
   column-gap:1.15em;
 }
@@ -1427,24 +1179,11 @@ main {
   color:#777;
   font-weight:400;
 }
-.past-separator {
-  color:#777;
-  font-weight:400;
-  transform:translateY(-.03em);
-}
-.past-row {
-  column-gap:.805em;
-}
-.past-row {
-  column-gap:.9775em;
-}
+
+
+
 /* MISC: quiet inline legal accordions. */
-.misc-section {
-  height:auto;
-  min-height:calc(100dvh - var(--head) - var(--foot));
-  flex-direction:column;
-  align-items:center;
-}
+
 .legal-links {
   width:min(50vw,500px,calc(100vw - (2 * var(--edge))));
   margin:42px auto 0;
@@ -1453,7 +1192,6 @@ main {
 }
 .legal-links details {
   border:0;
-  margin:0 0 12px;
 }
 .legal-links summary {
   cursor:pointer;
@@ -1518,10 +1256,6 @@ main {
   width:6px;
   height:6px;
   border-radius:50%;
-  background:var(--accent);
-  top:50%;
-  transform:translateY(-50%);
-  opacity:0;
 }
 .secondary-nav a[href="#past"]::before {
   right:calc(100% + .7em);
@@ -1534,17 +1268,8 @@ main {
   opacity:1;
 }
 /* The hand-drawn dot sits between the MISC window and the legal links. */
-.misc-divider-dot {
-  width:22px;
-  height:22px;
-  margin:clamp(72px,10vh,112px) auto 0;
-}
-.misc-divider-dot img {
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:contain;
-}
+
+
 .legal-links {
   margin-top:clamp(72px,10vh,112px);
 }
@@ -1560,11 +1285,7 @@ main {
   margin-bottom:clamp(140px,22vh,260px);
 }
 /* A larger hand-drawn punctuation mark between MISC and the legal material. */
-.misc-divider-dot {
-  width:clamp(64px,7vw,104px);
-  height:clamp(64px,7vw,104px);
-  margin-top:clamp(110px,15vh,180px);
-}
+
 .legal-links {
   margin-top:clamp(92px,12vh,150px);
 }
@@ -1574,7 +1295,6 @@ main {
 }
 /* Hover: a black dot previews where the yellow active marker can land. */
 .primary-nav a:hover::after {
-  opacity:1;
   background:#000;
 }
 .primary-nav a.active-section:hover::after {
@@ -1582,7 +1302,6 @@ main {
 }
 .secondary-nav a[href="#past"]:hover::before,
 .secondary-nav a[href="#netzwerk"]:hover::after {
-  opacity:1;
   background:#000;
 }
 .secondary-nav a.active-secondary:hover::before,
@@ -1596,10 +1315,8 @@ main {
 }
 /* More breathing room between the two secondary destinations. */
 .secondary-nav {
-  gap:2.15em;
 }
 .secondary-nav b {
-  margin:0 -.8em;
 }
 /* Primary navigation: active yellow stays on the right; hover preview is black on the left. */
 .primary-nav a::before {
@@ -1635,10 +1352,6 @@ main {
   width:6px;
   height:6px;
   border-radius:50%;
-  background:#000;
-  top:50%;
-  transform:translateY(-50%);
-  opacity:0;
 }
 .secondary-nav a[href="#past"]::after {
   left:calc(100% + .7em);
@@ -1651,25 +1364,16 @@ main {
 /* Do not turn the active yellow marker black on hover. */
 .secondary-nav a[href="#past"]:hover::before,
 .secondary-nav a[href="#netzwerk"]:hover::after {
-  background:var(--accent);
 }
 /* Events form the third indentation level: title -> year -> event. */
-.past-row {
-  margin-left:2em;
-}
-.past-year {
-  margin-left:1em;
-}
-.past-row > span:last-child {
-  max-width:34em;
-}
+
+
+
 /* PAST EVENTS may use the open horizontal field instead of the gallery-window measure. */
 #past .list-inner {
   width:min(78vw,980px);
 }
-.past-row > span:last-child {
-  max-width:none;
-}
+
 /* NETZWERK -> MISC: 30% more distance than v37/v38. */
 #netzwerk {
   margin-bottom:clamp(182px,28.6vh,338px);
@@ -1680,8 +1384,6 @@ main {
    Hover never creates a second yellow marker on an inactive item. */
 .secondary-nav a[href="#past"]::before,
 .secondary-nav a[href="#netzwerk"]::after {
-  opacity:0;
-  background:var(--accent);
 }
 
 .secondary-nav a[href="#past"]:hover::before,
@@ -1691,23 +1393,17 @@ main {
 }
 .secondary-nav a[href="#past"].active-secondary:hover::before,
 .secondary-nav a[href="#netzwerk"].active-secondary:hover::after {
-  opacity:1;
 }
 .secondary-nav a[href="#past"]::after,
 .secondary-nav a[href="#netzwerk"]::before {
-  opacity:0;
-  background:#000;
 }
 .secondary-nav a[href="#past"]:hover::after,
 .secondary-nav a[href="#netzwerk"]:hover::before {
-  opacity:1;
 }
 /* More room around the divider so the two inner hover dots have the same visual breathing room as the outer dots. */
 .secondary-nav {
-  gap:3em;
 }
 .secondary-nav b {
-  margin:0;
 }
 /* Secondary navigation grammar:
    active = yellow outside; hover = black inside.  The two states may coexist. */
@@ -1834,46 +1530,14 @@ main {
   opacity:0;
 }
 /* Make the entire large dot the hover target and show our own stable tooltip. */
-.misc-divider-dot {
-  position:relative;
-  cursor:default;
-}
-.misc-divider-dot::after {
-  content:"what?";
-  position:absolute;
-  left:50%;
-  top:calc(100% + 12px);
-  transform:translateX(-50%);
-  padding:5px 8px;
-  background:#fff;
-  border:1px solid #cfcfcf;
-  font:400 12px/1.2 Arial,Helvetica,sans-serif;
-  letter-spacing:0;
-  color:#111;
-  white-space:nowrap;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .08s linear;
-  z-index:20;
-}
-.misc-divider-dot:hover::after {
-  opacity:1;
-}
+
+
+
 /* A PAST EVENT is a paragraph, not a three-column table: when its description
    wraps, the continuation returns to the event's own left edge (the date axis). */
-.past-row {
-  display:block;
-  margin-left:2em;
-  line-height:var(--type-leading);
-}
-.past-row > span {
-  display:inline;
-}
-.past-row .past-separator {
-  display:inline-block;
-  margin-left:.9775em;
-  margin-right:.9775em;
-}
+
+
+
 /* The dots are part of the visible gallery unit and always keep their own room. */
 .carousel .dots {
   flex:0 0 24px;
@@ -1882,33 +1546,13 @@ main {
 }
 /* Bottom epilogue: a single brush gesture at the far left. It belongs to the
    scrolling page, so it can pass behind/under the thin fixed white bottom line. */
-.misc-section {
-  position:relative;
-}
-.zen-brush {
-  position:absolute;
-  left:var(--edge);
-  bottom:clamp(12px,2.2vh,28px);
-  width:clamp(150px,18vw,280px);
-  height:auto;
-  z-index:16;
-  pointer-events:none;
-}
-.zen-brush img {
-  display:block;
-  width:100%;
-  height:auto;
-}
+
+
+
 @media(max-width:650px) {
   /* On a phone, keep the hierarchy but reclaim horizontal space. */
-    .past-year,
-    .past-row {
-    margin-left:1em;
-  }
-  .zen-brush {
-    left:22px;
-    width:clamp(120px,38vw,190px);
-  }
+    
+  
 }
 :root {
   --secondary-active-dot:5px;
@@ -1949,16 +1593,9 @@ main {
   margin-bottom:clamp(218px,calc(37.18vh - 18.9px),420px);
 }
 /* Larger diagonal brush gesture: heavy at upper left, fading toward lower right. */
-.zen-brush {
-  left:var(--edge);
-  bottom:clamp(8px,1.5vh,20px);
-  width:clamp(250px,31vw,500px);
-}
+
 @media(max-width:650px) {
-  .zen-brush {
-    left:18px;
-    width:clamp(190px,55vw,300px);
-  }
+  
 }
 .fixed-head {
   box-shadow:0 9mm 0 #fff
@@ -1974,19 +1611,13 @@ main {
   width:min(50vw,500px,calc(100vw - (2 * var(--edge))));
   overflow:visible;
 }
-#past-events {
-  overflow:visible;
-  width:min(78vw,980px);
-  max-width:none;
-}
+
 /* Optical correction: PAST EVENTS' outside active marker gets the same generous
    separation perceived in the primary navigation. NETZWERK already reads correctly. */
 .secondary-nav a[href="#past"]::before {
   right:calc(100% + 1.15em);
 }
-.zen-brush {
-  display:none!important;
-}
+
 :root {
   --inter-section-gap:clamp(85px,15.3vh,204px);
 }
@@ -2016,21 +1647,14 @@ main {
 #past,#netzwerk {
   scroll-margin-top:calc(9mm + 150px);
 }
-.misc-section .window-group {
-  align-self:flex-start;
-  margin-left:max(0px, calc((100% - min(50vw,500px,calc(100vw - (2 * var(--edge))))) / 2));
-}
+
 /* Keep MISC smaller than the other gallery windows, but place its title on the
    same left axis as their titles rather than centring the whole MISC block. */
 @media(min-width:651px) {
-  .misc-section .window-group {
-    margin-left:calc((100% - min(50vw,500px,calc(100vw - (2 * var(--edge))))) / 2);
-  }
+  
 }
 @media(max-width:650px) {
-  .misc-section .window-group {
-    margin-left:0;
-  }
+  
 }
 /* Use the irregular dot silhouette as a colourable mask. */
 .mark img {
@@ -2038,26 +1662,13 @@ main {
 }
 .mark::after {
   content:"";
-  position:absolute;
   inset:0;
-  background:var(--accent);
   -webkit-mask:url("dot.png") center/contain no-repeat;
   mask:url("dot.png") center/contain no-repeat;
 }
 .mark {
-  cursor:pointer;
 }
 .mark {
-  appearance:none;
-  -webkit-appearance:none;
-  border:0;
-  padding:0;
-  background:transparent;
-  cursor:pointer;
-  width:54px;
-  height:64px;
-  position:relative;
-  overflow:visible;
 }
 .mark img {
   display:none!important;
@@ -2203,166 +1814,44 @@ main {
     transform:translateX(-50%)!important;
   }
 }
-button.misc-divider-dot {
-  position: relative !important;
-  display: block !important;
-  width: clamp(64px,7vw,104px) !important;
-  height: clamp(64px,7vw,104px) !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding: 0 !important;
-  border: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  appearance: none !important;
-  -webkit-appearance: none !important;
-  cursor: pointer !important;
-  overflow: visible !important;
-  font: inherit !important;
-}
-button.misc-divider-dot::before,
-button.misc-divider-dot::after {
-  content: none !important;
-  display: none !important;
-}
-button.misc-divider-dot > img {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;
-  border: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
-  pointer-events: none !important;
-}
-button.misc-divider-dot > .misc-divider-tooltip {
-  position: absolute !important;
-  display: block !important;
-  left: calc(100% + 8px) !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-  background: transparent !important;
-  white-space: nowrap !important;
-  font: 300 11px/1 Arial,Helvetica,sans-serif !important;
-  letter-spacing: .04em !important;
-  color: #111 !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-}
-button.misc-divider-dot:hover > .misc-divider-tooltip,
-button.misc-divider-dot:focus-visible > .misc-divider-tooltip {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-button.misc-divider-dot {
-  align-self:flex-start !important;
-  margin-right:0 !important;
-}
+
+
+
+
+
+
 /* The wrapper uses exactly the same horizontal geometry as the MISC window.
    The button is centred inside that axis, not in the browser viewport. */
-.misc-dot-axis {
-  width:min(50vw,500px,calc(100vw - (2 * var(--edge))));
-  align-self:flex-start;
-  margin-left:calc((100% - min(50vw,500px,calc(100vw - (2 * var(--edge))))) / 2);
-  display:flex;
-  justify-content:center;
-  overflow:visible;
-}
-button.misc-divider-dot {
-  display:block!important;
-  flex:0 0 auto!important;
-  width:clamp(64px,7vw,104px)!important;
-  height:clamp(64px,7vw,104px)!important;
-  margin:0!important;
-  padding:0!important;
-  border:0!important;
-  outline:0!important;
-  box-shadow:none!important;
-  border-radius:0!important;
-  background:none!important;
-  appearance:none!important;
-  -webkit-appearance:none!important;
-  cursor:pointer!important;
-  overflow:visible!important;
-}
-button.misc-divider-dot:hover,
-button.misc-divider-dot:focus,
-button.misc-divider-dot:active {
-  border:0!important;
-  outline:0!important;
-  box-shadow:none!important;
-  background:none!important;
-  cursor:pointer!important;
-}
-button.misc-divider-dot > img {
-  display:block!important;
-  width:100%!important;
-  height:100%!important;
-  border:0!important;
-  outline:0!important;
-  box-shadow:none!important;
-  object-fit:contain!important;
-  pointer-events:none!important;
-}
-button.misc-divider-dot > .misc-divider-tooltip {
-  left:calc(100% + 8px)!important;
-  top:50%!important;
-  transform:translateY(-50%)!important;
-}
+
+
+
+
+
 /* Year stays close to the shared reading axis; event dates step farther in. */
-#past-events .past-year {
-  margin-left:1em!important;
-}
-#past-events .past-row {
-  margin-left:2em!important;
-}
+
+
 @media(max-width:650px) {
-  .misc-dot-axis {
-    width:min(calc(100vw - 44px),500px);
-    margin-left:0;
-  }
   
-  #past-events .past-row {
-    margin-left:1.5em!important;
-  }
+  
+  
 }
 :root {
   --misc-epilogue-gap:clamp(92px,12vh,150px);
 }
-.misc-dot-axis {
-  margin-top:var(--misc-epilogue-gap)!important;
-  margin-right:0!important;
-  margin-bottom:0!important;
-  /* width + left position are synced to the actual MISC viewport in script.js */
-}
+
 .legal-links {
   margin-top:var(--misc-epilogue-gap)!important;
 }
 /* Date rows step clearly farther in than the year steps in from the title. */
-#past-events .past-year {
-  margin-left:1em!important;
-}
-#past-events .past-row {
-  margin-left:3em!important;
-}
+
+
 @media(max-width:650px) {
-  #past-events .past-year {
-    margin-left:.5em!important;
-  }
-  #past-events .past-row {
-    margin-left:2em!important;
-  }
+  
+  
 }
 @media (max-width:650px) {
   /* On phones the navigation belongs to the page and scrolls away with it. */
     .fixed-head {
-    position:absolute;
   }
   /* Section headings use the same light voice as the navigation. */
     .section-title,
@@ -2395,19 +1884,9 @@ button.misc-divider-dot > .misc-divider-tooltip {
     width:calc(100vw - 44px);
     max-width:calc(100vw - 44px);
   }
-  #past-events {
-    width:100%;
-    max-width:100%;
-    overflow:visible;
-  }
-  #past-events .past-year {
-    margin-left:.5em!important;
-  }
-  #past-events .past-row {
-    margin-left:1.25em!important;
-    max-width:calc(100% - 1.25em);
-    overflow-wrap:anywhere;
-  }
+  
+  
+  
   .network-links,
     .network-row {
     width:100%;
@@ -2415,7 +1894,6 @@ button.misc-divider-dot > .misc-divider-tooltip {
     min-width:0;
   }
   .network-row {
-    display:flex;
     flex-wrap:wrap;
     column-gap:.8em;
   }
@@ -2432,9 +1910,7 @@ button.misc-divider-dot > .misc-divider-tooltip {
   .window-group {
     width:min(calc(100vw - 44px),500px,calc(100dvh - 76px));
   }
-  .misc-section .window-group {
-    width:min(calc((100vw - 44px) * .6667),333px,calc((100dvh - 76px) * .6667));
-  }
+  
 }
 @media (max-width:650px) {
   /* Keep the phone navigation available while moving between sections. */
@@ -2544,10 +2020,7 @@ button.misc-divider-dot > .misc-divider-tooltip {
     width:min(68vw,680px)!important;
     max-width:68vw!important;
   }
-  #past-events .past-row {
-    max-width:calc(100% - 3em)!important;
-    overflow-wrap:normal!important;
-  }
+  
   /* The active NETZWERK marker stays comfortably inside the viewport. */
     .secondary-nav a[href="#netzwerk"]::after {
     left:calc(100% + .38em)!important;
@@ -2563,11 +2036,8 @@ button.misc-divider-dot > .misc-divider-tooltip {
    "so?" can remain visible after the colour-dot has been pressed. */
 @media (hover:none), (pointer:coarse) {
   .mark:hover .mark-tooltip,
-    .mark:focus .mark-tooltip,
-    .mark:focus-visible .mark-tooltip,
-    .misc-divider-dot:hover .misc-divider-tooltip,
-    .misc-divider-dot:focus .misc-divider-tooltip,
-    .misc-divider-dot:focus-visible .misc-divider-tooltip {
+.mark:focus .mark-tooltip,
+.mark:focus-visible .mark-tooltip {
     opacity:0!important;
   }
 }
@@ -2576,8 +2046,7 @@ button.misc-divider-dot > .misc-divider-tooltip {
    do not continuously reflow underneath the scroll position. */
 @media (max-width:900px), (pointer:coarse) {
   .section,
-    .list-section,
-    .misc-section {
+.list-section {
     min-height:calc(100svh - var(--head) - var(--foot))!important;
   }
   .window-group {
@@ -2613,47 +2082,32 @@ button.misc-divider-dot > .misc-divider-tooltip {
 }
 @media (hover:none), (pointer:coarse) {
   /* Labels are controlled explicitly by JS on touch: tap -> briefly show. */
-    .fixed-head > .mark > .mark-tooltip,
-    .misc-divider-dot > .misc-divider-tooltip {
+    .fixed-head > .mark > .mark-tooltip {
     opacity:0!important;
   }
-  .fixed-head > .mark.touch-label-visible > .mark-tooltip,
-    .misc-divider-dot.touch-label-visible > .misc-divider-tooltip {
+  .fixed-head > .mark.touch-label-visible > .mark-tooltip {
     opacity:1!important;
   }
 }
 @media (max-width:650px) {
   /* Date + dash + title read as one compact line. Wrapped prose hangs beneath
        the title rather than returning to the far-left date axis. */
-    #past-events .past-row {
-    margin-left:1.25em!important;
-    padding-left:4.35em!important;
-    text-indent:-4.35em!important;
-    max-width:calc(100% - 1.25em)!important;
-  }
-  #past-events .past-row .past-separator {
-    margin-left:.38em!important;
-    margin-right:.38em!important;
-  }
+    
+  
 }
 @media (max-width:900px) and (orientation:landscape) and (max-height:650px) {
-  #past-events .past-row .past-separator {
-    margin-left:.45em!important;
-    margin-right:.45em!important;
-  }
+  
 }
 @media (hover:none), (pointer:coarse) {
   /* Remove Chrome/Android's pale-blue tap rectangle without changing focus
        treatment for keyboard/pointer users. */
     .fixed-head a,
-    .fixed-head button,
-    .misc-divider-dot,
-    .legal-links summary {
+.fixed-head button,
+.legal-links summary {
     -webkit-tap-highlight-color:transparent!important;
   }
   /* JS owns the brief so?/what! reveal on touch. */
-    .fixed-head > .mark.touch-label-visible > .mark-tooltip,
-    .misc-divider-dot.touch-label-visible > .misc-divider-tooltip {
+    .fixed-head > .mark.touch-label-visible > .mark-tooltip {
     opacity:1!important;
     visibility:visible!important;
   }
@@ -2661,32 +2115,16 @@ button.misc-divider-dot > .misc-divider-tooltip {
 @media (max-width:650px) {
   /* Three real columns on portrait phones: date | dash | description.
        The description therefore wraps beneath itself, never beneath the date. */
-    #past-events .past-row {
-    display:grid!important;
-    grid-template-columns:max-content max-content minmax(0,1fr)!important;
-    column-gap:.42em!important;
-    align-items:baseline!important;
-    margin-left:1.25em!important;
-    padding-left:0!important;
-    text-indent:0!important;
-    max-width:calc(100% - 1.25em)!important;
-  }
-  #past-events .past-row > span {
-    display:block!important;
-    min-width:0;
-  }
-  #past-events .past-row .past-separator {
-    margin:0!important;
-    align-self:baseline!important;
-  }
+    
+  
+  
 }
 html,body {
   overflow-x:hidden;
 }
 /* Portrait phone: so?/what! are hover language and therefore intentionally absent. */
 @media (max-width:650px) and (orientation:portrait) {
-  .fixed-head > .mark > .mark-tooltip,
-    .misc-divider-dot > .misc-divider-tooltip {
+  .fixed-head > .mark > .mark-tooltip {
     display:none!important;
   }
   /* No emulated hover/focus preview dots on touch. Only the real active accent dot remains. */
@@ -2705,29 +2143,17 @@ html,body {
   }
   /* Mobile PAST EVENTS: date + description only. No dash. Wrapped text stays
        aligned with the description rather than returning to the date axis. */
-    #past-events .past-row {
-    display:grid!important;
-    grid-template-columns:max-content minmax(0,1fr)!important;
-    column-gap:.7em!important;
-    align-items:baseline!important;
-    margin-left:1.25em!important;
-    padding-left:0!important;
-    text-indent:0!important;
-  }
-  #past-events .past-row .past-separator {
-    display:none!important;
-  }
+    
+  
 }
 @media (hover:none), (pointer:coarse) {
   /* so?/what! are mouse-hover language only. */
-    .fixed-head > .mark > .mark-tooltip,
-    .misc-divider-dot > .misc-divider-tooltip {
+    .fixed-head > .mark > .mark-tooltip {
     display:none!important;
     opacity:0!important;
     visibility:hidden!important;
   }
-  .fixed-head > .mark.touch-label-visible > .mark-tooltip,
-    .misc-divider-dot.touch-label-visible > .misc-divider-tooltip {
+  .fixed-head > .mark.touch-label-visible > .mark-tooltip {
     display:none!important;
     opacity:0!important;
     visibility:hidden!important;
@@ -2756,60 +2182,22 @@ html,body {
   }
 }
 @media (max-width:650px) and (orientation:portrait) {
-  #past-events .past-row {
-    display:block!important;
-    margin-left:1.25em!important;
-    padding-left:0!important;
-    text-indent:0!important;
-    grid-template-columns:none!important;
-  }
-  #past-events .past-row > span {
-    display:inline!important;
-    max-width:none!important;
-    width:auto!important;
-    margin:0!important;
-    padding:0!important;
-    text-indent:0!important;
-  }
-  #past-events .past-row > span:first-child {
-    margin-right:.7em!important;
-  }
+  
+  
+  
   
 }
 @media (max-width:650px) and (orientation:portrait) {
   
-  #past-events .past-row > span:first-child {
-    display:inline!important;
-    margin-right:.7em!important;
-  }
-  #past-events .past-row > span:last-child {
-    display:contents!important;
-  }
-  #past-events .past-row .past-separator {
-    display:none!important;
-  }
+  
+  
+  
 }
-.past-mobile-line {
-  display:none!important;
-}
+
 @media (max-width:650px) and (orientation:portrait) {
-  #past-events .past-row {
-    display:block!important;
-    margin-left:1.25em!important;
-    padding-left:0!important;
-    text-indent:0!important;
-  }
-  #past-events .past-row > span:not(.past-mobile-line) {
-    display:none!important;
-  }
-  #past-events .past-row > .past-mobile-line {
-    display:inline!important;
-    margin:0!important;
-    padding:0!important;
-    width:auto!important;
-    max-width:none!important;
-    text-indent:0!important;
-  }
+  
+  
+  
 }
 .language-toggle {
   position:absolute;
@@ -2886,14 +2274,11 @@ html,body {
 }
 /* Desktop/landscape: PAST EVENTS and NETWORK share the same base leading. */
 @media (min-width:651px), (orientation:landscape) {
-  #past-events,
-    .network-links,
-    #past-events .past-row,
-    .network-row {
+  .network-links,
+.network-row {
     line-height:var(--type-leading)!important;
   }
   .network-links {
-    gap:0!important;
   }
 }
 /* Portrait phone: give the three-part secondary row more breathing room,
@@ -2906,29 +2291,21 @@ html,body {
   }
   .fixed-head > .secondary-nav a[href="#netzwerk"]::after {
     left:calc(100% + .82em)!important;
-    right:auto!important;
   }
 }
 :root {
   --reading-line:calc(var(--type-size) * var(--type-leading));
 }
 /* Every rendered list line uses the same line box. */
-#past-events,
-#past-events .past-year,
-#past-events .past-row,
 .network-links,
 .network-row {
   line-height:var(--type-leading)!important;
 }
-#past-events .past-year,
-#past-events .past-row,
 .network-row {
   min-height:var(--reading-line)!important;
 }
 /* A semantic blank line is exactly one full text line high. */
-.network-block-gap,
-#past-events .past-block-gap,
-#past-events .past-year-gap {
+.network-block-gap {
   display:block!important;
   height:var(--reading-line)!important;
   min-height:var(--reading-line)!important;
@@ -2965,25 +2342,21 @@ html,body {
 @media (max-width:650px) and (orientation:portrait) {
   .fixed-head > .secondary-nav a[href="#netzwerk"]::after {
     left:calc(100% + .52em)!important;
-    right:auto!important;
   }
 }
 @media (max-width:650px) and (orientation:portrait) {
   .fixed-head > .secondary-nav a[href="#netzwerk"]::after {
     left:calc(100% + .22em)!important;
-    right:auto!important;
   }
 }
 @media (max-width:650px) and (orientation:portrait) {
   .fixed-head > .secondary-nav a[href="#netzwerk"]::after {
     left:calc(100% + .37em)!important;
-    right:auto!important;
   }
 }
 /* Use the browser's line-height unit instead of multiplying CSS variables; this
    makes a semantic blank row exactly one rendered text line on desktop/mobile. */
-.network-block-gap,
-#past-events .past-block-gap {
+.network-block-gap {
   display:block!important;
   height:1lh!important;
   min-height:1lh!important;
@@ -2998,16 +2371,11 @@ html,body {
   margin-top:1lh!important;
 }
 /* Year hierarchy stays compact; only an actual blank line in content creates a gap. */
-#past-events .past-year-gap {
-  display:none!important;
-  height:0!important;
-  min-height:0!important;
-}
+
 /* Portrait phone: center the active NETWORK dot in the existing text-to-divider pocket. */
 @media (max-width:650px) and (orientation:portrait) {
   .fixed-head > .secondary-nav a[href="#netzwerk"]::after {
     left:calc(100% + .88em)!important;
-    right:auto!important;
   }
 }
 /* Keep navigation typography identical across link states and forced/dark rendering. */
@@ -3032,7 +2400,6 @@ html,body {
 @media (max-width:650px) and (orientation:portrait) {
   .fixed-head > .secondary-nav a[href="#netzwerk"]::after {
     left:calc(100% + .70em)!important;
-    right:auto!important;
   }
 }
 /* Prevent browser/link state and forced-dark rendering from making individual
@@ -3045,19 +2412,14 @@ html,body {
 .fixed-head .primary-nav a:active {
   color:inherit!important;
   -webkit-text-fill-color:currentColor!important;
-  font-family:Arial,Helvetica,sans-serif!important;
-  font-weight:300!important;
   font-style:normal!important;
   text-decoration:none!important;
-  text-shadow:none!important;
-  opacity:1!important;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
 }
 @media (max-width:650px) and (orientation:portrait) {
   .fixed-head > .secondary-nav a[href="#netzwerk"]::after {
     left:calc(100% + .82em)!important;
-    right:auto!important;
   }
 }
 .fixed-head .primary-nav a,
@@ -3066,15 +2428,10 @@ html,body {
 .fixed-head .primary-nav a:hover,
 .fixed-head .primary-nav a:focus,
 .fixed-head .primary-nav a:active {
-  color:#111!important;
-  -webkit-text-fill-color:#111!important;
-  font-weight:300!important;
-  opacity:1!important;
 }
 @media (max-width:650px) and (orientation:portrait) {
   .fixed-head > .secondary-nav a[href="#netzwerk"]::after {
     left:calc(100% + .74em)!important;
-    right:auto!important;
   }
 }
 /* Keep the five primary navigation items on one deterministic text paint. */
@@ -3095,7 +2452,6 @@ html,body {
 @media (max-width:650px) and (orientation:portrait) {
   .fixed-head > .secondary-nav a[href="#netzwerk"]::after {
     left:calc(100% + .54em)!important;
-    right:auto!important;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -3111,29 +2467,25 @@ html,body {
     background:#111!important;
   }
   body,
-    body a,
-    body a:link,
-    body a:visited,
-    body a:hover,
-    body a:focus,
-    body a:active,
-    .fixed-head nav a,
-    .fixed-head .secondary-nav a,
-    .fixed-head .secondary-nav b,
-    .fixed-head .language-toggle,
-    .section-title,
-    .list-section,
-    .list-section pre,
-    #past-events,
-    #past-events .past-year,
-    #past-events .past-row,
-    #past-events .past-separator,
-    .network-links,
-    .network-row,
-    .network-links a,
-    .network-label,
-    .list-separator,
-    .misc-divider-tooltip {
+body a,
+body a:link,
+body a:visited,
+body a:hover,
+body a:focus,
+body a:active,
+.fixed-head nav a,
+.fixed-head .secondary-nav a,
+.fixed-head .secondary-nav b,
+.fixed-head .language-toggle,
+.section-title,
+.list-section,
+.list-section pre,
+.network-links,
+.network-row,
+.network-links a,
+.network-label,
+.list-separator,
+.misc-divider-tooltip {
     color:var(--gg-ink)!important;
     -webkit-text-fill-color:var(--gg-ink)!important;
     font-weight:300!important;
@@ -3149,7 +2501,6 @@ html,body {
   body, body * {
     color:var(--uniform-dark-text)!important;
     -webkit-text-fill-color:var(--uniform-dark-text)!important;
-    text-shadow:none!important;
   }
   body, body a, body button, body summary, body pre, body span, body p, body h1, body h2, body h3, body div {
     font-synthesis:none!important;
@@ -3160,14 +2511,10 @@ html,body {
 }
 @media (prefers-color-scheme: dark) {
   body, body * {
-    color:var(--gg-ink)!important;
-    -webkit-text-fill-color:var(--gg-ink)!important;
     font-weight:300!important;
-    font-synthesis:none!important;
-    text-shadow:none!important;
-    opacity:1!important;
   }
-  .mark-dot, .misc-divider-dot img, .slide img {
+  .mark-dot,
+.slide img {
     color:initial!important;
     -webkit-text-fill-color:initial!important;
     opacity:1!important;
@@ -3176,13 +2523,11 @@ html,body {
 @media (max-width:650px) and (orientation:portrait) {
   .fixed-head > .secondary-nav a[href="#netzwerk"]::after {
     left:calc(100% + .48em)!important;
-    right:auto!important;
   }
 }
 @media (max-width:650px) and (orientation:portrait) {
   .fixed-head > .secondary-nav a[href="#netzwerk"]::after {
     left:calc(100% + .42em)!important;
-    right:auto!important;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -3196,7 +2541,8 @@ html,body {
     text-shadow:none!important;
     opacity:1!important;
   }
-  .mark-dot, .misc-divider-dot img, .slide img {
+  .mark-dot,
+.slide img {
     color:initial!important;
     -webkit-text-fill-color:initial!important;
   }
@@ -3205,12 +2551,10 @@ html,body {
   /* Older high-specificity nav rules kept selected links at weight 300.
        Match the normal-weight dark-mode body text for the affected labels only. */
     html[lang="de"] body .fixed-head .primary-nav a[href="#start"],
-    html[lang="de"] body .fixed-head .primary-nav a[href="#aktuell"],
-    html[lang="de"] body .fixed-head .primary-nav a[href="#solothurn"],
-    html[lang="de"] body .fixed-head .secondary-nav a[href="#past"],
-    html[lang="de"] body .fixed-head .secondary-nav a[href="#netzwerk"],
-    html[lang="en"] body .fixed-head .secondary-nav a[href="#past"],
-    html[lang="en"] body .fixed-head .secondary-nav a[href="#netzwerk"] {
+html[lang="de"] body .fixed-head .secondary-nav a[href="#past"],
+html[lang="de"] body .fixed-head .secondary-nav a[href="#netzwerk"],
+html[lang="en"] body .fixed-head .secondary-nav a[href="#past"],
+html[lang="en"] body .fixed-head .secondary-nav a[href="#netzwerk"] {
     font-weight:normal!important;
     color:var(--gg-ink)!important;
     -webkit-text-fill-color:var(--gg-ink)!important;
@@ -3230,15 +2574,12 @@ html,body {
 }
 /* PAST EVENTS + NETWORK: one desktop/landscape vertical rhythm. */
 @media (min-width:651px), (orientation:landscape) {
-  #past-events .past-row,
-    #past-events .past-year,
-    .network-links,
-    .network-row {
+  .network-links,
+.network-row {
     font-size:var(--type-size)!important;
     line-height:var(--reading-leading)!important;
   }
-  #past-events .past-row,
-    .network-row {
+  .network-row {
     min-height:calc(1em * var(--reading-leading))!important;
     margin-top:0!important;
     margin-bottom:0!important;
@@ -3248,19 +2589,10 @@ html,body {
   }
 }
 /* Portrait phone PAST EVENTS: real date/description elements, no NBSP spacing. */
-.past-mobile-date,.past-mobile-desc {
-  display:inline;
-}
+
 @media (max-width:650px) and (orientation:portrait) {
-  #past-events .past-row > .past-mobile-line {
-    display:inline!important;
-    margin:0!important;
-    padding:0!important;
-    white-space:normal!important;
-  }
-  #past-events .past-mobile-date {
-    margin-right:1.65em!important;
-  }
+  
+  
 }
 /* NETWORK active marker: attach it to the text itself.  Do not center it in
    the remaining space before the divider. */
@@ -3268,8 +2600,6 @@ html,body {
   position:relative!important;
 }
 .fixed-head > .secondary-nav a[href="#netzwerk"]::after {
-  left:100%!important;
-  right:auto!important;
   margin-left:2px!important;
   top:50%!important;
   transform:translateY(-50%)!important;
@@ -3307,9 +2637,7 @@ html,body {
 }
 /* Portrait PAST EVENTS: one step less date/description air. */
 @media (max-width:650px) and (orientation:portrait) {
-  #past-events .past-mobile-date {
-    margin-right:1.35em!important;
-  }
+  
 }
 /* Dark navigation: force every primary/secondary link through exactly the
    same final paint/weight rule, including PAST EVENTS and NETWORK. */
@@ -3338,17 +2666,12 @@ html,body {
 /* Desktop reading lists: identical used line box; spacing comes only from
    explicit semantic gap elements. */
 @media (min-width:651px) {
-  #past-events,
-    #past-events .past-row,
-    #past-events .past-year,
-    .network-links,
-    .network-row {
+  .network-links,
+.network-row {
     font-size:var(--type-size)!important;
     line-height:1.72!important;
   }
-  #past-events .past-row,
-    #past-events .past-year,
-    .network-row {
+  .network-row {
     min-height:1.72em!important;
     height:auto!important;
     margin-top:0!important;
@@ -3361,16 +2684,11 @@ html,body {
   }
 }
 @media (min-width:651px) {
-  #past-events,
-    #past-events .past-row,
-    #past-events .past-year,
-    .network-links,
-    .network-row {
+  .network-links,
+.network-row {
     line-height:24.08px!important;
   }
-  #past-events .past-row,
-    #past-events .past-year,
-    .network-row {
+  .network-row {
     min-height:24.08px!important;
   }
   
@@ -3410,8 +2728,7 @@ html,body {
     padding-top:0!important;
     padding-bottom:0!important;
   }
-  .network-block-gap,
-    #past-events .past-block-gap {
+  .network-block-gap {
     height:24.08px!important;
     min-height:24.08px!important;
   }
@@ -3419,8 +2736,6 @@ html,body {
 /* The active dot was still optically too close on portrait phones. */
 @media (max-width:650px) and (orientation:portrait) {
   .fixed-head > .secondary-nav a[href="#netzwerk"]::after {
-    left:100%!important;
-    right:auto!important;
     margin-left:7px!important;
   }
 }
@@ -3467,19 +2782,9 @@ html,body {
   }
 }
 @media (min-width:651px) {
-  #past-events,
-    #past-events .past-row,
-    #past-events .past-year {
-    line-height:28px!important;
-  }
-  #past-events .past-row,
-    #past-events .past-year {
-    min-height:28px!important;
-  }
-  #past-events .past-block-gap {
-    height:28px!important;
-    min-height:28px!important;
-  }
+  
+  
+  
 }
 @media (min-width:651px) {
   .network-links,
@@ -3521,13 +2826,11 @@ html,body {
   }
   .fixed-head > .secondary-nav a[href="#netzwerk"]::after {
     left:calc(100% + 3px)!important;
-    right:auto!important;
   }
 }
 @media (min-width:651px) {
   .fixed-head > .secondary-nav a[href="#netzwerk"]::after {
     left:calc(100% + 5px)!important;
-    right:auto!important;
   }
 }
 @media (min-width:651px) {
@@ -3597,7 +2900,6 @@ html body .fixed-head > .secondary-nav a[href="#netzwerk"] {
   html body .fixed-head .primary-nav a[href="#start"],
     html body .fixed-head > .secondary-nav a[href="#past"],
     html body .fixed-head > .secondary-nav a[href="#netzwerk"] {
-    font-weight:400!important;
     color:var(--gg-ink)!important;
     -webkit-text-fill-color:var(--gg-ink)!important;
   }
@@ -3614,10 +2916,8 @@ html body .fixed-head > .secondary-nav a[href="#netzwerk"] {
 @media (prefers-color-scheme:dark) {
   html body .fixed-head > .secondary-nav a[href="#past"],
     html body .fixed-head > .secondary-nav a[href="#netzwerk"] {
-    font-weight:400!important;
     color:#fff!important;
     -webkit-text-fill-color:#fff!important;
-    opacity:1!important;
   }
 }
 @media (prefers-color-scheme:dark) {
@@ -3657,13 +2957,6 @@ html body .fixed-head > .secondary-nav a:not(.language-toggle):active {
   font-synthesis:none!important;
 }
 html body .fixed-head .language-toggle {
-  font-family:Arial,Helvetica,sans-serif!important;
-  font-weight:400!important;
-  color:#777!important;
-  -webkit-text-fill-color:#777!important;
-  opacity:1!important;
-  text-shadow:none!important;
-  font-synthesis:none!important;
 }
 @media (prefers-color-scheme:dark) {
   html body .fixed-head .primary-nav a,
@@ -3684,10 +2977,8 @@ html body .fixed-head .language-toggle {
     opacity:1!important;
   }
   html body .fixed-head .language-toggle {
-    font-weight:400!important;
     color:#777!important;
     -webkit-text-fill-color:#777!important;
-    opacity:1!important;
   }
 }
 html body .fixed-head .primary-nav a,
@@ -3778,7 +3069,6 @@ html body .fixed-head .secondary-nav b {
   -webkit-text-fill-color:color-mix(in srgb,var(--gg-ink) 62%,white)!important;
 }
 /* Retired gerbern drei sections */
-.misc-section,
 #past {
   display:none!important;
 }
@@ -3941,7 +3231,6 @@ html body .fixed-head .secondary-nav b {
     top:0!important;
     width:66px!important;
     min-width:66px!important;
-    height:auto!important;
     max-width:none!important;
     transform:none!important;
     object-fit:contain!important;
@@ -3983,9 +3272,7 @@ html body .fixed-head .secondary-nav b {
     height:calc(3 * var(--type-size) * var(--type-leading))!important;
   }
 }
-.mark-tip {
-  display:none!important;
-}
+
 /* START-page hierarchy test — navigation dark, titles keep gerberngestalt brown */
 html body .fixed-head nav a,
 html body .fixed-head nav a:link,
@@ -4029,7 +3316,6 @@ html body .fixed-head .secondary-nav b {
     transform:none!important;
   }
   #netzwerk {
-    padding-bottom:0!important;
   }
   .legal-links {
     margin-top:0!important;
@@ -4039,15 +3325,11 @@ html body .fixed-head .secondary-nav b {
    below the fixed navigation; legal entries are separated by one text line. */
 @media (max-height:650px) and (orientation:landscape) {
   main .section {
-    justify-content:flex-start!important;
     padding-top:10px!important;
   }
   main .section .window-group {
-    margin-top:0!important;
-    transform:none!important;
   }
   .legal-links details + details {
-    margin-top:calc(var(--type-size) * var(--type-leading))!important;
   }
 }
 /* Desktop: arrows remain visible instead of appearing only on hover. */
@@ -4060,7 +3342,6 @@ html body .fixed-head .secondary-nav b {
 /* Dark mode: warm light brown typography; DE/EN deliberately darker. */
 @media (prefers-color-scheme:dark) {
   :root {
-    --gg-dark-ink:#c9beb5;
   }
   html body,
     html body .fixed-head,
@@ -4079,8 +3360,6 @@ html body .fixed-head .secondary-nav b {
     html body .legal-links summary,
     html body .carousel,
     html body .slide {
-    color:var(--gg-dark-ink)!important;
-    -webkit-text-fill-color:var(--gg-dark-ink)!important;
   }
   html body .fixed-head .language-toggle {
     color:#8f837b!important;
@@ -4091,37 +3370,28 @@ html body .fixed-head .secondary-nav b {
    tightened by another three text lines. */
 @media (max-width:650px) and (orientation:portrait) {
   #netzwerk {
-    padding-bottom:0!important;
     margin-bottom:calc(-3 * var(--type-size) * var(--type-leading))!important;
   }
   .legal-links {
     margin-top:0!important;
   }
   .legal-links details + details {
-    margin-top:calc(var(--type-size) * var(--type-leading))!important;
   }
 }
 /* Landscape phone: all galleries reserve their dots; NETWORK follows the
    compact gallery rhythm; legal begins one extra line later; stone smaller/higher. */
 @media (max-height:650px) and (orientation:landscape) {
   .section .carousel .dots {
-    display:flex!important;
-    flex:0 0 24px!important;
-    height:24px!important;
-    min-height:24px!important;
   }
   #netzwerk {
     min-height:0!important;
-    margin-top:0!important;
     margin-bottom:0!important;
     padding-top:10px!important;
-    padding-bottom:0!important;
   }
   .legal-links {
     margin-top:calc(var(--type-size) * var(--type-leading))!important;
   }
   .legal-links details + details {
-    margin-top:calc(var(--type-size) * var(--type-leading))!important;
   }
   html body .fixed-head .mark {
     top:48px!important;
@@ -4172,7 +3442,6 @@ html body .fixed-head .secondary-nav b {
 /* Portrait: another three lines less before legal; exactly one line between legal/privacy. */
 @media (max-width:650px) and (orientation:portrait) {
   #netzwerk {
-    padding-bottom:0!important;
     margin-bottom:calc(-6 * var(--type-size) * var(--type-leading))!important;
   }
   .legal-links {
@@ -4189,7 +3458,6 @@ html body .fixed-head .secondary-nav b {
     top:39px!important;
   }
   #netzwerk {
-    padding-top:0!important;
     padding-bottom:0!important;
     margin-top:0!important;
     margin-bottom:0!important;
@@ -4230,8 +3498,6 @@ html body .fixed-head .secondary-nav b {
    This replaces the accumulated negative-margin experiments. */
 @media (max-width:650px) and (orientation:portrait) {
   #netzwerk {
-    margin-bottom:0!important;
-    padding-bottom:0!important;
   }
   .legal-links {
     margin-top:calc(2 * var(--type-size) * var(--type-leading))!important;
@@ -4329,17 +3595,12 @@ html body .fixed-head .secondary-nav b {
 }
 @media (max-height:650px) and (orientation:landscape) {
   html body .fixed-head .mark {
-    width:48px!important;
-    height:48px!important;
   }
   
 }
 @media (max-width:650px) and (orientation:portrait) {
   
   html body .fixed-head button.mark > img.mark-dot {
-    width:48px!important;
-    min-width:48px!important;
-    height:auto!important;
   }
 }
 @media (max-width:650px) and (orientation:portrait) {
@@ -4350,9 +3611,6 @@ html body .fixed-head .secondary-nav b {
   html body .fixed-head button.mark > img.mark-dot {
     width:66px!important;
     min-width:66px!important;
-    height:auto!important;
-    max-width:none!important;
-    max-height:none!important;
   }
 }
 @media (max-width:650px) and (orientation:portrait) {
@@ -4767,17 +4025,12 @@ html body .fixed-head > .secondary-nav .language-toggle {
     position:static!important;
     margin:0!important;
     padding:0!important;
-    gap:8px!important;
-    font-size:15px!important;
-    line-height:1.42!important;
     letter-spacing:.16em!important;
   }
   html body .fixed-head > nav.primary-nav > a {
     display:block!important;
     margin:0!important;
     padding:0!important;
-    font-size:15px!important;
-    line-height:1.42!important;
     letter-spacing:.16em!important;
   }
   html body .fixed-head > .secondary-nav,
@@ -5133,14 +4386,10 @@ html body .fixed-head > .secondary-nav .language-toggle {
     html body .fixed-head > .secondary-nav > a[href="#kontakt"]::before {
     left:auto!important;
     right:calc(100% + 9px)!important;
-    background:#222!important;
   }
   html body .fixed-head > .secondary-nav > a[href="#kontakt"]::after {
-    left:calc(100% + 9px)!important;
-    right:auto!important;
   }
   html body .fixed-head > .secondary-nav > a[href="#kontakt"]::after {
-    background:var(--accent)!important;
   }
   html body .fixed-head > .secondary-nav > a[href="#mini-blog"]::after {
     left:calc(100% + 13px)!important;
@@ -5201,23 +4450,9 @@ html body .fixed-head .language-toggle:focus::after {
   }
 }
 /* Explicit two-line NETWORK entries must not inherit the legacy three-column grid. */
-html body .network-row.network-row--two-lines {
-  display:flex!important;
-  flex-direction:column!important;
-  align-items:flex-start!important;
-  gap:0!important;
-  grid-template-columns:none!important;
-  width:100%!important;
-}
-html body .network-row--two-lines > .network-line {
-  display:block!important;
-  width:100%!important;
-  white-space:normal!important;
-  line-height:inherit!important;
-}
-html body .network-row--two-lines .list-separator {
-  margin:0 .35em!important;
-}
+
+
+
 /* First CONTACT image: independently clickable Instagram and email lines. */
 html body .carousel[data-gallery="kontakt"] .contact-hotspot-slide {
   position:relative!important;
@@ -5244,10 +4479,7 @@ html body .carousel[data-gallery="kontakt"] .contact-image-hotspot:focus-visible
   outline:1px solid currentColor!important;
   outline-offset:2px!important;
 }
-html body .network-row--two-lines > .network-line:nth-child(2) {
-  padding-left:1em!important;
-  width:calc(100% - 1em)!important;
-}
+
 /* Compact stone: preserve clear space on both sides of every separator.
    CONTACT hover is always to the LEFT of its label; its active dot stays right. */
 @media (min-width:651px) and (max-width:860px) and (min-height:651px) and (hover:hover) and (pointer:fine) {
@@ -5257,7 +4489,6 @@ html body .network-row--two-lines > .network-line:nth-child(2) {
     top:50%!important;
     transform:translateY(-50%)!important;
     background:#222!important;
-    opacity:1!important;
   }
   html body .fixed-head > .secondary-nav > a[href="#kontakt"].active-secondary::after {
     left:calc(100% + 9px)!important;
@@ -5285,7 +4516,6 @@ html body .network-row--two-lines > .network-line:nth-child(2) {
   }
   html body .fixed-head > .secondary-nav > a[href="#kontakt"].active-secondary::after {
     left:calc(100% + 7px)!important;
-    right:auto!important;
     top:50%!important;
     bottom:auto!important;
     transform:translateY(-50%)!important;
@@ -5495,11 +4725,6 @@ html body .network-row--auto-wrap .network-paragraph a {
    Keep the working medium layout unchanged. */
 @media (min-width:651px) and (max-width:860px) and (hover:hover) and (pointer:fine) {
   html body .fixed-head > .secondary-nav > a[href="#kontakt"] > .contact-hover-marker {
-    left:-15px!important;
-    right:auto!important;
-    top:50%!important;
-    bottom:auto!important;
-    transform:translateY(-50%)!important;
   }
   html body .fixed-head > .secondary-nav > a[href="#kontakt"]:not(.active-secondary):hover::after {
     opacity:0!important;
@@ -5654,10 +4879,7 @@ html body .network-row--auto-wrap .network-paragraph a {
 @media (min-width:861px) and (min-height:651px) and (hover:hover) and (pointer:fine) {
   html body .fixed-head > .secondary-nav > a[href="#netzwerk"].active-secondary::after {
     left:calc(50% - 3px)!important;
-    right:auto!important;
     top:-10px!important;
-    bottom:auto!important;
-    margin:0!important;
     transform:none!important;
   }
 }
@@ -5737,7 +4959,6 @@ html body .network-row--auto-wrap .network-paragraph a {
     grid-template-columns:max-content 2.15em max-content 2.15em max-content 2.15em max-content!important;
   }
   html body .fixed-head > .secondary-nav > a[href="#mini-blog"] {
-    grid-column:3!important;
     grid-row:1!important;
     justify-self:start!important;
   }
@@ -5773,7 +4994,6 @@ html body .network-row--auto-wrap .network-paragraph a {
    navigation inset, as on gerbern drei. Keep gallery size unchanged. */
 @media (max-width:650px) and (orientation:portrait) {
   html body main .section {
-    padding-left:22px!important;
     padding-right:22px!important;
     align-items:flex-start!important;
   }
@@ -5784,9 +5004,6 @@ html body .network-row--auto-wrap .network-paragraph a {
     transform:none!important;
   }
   html body main .section > .window-group > .section-title {
-    margin-left:0!important;
-    left:auto!important;
-    transform:none!important;
   }
 }
 /* Portrait phone: maximize square slides within the screen width.
@@ -6338,7 +5555,6 @@ html body main #netzwerk .network-link-break {
     display:none!important;
   }
   html body main .section {
-    padding-top:0!important;
     padding-bottom:4px!important;
   }
   /* 24px dots + 4px bottom strip + 4px safety; no hidden 78px reserve. */
