@@ -6477,10 +6477,11 @@ html body main #netzwerk .network-link-break {
   }
 }
 
-/* Wide desktop NETWORK: match the balanced spaces around | already used
-   by the medium-width three-column reading layout. Both sides of the
-   separator receive room; phone and medium-width rules are unchanged. */
-@media (min-width:1201px) and (min-height:651px) and (hover:hover) and (pointer:fine) {
+/* Desktop NETWORK separators: use the same left/right spacing from
+   861px upward, including the intermediate layout. At these widths all
+   rows use the inline reading flow rather than the older three-column grid.
+   Compact desktop and both phone orientations remain unchanged. */
+@media (min-width:861px) and (min-height:651px) and (hover:hover) and (pointer:fine) {
   html body main #netzwerk #network-links.network-links > .network-row .list-separator {
     margin-left:1.15em!important;
     margin-right:.9em!important;
