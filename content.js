@@ -13,9 +13,9 @@ window.SITE_CONTENT = {
     title: 'START',
     title_en: 'HOME',
     images: [
-      { image:'images/start/logo3.jpg' },
-      { image:'images/start/logo2.jpg' },
-      { image:'images/start/slide3.png' }
+      'images/start/01_logo1.jpg',
+      'images/start/02_logo2.jpg',
+      'images/start/03_logo3.png'
     ]
   },
 
@@ -39,26 +39,33 @@ window.SITE_CONTENT = {
   angebot: {
     title: 'ANGEBOT',
     title_en: 'WHAT I DO',
-    images: ['images/angebot/ab-maerz.png', 'images/angebot/mein-angebot.png', 'images/angebot/wood-stamp.jpg']
+    images: [
+      'images/angebot/01_ab-maerz.png',
+      'images/angebot/02_mein-angebot.png',
+      'images/angebot/03_wood-stamp.jpg'
+    ]
   },
 
   praktisches: {
     title: 'PRAKTISCHES',
     title_en: 'PRACTICALITIES',
-    images: ['images/praktisches/erstsitzung.png', 'images/praktisches/clay-stamp.jpg']
+    images: [
+      'images/praktisches/01_erstsitzung.png',
+      'images/praktisches/02_clay-stamp.jpg'
+    ]
   },
 
   gestalt: {
     title: 'GESTALT',
     title_en: 'GESTALT',
     images: [
-      { image:'images/gestalt/01_alles-was-ist.jpg', image_en:'images/gestalt/01_alles-was-ist_en.jpg' },
-      { image:'images/gestalt/02_was-sein-darf.jpg', image_en:'images/gestalt/02_was-sein-darf_en.jpg' },
-      { image:'images/gestalt/03_gestalttherapie-betont.png' },
-      { image:'images/gestalt/04_nicht-alles-ist.png' },
-      { image:'images/gestalt/05_ich-bin-ich.png' },
-      { image:'images/gestalt/06_gestalttherapie-uebt.png' },
-      { image:'images/gestalt/07_stone-stamp.jpg' }
+      'images/gestalt/01_alles-was-ist.jpg',
+      'images/gestalt/02_was-sein-darf.jpg',
+      'images/gestalt/03_gestalttherapie-betont.png',
+      'images/gestalt/04_nicht-alles-ist.png',
+      'images/gestalt/05_ich-bin-ich.png',
+      'images/gestalt/06_gestalttherapie-uebt.png',
+      'images/gestalt/07_stone-stamp.jpg'
     ]
   },
 
@@ -66,8 +73,8 @@ window.SITE_CONTENT = {
     title: 'MINI-BLOG',
     title_en: 'MINI-BLOG',
     images: [
-      { image:'images/miniblog/als-mensch-mache-ich.png', image_en:'images/miniblog/als-mensch-mache-ich_en.png' },
-      'images/miniblog/potato-stamp.jpg'
+      'images/miniblog/01_als-mensch-mache-ich.png',
+      'images/miniblog/02_potato-stamp.jpg'
     ]
   },
 
@@ -76,8 +83,8 @@ window.SITE_CONTENT = {
     title_en: 'CONTACT',
     images: [
       'images/kontakt/01_gerberngestalt.png',
-      { image:'images/kontakt/02_kroki.jpg', image_en:'images/kontakt/02_kroki_en.jpg' },
-      { image:'images/kontakt/03_kroki.jpg', image_en:'images/kontakt/03_kroki_en.jpg' },
+      'images/kontakt/02_kroki.jpg',
+      'images/kontakt/03_kroki.jpg',
       'images/kontakt/04_soap-stamp.jpg'
     ]
   },
