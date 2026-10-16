@@ -618,7 +618,7 @@
 
     const height = phoneVisibleHeight();
     if (!Number.isFinite(height) || height <= 0) return;
-    if (portraitGalleryQuery.matches) {
+    // Only the foreground gallery follows the visible viewport; earlier sections retain their geometry.
       rootStyle.removeProperty('--gg-gallery-visible-height');
       const head = document.querySelector('.fixed-head');
       const headHeight = head ? head.getBoundingClientRect().height : 0;
@@ -633,25 +633,6 @@
         }
       });
       if (visibleGroup) setPhoneGalleryHeight(visibleGroup);
-    } else {
-      // Use the full currently visible height only for the foremost gallery.
-      // 100svh remains the fallback for unseen sections; existing sizes in
-      // sections above the viewport are never changed on toolbar resize.
-      rootStyle.removeProperty('--gg-gallery-visible-height');
-      const head = document.querySelector('.fixed-head');
-      const headHeight = head ? head.getBoundingClientRect().height : 0;
-      let visibleGroup = null;
-      let greatestOverlap = 0;
-      phoneGalleryGroups.forEach(function (group) {
-        const rect = group.getBoundingClientRect();
-        const overlap = Math.max(0, Math.min(rect.bottom, height) - Math.max(rect.top, headHeight));
-        if (overlap > greatestOverlap) {
-          greatestOverlap = overlap;
-          visibleGroup = group;
-        }
-      });
-      if (visibleGroup) setPhoneGalleryHeight(visibleGroup);
-    }
   }
 
   function scheduleGalleryVisibleHeight() {
@@ -1018,7 +999,7 @@
           (networkFirstRow ? (Number.isFinite(readingLine) ? readingLine : 24) : 0);
         const top = window.scrollY + anchor.getBoundingClientRect().top - headH - gap;
         window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
-        if (secondaryPast) secondaryPast.classList.toggle('active-secondary', id === '#kontakt');
+        if (secondaryContact) secondaryContact.classList.toggle('active-secondary', id === '#kontakt');
         if (secondaryNetwork) secondaryNetwork.classList.toggle('active-secondary', id === '#netzwerk');
         return;
       }
@@ -1029,7 +1010,7 @@
         event.preventDefault();
         if (history.replaceState) history.replaceState(null, '', id);
         alignNetworkHeading('smooth');
-        if (secondaryPast) secondaryPast.classList.toggle('active-secondary', false);
+        if (secondaryContact) secondaryContact.classList.toggle('active-secondary', false);
         if (secondaryNetwork) secondaryNetwork.classList.toggle('active-secondary', true);
         return;
       }
@@ -1089,11 +1070,11 @@
 
   // Navigation marker: the yellow dot follows the section that actually
   // occupies the centre of the visible browser area. This prevents KONTAKT
-  // from staying active once PAST EVENTS has reached the reading position.
+  // from staying active once NETZWERK has reached the reading position.
   const primaryIds = ['start', 'about', 'angebot', 'praktisches', 'gestalt'];
   const primaryLinks = Array.from(document.querySelectorAll('.primary-nav a'));
   const secondaryBlog = document.querySelector('.secondary-nav a[href="#mini-blog"]');
-  const secondaryPast = document.querySelector('.secondary-nav a[href="#kontakt"]');
+  const secondaryContact = document.querySelector('.secondary-nav a[href="#kontakt"]');
   const secondaryNetwork = document.querySelector('.secondary-nav a[href="#netzwerk"]');
   const navSectionIds = ['start', 'about', 'angebot', 'praktisches', 'gestalt', 'mini-blog', 'kontakt', 'netzwerk'];
 
@@ -1106,23 +1087,23 @@
     // navigation. This keeps NETZWERK active for its whole section instead of
     // letting a short section lose its dot immediately to the following gap.
     const readingY = headH + 34.02 + 24;
-    const pastSection = document.getElementById('kontakt');
+    const contactSection = document.getElementById('kontakt');
     const networkSection = document.getElementById('netzwerk');
     if (networkSection) {
       const nr = networkSection.getBoundingClientRect();
       if (nr.top <= (window.innerWidth > 860 && window.innerHeight > 650 ? Math.max(readingY, window.innerHeight * 0.36) : readingY) && nr.bottom > readingY) return 'netzwerk';
     }
-    if (pastSection && networkSection) {
-      const pr = pastSection.getBoundingClientRect();
+    if (contactSection && networkSection) {
+      const pr = contactSection.getBoundingClientRect();
       const nr = networkSection.getBoundingClientRect();
       if (pr.top <= readingY && nr.top > readingY) return 'kontakt';
     }
     // Keep the MINI-BLOG and KONTAKT markers active on phones even when
     // their gallery is taller than the visible viewport or its centre shifts.
     const blogSection = document.getElementById('mini-blog');
-    if (blogSection && pastSection) {
+    if (blogSection && contactSection) {
       const br = blogSection.getBoundingClientRect();
-      const pr = pastSection.getBoundingClientRect();
+      const pr = contactSection.getBoundingClientRect();
       if (br.top <= readingY && pr.top > readingY) return 'mini-blog';
     }
 
@@ -1173,7 +1154,7 @@
     });
 
     if (secondaryBlog) secondaryBlog.classList.toggle('active-secondary', activeId === 'mini-blog');
-    if (secondaryPast) secondaryPast.classList.toggle('active-secondary', activeId === 'kontakt');
+    if (secondaryContact) secondaryContact.classList.toggle('active-secondary', activeId === 'kontakt');
     if (secondaryNetwork) secondaryNetwork.classList.toggle('active-secondary', activeId === 'netzwerk');
   }
 
