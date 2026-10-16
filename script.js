@@ -39,11 +39,6 @@
     else url.searchParams.delete('lang');
     history.replaceState(null, '', url.pathname + (url.search ? url.search : '') + url.hash);
   }
-  const MONTHS_EN = {
-    JANUAR:'JANUARY', FEBRUAR:'FEBRUARY', 'MÄRZ':'MARCH', APRIL:'APRIL',
-    MAI:'MAY', JUNI:'JUNE', JULI:'JULY', AUGUST:'AUGUST',
-    SEPTEMBER:'SEPTEMBER', OKTOBER:'OCTOBER', NOVEMBER:'NOVEMBER', DEZEMBER:'DECEMBER'
-  };
   const NAV_LABELS = {
     de:{start:'START',about:'ÜBER MICH',angebot:'ANGEBOT',praktisches:'PRAKTISCHES',gestalt:'GESTALT',miniBlog:'MINI-BLOG',kontakt:'KONTAKT',netzwerk:'NETZWERK',imprint:'IMPRESSUM',privacy:'DATENSCHUTZ'},
     en:{start:'HOME',about:'ABOUT ME',angebot:'WHAT I DO',praktisches:'PRACTICALITIES',gestalt:'GESTALT',kontakt:'CONTACT',netzwerk:'NETWORK',imprint:'LEGAL',privacy:'PRIVACY'}
@@ -114,25 +109,6 @@
     if (img.getAttribute('src') !== candidates[0]) img.src = candidates[0];
   }
 
-  // v52: one random saturated-pastel original dot image per page load.
-  // Clicking the large navigation dot chooses a different colour AND returns to START.
-  function stoneSvg(base, light, dark, variant) {
-    const outlines = [
-      'M12 9 C22 2 39 3 48 11 C57 19 57 38 48 48 C39 57 20 58 10 49 C2 41 3 20 12 9 Z',
-      'M9 15 C17 4 34 1 46 8 C57 15 61 31 54 43 C48 54 31 60 17 54 C5 49 1 27 9 15 Z',
-      'M14 7 C27 1 44 5 52 16 C60 28 55 45 44 52 C31 60 14 54 7 43 C0 31 4 13 14 7 Z',
-      'M8 13 C18 3 37 2 49 10 C60 18 58 37 51 47 C43 58 23 59 12 51 C2 43 0 22 8 13 Z'
-    ];
-    const path = outlines[variant % outlines.length];
-    return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
-      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">' +
-      '<defs><clipPath id="c"><path d="'+path+'"/></clipPath></defs>' +
-      '<g clip-path="url(#c)"><rect width="64" height="64" fill="'+base+'"/>' +
-      '<path d="M0 0 H64 L38 31 L0 24 Z" fill="'+light+'"/>' +
-      '<path d="M64 64 H0 L27 30 L64 22 Z" fill="'+dark+'"/></g></svg>'
-    );
-  }
-
   const ACCENT_DOTS = [
     { colour:'#EC9F69', file:'images/stones/apricot-stone.png' },
     { colour:'#ED917F', file:'images/stones/coral-stone.png' },
@@ -164,13 +140,6 @@
   applyAccent(accentDot);
 
   const colourDot = document.querySelector('.mark');
-  const whatDot = document.querySelector('.misc-divider-dot');
-
-  function scrollToElement(el, hash) {
-    if (!el) return;
-    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    if (history.replaceState) history.replaceState(null, '', hash);
-  }
 
   // Touch labels: show briefly after a tap, then disappear automatically.
   function flashTouchLabel(button) {
@@ -186,34 +155,6 @@
       flashTouchLabel(colourDot);
       colourDot.blur();
       /* gerberngestalt: the stone changes the accent but stays in place. */
-    });
-  }
-
-  // what! changes the palette and returns to the exact fitted START state.
-  // Important: make START authoritative *before* fitting it.  Otherwise the
-  // scroll bookkeeping can still regard MISC as the active gallery while the
-  // page is travelling back from the bottom.
-  if (whatDot) {
-    whatDot.addEventListener('click', function (event) {
-      event.preventDefault();
-      event.stopPropagation();
-      chooseDifferentAccent();
-      flashTouchLabel(whatDot);
-      whatDot.blur();
-
-      const start = document.getElementById('start');
-      const startGroup = start && start.querySelector('.window-group');
-      if (startGroup) activeGallery = startGroup;
-      if (history.replaceState) history.replaceState(null, '', '#start');
-
-      // fitStartToViewport itself establishes scrollY=0, so do not start a
-      // competing smooth-scroll animation here.  Re-measure once after layout
-      // has settled; this is the same geometry used by the working START link.
-      fitStartToViewport();
-      requestAnimationFrame(function () {
-        fitStartToViewport();
-        window.scrollTo({ top:0, left:0, behavior:'auto' });
-      });
     });
   }
 
@@ -443,52 +384,7 @@
   }
 
   document.querySelectorAll('.carousel[data-gallery]').forEach(buildGallery);
-  const past = document.getElementById('past-events');
   const network = document.getElementById('network-links');
-
-  function translateMonth(dateText) {
-    if (currentLanguage !== 'en') return dateText;
-    return dateText.replace(/^([A-ZÄÖÜ]+)(\b|\s)/, function (whole, month, boundary) {
-      return (MONTHS_EN[month] || month) + boundary;
-    });
-  }
-
-  function renderPastEvents() {
-    if (!past) return;
-    past.innerHTML = '';
-    const source = currentLanguage === 'en' && content.pastEvents_en != null ? content.pastEvents_en : content.pastEvents;
-    const pastLines = String(source || '').split(/\r?\n/);
-    let previousWasYear = false;
-    pastLines.forEach((raw, i) => {
-      const line = raw.trim();
-      if (!line) {
-        if (!previousWasYear && i < pastLines.length - 1) {
-          const gap = document.createElement('div'); gap.className = 'past-block-gap'; past.appendChild(gap);
-        }
-        previousWasYear = false; return;
-      }
-      if (/^\d{4}$/.test(line)) {
-        const year = document.createElement('div'); year.className = 'past-year'; year.textContent = '\u00A0\u00A0' + line; past.appendChild(year);
-        previousWasYear = true; return;
-      }
-      previousWasYear = false;
-      const m = line.match(/^([^:]+):\s*(.*)$/);
-      if (m) {
-        const dateText = translateMonth(m[1]);
-        const row = document.createElement('div'); row.className = 'past-row';
-        const date = document.createElement('span'); date.textContent = dateText;
-        const sep = document.createElement('span'); sep.className = 'list-separator past-separator'; sep.textContent = '–';
-        const desc = document.createElement('span'); desc.textContent = m[2];
-        const mobileLine = document.createElement('span'); mobileLine.className = 'past-mobile-line';
-        const mobileDate = document.createElement('span'); mobileDate.className = 'past-mobile-date'; mobileDate.textContent = dateText;
-        const mobileDesc = document.createElement('span'); mobileDesc.className = 'past-mobile-desc'; mobileDesc.textContent = m[2];
-        mobileLine.append(mobileDate, mobileDesc);
-        row.append(date, sep, desc, mobileLine); past.appendChild(row);
-      } else {
-        const row = document.createElement('div'); row.textContent = line; past.appendChild(row);
-      }
-    });
-  }
 
   // Keep an entire NETWORK name/location together if it fits on one
   // narrow portrait line. Never force a too-long label beyond the viewport.
@@ -573,7 +469,6 @@
     scheduleNetworkLabelFit();
   }
 
-  renderPastEvents();
   renderNetwork();
 
 
@@ -646,7 +541,6 @@
     if (topTip) topTip.textContent = '';
     if (bottomTip) bottomTip.textContent = currentLanguage === 'de' ? 'und!' : 'what!';
 
-    renderPastEvents();
     renderNetwork();
     updateGalleryLanguage();
     document.querySelectorAll('.carousel[data-gallery]').forEach(function (carousel) {
@@ -887,20 +781,6 @@
     const absoluteTop = window.scrollY + r.top;
     const wantedScroll = Math.max(0, absoluteTop - desiredTop);
     window.scrollTo({ top: wantedScroll, left: 0, behavior: 'auto' });
-  }
-
-  function keepWholeGalleryVisible(group) {
-    if (!group || !document.documentElement.contains(group)) return;
-    const limits = galleryLimits();
-    const r = group.getBoundingClientRect();
-    const pad = 10;
-    if (r.bottom > limits.bottom - pad) {
-      window.scrollBy({ top: r.bottom - (limits.bottom - pad), left: 0, behavior: 'auto' });
-    }
-    const r2 = group.getBoundingClientRect();
-    if (r2.top < limits.top + pad && r2.height <= (limits.bottom - limits.top - 2 * pad)) {
-      window.scrollBy({ top: r2.top - (limits.top + pad), left: 0, behavior: 'auto' });
-    }
   }
 
   let scrollPickTimer = 0;
