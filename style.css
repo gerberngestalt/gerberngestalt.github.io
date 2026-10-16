@@ -6488,17 +6488,21 @@ html body main #netzwerk .network-link-break {
   }
 }
 
-/* Phone portrait galleries: size square images from the VISIBLE viewport,
-   leave only an 8px minimum above them, and keep the pagination row flush
-   with the 4px lower edge. Extra vertical room is entirely above the image.
-   Reading lists, desktop and landscape remain independent. */
+/* Phone portrait galleries: preserve the square's initial position when
+   browser toolbars retract. 100svh is the shortest viewport with both bars
+   shown; extra visible height goes BELOW the dots, not above the image.
+   On that shortest viewport the dots still sit at the bottom. Lists,
+   desktop and landscape keep their independent geometry. */
 @media (max-width:650px) and (orientation:portrait) and (pointer:coarse) {
   html body main .section {
     box-sizing:border-box!important;
     height:calc(var(--gg-gallery-visible-height, 100svh) - var(--head))!important;
     min-height:calc(var(--gg-gallery-visible-height, 100svh) - var(--head))!important;
     justify-content:flex-end!important;
-    padding:0 22px calc(var(--bottom-mask, 4px) + env(safe-area-inset-bottom, 0px))!important;
+    padding:0 22px calc(
+      var(--bottom-mask, 4px) + env(safe-area-inset-bottom, 0px) +
+      max(0px, calc(var(--gg-gallery-visible-height, 100svh) - 100svh))
+    )!important;
     scroll-margin-top:var(--head)!important;
   }
   /* The invisible title should not consume a whole line of usable height. */
