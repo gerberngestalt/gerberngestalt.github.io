@@ -6526,3 +6526,42 @@ html body main #netzwerk .network-link-break {
     margin:0!important;
   }
 }
+
+/* Landscape phone: fit the CURRENT square slide into the actual visible
+   browser height, with the 24px dot row, the existing 4px footer and only
+   2px of white breathing room below. Each earlier gallery retains its own
+   measured height so collapsing browser toolbars cannot resize the whole
+   page at once. The default remains stable 100svh until the gallery is seen. */
+@media (orientation:landscape) and (max-height:650px) and (pointer:coarse) {
+  html body main .section {
+    box-sizing:border-box!important;
+    height:auto!important;
+    min-height:calc(var(--gg-gallery-visible-height, 100svh) - var(--head))!important;
+    justify-content:flex-start!important;
+    padding-top:0!important;
+    padding-bottom:2px!important;
+  }
+  html body main .section > .window-group {
+    width:min(
+      calc(100vw - 44px),
+      500px,
+      calc(var(--gg-gallery-visible-height, 100svh) - var(--head) - 24px - var(--bottom-mask, 4px) - 2px - env(safe-area-inset-bottom, 0px))
+    )!important;
+    max-width:min(
+      calc(100vw - 44px),
+      500px,
+      calc(var(--gg-gallery-visible-height, 100svh) - var(--head) - 24px - var(--bottom-mask, 4px) - 2px - env(safe-area-inset-bottom, 0px))
+    )!important;
+    margin-top:0!important;
+    transform:none!important;
+  }
+}
+
+/* Portrait phone: give KONTAKT's final pagination dots a little more air
+   before NETWORK begins. The NETWORK navigation still aligns to its first
+   reading row, so the list itself keeps the previous on-screen start. */
+@media (max-width:650px) and (orientation:portrait) and (pointer:coarse) {
+  html body main #netzwerk.list-section {
+    margin-top:16px!important;
+  }
+}
