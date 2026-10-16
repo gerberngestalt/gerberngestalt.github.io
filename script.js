@@ -979,8 +979,11 @@
         const headH = head ? head.getBoundingClientRect().height : 0;
         const group = target.querySelector('.window-group');
         if (group) setPortraitGalleryHeight(group);
-        const anchor = id === '#netzwerk' ? (target.querySelector('.section-title') || target) : (group || target);
-        const gap = landscape ? 0 : (7 * 96 / 25.4);
+        const networkFirstRow = id === '#netzwerk' ? target.querySelector('#network-links .network-row') : null;
+        const anchor = networkFirstRow || group || target;
+        const lineHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--type-size')) *
+          parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--type-leading'));
+        const gap = landscape ? 0 : (7 * 96 / 25.4) + (networkFirstRow ? (Number.isFinite(lineHeight) ? lineHeight : 24) : 0);
         const top = window.scrollY + anchor.getBoundingClientRect().top - headH - gap;
         window.scrollTo({top: Math.max(0, top), left: 0, behavior: 'instant'});
       }, delay);
@@ -999,6 +1002,16 @@
     const links = document.querySelector('#netzwerk .network-links');
     const galleryHeading = document.querySelector('#kontakt .window-group > .section-title');
     if (!heading || !links || !galleryHeading) return;
+    // On phones the content headings are hidden. Inline desktop corrections
+    // must not shift NETWORK or override the responsive reading-column width.
+    if (window.matchMedia('(max-width:650px) and (orientation:portrait) and (pointer:coarse), (orientation:landscape) and (max-height:650px) and (pointer:coarse)').matches) {
+      [heading, links].forEach(function (el) {
+        el.style.removeProperty('padding-left');
+        el.style.removeProperty('box-sizing');
+      });
+      links.style.removeProperty('margin-top');
+      return;
+    }
     // Read the natural positions first, without the previous correction.
     [heading, links].forEach(function (el) {
       el.style.removeProperty('padding-left');
@@ -1074,8 +1087,12 @@
         const landscapePhone = window.matchMedia('(orientation:landscape) and (max-height:650px)').matches;
         const group = target.classList.contains('section') ? target.querySelector('.window-group') : null;
         if (group) setPortraitGalleryHeight(group);
-        const anchor = group || target;
-        const gap = landscapePhone ? 0 : (7 * 96 / 25.4);
+        const networkFirstRow = id === '#netzwerk' ? target.querySelector('#network-links .network-row') : null;
+        const anchor = networkFirstRow || group || target;
+        const rootStyle = getComputedStyle(document.documentElement);
+        const readingLine = parseFloat(rootStyle.getPropertyValue('--type-size')) * parseFloat(rootStyle.getPropertyValue('--type-leading'));
+        const gap = landscapePhone ? 0 : (7 * 96 / 25.4) +
+          (networkFirstRow ? (Number.isFinite(readingLine) ? readingLine : 24) : 0);
         const top = window.scrollY + anchor.getBoundingClientRect().top - headH - gap;
         window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
         if (secondaryPast) secondaryPast.classList.toggle('active-secondary', id === '#kontakt');
@@ -1262,3 +1279,27 @@
   updateNavDots();
 })();
 
+/* Landscape phone: reading-column inset follows the PRAKTISCHES nav label.
+   The mirrored right inset makes the NETWORK text visually centered.
+   Observe language changes because PRAKTISCHES / PRACTICALITIES differ. */
+(function alignLandscapeReadingColumns(){
+  const reference = document.querySelector('.fixed-head .primary-nav a[href="#praktisches"]');
+  if (!reference) return;
+  const phoneLandscape = window.matchMedia('(orientation:landscape) and (max-height:650px) and (pointer:coarse)');
+  function align(){
+    if (!phoneLandscape.matches) {
+      document.documentElement.style.removeProperty('--gg-landscape-reading-inset');
+      return;
+    }
+    const desired = Math.ceil(reference.getBoundingClientRect().right + 16);
+    // Preserve at least 160px of reading width on unusually narrow displays.
+    const inset = Math.min(desired, Math.max(22, (window.innerWidth - 160) / 2));
+    document.documentElement.style.setProperty('--gg-landscape-reading-inset', inset + 'px');
+  }
+  align();
+  window.addEventListener('resize', align, {passive:true});
+  window.addEventListener('pageshow', align);
+  if (typeof MutationObserver !== 'undefined') {
+    new MutationObserver(align).observe(reference, {childList:true, characterData:true, subtree:true});
+  }
+})();
