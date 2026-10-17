@@ -5736,3 +5736,9 @@ html body main #kontakt .carousel .contact-map-slide > .contact-map-overlay-link
   outline:1px solid #444!important;
   outline-offset:1px;
 }
+
+/* Impressum: preserve each address line, including the gap before the email. */
+html body main .legal-links details > #legal-imprint-text {
+  white-space:pre-line!important;
+  text-indent:0!important;
+}
