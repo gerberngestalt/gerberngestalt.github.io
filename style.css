@@ -5677,7 +5677,7 @@ html body main .legal-links details > p {
 }
 
 /* Wide desktop navigation: align the visible header rhythm with gerbern drei.
-   Match 58px side insets, 48px top inset, 35.3px line pitch.
+   Match 58px side insets, 48px top inset, 31.3px line pitch.
    IMPORTANT: only header navigation; do not move the stone, galleries,
    main sections, text columns or the phone/compact layouts. */
 @media (min-width:861px) and (min-height:651px) {
@@ -5687,7 +5687,7 @@ html body main .legal-links details > p {
     padding-top:48px!important;
   }
   html body .fixed-head > nav.primary-nav {
-    gap:14px!important;
+    gap:10px!important;
   }
   html body .fixed-head > .secondary-nav {
     left:auto!important;
@@ -5695,6 +5695,6 @@ html body main .legal-links details > p {
     top:48px!important;
     /* Two real separator tracks only; no phantom trailing third track. */
     grid-template-columns:max-content 3.3em max-content 3.3em max-content!important;
-    grid-template-rows:repeat(2,calc(15px * 1.42 + 14px))!important;
+    grid-template-rows:repeat(2,calc(15px * 1.42 + 10px))!important;
   }
 }
