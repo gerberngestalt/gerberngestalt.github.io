@@ -5742,3 +5742,9 @@ html body main .legal-links details > #legal-imprint-text {
   white-space:pre-line!important;
   text-indent:0!important;
 }
+
+/* Datenschutzerklaerung: kurze Abschnitte und Abstaende erhalten. */
+html body main .legal-links details > #legal-privacy-text {
+  white-space:pre-line!important;
+  text-indent:0!important;
+}
