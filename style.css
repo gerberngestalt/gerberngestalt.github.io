@@ -5748,3 +5748,12 @@ html body main .legal-links details > #legal-privacy-text {
   white-space:pre-line!important;
   text-indent:0!important;
 }
+
+/* Compact navigation: hide section headings as soon as the menu moves left.
+   The phone and wide-desktop heading rules remain unchanged. */
+@media (min-width:651px) and (max-width:860px) and (min-height:651px) {
+  html body main .section > .window-group > .section-title,
+  html body main .list-section > .list-inner > .section-title {
+    display:none!important;
+  }
+}
