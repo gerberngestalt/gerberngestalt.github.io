@@ -5698,3 +5698,41 @@ html body main .legal-links details > p {
     grid-template-rows:repeat(2,calc(15px * 1.42 + 10px))!important;
   }
 }
+
+/* KONTAKT: Google Maps link inside the full-size Kroki, top centre.
+   The image itself still advances to the next slide; dots remain unchanged. */
+html body main #kontakt .carousel .contact-map-slide {
+  position:relative!important;
+}
+html body main #kontakt .carousel .contact-map-slide > .contact-map-overlay-link {
+  display:flex!important;
+  position:absolute!important;
+  z-index:2;
+  top:clamp(5px,1.6%,9px);
+  left:50%;
+  transform:translateX(-50%);
+  box-sizing:border-box;
+  align-items:center;
+  justify-content:center;
+  max-width:calc(100% - 20px);
+  min-height:34px;
+  padding:7px 11px;
+  font:300 clamp(11px,2.6vw,12px)/1.25 Arial,Helvetica,sans-serif!important;
+  letter-spacing:.04em!important;
+  text-transform:none!important;
+  white-space:nowrap;
+  color:#444!important;
+  -webkit-text-fill-color:#444!important;
+  text-decoration:underline!important;
+  text-decoration-color:#888!important;
+  text-underline-offset:3px;
+  background:rgba(255,255,255,.88)!important;
+  border-radius:3px;
+  cursor:pointer;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+html body main #kontakt .carousel .contact-map-slide > .contact-map-overlay-link:focus-visible {
+  outline:1px solid #444!important;
+  outline-offset:1px;
+}
