@@ -5594,3 +5594,28 @@ html body main .legal-links details > p {
     text-indent:-.8em!important;
   }
 }
+
+/* Gerberngestalt dark phones: a consistent warm text palette.
+   Earlier inherited gerbern-drei rules use more specific selectors and
+   otherwise paint some navigation/NETWORK labels darker than their URLs.
+   Keep Light Mode and roomy desktop styling unchanged. */
+@media (prefers-color-scheme:dark) and (max-width:650px),
+       (prefers-color-scheme:dark) and (orientation:landscape) and (max-height:650px) and (pointer:coarse) {
+  html[lang] body .fixed-head nav.primary-nav a:is(:link,:visited,:hover,:focus,:active),
+  html[lang] body .fixed-head > .secondary-nav > a:is(:link,:visited,:hover,:focus,:active),
+  html[lang] body .fixed-head > .secondary-nav > b,
+  html[lang] body main .section-title,
+  html[lang] body main #netzwerk #network-links.network-links,
+  html[lang] body main #netzwerk #network-links.network-links .network-row,
+  html[lang] body main #netzwerk #network-links.network-links .network-row *,
+  html[lang] body main > .legal-links,
+  html[lang] body main > .legal-links details > summary,
+  html[lang] body main > .legal-links details > p {
+    color:#DED5CE!important;
+    -webkit-text-fill-color:#DED5CE!important;
+  }
+  html[lang] body .fixed-head > .secondary-nav > button.language-toggle {
+    color:#AAA099!important;
+    -webkit-text-fill-color:#AAA099!important;
+  }
+}
