@@ -101,8 +101,8 @@ window.SITE_CONTENT = {
   legal: {
     imprint: 'gerberngestalt\nNiklaus Zumstein\nGerberngasse 3\n4500 Solothurn\nSchweiz\n\ngerberngestalt@gmail.com',
     imprint_en: 'gerberngestalt\nNiklaus Zumstein\nGerberngasse 3\n4500 Solothurn\nSchweiz\n\ngerberngestalt@gmail.com',
-    privacy: 'Kurze Datenschutzerklärung folgt.',
-    privacy_en: 'Privacy information to follow.'
+    privacy: "Diese Website wird über GitHub Pages betrieben. Dabei können technische Zugriffsdaten, insbesondere IP-Adressen, auch im Ausland verarbeitet werden.\n\nWir verwenden keine eigenen Analyse- oder Werbetracker. Die Spracheinstellung wird lokal im Browser gespeichert. Für externe Links, etwa zu Google Maps oder Instagram, gelten die Datenschutzbestimmungen der jeweiligen Anbieter.\n\nE-Mail-Anfragen werden ausschliesslich zur Kontaktaufnahme und Beantwortung verwendet und nur so lange wie nötig aufbewahrt.\n\nPersönliche Angaben und Inhalte aus den gestalttherapeutischen Beratungssitzungen werden vertraulich behandelt und im Rahmen meiner Ausbildung ausschliesslich anonymisiert besprochen.\n\nFür Auskunft, Berichtigung oder Löschung Ihrer Daten kontaktieren Sie bitte die im Impressum genannte verantwortliche Person.",
+    privacy_en: "This website is hosted on GitHub Pages. Technical access data, including IP addresses, may be processed outside Switzerland.\n\nWe do not use our own analytics or advertising trackers. Your language preference is stored locally in your browser. External links, such as Google Maps or Instagram, are subject to the respective providers' privacy policies.\n\nEmail enquiries are used solely for communication and replies and are retained only as long as necessary.\n\nPersonal information and content from gestalt therapy counselling sessions are treated confidentially and discussed as part of my training only in anonymised form.\n\nTo request access to, correction or deletion of your data, please contact the responsible person listed in the legal notice."
   },
 
   network: [
