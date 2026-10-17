@@ -99,8 +99,8 @@ window.SITE_CONTENT = {
   },
 
   legal: {
-    imprint: 'Niklaus Zumstein · gerberngestalt · Solothurn. Weitere Angaben folgen.',
-    imprint_en: 'Niklaus Zumstein · gerberngestalt · Solothurn. Further details to follow.',
+    imprint: 'gerberngestalt\nNiklaus Zumstein\nGerberngasse 3\n4500 Solothurn\nSchweiz\n\ngerberngestalt@gmail.com',
+    imprint_en: 'gerberngestalt\nNiklaus Zumstein\nGerberngasse 3\n4500 Solothurn\nSchweiz\n\ngerberngestalt@gmail.com',
     privacy: 'Kurze Datenschutzerklärung folgt.',
     privacy_en: 'Privacy information to follow.'
   },
