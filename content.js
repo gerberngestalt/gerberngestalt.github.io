@@ -23,16 +23,7 @@ window.SITE_CONTENT = {
     title: 'ÜBER MICH',
     title_en: 'ABOUT ME',
     images: [
-      'images/about/01_passfoto.jpg',
-      'images/about/02_niklaus-zumstein.png',
-      'images/about/03_was-mich-privat.png',
-      'images/about/04_metal-stamp.jpg',
-      'images/about/05_ich-sehe-ausgesprochen.png',
-      'images/about/06_offensichtliches-erschliesst.png',
-      'images/about/07_smile.png',
-      'images/about/08_wir-wollen-uns.png',
-      'images/about/09_einen-dialog-mit.png',
-      'images/about/10_hat-moustache.png'
+
     ]
   },
 
