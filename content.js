@@ -23,7 +23,16 @@ window.SITE_CONTENT = {
     title: 'ÜBER MICH',
     title_en: 'ABOUT ME',
     images: [
-
+      'images/about/01_passfoto.jpg',
+      'images/about/02_niklaus-zumstein.png',
+      'images/about/03_was-mich-privat.png',
+      'images/about/04_metal-stamp.jpg',
+      'images/about/05_gestalttherapie-ist.png',
+      'images/about/06_mit-beziehungen.png',
+      'images/about/07_smile.png',
+      'images/about/08_ich-sehe.png',
+      'images/about/09_sich-selbst.png',
+      'images/about/10_hat-moustache.png'
     ]
   },
 
