@@ -53,7 +53,6 @@ window.SITE_CONTENT = {
     images: [
       'images/praktisches/01_erstsitzung.png',
       'images/praktisches/02_im-rahmen.png',
-      'images/praktisches/02_in-rahmen.png',
       'images/praktisches/03_clay-stamp.jpg'
     ]
   },
