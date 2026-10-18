@@ -974,7 +974,10 @@
     } else {
       desiredTop = headH + (8 * 96 / 25.4) + 24;
     }
-    const top = window.scrollY + heading.getBoundingClientRect().top - desiredTop;
+    // Compact layouts hide section headings; scroll to the visible links instead.
+    const links = document.getElementById('network-links');
+    const anchor = getComputedStyle(heading).display === 'none' && links ? links : heading;
+    const top = window.scrollY + anchor.getBoundingClientRect().top - desiredTop;
     window.scrollTo({ top:Math.max(0, top), behavior:behavior || 'auto' });
   }
 
