@@ -13,7 +13,9 @@ window.SITE_CONTENT = {
     title: 'START',
     title_en: 'HOME',
     images: [
-      'images/start/01_logo1.jpg'
+      'images/start/01_logo1.jpg',
+      'images/start/02_logo2.png',
+      'images/start/03_logo3.jpg'
     ]
   },
 
