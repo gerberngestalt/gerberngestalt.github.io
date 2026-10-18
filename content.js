@@ -62,13 +62,7 @@ window.SITE_CONTENT = {
     title: 'GESTALT',
     title_en: 'GESTALT',
     images: [
-      'images/gestalt/01_alles-was-ist.jpg',
-      'images/gestalt/02_was-sein-darf.jpg',
-      'images/gestalt/03_gestalttherapie-betont.png',
-      'images/gestalt/04_nicht-alles-ist.png',
-      'images/gestalt/05_ich-bin-ich.png',
-      'images/gestalt/06_gestalttherapie-uebt.png',
-      'images/gestalt/07_stone-stamp.jpg'
+
     ]
   },
 
