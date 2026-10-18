@@ -51,8 +51,7 @@ window.SITE_CONTENT = {
     title: 'PRAKTISCHES',
     title_en: 'PRACTICALITIES',
     images: [
-      'images/praktisches/01_erstsitzung.png',
-      'images/praktisches/02_clay-stamp.jpg'
+
     ]
   },
 
