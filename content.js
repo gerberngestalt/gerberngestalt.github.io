@@ -40,7 +40,10 @@ window.SITE_CONTENT = {
     title: 'ANGEBOT',
     title_en: 'WHAT I DO',
     images: [
-
+      'images/angebot/01_ab-maerz.png',
+      'images/angebot/02_das-erstgespraech.png',
+      'images/angebot/03_mein-angebot.png',
+      'images/angebot/03_wood-stamp.jpg'
     ]
   },
 
