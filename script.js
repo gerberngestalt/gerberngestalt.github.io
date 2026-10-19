@@ -562,6 +562,23 @@
     });
   }
 
+  // When a legal notice opens, bring its title just below the fixed header.
+  document.querySelectorAll('.legal-links details').forEach(function (details) {
+    details.addEventListener('toggle', function () {
+      if (!details.open) return;
+      const heading = details.querySelector('summary');
+      if (!heading) return;
+      window.requestAnimationFrame(function () {
+        if (!details.open) return;
+        const fixedHeader = document.querySelector('.fixed-head');
+        const headerBottom = fixedHeader ? fixedHeader.getBoundingClientRect().bottom : 0;
+        const desiredTop = Math.max(12, headerBottom + 12);
+        const top = window.scrollY + heading.getBoundingClientRect().top - desiredTop;
+        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+      });
+    });
+  });
+
   const languageToggle = document.querySelector('.language-toggle');
   if (languageToggle) languageToggle.addEventListener('click', function () {
     currentLanguage = currentLanguage === 'de' ? 'en' : 'de';
