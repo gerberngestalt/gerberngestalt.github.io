@@ -562,20 +562,24 @@
     });
   }
 
-  // When a legal notice opens, bring its title just below the fixed header.
-  document.querySelectorAll('.legal-links details').forEach(function (details) {
+  // When a legal notice opens, keep the legal headings visible below the
+  // fixed header. For PRIVACY with IMPRESSUM closed, align to the first
+  // summary so the two headings remain visible together.
+  const legalDetails = Array.from(document.querySelectorAll('.legal-links > details'));
+  legalDetails.forEach(function (details, index) {
     details.addEventListener('toggle', function () {
       if (!details.open) return;
-      const heading = details.querySelector('summary');
-      if (!heading) return;
       window.requestAnimationFrame(function () {
         if (!details.open) return;
+        const currentHeading = details.querySelector('summary');
+        const firstHeading = legalDetails[0] && legalDetails[0].querySelector('summary');
+        if (!currentHeading) return;
+        const earlierNoticesClosed = legalDetails.slice(0, index).every(function (item) { return !item.open; });
+        const anchor = earlierNoticesClosed && firstHeading ? firstHeading : currentHeading;
         const fixedHeader = document.querySelector('.fixed-head');
         const headerBottom = fixedHeader ? Math.max(0, fixedHeader.getBoundingClientRect().bottom) : 0;
-        // Leave enough air above the expanded heading on desktop and mobile,
-        // so IMPRESSUM / DATENSCHUTZ remains clearly visible while reading.
         const desiredTop = Math.max(52, headerBottom + 44);
-        const top = window.scrollY + heading.getBoundingClientRect().top - desiredTop;
+        const top = window.scrollY + anchor.getBoundingClientRect().top - desiredTop;
         window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
       });
     });
