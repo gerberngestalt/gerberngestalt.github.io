@@ -571,8 +571,10 @@
       window.requestAnimationFrame(function () {
         if (!details.open) return;
         const fixedHeader = document.querySelector('.fixed-head');
-        const headerBottom = fixedHeader ? fixedHeader.getBoundingClientRect().bottom : 0;
-        const desiredTop = Math.max(12, headerBottom + 12);
+        const headerBottom = fixedHeader ? Math.max(0, fixedHeader.getBoundingClientRect().bottom) : 0;
+        // Leave enough air above the expanded heading on desktop and mobile,
+        // so IMPRESSUM / DATENSCHUTZ remains clearly visible while reading.
+        const desiredTop = Math.max(52, headerBottom + 44);
         const top = window.scrollY + heading.getBoundingClientRect().top - desiredTop;
         window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
       });
