@@ -5799,7 +5799,7 @@ html body .fixed-head > .secondary-nav > #nav-instagram svg {
   position:absolute!important;
   left:3px!important;
   /* The SVG includes a viewBox inset; 13px makes its visible shape cap-height. */
-  bottom:2px!important;
+  bottom:0px!important;
   width:13px!important;
   height:13px!important;
   stroke:currentColor!important;
