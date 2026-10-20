@@ -5798,9 +5798,10 @@ html body .fixed-head > .secondary-nav > #nav-instagram svg {
   display:block!important;
   position:absolute!important;
   left:3px!important;
-  bottom:0!important;
-  width:12px!important;
-  height:12px!important;
+  /* The SVG includes a viewBox inset; 13px makes its visible shape cap-height. */
+  bottom:2px!important;
+  width:13px!important;
+  height:13px!important;
   stroke:currentColor!important;
 }
 html body .fixed-head > .secondary-nav > #nav-instagram::before,
