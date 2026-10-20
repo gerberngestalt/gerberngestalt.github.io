@@ -5787,22 +5787,13 @@ html body .fixed-head > .secondary-nav > #nav-instagram {
   align-self:baseline!important;
   margin:0!important;
   padding:0!important;
-  width:18px!important;
-  height:21px!important;
+  width:max-content!important;
+  height:auto!important;
+  line-height:inherit!important;
   color:var(--gg-ink)!important;
   -webkit-text-fill-color:var(--gg-ink)!important;
   cursor:pointer!important;
   pointer-events:auto!important;
-}
-html body .fixed-head > .secondary-nav > #nav-instagram svg {
-  display:block!important;
-  position:absolute!important;
-  left:.5px!important;
-  /* Slightly lower than before; larger glyph as requested. */
-  bottom:-2px!important;
-  width:17px!important;
-  height:17px!important;
-  stroke:currentColor!important;
 }
 html body .fixed-head > .secondary-nav > #nav-instagram::before,
 html body .fixed-head > .secondary-nav > #nav-instagram::after {
