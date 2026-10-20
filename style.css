@@ -5797,11 +5797,11 @@ html body .fixed-head > .secondary-nav > #nav-instagram {
 html body .fixed-head > .secondary-nav > #nav-instagram svg {
   display:block!important;
   position:absolute!important;
-  left:3px!important;
-  /* The SVG includes a viewBox inset; 13px makes its visible shape cap-height. */
-  bottom:0px!important;
-  width:13px!important;
-  height:13px!important;
+  left:.5px!important;
+  /* Slightly lower than before; larger glyph as requested. */
+  bottom:-2px!important;
+  width:17px!important;
+  height:17px!important;
   stroke:currentColor!important;
 }
 html body .fixed-head > .secondary-nav > #nav-instagram::before,
