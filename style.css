@@ -5982,8 +5982,12 @@ html body .fixed-head > .secondary-nav > #nav-instagram .instagram-wide-label sv
     margin:0!important;
   }
   html body .fixed-head > .secondary-nav > #nav-instagram .instagram-compact-icon {
+    display:block!important;
     width:17px!important;
     height:17px!important;
+  }
+  html body .fixed-head > .secondary-nav > #nav-instagram .instagram-wide-label {
+    display:none!important;
   }
 }
 @media (prefers-color-scheme:dark) {
