@@ -5915,3 +5915,87 @@ html body .fixed-head > .secondary-nav > #nav-instagram .instagram-compact-icon 
     justify-self:end!important;
   }
 }
+
+/* October 2026: Instagram icon in both layouts and EN/DE's lighter brown-grey. */
+html body .fixed-head > .secondary-nav > #nav-instagram {
+  color:#8f8f8f!important;
+  -webkit-text-fill-color:#8f8f8f!important;
+}
+html body .fixed-head > .secondary-nav > #nav-instagram .instagram-wide-label {
+  position:relative!important;
+  display:block!important;
+  width:18px!important;
+  height:21px!important;
+}
+html body .fixed-head > .secondary-nav > #nav-instagram .instagram-wide-label svg {
+  position:absolute!important;
+  display:block!important;
+  left:0!important;
+  bottom:-2px!important;
+  width:17px!important;
+  height:17px!important;
+  stroke:currentColor!important;
+}
+@media (min-width:861px) and (min-height:651px),
+       (orientation:landscape) and (max-height:650px) and (min-width:651px) {
+  html body .fixed-head > .secondary-nav > #nav-instagram {
+    width:18px!important;
+    height:21px!important;
+    top:calc(var(--gg-ig-row-top) - 4px)!important;
+  }
+  html body .fixed-head > .secondary-nav > #nav-instagram-divider {
+    right:28px!important;
+  }
+  html body .fixed-head > .secondary-nav > .language-toggle {
+    right:55px!important;
+  }
+}
+@media (max-width:860px) and (min-height:651px),
+       (orientation:portrait) and (max-width:650px) {
+  /* The divider columns are shared by both rows: 2 and 4. */
+  html body .fixed-head > .secondary-nav > .mini-blog-separator,
+  html body .fixed-head > .secondary-nav > b:not(.mini-blog-separator):not(.language-separator):not(.blog-contact-separator) {
+    grid-column:2!important;
+    justify-self:center!important;
+    margin:0!important;
+    transform:none!important;
+    left:auto!important;
+  }
+  html body .fixed-head > .secondary-nav > #nav-instagram-divider,
+  html body .fixed-head > .secondary-nav > .language-separator {
+    grid-column:4!important;
+    justify-self:center!important;
+    margin:0!important;
+    transform:none!important;
+    left:auto!important;
+  }
+  html body .fixed-head > .secondary-nav > #nav-instagram,
+  html body .fixed-head > .secondary-nav > .language-toggle {
+    grid-column:5!important;
+    width:28px!important;
+    min-width:28px!important;
+    max-width:28px!important;
+    justify-self:start!important;
+    justify-content:flex-start!important;
+    text-align:left!important;
+    padding:0!important;
+    margin:0!important;
+  }
+  html body .fixed-head > .secondary-nav > #nav-instagram .instagram-compact-icon {
+    width:17px!important;
+    height:17px!important;
+  }
+}
+@media (prefers-color-scheme:dark) {
+  html body .fixed-head > .secondary-nav > #nav-instagram {
+    color:#8f837b!important;
+    -webkit-text-fill-color:#8f837b!important;
+  }
+}
+@media (prefers-color-scheme:dark) and (max-width:650px) and (orientation:portrait),
+       (prefers-color-scheme:dark) and (orientation:landscape) and (max-height:650px) and (pointer:coarse) {
+  html body .fixed-head > .secondary-nav > #nav-instagram {
+    color:#AAA099!important;
+    -webkit-text-fill-color:#AAA099!important;
+  }
+}
