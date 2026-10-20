@@ -5779,14 +5779,12 @@ html body .fixed-head > .secondary-nav > #nav-instagram-divider {
   pointer-events:none!important;
 }
 html body .fixed-head > .secondary-nav > #nav-instagram {
-  display:inline-flex!important;
-  position:static!important;
+  display:block!important;
+  position:relative!important;
   grid-column:5!important;
   grid-row:2!important;
   justify-self:end!important;
-  align-self:center!important;
-  align-items:center!important;
-  justify-content:center!important;
+  align-self:baseline!important;
   margin:0!important;
   padding:0!important;
   width:18px!important;
@@ -5798,8 +5796,11 @@ html body .fixed-head > .secondary-nav > #nav-instagram {
 }
 html body .fixed-head > .secondary-nav > #nav-instagram svg {
   display:block!important;
-  width:17px!important;
-  height:17px!important;
+  position:absolute!important;
+  left:3px!important;
+  bottom:0!important;
+  width:12px!important;
+  height:12px!important;
   stroke:currentColor!important;
 }
 html body .fixed-head > .secondary-nav > #nav-instagram::before,
