@@ -5828,3 +5828,71 @@ html body .fixed-head > .secondary-nav > .language-toggle {
     -webkit-text-fill-color:#DED5CE!important;
   }
 }
+
+/* Instagram: spell out the name in the right-hand layout, show the
+   glyph aligned to the EN/DE right edge in compact left-hand layouts. */
+html body .fixed-head > .secondary-nav > #nav-instagram .instagram-wide-label {
+  display:inline!important;
+}
+html body .fixed-head > .secondary-nav > #nav-instagram .instagram-compact-icon {
+  display:none!important;
+}
+@media (min-width:861px) and (min-height:651px),
+       (orientation:landscape) and (max-height:650px) and (min-width:651px) {
+  html body .fixed-head > .secondary-nav {
+    --gg-ig-right-word:7.6em;
+    --gg-ig-row-top:calc(var(--type-size) * var(--type-leading) + var(--nav-gap));
+  }
+  html body .fixed-head > .secondary-nav > #nav-instagram {
+    position:absolute!important;
+    inset:auto 0 auto auto!important;
+    top:var(--gg-ig-row-top)!important;
+    grid-column:auto!important;
+    grid-row:auto!important;
+    width:max-content!important;
+    height:auto!important;
+  }
+  html body .fixed-head > .secondary-nav > #nav-instagram-divider {
+    position:absolute!important;
+    inset:auto auto auto auto!important;
+    top:var(--gg-ig-row-top)!important;
+    right:calc(var(--gg-ig-right-word) + 17px)!important;
+    grid-column:auto!important;
+    grid-row:auto!important;
+  }
+  html body .fixed-head > .secondary-nav > .language-toggle {
+    position:absolute!important;
+    inset:auto auto auto auto!important;
+    top:var(--gg-ig-row-top)!important;
+    right:calc(var(--gg-ig-right-word) + 45px)!important;
+    grid-column:auto!important;
+    grid-row:auto!important;
+  }
+}
+@media (min-width:861px) and (min-height:651px) {
+  html body .fixed-head > .secondary-nav {
+    --gg-ig-row-top:calc(15px * 1.42 + 10px);
+  }
+}
+@media (max-width:860px) and (min-height:651px),
+       (orientation:portrait) and (max-width:650px) {
+  html body .fixed-head > .secondary-nav > #nav-instagram .instagram-wide-label {
+    display:none!important;
+  }
+  html body .fixed-head > .secondary-nav > #nav-instagram .instagram-compact-icon {
+    display:block!important;
+    width:17px!important;
+    height:17px!important;
+  }
+  html body .fixed-head > .secondary-nav > #nav-instagram .instagram-compact-icon svg {
+    display:block!important;
+    width:17px!important;
+    height:17px!important;
+    transform:translateY(2px);
+    stroke:currentColor;
+  }
+  html body .fixed-head > .secondary-nav > #nav-instagram,
+  html body .fixed-head > .secondary-nav > .language-toggle {
+    justify-self:end!important;
+  }
+}
