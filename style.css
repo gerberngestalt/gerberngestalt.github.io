@@ -5931,7 +5931,7 @@ html body .fixed-head > .secondary-nav > #nav-instagram .instagram-wide-label sv
   position:absolute!important;
   display:block!important;
   left:0!important;
-  bottom:-2px!important;
+  bottom:0px!important;
   width:17px!important;
   height:17px!important;
   stroke:currentColor!important;
