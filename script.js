@@ -995,18 +995,10 @@
         ? limits.top + (limits.bottom - limits.top - gallery.getBoundingClientRect().height) / 2
         : limits.top;
     } else {
-      // Use the live gallery title as the vertical reference, rather than a
-      // fixed pixel estimate. This is the same baseline as the visible slides.
-      const limits = galleryLimits();
-      const gallery = document.querySelector('#kontakt .window-group');
-      const galleryTitle = gallery && gallery.querySelector('.section-title');
-      if (gallery && galleryTitle) {
-        const galleryRect = gallery.getBoundingClientRect();
-        const titleOffset = galleryTitle.getBoundingClientRect().top - galleryRect.top;
-        desiredTop = limits.top + Math.max(0, (limits.bottom - limits.top - galleryRect.height) / 2) + titleOffset;
-      } else {
-        desiredTop = headH + (8 * 96 / 25.4) + 24;
-      }
+      // Match the exact desktop baseline used when opening any gallery.
+      // Centering the gallery inside the free viewport area placed NETZWERK
+      // noticeably lower than the gallery titles.
+      desiredTop = headH + (8 * 96 / 25.4) + 24;
     }
     // Compact layouts hide section headings; scroll to the visible links instead.
     const links = document.getElementById('network-links');
