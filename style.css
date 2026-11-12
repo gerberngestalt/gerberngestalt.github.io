@@ -3999,9 +3999,9 @@ html body .fixed-head > .secondary-nav .language-toggle {
     margin-left:max(0px, calc(40px - (100vw - 100%) / 2))!important;
   }
 }
-/* Mouse-driven desktop: six reading lines after DATENSCHUTZ.
-   Use the established 29px NETWORK line rhythm at all desktop widths,
-   replacing both the old 620px minimum and the wide-desktop extra runway. */
+/* Mouse-driven desktop: thirteen reading lines after DATENSCHUTZ.
+   This gives the final NETWORK heading enough document length to scroll
+   to the same viewport height as the gallery headings. */
 @media (min-height:651px) and (hover:hover) and (pointer:fine) {
   html body main > .end-spacer {
     height:calc(13 * var(--gg-network-blank-line))!important;
