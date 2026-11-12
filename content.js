@@ -163,8 +163,8 @@ window.SITE_CONTENT = {
       label: "Songtsen, Pema Wangyal Rinpoche",
       url: "https://www.songtsen.org/",
       display: "www.songtsen.org"
-    }
-    ,{
+    },
+    {
       label: "gerbern drei, Raum für Meditation, Solothurn",
       label_en: "gerbern drei, Meditation Space, Solothurn",
       url: "https://gerberndrei.github.io/",
