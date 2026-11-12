@@ -6003,24 +6003,3 @@ html body .fixed-head > .secondary-nav > #nav-instagram .instagram-wide-label sv
     -webkit-text-fill-color:#AAA099!important;
   }
 }
-
-/* Wide desktop NETWORK: align its heading with the headings above the
-   image windows. The calculation reuses the desktop gallery's square size
-   and the title/dot space, so the first network row follows immediately.
-   Tablet and phone layouts keep their existing independent positioning. */
-@media (min-width:861px) and (min-height:651px) and (hover:hover) and (pointer:fine) {
-  html body main #netzwerk.list-section {
-    padding-top:max(0px, calc(
-      (
-        100dvh - var(--head) - var(--bottom-mask) -
-        min(
-          50vw,
-          500px,
-          calc(100dvh - var(--head) - var(--bottom-mask) - var(--gallery-reserve))
-        ) -
-        (var(--type-size) * var(--type-leading)) - 42px
-      ) / 2
-    ))!important;
-  }
-}
-
