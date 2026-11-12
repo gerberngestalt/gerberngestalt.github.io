@@ -164,5 +164,11 @@ window.SITE_CONTENT = {
       url: "https://www.songtsen.org/",
       display: "www.songtsen.org"
     }
+    ,{
+      label: "gerbern drei, Raum für Meditation, Solothurn",
+      label_en: "gerbern drei, Meditation Space, Solothurn",
+      url: "https://gerberndrei.github.io/",
+      display: "gerberndrei.github.io"
+    }
   ]
 };
