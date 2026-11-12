@@ -995,13 +995,43 @@
         ? limits.top + (limits.bottom - limits.top - gallery.getBoundingClientRect().height) / 2
         : limits.top;
     } else {
-      desiredTop = headH + (8 * 96 / 25.4) + 24;
+      // Use the live gallery title as the vertical reference, rather than a
+      // fixed pixel estimate. This is the same baseline as the visible slides.
+      const limits = galleryLimits();
+      const gallery = document.querySelector('#kontakt .window-group');
+      const galleryTitle = gallery && gallery.querySelector('.section-title');
+      if (gallery && galleryTitle) {
+        const galleryRect = gallery.getBoundingClientRect();
+        const titleOffset = galleryTitle.getBoundingClientRect().top - galleryRect.top;
+        desiredTop = limits.top + Math.max(0, (limits.bottom - limits.top - galleryRect.height) / 2) + titleOffset;
+      } else {
+        desiredTop = headH + (8 * 96 / 25.4) + 24;
+      }
     }
     // Compact layouts hide section headings; scroll to the visible links instead.
     const links = document.getElementById('network-links');
     const anchor = getComputedStyle(heading).display === 'none' && links ? links : heading;
-    const top = window.scrollY + anchor.getBoundingClientRect().top - desiredTop;
-    window.scrollTo({ top:Math.max(0, top), behavior:behavior || 'auto' });
+    const top = Math.max(0, window.scrollY + anchor.getBoundingClientRect().top - desiredTop);
+
+    // If the document is too short to place NETWORK on the gallery-title
+    // baseline, extend only the final spacer by the exact missing scroll range.
+    // The existing minimum breathing space after DATENSCHUTZ remains intact.
+    if (!mobile && !compactDesktop) {
+      const endSpacer = document.querySelector('main > .end-spacer');
+      if (endSpacer) {
+        const maxScroll = Math.max(
+          document.documentElement.scrollHeight,
+          document.body.scrollHeight
+        ) - window.innerHeight;
+        const deficit = top - maxScroll;
+        if (deficit > 1) {
+          const currentHeight = endSpacer.getBoundingClientRect().height;
+          endSpacer.style.setProperty('height', (currentHeight + deficit + 2) + 'px', 'important');
+          void endSpacer.offsetHeight;
+        }
+      }
+    }
+    window.scrollTo({ top:top, behavior:behavior || 'auto' });
   }
 
 
